@@ -4,10 +4,11 @@ import { buildPlugins } from "./buildPlugins";
 import { buildResolvers } from "./buildResolvers";
 import { BuildOptions } from "./types/config";
 import  webpack  from "webpack";
+import { buildDevServer } from "./BuildDevServer";
 export function buildWebpackConfig(options: BuildOptions): webpack.Configuration {
 
-    const {mode, paths} = options;
-
+    const {mode, paths, isDev} = options;
+    // isDev используем для автоматичекого подключени того или иного свойства
     return {
         // указываем мод : development или production
         mode: mode,
@@ -39,6 +40,10 @@ export function buildWebpackConfig(options: BuildOptions): webpack.Configuration
         },
             // при импорте файлов с таким расширением его не нужно указывать
         resolve: buildResolvers(),
-     
+        // для указания где произошла ошибка при сборки в 1 файл
+        devtool:isDev ? 'inline-source-map' : undefined,
+        // для деврвера
+        devServer: isDev ? buildDevServer(options) : undefined,
+    
     }
 }
