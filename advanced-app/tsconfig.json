@@ -1,0 +1,26 @@
+{
+    "compilerOptions": {
+        // куда происходит сборка (нам не надо собираем в webpack)
+        "outDir": "./dist/",
+        // ругается если не указать тип
+        "noImplicitAny": true,
+        // указывается модульная система
+        "module": "ES6",
+        // или  esNext
+        // компиляция в 
+        "target": "es5",
+        "jsx": "react",
+        // node и classic в 99 node
+        "allowJs": true,
+        "moduleResolution": "node",
+        // заменяет require 
+        "esModuleInterop":true,
+        // поддержка дефолтного импорта(когда его нет)
+        "allowSyntheticDefaultImports": true
+    },
+    "ts-node": {
+        "compilerOptions": {
+            "module": "CommonJS"
+        }
+    }
+}
