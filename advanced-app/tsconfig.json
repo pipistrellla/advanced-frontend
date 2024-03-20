@@ -9,7 +9,7 @@
         // или  esNext
         // компиляция в 
         "target": "es5",
-        "jsx": "react",
+        "jsx": "react-jsx",
         // node и classic в 99 node
         "allowJs": true,
         "moduleResolution": "node",

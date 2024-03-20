@@ -12,7 +12,23 @@ export function buildLoaders(): webpack.RuleSetRule[]  {
         exclude: /node_modules/,
     }
 
+    const CSSLoader = {
+
+        test: /\.s[ac]ss$/i,
+        // лоадеры работают сверху вниз
+        use: [
+            // Creates `style` nodes from JS strings
+            "style-loader",
+            // Translates CSS into CommonJS
+            "css-loader",
+            // Compiles Sass to CSS
+            "sass-loader",
+        ],
+        
+    }
+
     return [
         typescriptLoader ,
+        CSSLoader,
     ]
 }
