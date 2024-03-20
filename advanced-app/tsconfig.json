@@ -5,8 +5,9 @@
         // ругается если не указать тип
         "noImplicitAny": true,
         // указывается модульная система
-        "module": "ES6",
+        "module": "esNext",
         // или  esNext
+        // ES6
         // компиляция в 
         "target": "es5",
         "jsx": "react-jsx",
