@@ -1,11 +1,7 @@
 import { render } from "react-dom";
-import Counter from "./components/Counter";
+import App from "./App";
 
 render( 
-    <div><div>HELLOW WORLD 123 321 YXY</div>
-        <Counter></Counter>
-
-
-    </div>,
+    <App/>,
     document.getElementById('root')
     )

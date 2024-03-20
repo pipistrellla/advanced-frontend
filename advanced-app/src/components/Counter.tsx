@@ -1,5 +1,5 @@
 import React, { FC, useState } from 'react'
-import './Counter.scss';
+import classes from './Counter.module.scss'
 
 interface CounterProps {
     
@@ -15,7 +15,7 @@ const Counter: FC<CounterProps> = ({  }) => {
     return (
         <div>
             <h1>{counter}</h1>
-            <button onClick={() => increment(12)}> increase</button>
+            <button className={classes.CBtn} onClick={() => increment(12)}> increase</button>
         </div>
     )
 }

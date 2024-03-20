@@ -36,7 +36,7 @@ export function buildWebpackConfig(options: BuildOptions): webpack.Configuration
         plugins: buildPlugins(options), 
         module: {
             // конфигурируем loader
-            rules: buildLoaders(),
+            rules: buildLoaders(options),
         },
             // при импорте файлов с таким расширением его не нужно указывать
         resolve: buildResolvers(),
