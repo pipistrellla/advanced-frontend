@@ -7,6 +7,7 @@ import { AboutPageAsync } from './pages/AboutPage/AboutPage.async';
 import { MainPageAsync } from './pages/MainPage/MainPage.async';
 import {Theme, ThemeContext } from './theme/ThemeContext';
 import { useTheme } from './theme/useTheme';
+import { classNames } from './helpers/ClassNames/ClassNames';
 
 interface AppProps {
     
@@ -23,7 +24,7 @@ const App: FC<AppProps> = ({  }) => {
 
 
     return (
-        <div className={`app ${theme}`}>
+        <div className={classNames('app' , {} , [theme])}>
             <button onClick={()=> toggleTheme()}>Сменить тему</button>
             <Link to={'/'}>Главная</Link>
             <Link to={'/about'}>О Нас</Link>

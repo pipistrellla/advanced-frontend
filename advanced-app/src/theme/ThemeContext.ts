@@ -10,8 +10,8 @@ export interface ThemeContextProps {
     setTheme?: (theme: Theme) => void;
 }
 
-
+// контекст для темы
 export const ThemeContext = createContext<ThemeContextProps>({})
 
 
-export const LOCAL_STORAGE_THEME_KEY = 'theme'
+export const LOCAL_STORAGE_THEME_KEY:string = 'theme'
