@@ -14,6 +14,10 @@
         // node и classic в 99 node
         "allowJs": true,
         "moduleResolution": "node",
+        "baseUrl": ".",
+        "paths": {
+            "*": ["./src/*"]
+        },
         // заменяет require 
         "esModuleInterop":true,
         // поддержка дефолтного импорта(когда его нет)

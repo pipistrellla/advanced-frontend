@@ -1,5 +1,4 @@
 import React, { FC } from 'react'
-import Counter from '../../components/Counter';
 
 interface AboutPageProps {
     
@@ -10,7 +9,6 @@ const AboutPage: FC<AboutPageProps> = ({  }) => {
         <div>
             <div>about page</div>
             <div>hellow World</div>
-            <Counter></Counter>
         </div>
     )
 }
