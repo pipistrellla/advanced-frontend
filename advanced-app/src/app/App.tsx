@@ -5,6 +5,7 @@ import { classNames } from 'shared/lib/helpers/ClassNames/ClassNames';
 import { Link } from 'react-router-dom';
 import { useTheme } from './providers/ThemeProvider';
 import { AppRouter } from './providers/router';
+import { Navbar } from 'widgets/Navbar';
 
 interface AppProps {
     
@@ -22,10 +23,9 @@ const App: FC<AppProps> = ({  }) => {
 
     return (
         <div className={classNames('app' , {} , [theme])}>
+            <Navbar />
             <button onClick={()=> toggleTheme()}>Сменить тему</button>
-            <Link to={'/'}>Главная</Link>
-            <Link to={'/about'}>О Нас</Link>
-            {/* в fallback  указывается элемент который будет показыватся при загрузке */}
+            
             <AppRouter/>
         </div>
 
