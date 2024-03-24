@@ -1,13 +1,10 @@
-import { FC, Suspense } from 'react';
+import { FC } from 'react';
 // suspence позволяет показать пользователю, что идет загрузка (нужно обернуть)
 import './styles/index.scss';
 import { classNames } from 'shared/lib/helpers/ClassNames/ClassNames';
-import { Link, Routes, Route } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useTheme } from './providers/ThemeProvider';
-import { AboutPage } from 'pages/AboutPage';
-import { MainPage } from 'pages/MainPage';
-
-
+import { AppRouter } from './providers/router';
 
 interface AppProps {
     
@@ -29,15 +26,8 @@ const App: FC<AppProps> = ({  }) => {
             <Link to={'/'}>Главная</Link>
             <Link to={'/about'}>О Нас</Link>
             {/* в fallback  указывается элемент который будет показыватся при загрузке */}
-            <Suspense fallback={<div>is Loading.....</div>}>
-                <Routes>
-                    <Route  path={'/about'} element={<AboutPage/>}/>
-                    <Route  path={'/'} element= {<MainPage/>}/>
-                </Routes>
-            </Suspense>
+            <AppRouter/>
         </div>
-
-      
 
     )
 }
