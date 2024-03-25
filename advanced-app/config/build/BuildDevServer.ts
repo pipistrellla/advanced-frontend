@@ -7,5 +7,8 @@ export function buildDevServer({port}: BuildOptions):DevServerConfiguration {
         port: port,
         open:true,
         historyApiFallback: true,
+        // для изменения данных на странице после внесения изменений 
+        // без ее перезагрузки
+        hot:true,
     }
 }
