@@ -2,10 +2,10 @@ import { FC } from 'react';
 // suspence позволяет показать пользователю, что идет загрузка (нужно обернуть)
 import './styles/index.scss';
 import { classNames } from 'shared/lib/helpers/ClassNames/ClassNames';
-import { Link } from 'react-router-dom';
 import { useTheme } from './providers/ThemeProvider';
 import { AppRouter } from './providers/router';
 import { Navbar } from 'widgets/Navbar';
+import { Sidebar } from 'widgets/Sidebar';
 
 interface AppProps {
     
@@ -24,9 +24,10 @@ const App: FC<AppProps> = ({  }) => {
     return (
         <div className={classNames('app' , {} , [theme])}>
             <Navbar />
-
-            
-            <AppRouter/>
+            <div className='content-page'>
+                <Sidebar/>
+                <AppRouter/>
+            </div>
         </div>
 
     )
