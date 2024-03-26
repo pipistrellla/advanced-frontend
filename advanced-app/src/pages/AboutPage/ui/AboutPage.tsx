@@ -5,7 +5,7 @@ interface AboutPageProps {
 
 }
 
-const AboutPage: FC<AboutPageProps> = ({ }) => {
+const AboutPage: FC<AboutPageProps> = () => {
 
     const { t } = useTranslation('about');
     return (

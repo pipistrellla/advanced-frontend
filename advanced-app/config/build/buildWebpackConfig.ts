@@ -27,7 +27,8 @@ export function buildWebpackConfig(options: BuildOptions): webpack.Configuration
             // в [] указывается название
             // по дефолту main (меняется в entry)
             // при указании в [name] браузер кэширует и всегда отдает старый файл
-            // если указать contenthash то будет добавляться хэш, который решает проблему с хэшированием
+            // если указать contenthash то будет добавляться хэш, который решает
+            // проблему с хэшированием
             filename: '[name].[contenthash].js',
             path: paths.build,
             // чистит папку build

@@ -8,7 +8,7 @@ interface AppRouterProps {
 
 }
 
-const AppRouter: FC<AppRouterProps> = ({ }) => (
+const AppRouter: FC<AppRouterProps> = () => (
     <Suspense fallback={<div>is Loading.....</div>}>
         {/* в fallback  указывается элемент который будет показыватся при загрузке */}
         <Routes>

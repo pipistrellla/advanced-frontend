@@ -13,7 +13,7 @@ interface AppProps {
 // lazyload позволяет уменьшить размер бандла
 // так как грузит не все страницы стразу
 
-const App: FC<AppProps> = ({ }) => {
+const App: FC<AppProps> = () => {
 
     const { theme } = useTheme();
 
