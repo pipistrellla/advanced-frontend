@@ -6,12 +6,11 @@ declare module '*.scss' {
     export = classNames;
 }
 
-
-declare module "*.svg" {
+declare module '*.svg' {
     const SVG: React.FunctionComponent<React.SVGAttributes<SVGElement>>;
     export default SVG;
 }
 
-declare module "*.png"
-declare module "*.jpg"
-declare const __IS_DEV__: boolean
+declare module '*.png'
+declare module '*.jpg'
+declare const __IS_DEV__: boolean;
