@@ -47,6 +47,7 @@ module.exports = {
         'nonblock-statement-body-position': ['error', 'below'],
         curly: ['error', 'multi-or-nest'],
         'i18next/no-literal-string': ['error', { markupOnly: true }],
+        // 'arrow-body-style': ['error', 'always'],
 
     },
     globals: {
