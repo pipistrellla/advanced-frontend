@@ -1,8 +1,8 @@
 import React, { FC, useState } from 'react';
 import { classNames } from 'shared/lib/helpers/ClassNames/ClassNames';
 import { ThemeSwitcher } from 'shared/ui/ThemeSwitcher';
-import Button from 'shared/ui/Button/ui/Button';
 import { LangSwitcher } from 'shared/ui/LangSwitcher';
+import { Button } from 'shared/ui/Button';
 import cls from './Sidebar.module.scss';
 
 interface SidebarProps {

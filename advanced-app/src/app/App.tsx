@@ -1,4 +1,4 @@
-import { FC, Suspense } from 'react';
+import { FC, Suspense, useEffect } from 'react';
 // suspence позволяет показать пользователю, что идет загрузка (нужно обернуть)
 import './styles/index.scss';
 import { classNames } from 'shared/lib/helpers/ClassNames/ClassNames';
