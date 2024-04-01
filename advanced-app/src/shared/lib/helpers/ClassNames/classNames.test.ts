@@ -1,4 +1,4 @@
-import { classNames } from './ClassNames';
+import { classNames } from 'shared/lib/helpers/ClassNames/ClassNames';
 
 describe('classNames', () => {
 

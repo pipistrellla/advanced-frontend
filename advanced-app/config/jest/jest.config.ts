@@ -2,6 +2,7 @@
  * For a detailed explanation regarding each configuration property and type check, visit:
  * https://jestjs.io/docs/configuration
  */
+import path from 'path';
 
 export default {
     testEnvironment: 'jsdom',
@@ -11,7 +12,9 @@ export default {
     ],
     moduleDirectories: [
         'node_modules',
+        'src',
     ],
+    // modulePaths: ['<rootDir>src'],
     moduleFileExtensions: [
         'js',
         'jsx',
@@ -25,7 +28,12 @@ export default {
         // универсальная регулярка для мак и винды
         '<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)',
     ],
-
+    setupFilesAfterEnv: ['<rootDir>/config/jest/setupTests.ts'],
+    // для настройик modules в jest
+    moduleNameMapper: {
+        '\\.s?css$': 'identity-obj-proxy',
+        '\\.svg': path.resolve(__dirname, 'jestEmptyComponent.tsx'),
+    },
     // All imported modules in your tests should be mocked automatically
     // automock: false,
 
