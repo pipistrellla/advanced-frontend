@@ -49,7 +49,7 @@ module.exports = {
         'i18next/no-literal-string': ['error',
             {
                 markupOnly: true,
-                ignoreAttribute: ['data-testid'],
+                ignoreAttribute: ['data-testid', 'to'],
             },
         ],
         // 'arrow-body-style': ['error', 'always'],
@@ -62,14 +62,8 @@ module.exports = {
         {
             files: ['**/src/**/*.test.{ts,tsx}'],
             rules: {
-                'i18next/no-literal-string': 'off'
-            }
+                'i18next/no-literal-string': 'off',
+            },
         },
     ],
-    'import/no-extraneous-dependencies': [1, {
-        devDependencies: [
-            './config/**/*.ts',
-            '*/*.test.ts?(x)',
-        ],
-    }],
 };
