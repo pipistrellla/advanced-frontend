@@ -1,7 +1,8 @@
 import webpack, { RuleSetRule } from 'webpack';
 import path from 'path';
-import { buildCSSLoader } from '../build/loaders/buildCssLoader';
+
 import { BuildPath } from '../build/types/config';
+import { buildCSSLoader } from '../build/loaders/buildCSSLoader';
 
 export default ({ config }: {config: webpack.Configuration}) => {
 
@@ -14,7 +15,6 @@ export default ({ config }: {config: webpack.Configuration}) => {
     config.resolve!.modules!.push(paths.src);
     config.resolve!.extensions!.push('.ts', '.tsx');
 
-    config.module!.rules!.push(buildCSSLoader(true));
     // eslint-disable-next-line no-param-reassign
     // config.module!.rules = config.module!.rules!.map((rule: RuleSetRule) => {
 
@@ -29,7 +29,7 @@ export default ({ config }: {config: webpack.Configuration}) => {
     //     test: /\.svg$/,
     //     use: ['@svgr/webpack'],
     // });
-    // config.module.rules.push(buildCssLoader(true));
+    config.module!.rules!.push(buildCSSLoader(true));
 
     return config;
 
