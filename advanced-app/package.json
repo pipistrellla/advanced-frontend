@@ -11,7 +11,9 @@
     "lint:ts": " eslint \"**/*.{ts,tsx}\"",
     "lint:ts:fix": "eslint \"**/*.{ts,tsx}\" --fix",
     "lint:scss": "npx stylelint  \"**/*.scss\"",
-    "lint:scss:fix": "npx stylelint  \"**/*.scss\" --fix"
+    "lint:scss:fix": "npx stylelint  \"**/*.scss\" --fix",
+    "storybook": "start-storybook -p 6006 -c ./config/storybook",
+    "build-storybook": "build-storybook -c ./config/storybook"
   },
   "repository": {
     "type": "git",
@@ -31,6 +33,7 @@
     "@babel/preset-typescript": "^7.16.7",
     "@pmmmwh/react-refresh-webpack-plugin": "^0.5.5",
     "@storybook/addon-actions": "^6.4.19",
+    "@storybook/addon-docs": "^6.4.19",
     "@storybook/addon-essentials": "^6.4.19",
     "@storybook/addon-interactions": "^6.4.19",
     "@storybook/addon-links": "^6.4.19",
@@ -70,11 +73,13 @@
     "json-server": "^0.17.0",
     "loki": "^0.28.1",
     "mini-css-extract-plugin": "^2.5.3",
+    "react-docgen-typescript-plugin": "^1.0.6",
     "react-refresh": "^0.12.0",
     "reg-cli": "^0.17.6",
     "regenerator-runtime": "^0.13.9",
     "sass": "^1.49.9",
     "sass-loader": "^12.6.0",
+    "storybook": "^6.4.19",
     "style-loader": "^3.3.1",
     "stylelint": "^14.5.3",
     "stylelint-config-rational-order": "^0.1.2",
