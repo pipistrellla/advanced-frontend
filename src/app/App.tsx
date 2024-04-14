@@ -19,7 +19,7 @@ const App: FC<AppProps> = () => {
 
     return (
         <div className={classNames('app', {}, [theme])}>
-            <Suspense fallback={<div>Language loading.....</div>}>
+            <Suspense fallback={<div />}>
                 <Navbar />
 
                 <div className="content-page">
