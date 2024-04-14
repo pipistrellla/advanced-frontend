@@ -1,4 +1,7 @@
 /node_modules/
 /advanced-app/node_modules
 /advanced-app/build
-
+/build
+/storybook-static
+.loki/report.html
+.loki/report.json
