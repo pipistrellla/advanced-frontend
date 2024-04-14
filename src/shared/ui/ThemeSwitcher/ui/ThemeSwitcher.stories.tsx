@@ -22,7 +22,5 @@ Normal.args = {};
 
 export const Dark = Template.bind({});
 
-Dark.args = {
-    theme: Theme.DARK,
-};
+Dark.args = {};
 Dark.decorators = [ThemeDecorator(Theme.DARK)];
