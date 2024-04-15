@@ -1,9 +1,12 @@
-import { FC, Suspense, useEffect } from 'react';
+import {
+    FC, Suspense, useEffect, useState,
+} from 'react';
 // suspence позволяет показать пользователю, что идет загрузка (нужно обернуть)
-import './styles/index.scss';
 import { classNames } from 'shared/lib/helpers/ClassNames/ClassNames';
 import { Navbar } from 'widgets/Navbar';
 import { Sidebar } from 'widgets/Sidebar';
+import { Modal } from 'shared/ui/Modal';
+import { Button } from 'shared/ui/Button';
 import { useTheme } from './providers/ThemeProvider';
 import { AppRouter } from './providers/router';
 
@@ -21,7 +24,6 @@ const App: FC<AppProps> = () => {
         <div className={classNames('app', {}, [theme])}>
             <Suspense fallback={<div />}>
                 <Navbar />
-
                 <div className="content-page">
                     <Sidebar />
                     <AppRouter />
