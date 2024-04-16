@@ -1,3 +1,4 @@
+import { Counter } from 'entitis/Counter';
 import React, { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 import { BugButton } from 'widgets/PageError';
@@ -12,6 +13,7 @@ const MainPage: FC<MainPageProps> = () => {
     return (
         <div>
             {t('Главная страница')}
+            <Counter />
             <BugButton />
         </div>
     );

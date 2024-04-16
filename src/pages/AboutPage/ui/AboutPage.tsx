@@ -1,3 +1,4 @@
+import { Counter } from 'entitis/Counter';
 import React, { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 
@@ -12,6 +13,7 @@ const AboutPage: FC<AboutPageProps> = () => {
         <div>
             <div>{t('О сайте')}</div>
             <div>{t('Привет мир!!!')}</div>
+            <Counter />
         </div>
     );
 
