@@ -10,7 +10,7 @@ export const Portal: FC<PortalProps> = (props) => {
 
     const {
         children,
-        element = document.body,
+        element = document.getElementById('root'),
     } = props;
     return createPortal(children, element);
 
