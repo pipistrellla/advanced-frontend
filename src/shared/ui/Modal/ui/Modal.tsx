@@ -11,6 +11,7 @@ interface modalProps {
     children?: ReactNode;
     isOpen?: boolean;
     onClose?: () => void;
+    lazy?: boolean
 }
 
 const ANIMATION_DELAY:number = 300;
@@ -22,9 +23,11 @@ export const Modal: FC<modalProps> = (props) => {
         children,
         isOpen,
         onClose,
+        lazy,
     } = props;
 
-    const [isClosing, setIsClosing] = useState(false);
+    const [isClosing, setIsClosing] = useState<boolean>(false);
+
     const timerRef = useRef < ReturnType<typeof setTimeout>>();
     const { theme } = useTheme();
 
@@ -77,6 +80,19 @@ export const Modal: FC<modalProps> = (props) => {
         [cls.opened]: isOpen,
         [cls.isClosing]: isClosing,
     };
+
+    const [isMounted, setIsMounted] = useState<boolean>(false);
+
+    useEffect(() => {
+
+        if (isOpen)
+            setIsMounted(true);
+
+    }, [isOpen]);
+
+    if (lazy && !isMounted)
+
+        return null;
 
     return (
         <Portal>
