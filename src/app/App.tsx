@@ -7,6 +7,8 @@ import { Navbar } from 'widgets/Navbar';
 import { Sidebar } from 'widgets/Sidebar';
 import { Modal } from 'shared/ui/Modal';
 import { Button } from 'shared/ui/Button';
+import { useDispatch } from 'react-redux';
+import { userActions } from 'entitis/User';
 import { useTheme } from './providers/ThemeProvider';
 import { AppRouter } from './providers/router';
 
@@ -19,6 +21,13 @@ interface AppProps {
 const App: FC<AppProps> = () => {
 
     const { theme } = useTheme();
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+
+        dispatch(userActions.initAithData());
+
+    }, [dispatch]);
 
     return (
         <div className={classNames('app', {}, [theme])}>

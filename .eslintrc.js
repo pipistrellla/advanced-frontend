@@ -60,6 +60,8 @@ module.exports = {
         'react-hooks/exhaustive-deps': 'error', // Checks effect dependencies
         // 'arrow-body-style': ['error', 'always'],
         'no-param-reassign': 'off',
+        'react/prop-types': 'warn',
+        'max-len': ['error', { code: 120 }],
 
     },
     globals: {
