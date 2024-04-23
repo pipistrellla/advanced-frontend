@@ -14,7 +14,7 @@ enum LohinErrors {
 }
 
 // в дженерикек (что возвразаем, что принимаем , {при ошибке что вернем})
-export const loginByUsername = createAsyncThunk<User | Error, LoginByUsernameProps, {rejectValue: string}>(
+export const loginByUsername = createAsyncThunk<User, LoginByUsernameProps, {rejectValue: string}>(
     'login/loginByUsername',
     async ({ username, password }, thunkAPI) => {
 
@@ -29,7 +29,7 @@ export const loginByUsername = createAsyncThunk<User | Error, LoginByUsernamePro
             );
 
             if (!response.data)
-                return new Error();
+                throw new Error();
 
             localStorage.setItem(USER_LOCALSTORAGE_KEY, JSON.stringify(response.data));
             thunkAPI.dispatch(userActions.setAuthData(response.data));
