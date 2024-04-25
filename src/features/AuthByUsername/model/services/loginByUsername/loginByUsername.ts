@@ -9,7 +9,7 @@ interface LoginByUsernameProps {
     password: string
 }
 
-enum LohinErrors {
+enum LoginErrors {
     INCORRECT_DATA = '',
     SERVER_ERROR = ''
 }
