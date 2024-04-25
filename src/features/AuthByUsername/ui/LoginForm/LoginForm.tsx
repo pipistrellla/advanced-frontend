@@ -5,10 +5,11 @@ import { useTranslation } from 'react-i18next';
 import { Button } from 'shared/ui/Button';
 import Input from 'shared/ui/Input/ui/Input';
 import { ButtonTheme } from 'shared/ui/Button/ui/Button';
-import { useDispatch, useSelector, useStore } from 'react-redux';
+import { useSelector, useStore } from 'react-redux';
 import { TextTheme, Text } from 'shared/ui/Text';
 import { ReduxStoreWithManager } from 'app/providers/StoreProvider/config/StateSchema';
 import DynamicModuleLoader, { ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { getLoginUsername } from '../../model/selectors/getLoginUsername/getLoginUsername';
 import { getLoginPassword } from '../../model/selectors/getLoginPassword/getLoginPassword';
 import { getLoginIsLoading } from '../../model/selectors/getLoginIsLoading/getLoginIsLoading';
@@ -19,6 +20,9 @@ import cls from './LoginForm.module.scss';
 
 export interface LoginFormProps {
     className?: string
+    // этот пропс нуже чтобы закрывать модалку при успешной авторизации
+    // так как при успешной авторизации мы ее просто демонтировали
+    onSucces: () => void
 }
 
 const initialsReducers: ReducersList = {
@@ -29,10 +33,11 @@ const LoginForm: FC<LoginFormProps> = memo((props) => {
 
     const {
         className,
+        onSucces,
     } = props;
 
     const { t } = useTranslation('navbar');
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
 
     const username = useSelector(getLoginUsername);
     const password = useSelector(getLoginPassword);
@@ -51,11 +56,13 @@ const LoginForm: FC<LoginFormProps> = memo((props) => {
 
     }, [dispatch]);
 
-    const onClickLogin = useCallback(() => {
+    const onClickLogin = useCallback(async () => {
 
-        dispatch(loginByUsername({ username, password }));
+        const result = await dispatch(loginByUsername({ username, password }));
+        if (result.meta.requestStatus === 'fulfilled')
+            onSucces();
 
-    }, [dispatch, username, password]);
+    }, [dispatch, username, password, onSucces]);
 
     return (
 
