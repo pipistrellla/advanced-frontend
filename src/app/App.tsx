@@ -5,8 +5,6 @@ import {
 import { classNames } from 'shared/lib/helpers/ClassNames/ClassNames';
 import { Navbar } from 'widgets/Navbar';
 import { Sidebar } from 'widgets/Sidebar';
-import { Modal } from 'shared/ui/Modal';
-import { Button } from 'shared/ui/Button';
 import { useDispatch } from 'react-redux';
 import { userActions } from 'entitis/User';
 import { useTheme } from './providers/ThemeProvider';
@@ -22,7 +20,6 @@ const App: FC<AppProps> = () => {
 
     const { theme } = useTheme();
     const dispatch = useDispatch();
-
     useEffect(() => {
 
         dispatch(userActions.initAithData());
