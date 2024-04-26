@@ -7,8 +7,8 @@ import { SidebarItemType } from '../../model/items';
 import cls from './SidebarItem.module.scss';
 
 interface SidebarItemProps {
-    item?:SidebarItemType;
-    collapsed?: boolean
+    item:SidebarItemType;
+    collapsed: boolean
 }
 // если обернуть в мемо, то перерисовка будет происходить только тогда, когда
 // изменились пропсы

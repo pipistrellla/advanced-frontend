@@ -62,6 +62,7 @@ module.exports = {
         'no-param-reassign': 'off',
         'react/prop-types': 'warn',
         'max-len': ['error', { code: 120 }],
+        'no-undef': 'off',
 
     },
     globals: {

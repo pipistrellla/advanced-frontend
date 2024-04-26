@@ -1,10 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { ThunkConfig } from 'app/providers/StoreProvider';
-import axios from 'axios';
-import { User, userActions } from 'entitis/User';
-import { USER_LOCALSTORAGE_KEY } from 'shared/const/localStorage';
 import { Profile } from '../../types/profile';
-
 // в дженерикек (что возвразаем, что принимаем , {при ошибке что вернем})
 export const fetchProfileData = createAsyncThunk<Profile, void, ThunkConfig<string>>(
     'profile/fetchProfileData',
