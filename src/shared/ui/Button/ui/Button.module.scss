@@ -22,6 +22,12 @@
     background: none;
 }
 
+.outlineRed {
+    border: 1px solid var(--error-light-color);
+    color: var(--error-dark-color);
+    background: none;
+}
+
 .backgroundInverted {
     background: var(--inverted-bg-color);
     color: var(--inverted-primary-color);

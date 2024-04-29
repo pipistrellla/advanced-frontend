@@ -7,8 +7,5 @@ interface LoaderProps {
 }
 
 export const Loader: FC<LoaderProps> = ({ className }) => (
-    <div className={classNames(cls['lds-ripple'], {}, [className])}>
-        <div />
-        <div />
-    </div>
+    <div className={cls.loader} />
 );
