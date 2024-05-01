@@ -7,7 +7,12 @@ import { BuildOptions } from './types/config';
 // передаем options поэтому вытягиваем только paths
 export function buildPlugins(options: BuildOptions): webpack.WebpackPluginInstance[] {
 
-    const { isDev, paths, apiUrl } = options;
+    const {
+        isDev,
+        paths,
+        apiUrl,
+        project,
+    } = options;
 
     const plugins = [
         // откуда берется HTML
@@ -25,6 +30,7 @@ export function buildPlugins(options: BuildOptions): webpack.WebpackPluginInstan
         new webpack.DefinePlugin({
             __IS_DEV__: JSON.stringify(isDev),
             __API__: JSON.stringify(apiUrl),
+            __PROJECT__: JSON.stringify(project),
         }),
 
     ];
