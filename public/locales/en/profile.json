@@ -12,5 +12,10 @@
     "Ваше имя пользователя": "Username",
     "Ваш аватар": "Avatar",
     "Ваша валюта": "Currency", 
-    "Ваша страна": "Country"
+    "Ваша страна": "Country",
+    "Серверная ошибка при сохранении" :"server error" ,
+    "Страна, город и валюта обязательны": "city, currency and country is required",
+    "Некорректный возраст": "incorrect age",
+    "Имя и фамилия обязательны": "first name and last name is required ",
+    "Данные не указаны": "incorrect data"
 }

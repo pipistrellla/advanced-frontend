@@ -1,5 +1,7 @@
 import { t } from 'i18next';
-import React, { FC, memo, useCallback } from 'react';
+import React, {
+    FC, memo, useCallback, useMemo,
+} from 'react';
 import { Select } from 'shared/ui/Select';
 import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/helpers/ClassNames/ClassNames';
@@ -12,13 +14,6 @@ interface CurrencySelectProps {
     className?: string
 }
 
-const options = [
-    { value: Currency.RUB, content: Currency.RUB },
-    { value: Currency.JPY, content: Currency.JPY },
-    { value: Currency.EUR, content: Currency.EUR },
-    { value: Currency.USD, content: Currency.USD },
-];
-
 const CurrencySelect: FC<CurrencySelectProps> = memo((props:CurrencySelectProps) => {
 
     const { t } = useTranslation('profile');
@@ -28,6 +23,11 @@ const CurrencySelect: FC<CurrencySelectProps> = memo((props:CurrencySelectProps)
         readonly,
         className,
     } = props;
+
+    const options = useMemo(
+        () => Object.entries(Currency).map((val) => ({ value: val[0], content: val[1] })),
+        [],
+    );
 
     const onChangeHandler = useCallback((value: string) => {
 

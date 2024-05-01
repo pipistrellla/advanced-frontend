@@ -1,5 +1,7 @@
 import { t } from 'i18next';
-import React, { FC, memo, useCallback } from 'react';
+import React, {
+    FC, memo, useCallback, useMemo,
+} from 'react';
 import { Select } from 'shared/ui/Select';
 import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/helpers/ClassNames/ClassNames';
@@ -12,14 +14,6 @@ interface CountrySelectProps {
     className?: string
 }
 
-const options = [
-    { value: Country.Russia, content: Country.Russia },
-    { value: Country.Armenia, content: Country.Armenia },
-    { value: Country.Belarus, content: Country.Belarus },
-    { value: Country.Japanese, content: Country.Japanese },
-    { value: Country.Kazakhstan, content: Country.Kazakhstan },
-    { value: Country.Ukraine, content: Country.Ukraine }];
-
 const CountrySelect: FC<CountrySelectProps> = memo((props) => {
 
     const { t } = useTranslation('profile');
@@ -29,6 +23,11 @@ const CountrySelect: FC<CountrySelectProps> = memo((props) => {
         readonly,
         className,
     } = props;
+
+    const options = useMemo(
+        () => Object.entries(Country).map((val) => ({ value: val[0], content: val[1] })),
+        [],
+    );
 
     const onChangeHandler = useCallback((value: string) => {
 
