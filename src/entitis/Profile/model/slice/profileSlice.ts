@@ -78,6 +78,7 @@ export const profileSlice = createSlice({
                     state.isLoading = false;
                     state.data = action.payload;
                     state.form = action.payload;
+                    state.readonly = true;
 
                 },
             )

@@ -4,7 +4,6 @@ import DynamicModuleLoader, { ReducersList } from 'shared/lib/components/Dynamic
 import {
     ProfileCard,
     fetchProfileData,
-    getProfileData,
     getProfileError,
     getProfileForm,
     getProfileIsLoading,
@@ -14,6 +13,8 @@ import {
 } from 'entitis/Profile';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useSelector } from 'react-redux';
+import { Currency } from 'entitis/Currency';
+import { Country } from 'entitis/Country';
 import cls from './ProfilePage.module.scss';
 import ProfilePageHeader from './ProfilePageHeader/ProfilePageHeader';
 
@@ -77,6 +78,18 @@ const ProfilePage: FC<ProfilePageProps> = (props) => {
 
     }, [dispatch]);
 
+    const onChangeCurrency = useCallback((currency?: Currency) => {
+
+        dispatch(profileActions.updateProfile({ currency }));
+
+    }, [dispatch]);
+
+    const onChangeCountry = useCallback((country?: Country) => {
+
+        dispatch(profileActions.updateProfile({ country }));
+
+    }, [dispatch]);
+
     return (
         <DynamicModuleLoader reducers={reducers} removeAFterUnmount>
             <div>
@@ -92,6 +105,8 @@ const ProfilePage: FC<ProfilePageProps> = (props) => {
                     readonly={readonly}
                     onChangeAvatar={onChangeAvatar}
                     onChangeUsername={onChangeUsername}
+                    onChangeCurrency={onChangeCurrency}
+                    onChangeCountry={onChangeCountry}
                 />
             </div>
         </DynamicModuleLoader>

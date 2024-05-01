@@ -1,14 +1,15 @@
 import React, { FC } from 'react';
 import { useTranslation } from 'react-i18next';
-import { classNames } from 'shared/lib/helpers/ClassNames/ClassNames';
+import { Mods, classNames } from 'shared/lib/helpers/ClassNames/ClassNames';
 import { Text, TextTheme } from 'shared/ui/Text';
-import { Button } from 'shared/ui/Button';
-import { ButtonTheme } from 'shared/ui/Button/ui/Button';
 import Input from 'shared/ui/Input/ui/Input';
 import { Loader } from 'shared/ui/Loader';
-import { text } from 'stream/consumers';
 import { TextAlign } from 'shared/ui/Text/ui/Text';
 import { Avatar } from 'shared/ui/Avatar';
+import { Currency } from 'entitis/Currency/model/types/currency';
+import { CurrencySelect } from 'entitis/Currency';
+import { Country } from 'entitis/Country/model/types/country';
+import { CountrySelect } from 'entitis/Country';
 import cls from './ProfileCard.module.scss';
 import { Profile } from '../../model/types/profile';
 
@@ -23,6 +24,8 @@ interface ProfileCardProps {
     onChangeAge?: (value: string) => void
     onChangeUsername?: (value: string) => void
     onChangeAvatar?: (value: string) => void
+    onChangeCurrency?: (currency: Currency) => void
+    onChangeCountry?: (country: Country) => void
     readonly?: boolean
 }
 
@@ -40,6 +43,8 @@ export const ProfileCard: FC<ProfileCardProps> = (props) => {
         onChangeCity,
         onChangeAvatar,
         onChangeUsername,
+        onChangeCountry,
+        onChangeCurrency,
     } = props;
 
     const { t } = useTranslation('profile');
@@ -69,8 +74,12 @@ export const ProfileCard: FC<ProfileCardProps> = (props) => {
 
     }
 
+    const mods: Mods = {
+        [cls.editing]: !readonly,
+    };
+
     return (
-        <div className={classNames(cls.ProfileCard, {}, [className])}>
+        <div className={classNames(cls.ProfileCard, mods, [className])}>
             <div className={cls.data}>
                 {data?.avatar && (
                     <div className={cls.AvatarWrapper}>
@@ -117,6 +126,18 @@ export const ProfileCard: FC<ProfileCardProps> = (props) => {
                     placeholder={t('Ваш аватар')}
                     className={cls.input}
                     onChange={onChangeAvatar}
+                    readonly={readonly}
+                />
+                <CurrencySelect
+                    className={cls.input}
+                    value={data?.currency}
+                    onChange={onChangeCurrency}
+                    readonly={readonly}
+                />
+                <CountrySelect
+                    className={cls.input}
+                    value={data?.country}
+                    onChange={onChangeCountry}
                     readonly={readonly}
                 />
             </div>
