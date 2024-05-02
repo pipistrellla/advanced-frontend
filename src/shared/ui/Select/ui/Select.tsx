@@ -2,6 +2,7 @@ import React, {
     ChangeEvent, FC, memo, useMemo,
 } from 'react';
 import { Mods, classNames } from 'shared/lib/helpers/ClassNames/ClassNames';
+import { Text } from 'shared/ui/Text';
 import cls from './Select.module.scss';
 
 export interface SelectOptions {
@@ -46,14 +47,14 @@ const Select: FC<SelectProps> = memo((props: SelectProps) => {
     };
 
     const mods: Mods = {
-
+        [cls.readonly]: readonly,
     };
 
     return (
         <div className={classNames(cls.Wrapper, mods, [className])}>
             {label && (
                 <span className={cls.label}>
-                    {`${label}>`}
+                    <Text text={`${label}>`} />
                 </span>
             )}
             <select

@@ -2,6 +2,7 @@ import React, {
     FC, InputHTMLAttributes, memo, useState,
 } from 'react';
 import { Mods, classNames } from 'shared/lib/helpers/ClassNames/ClassNames';
+import { Text } from 'shared/ui/Text';
 import cls from './Input.module.scss';
 /* eslint react/prop-types: 0 */
 // Omit забирает все свойства кроме введенных (первый аргумент - что берем
@@ -69,7 +70,7 @@ const Input: FC<InputProps> = memo((props) => {
             { placeholder
                 && (
                     <div className={cls.placeholder}>
-                        {`${placeholder}>`}
+                        <Text text={`${placeholder}>`} />
                     </div>
                 )}
             <div className={cls.caretWrapper}>

@@ -29,6 +29,7 @@ export const Text: FC<TextProps> = memo((props:TextProps) => {
         text,
         theme = TextTheme.PRIMARY,
         align = TextAlign.LEFT,
+        ...otherProps
     } = props;
 
     return (

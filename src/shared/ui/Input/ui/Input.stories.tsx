@@ -30,3 +30,10 @@ PrimaryThemeDark.args = {
     value: 'test text',
 };
 PrimaryThemeDark.decorators = [ThemeDecorator(Theme.DARK)];
+
+export const PrimaryThemeGreen = Template.bind({});
+PrimaryThemeGreen.args = {
+    placeholder: 'test text',
+    value: 'test text',
+};
+PrimaryThemeGreen.decorators = [ThemeDecorator(Theme.GREEN)];

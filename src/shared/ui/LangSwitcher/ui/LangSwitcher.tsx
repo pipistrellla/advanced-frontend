@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/helpers/ClassNames/ClassNames';
 import { Button } from 'shared/ui/Button';
 import { ButtonTheme } from 'shared/ui/Button/ui/Button';
+import { Text } from 'shared/ui/Text';
 
 interface LangSwitcherProps {
     className?:string
@@ -25,7 +26,8 @@ export const LangSwitcher: FC<LangSwitcherProps> = memo(({ className, short }: L
             theme={ButtonTheme.CLEAR}
             onClick={() => toggle()}
         >
-            {t(short ? 'Яз' : 'Язык')}
+            <Text text={t(short ? 'Яз' : 'Язык')} />
+
         </Button>
     );
 
