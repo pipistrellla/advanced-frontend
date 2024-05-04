@@ -33,6 +33,7 @@ export function buildWebpackConfig(options: BuildOptions): webpack.Configuration
             path: paths.build,
             // чистит папку build
             clean: true,
+            publicPath: '/',
         },
         // передаем options так как в buildlugins вытягиваем только
         plugins: buildPlugins(options),
