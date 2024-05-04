@@ -5,8 +5,8 @@ import {
 import { classNames } from 'shared/lib/helpers/ClassNames/ClassNames';
 import { Navbar } from 'widgets/Navbar';
 import { Sidebar } from 'widgets/Sidebar';
-import { useDispatch } from 'react-redux';
-import { userActions } from 'entitis/User';
+import { useDispatch, useSelector } from 'react-redux';
+import { getUserInited, userActions } from 'entitis/User';
 import { useTheme } from './providers/ThemeProvider';
 import { AppRouter } from './providers/router';
 
@@ -20,6 +20,7 @@ const App: FC<AppProps> = () => {
 
     const { theme } = useTheme();
     const dispatch = useDispatch();
+    const inited = useSelector(getUserInited);
     useEffect(() => {
 
         dispatch(userActions.initAithData());
@@ -32,7 +33,7 @@ const App: FC<AppProps> = () => {
                 <Navbar />
                 <div className="content-page">
                     <Sidebar />
-                    <AppRouter />
+                    {inited && <AppRouter />}
                 </div>
             </Suspense>
         </div>

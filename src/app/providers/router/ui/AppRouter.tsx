@@ -1,13 +1,10 @@
-import { AboutPage } from 'pages/AboutPage';
-import { MainPage } from 'pages/MainPage';
 import { PageLoader } from 'shared/ui/PageLoader';
 import React, {
-    FC, Suspense, memo, useMemo,
+    FC, Suspense, memo, useCallback,
 } from 'react';
 import { Routes, Route } from 'react-router-dom';
-import { routeConfig } from 'shared/config/routeConfig/routeConfig';
-import { useSelector } from 'react-redux';
-import { getUserAuthData } from 'entitis/User';
+import { AppRoutesProps, routeConfig } from 'shared/config/routeConfig/routeConfig';
+import { RequireAuth } from './RequireAuth';
 
 interface AppRouterProps {
 
@@ -15,30 +12,31 @@ interface AppRouterProps {
 
 const AppRouter: FC<AppRouterProps> = () => {
 
-    const isAuth = useSelector(getUserAuthData);
+    const renderWithWrapper = useCallback((route: AppRoutesProps) => {
 
-    const routes = useMemo(() => Object.values(routeConfig).filter((route) => {
+        const element = (
+            <div className="page-wrapper">
+                {route.element}
+            </div>
+        );
 
-        if (route.authOnly && !isAuth)
-            return false;
+        return (
+            <Route
+                key={route.path}
+                path={route.path}
+                element={
+                    route.authOnly ? <RequireAuth>{element}</RequireAuth> : element
+                }
+            />
+        );
 
-        return true;
-
-    }), [isAuth]);
+    }, []);
 
     return (
         <Suspense fallback={<PageLoader />}>
             {/* в fallback  указывается элемент который будет показыватся при загрузке */}
             <Routes>
-                {routes.map(({ path, element }) => (
-                    <Route
-                        key={path}
-                        path={path}
-                        element={
-                            <div className="page-wrapper">{element}</div>
-                        }
-                    />
-                ))}
+                {Object.values(routeConfig).map(renderWithWrapper)}
             </Routes>
         </Suspense>
     );
