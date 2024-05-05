@@ -1,7 +1,9 @@
 import { FC, memo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Text } from 'shared/ui/Text';
 import { classNames } from 'shared/lib/helpers/ClassNames/ClassNames';
+import { ArticleDetails } from 'entitis/Article';
+import { useParams } from 'react-router-dom';
+import { Text, TextTheme } from 'shared/ui/Text';
 import cls from './ArticleDetailsPage.module.scss';
 
 interface ArticleDetailsPageProps {
@@ -12,10 +14,19 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = (props) => {
 
     const { className } = props;
     const { t } = useTranslation('article');
+    const { id } = useParams<{id:string}>();
+    if (!id) {
 
+        return (
+            <div className={classNames(cls.articleDetailsPage, {}, [className])}>
+                <Text title={t('Cтатья не найдена')} theme={TextTheme.ERROR} />
+            </div>
+        );
+
+    }
     return (
         <div className={classNames(cls.articleDetailsPage, {}, [className])}>
-            <Text text={t('ARTICLE DETAILS PAGE')} />
+            <ArticleDetails id={id} />
         </div>
     );
 

@@ -13,7 +13,7 @@ const { t } = useTranslation()
 
 return (
     <div className={classNames(cls.[FTName | camelcase], {}, [className])}>
-
+        123
     </div>
 );
 }
