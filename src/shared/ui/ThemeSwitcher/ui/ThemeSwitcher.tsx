@@ -20,7 +20,11 @@ export const ThemeSwitcher: FC<ThemeSwitcherProps> = memo(({ className }: ThemeS
             onClick={() => toggleTheme()}
             theme={ButtonTheme.CLEAR}
         >
-            {theme === Theme.LIGHT ? <LighIcon /> : theme === Theme.DARK ? <DarkIcon /> : <GreenIcon />}
+
+            {
+                // eslint-disable-next-line no-nested-ternary
+                theme === Theme.LIGHT ? <LighIcon /> : theme === Theme.DARK ? <DarkIcon /> : <GreenIcon />
+            }
         </Button>
 
     );
