@@ -7,16 +7,18 @@ import { CounterSchema } from 'entitis/Counter';
 import { ProfileSchema } from 'entitis/Profile';
 import { UserSchema } from 'entitis/User';
 import { LoginSchema } from 'features/AuthByUsername';
+import { ArticleDetailsCommentSchema } from 'pages/ArticleDetailsPage';
 import { NavigateOptions, To } from 'react-router-dom';
 
 export interface StateSchema{
     counter:CounterSchema
     user: UserSchema
 
-    // нижу будут все асинхронные редусеры
+    // ниже будут все асинхронные редусеры
     loginForm?: LoginSchema
     profile?: ProfileSchema
     articleDetails?: ArticleDetailsSchema
+    articleDetailsComments?: ArticleDetailsCommentSchema
 }
 
 export type StateSchemaKey = keyof StateSchema;

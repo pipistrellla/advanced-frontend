@@ -2,6 +2,7 @@
   "ARTICLE DETAILS PAGE": "ARTICLE DETAILS PAGE",
   "ARTICLE PAGE": "ARTICLE PAGE",
   "Cтатья не найдена": "Article no found",
-  "ошибка при загрузке статьи": "error cant load article"
-
+  "ошибка при загрузке статьи": "error cant load article",
+  "Комментарии": "Comments",
+  "Комментарии отсутствуют": "There are no comments"
 }
