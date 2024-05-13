@@ -6,6 +6,7 @@ import { Icon } from 'shared/ui/Icon';
 import EyeIcon from 'shared/assets/icons/eye.svg';
 import { Card } from 'shared/ui/Card';
 import { useHover } from 'shared/lib/hooks/useHover/useHover';
+import { Avatar } from 'shared/ui/Avatar';
 import { Article, ArticleView } from '../../model/types/article';
 import cls from './ArticleListItem.module.scss';
 
@@ -29,7 +30,23 @@ export const ArticleListItem: FC<ArticleListItemProps> = memo((props:ArticleList
             <div
                 className={classNames(cls.articleListItem, {}, [className, cls[view]])}
             >
-                {article.title}
+                <Card>
+                    <div className={cls.header}>
+                        <Avatar
+                            size={30}
+                            src={article.user.avatar}
+                        />
+                        <Text
+                            text={article.user.username}
+                            className={cls.username}
+                        />
+                        <Text
+                            text={article.createdAt}
+                            className={cls.date}
+                        />
+                    </div>
+                </Card>
+
             </div>
         );
 

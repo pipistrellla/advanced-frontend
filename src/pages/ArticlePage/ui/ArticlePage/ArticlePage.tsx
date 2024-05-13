@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/helpers/ClassNames/ClassNames';
 import { Text } from 'shared/ui/Text';
 import { Article, ArticleList } from 'entitis/Article';
-import { ArticleBlockType, ArticleType } from 'entitis/Article/model/types/article';
+import { ArticleBlockType, ArticleType, ArticleView } from 'entitis/Article/model/types/article';
 import cls from './ArticlePage.module.scss';
 
 interface ArticlePageProps {
@@ -17,6 +17,11 @@ const testData = {
     img: 'https://teknotower.com/wp-content/uploads/2020/11/js.png',
     views: 1022,
     createdAt: '26.02.2024',
+    user: {
+        id: '1',
+        username: 'aboba',
+        avatar: 'https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg',
+    },
     type: [
         ArticleType.IT,
     ],
@@ -89,14 +94,16 @@ const ArticlePage: FC<ArticlePageProps> = (props) => {
 
     return (
         <div className={classNames(cls.articlePage, {}, [className])}>
-            <ArticleList articles={
-                new Array(16)
-                    .fill(0)
-                    .map((item, index) => ({
-                        ...testData,
-                        id: String(index),
-                    }))
-            }
+            <ArticleList
+                articles={
+                    new Array(16)
+                        .fill(0)
+                        .map((item, index) => ({
+                            ...testData,
+                            id: String(index),
+                        }))
+                }
+                view={ArticleView.BIG}
             />
         </div>
     );
