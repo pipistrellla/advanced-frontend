@@ -19,8 +19,6 @@ export const ArticleTextBlockComponent: FC<ArticleTextBlockComponentProps> = mem
         } = props;
         const { t } = useTranslation();
 
-        console.log(block);
-
         return (
             <div className={classNames(cls.articleTextBlockComponent, {}, [className])}>
                 {block.title

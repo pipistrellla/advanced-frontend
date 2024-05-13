@@ -2,10 +2,10 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import { ThunkConfig } from 'app/providers/StoreProvider';
 import { Profile } from '../../types/profile';
 // в дженерикек (что возвразаем, что принимаем , {при ошибке что вернем})
-export const fetchProfileData = createAsyncThunk<Profile, void, ThunkConfig<string>>(
+export const fetchProfileData = createAsyncThunk<Profile, string, ThunkConfig<string>>(
     'profile/fetchProfileData',
     async (
-        _,
+        profileId,
         thunkApi,
     ) => {
 
@@ -14,7 +14,7 @@ export const fetchProfileData = createAsyncThunk<Profile, void, ThunkConfig<stri
         try {
 
             const response = await extra.api.get<Profile>(
-                '/profile',
+                `/profile/${profileId}`,
             );
 
             if (!response.data)

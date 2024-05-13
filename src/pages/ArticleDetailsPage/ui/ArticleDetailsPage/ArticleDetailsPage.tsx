@@ -1,4 +1,4 @@
-import { FC, memo } from 'react';
+import { FC, memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/helpers/ClassNames/ClassNames';
 import { ArticleDetails } from 'entitis/Article';
@@ -8,8 +8,14 @@ import { CommentList } from 'entitis/Comment';
 import DynamicModuleLoader, { ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useSelector } from 'react-redux';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
-import { fetchCommentsByArticleId } from 'pages/ArticleDetailsPage/model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { AddCommentForm } from 'features/AddCommentForm';
+import {
+    fetchCommentsByArticleId,
+} from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
+import {
+    addCommentFormArticle,
+} from '../../model/services/addCommentFormArticle/addCommentFormArticle';
 import {
     getArticleCommentsError,
     getArticleCommentsIsLoading,
@@ -35,6 +41,12 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = (props) => {
     const commentError = useSelector(getArticleCommentsError);
     const dispatch = useAppDispatch();
 
+    const onSendComment = useCallback((text: string) => {
+
+        dispatch(addCommentFormArticle(text));
+
+    }, [dispatch]);
+
     useInitialEffect(() => {
 
         dispatch(fetchCommentsByArticleId(id));
@@ -58,6 +70,9 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = (props) => {
             <div className={classNames(cls.articleDetailsPage, {}, [className])}>
                 <ArticleDetails id={id} />
                 <Text className={cls.commentTitle} title={t('Комментарии')} />
+                <AddCommentForm
+                    onSendComment={onSendComment}
+                />
                 <CommentList
                     comments={comments}
                     isLoading={commentIsLoading}

@@ -4,8 +4,9 @@ import { Theme } from 'app/providers/ThemeProvider';
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
 import { Country } from 'entitis/Country';
 import { Currency } from 'entitis/Currency';
-import avatar from 'shared/assets/tests/Storybook.png';
 import ProfilePage from './ProfilePage';
+
+const avatar = 'https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg';
 
 export default {
     title: 'pages/ProfilePage',

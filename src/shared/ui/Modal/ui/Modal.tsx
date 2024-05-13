@@ -66,7 +66,6 @@ export const Modal: FC<modalProps> = (props) => {
 
         if (isOpen)
             window.addEventListener('keydown', onKeyDown);
-        console.log('');
         // ретерн сработает прямо перед демонтажем компонента
         return () => {
 

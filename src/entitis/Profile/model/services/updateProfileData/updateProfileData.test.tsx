@@ -12,6 +12,7 @@ const data = {
     country: Country.Russia,
     first: 'test',
     currency: Currency.JPY,
+    id: '1',
 };
 
 describe('updateProfileData.test', () => {

@@ -2,7 +2,8 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
 import Avatar from './Avatar';
-import AvatarImg from './Storybook.png';
+
+const AvatarImg = 'https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg';
 
 export default {
     title: 'shared/Avatar',
@@ -32,3 +33,10 @@ PrimaryThemeDark.args = {
     src: AvatarImg,
 };
 PrimaryThemeDark.decorators = [ThemeDecorator(Theme.DARK)];
+
+export const PrimaryThemeGreen = Template.bind({});
+PrimaryThemeGreen.args = {
+    size: 150,
+    src: AvatarImg,
+};
+PrimaryThemeGreen.decorators = [ThemeDecorator(Theme.GREEN)];

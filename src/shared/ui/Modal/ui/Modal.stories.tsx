@@ -30,3 +30,11 @@ Dark.args = {
     children: '1232131231232131323123123123123123123123',
 };
 Dark.decorators = [ThemeDecorator(Theme.DARK)];
+
+export const Green = Template.bind({});
+
+Green.args = {
+    isOpen: true,
+    children: '1232131231232131323123123123123123123123',
+};
+Green.decorators = [ThemeDecorator(Theme.GREEN)];

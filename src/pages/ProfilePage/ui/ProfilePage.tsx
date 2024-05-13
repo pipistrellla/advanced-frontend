@@ -18,6 +18,8 @@ import { useSelector } from 'react-redux';
 import { Currency } from 'entitis/Currency';
 import { Country } from 'entitis/Country';
 import { Text, TextTheme } from 'shared/ui/Text';
+import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
+import { useParams } from 'react-router-dom';
 import cls from './ProfilePage.module.scss';
 import ProfilePageHeader from './ProfilePageHeader/ProfilePageHeader';
 
@@ -39,6 +41,7 @@ const ProfilePage: FC<ProfilePageProps> = (props) => {
     const isLoading = useSelector(getProfileIsLoading);
     const readonly = useSelector(getProfileReadonly);
     const validateErrors = useSelector(getProfileValidateError);
+    const { id } = useParams<{id:string}>();
 
     const ValidateErrorTranslates = {
         [ValidateProfileError.SERVER_ERROR]: t('Серверная ошибка при сохранении'),
@@ -48,12 +51,12 @@ const ProfilePage: FC<ProfilePageProps> = (props) => {
         [ValidateProfileError.NO_DATA]: t('Данные не указаны'),
     };
 
-    useEffect(() => {
+    useInitialEffect(() => {
 
-        if (__PROJECT__ !== 'storybook')
-            dispatch(fetchProfileData());
+        if (id)
+            dispatch(fetchProfileData(id));
 
-    }, [dispatch]);
+    });
 
     const onChangeFirstname = useCallback((value?: string) => {
 

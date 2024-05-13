@@ -59,3 +59,27 @@ PrimaryThemeDark.args = {
     ],
 };
 PrimaryThemeDark.decorators = [ThemeDecorator(Theme.DARK)];
+
+export const Green = Template.bind({});
+Green.args = {
+    label: ' test text',
+    options: [
+        {
+            content: 'test',
+            value: '1231',
+        },
+        {
+            content: 'test 2',
+            value: '1232',
+        },
+        {
+            content: 'test 3',
+            value: '1233',
+        },
+        {
+            content: 'test 4',
+            value: '1234',
+        },
+    ],
+};
+Green.decorators = [ThemeDecorator(Theme.GREEN)];

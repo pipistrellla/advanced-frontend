@@ -108,3 +108,9 @@ disabled.args = {
     theme: ButtonTheme.OUTLINE,
     disabled: true,
 };
+
+export const Green = Template.bind({});
+Green.args = {
+    children: 'Text',
+};
+Green.decorators = [ThemeDecorator(Theme.GREEN)];
