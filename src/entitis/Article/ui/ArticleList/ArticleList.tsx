@@ -7,7 +7,7 @@ import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 
 interface ArticleListProps {
     className?: string;
-    article: Article[];
+    articles: Article[];
     isLoading?: boolean;
     view?: ArticleView;
 }
@@ -16,7 +16,7 @@ export const ArticleList: FC<ArticleListProps> = memo((props:ArticleListProps) =
 
     const {
         className,
-        article,
+        articles,
         isLoading,
         view = ArticleView.SMALL,
     } = props;
@@ -24,6 +24,7 @@ export const ArticleList: FC<ArticleListProps> = memo((props:ArticleListProps) =
 
     const renderArticle = (article: Article) => (
         <ArticleListItem
+            className={cls.card}
             article={article}
             view={view}
         />
@@ -31,8 +32,8 @@ export const ArticleList: FC<ArticleListProps> = memo((props:ArticleListProps) =
 
     return (
         <div className={classNames(cls.articleList, {}, [className])}>
-            {article.length > 0
-                ? article.map(renderArticle)
+            {articles.length > 0
+                ? articles.map(renderArticle)
                 : null}
         </div>
     );
