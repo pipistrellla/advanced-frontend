@@ -6,8 +6,9 @@ import { ThemeSwitcher } from 'shared/ui/ThemeSwitcher';
 import { LangSwitcher } from 'shared/ui/LangSwitcher';
 import { Button } from 'shared/ui/Button';
 import { ButtonSize, ButtonTheme } from 'shared/ui/Button/ui/Button';
+import { useSelector } from 'react-redux';
+import { getSidebarItems } from '../../model/selectors/getSidebarItems/getSidebarItems';
 import cls from './Sidebar.module.scss';
-import { SidebarItemsList } from '../../model/items';
 import SidebarItem from '../SidebarItem/SidebarItem';
 
 interface SidebarProps {
@@ -17,6 +18,7 @@ interface SidebarProps {
 export const Sidebar: FC<SidebarProps> = memo(({ classname }:SidebarProps) => {
 
     const [collapsed, setCollapsed] = useState(false);
+    const sidebarItemsList = useSelector(getSidebarItems);
     const onToggle = ():void => {
 
         setCollapsed((prev) => !prev);
@@ -25,13 +27,13 @@ export const Sidebar: FC<SidebarProps> = memo(({ classname }:SidebarProps) => {
 
     // использование useMemo позволяет не ререндерить компонент, когда
     // перерисовывается родитель
-    const itemsList = useMemo(() => SidebarItemsList.map((item) => (
+    const itemsList = useMemo(() => sidebarItemsList.map((item) => (
         <SidebarItem
             item={item}
             collapsed={collapsed}
             key={item.path}
         />
-    )), [collapsed]);
+    )), [collapsed, sidebarItemsList]);
 
     return (
         <div
