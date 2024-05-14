@@ -9,7 +9,7 @@ import cls from './ArticlePage.module.scss';
 interface ArticlePageProps {
 className?: string;
 }
-
+/* eslint-disable */
 const testData = {
     id: '1',
     title: 'Javascript news',
@@ -95,7 +95,7 @@ const ArticlePage: FC<ArticlePageProps> = (props) => {
     return (
         <div className={classNames(cls.articlePage, {}, [className])}>
             <ArticleList
-                isLoading
+                // isLoading
                 articles={
                     new Array(16)
                         .fill(0)
