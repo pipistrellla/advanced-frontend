@@ -95,6 +95,7 @@ const ArticlePage: FC<ArticlePageProps> = (props) => {
     return (
         <div className={classNames(cls.articlePage, {}, [className])}>
             <ArticleList
+                isLoading
                 articles={
                     new Array(16)
                         .fill(0)

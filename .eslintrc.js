@@ -63,6 +63,7 @@ module.exports = {
         'react/prop-types': 'warn',
         'max-len': ['error', { code: 120 }],
         'no-undef': 'off',
+        'react/no-array-index-key': 'off',
 
     },
     globals: {
