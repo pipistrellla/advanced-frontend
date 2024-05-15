@@ -2,6 +2,7 @@ import { Counter } from 'entitis/Counter';
 import React, { FC, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import Input from 'shared/ui/Input/ui/Input';
+import { Page } from 'shared/ui/Page';
 import { Text } from 'shared/ui/Text';
 import { BugButton } from 'widgets/PageError';
 
@@ -21,10 +22,10 @@ const MainPage: FC<MainPageProps> = () => {
     };
 
     return (
-        <div>
+        <Page>
             <Text text={t('Главная страница')} />
             <BugButton />
-        </div>
+        </Page>
     );
 
 };

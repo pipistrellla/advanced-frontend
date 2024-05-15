@@ -12,10 +12,10 @@ import cls from './Sidebar.module.scss';
 import SidebarItem from '../SidebarItem/SidebarItem';
 
 interface SidebarProps {
-    classname?:string
+    className?:string
 }
 
-export const Sidebar: FC<SidebarProps> = memo(({ classname }:SidebarProps) => {
+export const Sidebar: FC<SidebarProps> = memo(({ className }:SidebarProps) => {
 
     const [collapsed, setCollapsed] = useState(false);
     const sidebarItemsList = useSelector(getSidebarItems);
@@ -36,9 +36,9 @@ export const Sidebar: FC<SidebarProps> = memo(({ classname }:SidebarProps) => {
     )), [collapsed, sidebarItemsList]);
 
     return (
-        <div
+        <menu
             data-testid="sidebar"
-            className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [classname])}
+            className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [className])}
         >
             <Button
                 data-testid="sidebarToggle"
@@ -60,7 +60,7 @@ export const Sidebar: FC<SidebarProps> = memo(({ classname }:SidebarProps) => {
                     className={cls.lang}
                 />
             </div>
-        </div>
+        </menu>
     );
 
 });

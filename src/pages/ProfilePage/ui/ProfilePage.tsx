@@ -20,6 +20,7 @@ import { Country } from 'entitis/Country';
 import { Text, TextTheme } from 'shared/ui/Text';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { useParams } from 'react-router-dom';
+import { Page } from 'shared/ui/Page';
 import cls from './ProfilePage.module.scss';
 import ProfilePageHeader from './ProfilePageHeader/ProfilePageHeader';
 
@@ -108,7 +109,7 @@ const ProfilePage: FC<ProfilePageProps> = (props) => {
 
     return (
         <DynamicModuleLoader reducers={reducers} removeAFterUnmount>
-            <div>
+            <Page>
                 <ProfilePageHeader />
                 {validateErrors?.length && validateErrors.map((err) => (
                     <Text
@@ -131,7 +132,7 @@ const ProfilePage: FC<ProfilePageProps> = (props) => {
                     onChangeCurrency={onChangeCurrency}
                     onChangeCountry={onChangeCountry}
                 />
-            </div>
+            </Page>
         </DynamicModuleLoader>
     );
 

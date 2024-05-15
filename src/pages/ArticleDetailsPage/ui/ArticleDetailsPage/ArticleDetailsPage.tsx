@@ -13,6 +13,7 @@ import { AddCommentForm } from 'features/AddCommentForm';
 import { Button } from 'shared/ui/Button';
 import { ButtonTheme } from 'shared/ui/Button/ui/Button';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
+import { Page } from 'shared/ui/Page';
 import {
     fetchCommentsByArticleId,
 } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
@@ -67,9 +68,9 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = (props) => {
     if (!id) {
 
         return (
-            <div className={classNames(cls.articleDetailsPage, {}, [className])}>
+            <Page className={classNames(cls.articleDetailsPage, {}, [className])}>
                 <Text title={t('Cтатья не найдена')} theme={TextTheme.ERROR} />
-            </div>
+            </Page>
         );
 
     }
@@ -78,13 +79,13 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = (props) => {
             removeAFterUnmount
             reducers={reducers}
         >
-            <Button
-                theme={ButtonTheme.OUTLINE}
-                onClick={onClickBackToList}
-            >
-                {t('Вернуться назад')}
-            </Button>
-            <div className={classNames(cls.articleDetailsPage, {}, [className])}>
+            <Page className={classNames(cls.articleDetailsPage, {}, [className])}>
+                <Button
+                    theme={ButtonTheme.OUTLINE}
+                    onClick={onClickBackToList}
+                >
+                    {t('Вернуться назад')}
+                </Button>
                 <ArticleDetails id={id} />
                 <Text className={cls.commentTitle} title={t('Комментарии')} />
                 <AddCommentForm
@@ -94,7 +95,7 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = (props) => {
                     comments={comments}
                     isLoading={commentIsLoading}
                 />
-            </div>
+            </Page>
         </DynamicModuleLoader>
     );
 
