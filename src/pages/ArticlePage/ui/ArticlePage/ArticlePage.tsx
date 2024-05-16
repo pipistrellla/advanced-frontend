@@ -8,14 +8,10 @@ import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEf
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useSelector } from 'react-redux';
 import { Page } from 'shared/ui/Page';
-import { fetchNextArticlePage } from 'pages/ArticlePage/model/services/fetchNextArticlePage/fetchNextArticlePage';
-import { fetchArticlesList } from '../../model/services/fetchArticlesList/fetchArticlesList';
+import { fetchNextArticlePage } from '../../model/services/fetchNextArticlePage/fetchNextArticlePage';
+import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage';
 import {
-    getArticlePageError,
-    getArticlePageHasMore,
-    getArticlePageIsLoading,
-    getArticlePagePageNumber,
-    getArticlePageView,
+    getArticlePageIsLoading, getArticlePageView,
 } from '../../model/selectors/articlesPageSelectors';
 import { articlePageActions, articlePageReducer, getArticles } from '../../model/slices/articlePageSlice';
 import cls from './ArticlePage.module.scss';
@@ -39,18 +35,14 @@ const ArticlePage: FC<ArticlePageProps> = (props) => {
 
     const onLoadNextPart = useCallback(() => {
 
-        dispatch(fetchNextArticlePage());
+        if (__PROJECT__ !== 'storybook')
+            dispatch(fetchNextArticlePage());
 
     }, [dispatch]);
 
     useInitialEffect(() => {
 
-        dispatch(articlePageActions.initState());
-        dispatch(fetchArticlesList(
-            {
-                page: 1,
-            },
-        ));
+        dispatch(initArticlesPage());
 
     });
 
@@ -60,7 +52,7 @@ const ArticlePage: FC<ArticlePageProps> = (props) => {
 
     }, [dispatch]);
     return (
-        <DynamicModuleLoader reducers={reducers} removeAFterUnmount>
+        <DynamicModuleLoader reducers={reducers} removeAFterUnmount={false}>
             <Page onScrollEnd={onLoadNextPart} className={classNames(cls.articlePage, {}, [className])}>
                 <ArticleViewSelector view={view} onCLickView={onClickChangeView} />
                 <ArticleList

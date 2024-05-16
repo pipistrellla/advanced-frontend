@@ -26,7 +26,7 @@ export interface StateSchema{
 }
 
 export type StateSchemaKey = keyof StateSchema;
-
+export type MountedReducers = optionalRecord<StateSchemaKey, boolean>
 export interface ReducerManager {
     getReducerMap: ()=> ReducersMapObject<StateSchema>;
      // функция возвращает стейт а не другие редусеры, поэтому нужно указывать в интерфейсе тип
@@ -34,6 +34,7 @@ export interface ReducerManager {
     reduce: (state: StateSchema, action: AnyAction) => CombinedState<StateSchema> ;
     add: (key:StateSchemaKey, reducer: Reducer) =>void;
     remove: (key:StateSchemaKey)=> void;
+    getMountedReducers:() => MountedReducers ;
 }
 
 // enhancedStore - старндарный тип который аозвращается при создании стора

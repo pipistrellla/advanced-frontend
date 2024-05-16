@@ -29,11 +29,18 @@ const DynamicModuleLoader: FC<DynamicModuleLoaderProps> = (props) => {
     useEffect(
         () => {
 
+            const mountedReducers = store.ReducerManager.getMountedReducers();
             Object.entries(reducers).forEach(([name, reducer]) => {
 
-                store.ReducerManager.add(name as StateSchemaKey, reducer);
-                // выведется при монтировании
-                dispatch({ type: `@INIT  ${name} reducer ` });
+                const mounted = mountedReducers[name as StateSchemaKey];
+                // добавляем редусер если он еще не вмонтирован
+                if (!mounted) {
+
+                    store.ReducerManager.add(name as StateSchemaKey, reducer);
+                    // выведется при монтировании
+                    dispatch({ type: `@INIT  ${name} reducer ` });
+
+                }
 
             });
 
