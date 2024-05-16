@@ -8,6 +8,7 @@ import { ProfileSchema } from 'entitis/Profile';
 import { UserSchema } from 'entitis/User';
 import { addCommentFormSchema } from 'features/AddCommentForm';
 import { LoginSchema } from 'features/AuthByUsername';
+import { ScrollPositionSaveSchema } from 'features/ScrollPositionSave';
 import { ArticleDetailsCommentSchema } from 'pages/ArticleDetailsPage';
 import { ArticlePageSchema } from 'pages/ArticlePage';
 import { NavigateOptions, To } from 'react-router-dom';
@@ -15,7 +16,7 @@ import { NavigateOptions, To } from 'react-router-dom';
 export interface StateSchema{
     counter:CounterSchema
     user: UserSchema
-
+    scrollPosition: ScrollPositionSaveSchema
     // ниже будут все асинхронные редусеры
     loginForm?: LoginSchema
     profile?: ProfileSchema
@@ -34,7 +35,6 @@ export interface ReducerManager {
     reduce: (state: StateSchema, action: AnyAction) => CombinedState<StateSchema> ;
     add: (key:StateSchemaKey, reducer: Reducer) =>void;
     remove: (key:StateSchemaKey)=> void;
-    getMountedReducers:() => MountedReducers ;
 }
 
 // enhancedStore - старндарный тип который аозвращается при создании стора

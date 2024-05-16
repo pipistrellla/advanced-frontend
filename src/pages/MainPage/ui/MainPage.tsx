@@ -1,8 +1,6 @@
-import { Counter } from 'entitis/Counter';
-import React, { FC, useState } from 'react';
+import { FC, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import Input from 'shared/ui/Input/ui/Input';
-import { Page } from 'shared/ui/Page';
+import { Page } from 'widgets/Page';
 import { Text } from 'shared/ui/Text';
 import { BugButton } from 'widgets/PageError';
 

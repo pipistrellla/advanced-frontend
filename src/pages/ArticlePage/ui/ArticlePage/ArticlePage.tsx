@@ -7,7 +7,7 @@ import DynamicModuleLoader, { ReducersList } from 'shared/lib/components/Dynamic
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useSelector } from 'react-redux';
-import { Page } from 'shared/ui/Page';
+import { Page } from 'widgets/Page';
 import { fetchNextArticlePage } from '../../model/services/fetchNextArticlePage/fetchNextArticlePage';
 import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage';
 import {
@@ -27,7 +27,7 @@ const reducers: ReducersList = {
 const ArticlePage: FC<ArticlePageProps> = (props) => {
 
     const { className } = props;
-    const { t } = useTranslation('article');
+    useTranslation('article');
     const dispatch = useAppDispatch();
     const articles = useSelector(getArticles.selectAll);
     const isLoading = useSelector(getArticlePageIsLoading);
