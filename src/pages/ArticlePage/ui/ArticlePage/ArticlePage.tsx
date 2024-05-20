@@ -15,6 +15,7 @@ import {
 } from '../../model/selectors/articlesPageSelectors';
 import { articlePageActions, articlePageReducer, getArticles } from '../../model/slices/articlePageSlice';
 import cls from './ArticlePage.module.scss';
+import { ArticlePageFilters } from '../ArticlePageFilters/ArticlePageFilters';
 
 interface ArticlePageProps {
 className?: string;
@@ -27,7 +28,7 @@ const reducers: ReducersList = {
 const ArticlePage: FC<ArticlePageProps> = (props) => {
 
     const { className } = props;
-    useTranslation('article');
+    const { t } = useTranslation('article');
     const dispatch = useAppDispatch();
     const articles = useSelector(getArticles.selectAll);
     const isLoading = useSelector(getArticlePageIsLoading);
@@ -46,19 +47,15 @@ const ArticlePage: FC<ArticlePageProps> = (props) => {
 
     });
 
-    const onClickChangeView = useCallback((view: ArticleView) => {
-
-        dispatch(articlePageActions.setView(view));
-
-    }, [dispatch]);
     return (
         <DynamicModuleLoader reducers={reducers} removeAFterUnmount={false}>
             <Page onScrollEnd={onLoadNextPart} className={classNames(cls.articlePage, {}, [className])}>
-                <ArticleViewSelector view={view} onCLickView={onClickChangeView} />
+                <ArticlePageFilters />
                 <ArticleList
                     isLoading={isLoading}
                     articles={articles}
                     view={view}
+                    className={cls.list}
                 />
             </Page>
         </DynamicModuleLoader>

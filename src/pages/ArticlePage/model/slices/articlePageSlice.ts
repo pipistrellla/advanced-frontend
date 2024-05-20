@@ -1,8 +1,9 @@
 import { PayloadAction, createEntityAdapter, createSlice } from '@reduxjs/toolkit';
 import { StateSchema } from 'app/providers/StoreProvider';
 import { Article, ArticleView } from 'entitis/Article';
-import { action } from '@storybook/addon-actions';
 import { ARTICLE_VIEW_LOCALSTORAGE_KEY } from 'shared/const/localStorage';
+import { ArticleSortField } from 'entitis/Article/model/types/article';
+import { SortOrder } from 'shared/types';
 import { ArticlePageSchema } from '../types/ArticlePageSchema';
 import { fetchArticlesList } from '../services/fetchArticlesList/fetchArticlesList';
 
@@ -26,6 +27,10 @@ export const articlePageSlice = createSlice({
             page: 1,
             hasMore: true,
             _inited: false,
+            sort: ArticleSortField.CREATED,
+            limit: 9,
+            search: '',
+            order: 'asc',
         },
     ),
     reducers: {
@@ -38,6 +43,21 @@ export const articlePageSlice = createSlice({
         setPage: (state, action: PayloadAction<number>) => {
 
             state.page = action.payload;
+
+        },
+        setOrder: (state, action: PayloadAction<SortOrder>) => {
+
+            state.order = action.payload;
+
+        },
+        setSort: (state, action: PayloadAction<ArticleSortField>) => {
+
+            state.sort = action.payload;
+
+        },
+        setSearch: (state, action: PayloadAction<string>) => {
+
+            state.search = action.payload;
 
         },
         initState: (state) => {
