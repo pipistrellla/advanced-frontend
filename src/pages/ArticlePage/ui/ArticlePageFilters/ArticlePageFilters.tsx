@@ -9,6 +9,7 @@ import { useSelector } from 'react-redux';
 import { Card } from 'shared/ui/Card';
 import Input from 'shared/ui/Input/ui/Input';
 import { SortOrder } from 'shared/types';
+import { fetchArticlesList } from 'pages/ArticlePage/model/services/fetchArticlesList/fetchArticlesList';
 import {
     getArticlePageOrder,
     getArticlePageSearch,
@@ -37,22 +38,34 @@ export const ArticlePageFilters: FC<ArticlePageFiltersProps> = memo((props) => {
 
     }, [dispatch]);
 
+    const fetchData = useCallback(() => {
+
+        dispatch(fetchArticlesList({ replace: true }));
+
+    }, [dispatch]);
+
     const onClickChangeSort = useCallback((newSort: ArticleSortField) => {
 
         dispatch(articlePageActions.setSort(newSort));
+        dispatch(articlePageActions.setPage(1));
+        fetchData();
 
-    }, [dispatch]);
+    }, [dispatch, fetchData]);
     const onClickChangeOrder = useCallback((newOrder: SortOrder) => {
 
         dispatch(articlePageActions.setOrder(newOrder));
+        dispatch(articlePageActions.setPage(1));
+        fetchData();
 
-    }, [dispatch]);
+    }, [dispatch, fetchData]);
 
     const onTypeChangeSearch = useCallback((search: string) => {
 
         dispatch(articlePageActions.setSearch(search));
+        dispatch(articlePageActions.setPage(1));
+        fetchData();
 
-    }, [dispatch]);
+    }, [dispatch, fetchData]);
 
     return (
         <div className={classNames(cls.articlePageFilters, {}, [className])}>
