@@ -3,7 +3,7 @@ import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDeco
 import { Theme } from 'app/providers/ThemeProvider';
 import { Text } from 'shared/ui/Text';
 import { text } from 'stream/consumers';
-import { Card } from './Card';
+import { Card, CardTheme } from './Card';
 
 export default {
     title: 'shared/Card',
@@ -29,5 +29,25 @@ Dark.decorators = [ThemeDecorator(Theme.DARK)];
 export const Green = Template.bind({});
 Green.args = {
     children: <Text title="test title" text="test text" />,
+};
+Green.decorators = [ThemeDecorator(Theme.GREEN)];
+
+export const NormalOutlined = Template.bind({});
+NormalOutlined.args = {
+    children: <Text title="test title" text="test text" />,
+    theme: CardTheme.OUTLINED,
+};
+
+export const DarkOutlined = Template.bind({});
+DarkOutlined.args = {
+    children: <Text title="test title" text="test text" />,
+    theme: CardTheme.OUTLINED,
+};
+DarkOutlined.decorators = [ThemeDecorator(Theme.DARK)];
+
+export const GreenOutlined = Template.bind({});
+GreenOutlined.args = {
+    children: <Text title="test title" text="test text" />,
+    theme: CardTheme.OUTLINED,
 };
 Green.decorators = [ThemeDecorator(Theme.GREEN)];

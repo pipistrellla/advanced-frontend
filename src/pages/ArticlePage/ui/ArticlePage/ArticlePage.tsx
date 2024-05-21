@@ -1,19 +1,19 @@
 import { FC, memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/helpers/ClassNames/ClassNames';
-import { ArticleList, ArticleViewSelector } from 'entitis/Article';
-import { ArticleView } from 'entitis/Article/model/types/article';
+import { ArticleList } from 'entitis/Article';
 import DynamicModuleLoader, { ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useSelector } from 'react-redux';
 import { Page } from 'widgets/Page';
+import { useSearchParams } from 'react-router-dom';
 import { fetchNextArticlePage } from '../../model/services/fetchNextArticlePage/fetchNextArticlePage';
 import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage';
 import {
     getArticlePageIsLoading, getArticlePageView,
 } from '../../model/selectors/articlesPageSelectors';
-import { articlePageActions, articlePageReducer, getArticles } from '../../model/slices/articlePageSlice';
+import { articlePageReducer, getArticles } from '../../model/slices/articlePageSlice';
 import cls from './ArticlePage.module.scss';
 import { ArticlePageFilters } from '../ArticlePageFilters/ArticlePageFilters';
 
@@ -33,6 +33,7 @@ const ArticlePage: FC<ArticlePageProps> = (props) => {
     const articles = useSelector(getArticles.selectAll);
     const isLoading = useSelector(getArticlePageIsLoading);
     const view = useSelector(getArticlePageView);
+    const [searchParams] = useSearchParams();
 
     const onLoadNextPart = useCallback(() => {
 
@@ -43,7 +44,7 @@ const ArticlePage: FC<ArticlePageProps> = (props) => {
 
     useInitialEffect(() => {
 
-        dispatch(initArticlesPage());
+        dispatch(initArticlesPage(searchParams));
 
     });
 
