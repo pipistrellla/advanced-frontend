@@ -19,7 +19,7 @@ export const ArticleTypeTabs: FC<ArticleTypeTabsProps> = memo((props:ArticleType
         value,
         onChangeType,
     } = props;
-    const { t } = useTranslation();
+    const { t } = useTranslation('article');
 
     const onClickChangeType = useCallback((tab: TabItem) => {
 

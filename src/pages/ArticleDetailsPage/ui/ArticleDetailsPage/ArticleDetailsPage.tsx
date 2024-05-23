@@ -120,7 +120,6 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = (props) => {
                     className={cls.recommendations}
                     articles={recommendations}
                     isLoading={recommendationsIsLoading}
-                    // eslint-disable-next-line i18next/no-literal-string
                     target="_blank"
                 />
                 <Text

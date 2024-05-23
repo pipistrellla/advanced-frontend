@@ -1,5 +1,5 @@
 import {
-    FC, HTMLAttributeAnchorTarget, memo
+    FC, HTMLAttributeAnchorTarget, memo,
 } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/helpers/ClassNames/ClassNames';

@@ -19,7 +19,7 @@ interface InputProps extends HTMLInputProps{
     readonly?: boolean
 }
 
-const Input: FC<InputProps> = memo((props) => {
+const Input: FC<InputProps> = memo((props: InputProps) => {
 
     const {
         className,
@@ -33,7 +33,7 @@ const Input: FC<InputProps> = memo((props) => {
     } = props;
 
     const [isFocused, setIsFocused] = useState<boolean>(false);
-    const carreVisible = !readonly;
+    const caretVisible = !readonly;
     const onBlur = () => {
 
         setIsFocused(false);
@@ -86,7 +86,7 @@ const Input: FC<InputProps> = memo((props) => {
                     {...otherProps}
                 />
 
-                {carreVisible && (
+                {caretVisible && (
                     <span
                         className={isFocused ? cls.caretFocus : cls.caret}
                         style={{ left: `${caretPosition * 9}px` }}
