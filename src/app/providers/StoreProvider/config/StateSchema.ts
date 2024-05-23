@@ -9,7 +9,9 @@ import { UserSchema } from 'entitis/User';
 import { addCommentFormSchema } from 'features/AddCommentForm';
 import { LoginSchema } from 'features/AuthByUsername';
 import { ScrollPositionSaveSchema } from 'features/ScrollPositionSave';
-import { ArticleDetailsCommentSchema } from 'pages/ArticleDetailsPage';
+import {
+    ArticleDetailsPageSchema,
+} from 'pages/ArticleDetailsPage';
 import { ArticlePageSchema } from 'pages/ArticlePage';
 import { NavigateOptions, To } from 'react-router-dom';
 
@@ -21,9 +23,9 @@ export interface StateSchema{
     loginForm?: LoginSchema
     profile?: ProfileSchema
     articleDetails?: ArticleDetailsSchema
-    articleDetailsComments?: ArticleDetailsCommentSchema
     addCommentForm?: addCommentFormSchema
     articlePage?: ArticlePageSchema
+    articleDetailsPage?: ArticleDetailsPageSchema
 }
 
 export type StateSchemaKey = keyof StateSchema;

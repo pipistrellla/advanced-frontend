@@ -1,11 +1,23 @@
-import { FC, memo, useCallback } from 'react';
+import {
+    FC,
+    memo,
+    useCallback,
+} from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/helpers/ClassNames/ClassNames';
-import { ArticleDetails } from 'entitis/Article';
-import { useNavigate, useParams } from 'react-router-dom';
-import { Text, TextTheme } from 'shared/ui/Text';
+import { ArticleDetails, ArticleList } from 'entitis/Article';
+import {
+    useNavigate,
+    useParams,
+} from 'react-router-dom';
+import {
+    Text,
+    TextTheme,
+} from 'shared/ui/Text';
 import { CommentList } from 'entitis/Comment';
-import DynamicModuleLoader, { ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import DynamicModuleLoader, {
+    ReducersList,
+} from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useSelector } from 'react-redux';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
@@ -14,6 +26,17 @@ import { Button } from 'shared/ui/Button';
 import { ButtonTheme } from 'shared/ui/Button/ui/Button';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { Page } from 'widgets/Page';
+import { TextSize } from 'shared/ui/Text/ui/Text';
+import { articleDetailsPageReducer } from '../../model/slice';
+import {
+    fetchArticlesRecommendations,
+} from '../../model/services/fetchArticleRecommendations/fetchArticleRecommendations';
+import {
+    getArticleRecommendationsCommentsIsLoading,
+} from '../../model/selectors/recommendations';
+import {
+    getArticleRecommendations,
+} from '../../model/slice/articleDetailsPageRecommendationsSlice';
 import {
     fetchCommentsByArticleId,
 } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
@@ -24,9 +47,7 @@ import {
     getArticleCommentsError,
     getArticleCommentsIsLoading,
 } from '../../model/selectors/comments';
-import {
-    articleDetailsCommentsReducer, getArticleComments,
-} from '../../model/slice/articleDetailsCommentsSlice';
+import { getArticleComments } from '../../model/slice/articleDetailsCommentsSlice';
 import cls from './ArticleDetailsPage.module.scss';
 
 interface ArticleDetailsPageProps {
@@ -34,7 +55,7 @@ interface ArticleDetailsPageProps {
 }
 
 const reducers : ReducersList = {
-    articleDetailsComments: articleDetailsCommentsReducer,
+    articleDetailsPage: articleDetailsPageReducer,
 };
 
 const ArticleDetailsPage: FC<ArticleDetailsPageProps> = (props) => {
@@ -45,6 +66,8 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = (props) => {
     const comments = useSelector(getArticleComments.selectAll);
     const commentIsLoading = useSelector(getArticleCommentsIsLoading);
     const commentError = useSelector(getArticleCommentsError);
+    const recommendations = useSelector(getArticleRecommendations.selectAll);
+    const recommendationsIsLoading = useSelector(getArticleRecommendationsCommentsIsLoading);
     const dispatch = useAppDispatch();
     const navigate = useNavigate();
     const onClickBackToList = useCallback(() => {
@@ -62,6 +85,7 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = (props) => {
     useInitialEffect(() => {
 
         dispatch(fetchCommentsByArticleId(id));
+        dispatch(fetchArticlesRecommendations());
 
     });
 
@@ -87,7 +111,23 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = (props) => {
                     {t('Вернуться назад')}
                 </Button>
                 <ArticleDetails id={id} />
-                <Text className={cls.commentTitle} title={t('Комментарии')} />
+                <Text
+                    size={TextSize.L}
+                    className={cls.commentTitle}
+                    title={t('Рекомендуем')}
+                />
+                <ArticleList
+                    className={cls.recommendations}
+                    articles={recommendations}
+                    isLoading={recommendationsIsLoading}
+                    // eslint-disable-next-line i18next/no-literal-string
+                    target="_blank"
+                />
+                <Text
+                    size={TextSize.L}
+                    className={cls.commentTitle}
+                    title={t('Комментарии')}
+                />
                 <AddCommentForm
                     onSendComment={onSendComment}
                 />
