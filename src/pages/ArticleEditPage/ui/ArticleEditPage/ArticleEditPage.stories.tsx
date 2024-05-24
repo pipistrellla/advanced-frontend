@@ -1,4 +1,5 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
 import ArticleEditPage from './ArticleEditPage';
 
 export default {
@@ -15,3 +16,11 @@ export const Normal = Template.bind({});
 Normal.args = {
 
 };
+
+Normal.decorators = [StoreDecorator({
+    articleDetails: {
+        data: {
+            id: '1',
+        },
+    },
+})];

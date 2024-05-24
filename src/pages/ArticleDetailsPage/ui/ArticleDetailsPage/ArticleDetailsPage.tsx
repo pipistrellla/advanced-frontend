@@ -88,6 +88,7 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = (props) => {
 
         return (
             <Page className={classNames(cls.articleDetailsPage, {}, [className])}>
+                <ArticleDetailsPageHeader />
                 <Text title={t('Cтатья не найдена')} theme={TextTheme.ERROR} />
             </Page>
         );
