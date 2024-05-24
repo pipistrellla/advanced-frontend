@@ -37,16 +37,16 @@ TextDarkOnly.args = {
 };
 TextDarkOnly.decorators = [ThemeDecorator(Theme.DARK)];
 
-export const TitileOnly = Template.bind({});
-TitileOnly.args = {
+export const TitleOnly = Template.bind({});
+TitleOnly.args = {
     title: 'test text',
 };
 
-export const TitileDarkOnly = Template.bind({});
-TitileDarkOnly.args = {
+export const TitleDarkOnly = Template.bind({});
+TitleDarkOnly.args = {
     title: 'test text',
 };
-TitileDarkOnly.decorators = [ThemeDecorator(Theme.DARK)];
+TitleDarkOnly.decorators = [ThemeDecorator(Theme.DARK)];
 
 export const ErrorAll = Template.bind({});
 ErrorAll.args = {
@@ -82,12 +82,12 @@ ErrorTitle.args = {
     theme: TextTheme.ERROR,
 };
 
-export const ErrorTtitleDark = Template.bind({});
-ErrorTtitleDark.args = {
+export const ErrorTitleDark = Template.bind({});
+ErrorTitleDark.args = {
     title: 'error test text',
     theme: TextTheme.ERROR,
 };
-ErrorTtitleDark.decorators = [ThemeDecorator(Theme.DARK)];
+ErrorTitleDark.decorators = [ThemeDecorator(Theme.DARK)];
 
 export const GreenTextTheme = Template.bind({});
 GreenTextTheme.args = {
@@ -108,4 +108,11 @@ TextSizeL.args = {
     text: 'test text',
     title: 'test text',
     size: TextSize.L,
+};
+
+export const invertedText = Template.bind({});
+invertedText.args = {
+    title: 'error test text',
+    text: 'error test text',
+    theme: TextTheme.INVERTED,
 };
