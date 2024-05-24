@@ -102,7 +102,6 @@ export const Small = Template.bind({});
 Small.args = {
     article: testData,
     view: ArticleView.SMALL,
-
 };
 
 export const Dark = Template.bind({});

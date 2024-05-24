@@ -46,6 +46,22 @@ PrimaryThemeDark.args = {
 
 PrimaryThemeDark.decorators = [ThemeDecorator(Theme.DARK)];
 
+export const PrimaryThemeGreen = Template.bind({});
+PrimaryThemeGreen.args = {
+    data: {
+        age: 10,
+        city: 'Ekaterinburg',
+        username: 'test',
+        lastname: 'test',
+        country: Country.Russia,
+        first: 'test',
+        currency: Currency.JPY,
+        avatar,
+    },
+};
+
+PrimaryThemeGreen.decorators = [ThemeDecorator(Theme.GREEN)];
+
 export const PrimaryWithError = Template.bind({});
 PrimaryWithError.args = {
     error: 'true',
@@ -57,6 +73,12 @@ DarkWithError.args = {
 };
 DarkWithError.decorators = [ThemeDecorator(Theme.DARK)];
 
+export const GreenWithError = Template.bind({});
+GreenWithError.args = {
+    error: 'true',
+};
+GreenWithError.decorators = [ThemeDecorator(Theme.GREEN)];
+
 export const PrimaryLoading = Template.bind({});
 PrimaryLoading.args = {
     isLoading: true,
@@ -67,3 +89,9 @@ DarkLoading.args = {
     isLoading: true,
 };
 DarkLoading.decorators = [ThemeDecorator(Theme.DARK)];
+
+export const GreenLoading = Template.bind({});
+GreenLoading.args = {
+    isLoading: true,
+};
+GreenLoading.decorators = [ThemeDecorator(Theme.GREEN)];
