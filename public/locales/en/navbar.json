@@ -4,6 +4,7 @@
     "введите пароль": "enter password",
     "Форма авторизации": "Authorization Form",
     "Выйти": "Log out",
-    "вы ввели неверный логин или пароль": "wrong username or password"
+    "вы ввели неверный логин или пароль": "wrong username or password",
+    "Создать статью": "Create article"
 
 }

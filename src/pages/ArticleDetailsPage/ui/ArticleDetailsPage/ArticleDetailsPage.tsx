@@ -49,6 +49,7 @@ import {
 } from '../../model/selectors/comments';
 import { getArticleComments } from '../../model/slice/articleDetailsCommentsSlice';
 import cls from './ArticleDetailsPage.module.scss';
+import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
 
 interface ArticleDetailsPageProps {
     className?: string;
@@ -69,12 +70,6 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = (props) => {
     const recommendations = useSelector(getArticleRecommendations.selectAll);
     const recommendationsIsLoading = useSelector(getArticleRecommendationsCommentsIsLoading);
     const dispatch = useAppDispatch();
-    const navigate = useNavigate();
-    const onClickBackToList = useCallback(() => {
-
-        navigate(RoutePath.articles);
-
-    }, [navigate]);
 
     const onSendComment = useCallback((text: string) => {
 
@@ -104,12 +99,7 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = (props) => {
             reducers={reducers}
         >
             <Page className={classNames(cls.articleDetailsPage, {}, [className])}>
-                <Button
-                    theme={ButtonTheme.OUTLINE}
-                    onClick={onClickBackToList}
-                >
-                    {t('Вернуться назад')}
-                </Button>
+                <ArticleDetailsPageHeader />
                 <ArticleDetails id={id} />
                 <Text
                     size={TextSize.L}

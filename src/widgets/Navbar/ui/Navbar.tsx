@@ -1,4 +1,4 @@
-import React, {
+import {
     FC, memo, useCallback, useState,
 } from 'react';
 import { classNames } from 'shared/lib/helpers/ClassNames/ClassNames';
@@ -8,6 +8,9 @@ import { ButtonTheme } from 'shared/ui/Button/ui/Button';
 import { LoginModal } from 'features/AuthByUsername';
 import { useDispatch, useSelector } from 'react-redux';
 import { getUserAuthData, userActions } from 'entitis/User';
+import { Text, TextTheme } from 'shared/ui/Text';
+import { RoutePath } from 'shared/config/routeConfig/routeConfig';
+import AppLink, { AppLinkTheme } from 'shared/ui/AppLink/AppLink';
 import cls from './Navbar.module.scss';
 
 interface NavbarProps {
@@ -43,6 +46,18 @@ export const Navbar: FC<NavbarProps> = memo(({ className }: NavbarProps) => {
 
         return (
             <header className={classNames(cls.navbar, {}, [className])}>
+                <Text
+                    theme={TextTheme.INVERTED}
+                    className={cls.appName}
+                    title={t('Advanced-project')}
+                />
+                <AppLink
+                    to={RoutePath.article_create}
+                    theme={AppLinkTheme.SECONDARY}
+                    className={cls.createLink}
+                >
+                    {t('Создать статью')}
+                </AppLink>
                 <Button
                     theme={ButtonTheme.CLEAR_INVERTED}
                     className={cls.links}

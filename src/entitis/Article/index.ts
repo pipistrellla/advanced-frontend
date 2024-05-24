@@ -22,3 +22,9 @@ export { ArticleViewSelector };
 export { ArticleSortSelector };
 
 export { ArticleTypeTabs };
+
+export {
+    getArticleDetailsData,
+    getArticleDetailsError,
+    getArticleDetailsIsLoading,
+} from './model/selectors/articleDetails';
