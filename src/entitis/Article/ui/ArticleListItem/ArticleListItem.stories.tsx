@@ -1,9 +1,9 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import {
-    ArticleType, ArticleBlockType, Article, ArticleView,
-} from 'entitis/Article/model/types/article';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
+import {
+    ArticleType, ArticleBlockType, Article, ArticleView,
+} from '../../model/types/article';
 import { ArticleListItem } from './ArticleListItem';
 
 export default {

@@ -1,7 +1,7 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { Comment } from 'entitis/Comment/model/types/comment';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
+import { Comment } from '../../model/types/comment';
 import { CommentList } from './CommentList';
 
 export default {

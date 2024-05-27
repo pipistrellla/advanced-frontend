@@ -2,7 +2,7 @@ import React, {
     FC, InputHTMLAttributes, memo, useState,
 } from 'react';
 import { Mods, classNames } from 'shared/lib/helpers/ClassNames/ClassNames';
-import { Text } from 'shared/ui/Text';
+import { Text } from '../../Text';
 import cls from './Input.module.scss';
 /* eslint react/prop-types: 0 */
 // Omit забирает все свойства кроме введенных (первый аргумент - что берем

@@ -5,8 +5,8 @@ import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/helpers/ClassNames/ClassNames';
 import { Select } from 'shared/ui/Select';
 import { SelectOptions } from 'shared/ui/Select/ui/Select';
-import { ArticleSortField } from 'entitis/Article/model/types/article';
 import { SortOrder } from 'shared/types';
+import { ArticleSortField } from '../../model/types/article';
 import cls from './ArticleSortSelector.module.scss';
 
 interface ArticleSortSelectorProps {

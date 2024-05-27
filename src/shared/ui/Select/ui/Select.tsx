@@ -2,7 +2,7 @@ import React, {
     ChangeEvent, FC, useMemo,
 } from 'react';
 import { Mods, classNames } from 'shared/lib/helpers/ClassNames/ClassNames';
-import { Text } from 'shared/ui/Text';
+import { Text } from '../../Text';
 import cls from './Select.module.scss';
 
 export interface SelectOptions<T extends string> {

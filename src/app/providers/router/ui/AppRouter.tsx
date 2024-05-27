@@ -1,4 +1,4 @@
-import { PageLoader } from 'shared/ui/PageLoader';
+import { PageLoader } from 'widgets/PageLoader';
 import React, {
     FC, Suspense, memo, useCallback,
 } from 'react';

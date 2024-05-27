@@ -2,8 +2,8 @@ import React, {
     FC, MutableRefObject, ReactNode, useCallback, useEffect, useRef, useState,
 } from 'react';
 import { Mods, classNames } from 'shared/lib/helpers/ClassNames/ClassNames';
-import { Portal } from 'shared/ui/Portal';
 import { useTheme } from 'app/providers/ThemeProvider';
+import { Portal } from '../../Portal';
 import cls from './Modal.module.scss';
 
 interface modalProps {

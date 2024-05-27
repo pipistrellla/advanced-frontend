@@ -23,6 +23,7 @@ module.exports = {
         '@typescript-eslint',
         'i18next',
         'react-hooks',
+        'ulbi-tv-plugin',
     ],
     rules: {
         'react/jsx-indent': [2, 4],
@@ -64,6 +65,7 @@ module.exports = {
         'max-len': ['error', { code: 120 }],
         'no-undef': 'off',
         'react/no-array-index-key': 'off',
+        'ulbi-tv-plugin/path-checker': 'error',
 
     },
     globals: {

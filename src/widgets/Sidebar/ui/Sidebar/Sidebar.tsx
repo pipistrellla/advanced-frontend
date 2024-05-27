@@ -2,7 +2,7 @@ import React, {
     FC, memo, useMemo, useState,
 } from 'react';
 import { classNames } from 'shared/lib/helpers/ClassNames/ClassNames';
-import { ThemeSwitcher } from 'shared/ui/ThemeSwitcher';
+import { ThemeSwitcher } from 'widgets/ThemeSwitcher';
 import { LangSwitcher } from 'shared/ui/LangSwitcher';
 import { Button } from 'shared/ui/Button';
 import { ButtonSize, ButtonTheme } from 'shared/ui/Button/ui/Button';
