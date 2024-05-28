@@ -96,6 +96,13 @@ GreenTextTheme.args = {
 };
 GreenTextTheme.decorators = [ThemeDecorator(Theme.GREEN)];
 
+export const TextSizeS = Template.bind({});
+TextSizeS.args = {
+    text: 'test text',
+    title: 'test text',
+    size: TextSize.S,
+};
+
 export const TextSizeM = Template.bind({});
 TextSizeM.args = {
     text: 'test text',
