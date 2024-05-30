@@ -2,6 +2,7 @@ import {
     FC, Fragment, memo, useState,
 } from 'react';
 import { Listbox as HLisBox } from '@headlessui/react';
+import { DropdownDirection } from 'shared/types/ui';
 import { classNames } from '../../../lib/helpers/ClassNames/ClassNames';
 import { HStack } from '../../../ui/Stack';
 import { Text } from '../../../ui/Text';
@@ -9,8 +10,6 @@ import { Button } from '../../../ui/Button';
 import { Icon } from '../../../ui/Icon';
 import cls from './ListBox.module.scss';
 import Selected from '../../../assets/icons/selected.svg';
-
-type DropdownDirection = 'top' | 'bottom'
 
 export interface ListBoxItem {
     value: string
@@ -30,8 +29,10 @@ interface ListBoxProps {
 }
 
 const mapDirectionClass: Record<DropdownDirection, string> = {
-    bottom: cls.optionsBottom,
-    top: cls.optionsTop,
+    'bottom left': cls.optionsBottomLeft,
+    'bottom right': cls.optionsBottomRight,
+    'top left': cls.optionsTopLeft,
+    'top right': cls.optionsTopRight,
 };
 
 export const ListBox: FC<ListBoxProps> = (props) => {
@@ -44,9 +45,10 @@ export const ListBox: FC<ListBoxProps> = (props) => {
         value,
         label,
         readonly,
-        direction = 'bottom',
+        direction = 'bottom right',
         onChange,
     } = props;
+
     const optionClasses = [mapDirectionClass[direction]];
 
     return (

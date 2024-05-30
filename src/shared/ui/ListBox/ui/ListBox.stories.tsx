@@ -9,6 +9,9 @@ export default {
     argTypes: {
         backgroundColor: { control: 'color' },
     },
+    decorators: [
+        (Story) => <div style={{ padding: 100 }}><Story /></div>,
+    ],
 } as ComponentMeta<typeof ListBox>;
 
 const testData: ListBoxItem[] = [
@@ -67,12 +70,36 @@ Readonly.args = {
     value: undefined,
 };
 
-export const TopDirection = Template.bind({});
-TopDirection.args = {
+export const TopRightDirection = Template.bind({});
+TopRightDirection.args = {
     items: testData,
     defaultValue: testData[0].value,
     value: undefined,
-    direction: 'top',
+    direction: 'top right',
+};
+
+export const TopLeftDirection = Template.bind({});
+TopLeftDirection.args = {
+    items: testData,
+    defaultValue: testData[0].value,
+    value: undefined,
+    direction: 'top left',
+};
+
+export const BotRightDirection = Template.bind({});
+BotRightDirection.args = {
+    items: testData,
+    defaultValue: testData[0].value,
+    value: undefined,
+    direction: 'bottom right',
+};
+
+export const BotLeftDirection = Template.bind({});
+BotLeftDirection.args = {
+    items: testData,
+    defaultValue: testData[0].value,
+    value: undefined,
+    direction: 'bottom left',
 };
 
 export const NoLabel = Template.bind({});

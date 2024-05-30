@@ -11,6 +11,9 @@ import { getUserAuthData, userActions } from 'entitis/User';
 import { Text, TextTheme } from 'shared/ui/Text';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import AppLink, { AppLinkTheme } from 'shared/ui/AppLink/AppLink';
+import { Dropdown } from 'shared/ui/Dropdown';
+import { Avatar } from 'shared/ui/Avatar';
+import { DropdownItem } from 'shared/ui/Dropdown/ui/Dropdown';
 import cls from './Navbar.module.scss';
 
 interface NavbarProps {
@@ -42,6 +45,19 @@ export const Navbar: FC<NavbarProps> = memo(({ className }: NavbarProps) => {
 
     }, [dispatch]);
 
+    const dropdownItems:DropdownItem[] = authData?.id
+        ? [
+            {
+                content: t('Профиль'),
+                href: RoutePath.profile + authData.id,
+            },
+            {
+                content: t('Выйти'),
+                onClick: onLogOut,
+            },
+        ]
+        : [];
+
     if (authData) {
 
         return (
@@ -58,13 +74,17 @@ export const Navbar: FC<NavbarProps> = memo(({ className }: NavbarProps) => {
                 >
                     {t('Создать статью')}
                 </AppLink>
-                <Button
-                    theme={ButtonTheme.CLEAR_INVERTED}
-                    className={cls.links}
-                    onClick={onLogOut}
-                >
-                    {t('Выйти')}
-                </Button>
+                <Dropdown
+                    direction="bottom left"
+                    className={cls.dropdown}
+                    items={dropdownItems}
+                    trigger={(
+                        <Avatar
+                            size={30}
+                            src={authData.avatar}
+                        />
+                    )}
+                />
             </header>
         );
 
