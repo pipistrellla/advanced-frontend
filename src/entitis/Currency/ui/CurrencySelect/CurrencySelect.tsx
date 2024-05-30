@@ -46,7 +46,7 @@ const CurrencySelect: FC<CurrencySelectProps> = memo((props:CurrencySelectProps)
             value={value}
             onChange={onChangeHandler}
             label={t('Ваша валюта')}
-            direction="bottom right"
+            direction="top right"
         />
 
     // <Select
