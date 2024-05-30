@@ -5,6 +5,7 @@ import React, {
 import { Select } from 'shared/ui/Select';
 import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/helpers/ClassNames/ClassNames';
+import { ListBox } from 'shared/ui/ListBox';
 import { Currency } from '../../model/types/currency';
 
 interface CurrencySelectProps {
@@ -36,14 +37,26 @@ const CurrencySelect: FC<CurrencySelectProps> = memo((props:CurrencySelectProps)
     }, [onChange]);
 
     return (
-        <Select
-            className={classNames('', {}, [className])}
-            label={t('Ваша валюта')}
-            options={options}
+
+        <ListBox
+            readonly={readonly}
+            className={className}
+            defaultValue={t('Укажите валюту')}
+            items={options}
             value={value}
             onChange={onChangeHandler}
-            readonly={readonly}
+            label={t('Ваша валюта')}
+            direction="top"
         />
+
+    // <Select
+    //     className={classNames('', {}, [className])}
+    //     label={t('Ваша валюта')}
+    //     options={options}
+    //     value={value}
+    //     onChange={onChangeHandler}
+    //     readonly={readonly}
+    // />
 
     );
 
