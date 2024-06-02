@@ -7,7 +7,6 @@ import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/helpers/ClassNames/ClassNames';
 import { ArticleDetails, ArticleList } from 'entitis/Article';
 import {
-    useNavigate,
     useParams,
 } from 'react-router-dom';
 import {
@@ -22,12 +21,10 @@ import { useSelector } from 'react-redux';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { AddCommentForm } from 'features/AddCommentForm';
-import { Button } from 'shared/ui/Button';
-import { ButtonTheme } from 'shared/ui/Button/ui/Button';
-import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { Page } from 'widgets/Page';
 import { TextSize } from 'shared/ui/Text/ui/Text';
 import { VStack } from 'shared/ui/Stack';
+import { ArticleRecommendationsList } from 'features/ArticleRecommendationsList';
 import { articleDetailsPageReducer } from '../../model/slice';
 import {
     fetchArticlesRecommendations,
@@ -68,8 +65,6 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = (props) => {
     const comments = useSelector(getArticleComments.selectAll);
     const commentIsLoading = useSelector(getArticleCommentsIsLoading);
     const commentError = useSelector(getArticleCommentsError);
-    const recommendations = useSelector(getArticleRecommendations.selectAll);
-    const recommendationsIsLoading = useSelector(getArticleRecommendationsCommentsIsLoading);
     const dispatch = useAppDispatch();
 
     const onSendComment = useCallback((text: string) => {
@@ -81,7 +76,6 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = (props) => {
     useInitialEffect(() => {
 
         dispatch(fetchCommentsByArticleId(id));
-        dispatch(fetchArticlesRecommendations());
 
     });
 
@@ -107,17 +101,7 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = (props) => {
                 >
                     <ArticleDetailsPageHeader />
                     <ArticleDetails id={id} />
-                    <Text
-                        size={TextSize.L}
-                        className={cls.commentTitle}
-                        title={t('Рекомендуем')}
-                    />
-                    <ArticleList
-                        className={cls.recommendations}
-                        articles={recommendations}
-                        isLoading={recommendationsIsLoading}
-                        target="_blank"
-                    />
+                    <ArticleRecommendationsList />
                     <Text
                         size={TextSize.L}
                         className={cls.commentTitle}

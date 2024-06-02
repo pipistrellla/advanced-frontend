@@ -14,11 +14,16 @@ import {
 } from 'pages/ArticleDetailsPage';
 import { ArticlePageSchema } from 'pages/ArticlePage';
 import { NavigateOptions, To } from 'react-router-dom';
+import { rtkApi } from 'shared/api/rtkApi';
 
 export interface StateSchema{
     counter:CounterSchema
     user: UserSchema
     scrollPosition: ScrollPositionSaveSchema
+
+    // rtk
+    [rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>
+
     // ниже будут все асинхронные редусеры
     loginForm?: LoginSchema
     profile?: ProfileSchema
@@ -26,6 +31,7 @@ export interface StateSchema{
     addCommentForm?: addCommentFormSchema
     articlePage?: ArticlePageSchema
     articleDetailsPage?: ArticleDetailsPageSchema
+
 }
 
 export type StateSchemaKey = keyof StateSchema;
