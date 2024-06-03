@@ -21,7 +21,6 @@ import { getProfileIsLoading } from '../../model/selectors/getProfileIsLoading/g
 import { getProfileReadonly } from '../../model/selectors/getProfileReadonly/getProfileReadonly';
 import { getProfileValidateError } from '../../model/selectors/getProfileValidateError/getProfileValidateError';
 
-import cls from './EditableProfileCard.module.scss';
 import { EditableProfileCardHeader } from '../EditableProfileCardHeader/EditableProfileCardHeader';
 
 interface EditableProfileCardProps {
@@ -115,7 +114,7 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
             <VStack
                 gap="8"
                 max
-                className={classNames(cls.EditableProfileCard, {}, [className])}
+                className={classNames('', {}, [className])}
             >
                 <EditableProfileCardHeader />
                 {validateErrors?.length && validateErrors.map((err) => (
