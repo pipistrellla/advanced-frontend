@@ -4,11 +4,12 @@ import {
 import { AxiosInstance } from 'axios';
 import { ArticleDetailsSchema } from 'entitis/Article';
 import { CounterSchema } from 'entitis/Counter';
-import { ProfileSchema } from 'entitis/Profile';
+
 import { UserSchema } from 'entitis/User';
 import { addCommentFormSchema } from 'features/AddCommentForm';
 import { LoginSchema } from 'features/AuthByUsername';
 import { ScrollPositionSaveSchema } from 'features/ScrollPositionSave';
+import { ProfileSchema } from 'features/editableProfileCard';
 import {
     ArticleDetailsPageSchema,
 } from 'pages/ArticleDetailsPage';

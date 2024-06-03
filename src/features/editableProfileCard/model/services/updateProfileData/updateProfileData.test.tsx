@@ -2,7 +2,7 @@ import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncThunk/TestAsyncThunc';
 import { Country } from 'entitis/Country';
 import { Currency } from 'entitis/Currency';
 import { updateProfileData } from './updateProfileData';
-import { ValidateProfileError } from '../../types/profile';
+import { ValidateProfileError } from '../../types/editableProfileCardSchema';
 
 const data = {
     age: 10,

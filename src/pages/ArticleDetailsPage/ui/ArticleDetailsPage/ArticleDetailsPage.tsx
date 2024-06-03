@@ -1,7 +1,6 @@
 import {
     FC,
     memo,
-    useCallback,
 } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/helpers/ClassNames/ClassNames';
@@ -16,24 +15,10 @@ import {
 import DynamicModuleLoader, {
     ReducersList,
 } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { useSelector } from 'react-redux';
-import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Page } from 'widgets/Page';
 import { VStack } from 'shared/ui/Stack';
 import { ArticleRecommendationsList } from 'features/ArticleRecommendationsList';
 import { articleDetailsPageReducer } from '../../model/slice';
-import {
-    fetchCommentsByArticleId,
-} from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
-import {
-    addCommentFormArticle,
-} from '../../model/services/addCommentFormArticle/addCommentFormArticle';
-import {
-    getArticleCommentsError,
-    getArticleCommentsIsLoading,
-} from '../../model/selectors/comments';
-import { getArticleComments } from '../../model/slice/articleDetailsCommentsSlice';
 import cls from './ArticleDetailsPage.module.scss';
 import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
 import { ArticleDetailsComments } from '../ArticleDetailsComments/ArticleDetailsComments';

@@ -8,11 +8,11 @@ import { TextSize } from 'shared/ui/Text/ui/Text';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useSelector } from 'react-redux';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
+import { VStack } from 'shared/ui/Stack';
 import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
 import { addCommentFormArticle } from '../../model/services/addCommentFormArticle/addCommentFormArticle';
 import { getArticleComments } from '../../model/slice/articleDetailsCommentsSlice';
 import { getArticleCommentsIsLoading, getArticleCommentsError } from '../../model/selectors/comments';
-import cls from './ArticleDetailsComments.module.scss';
 
 interface ArticleDetailsCommentsProps {
     className?: string;
@@ -22,7 +22,7 @@ interface ArticleDetailsCommentsProps {
 export const ArticleDetailsComments: FC<ArticleDetailsCommentsProps> = memo((props: ArticleDetailsCommentsProps) => {
 
     const { className, id } = props;
-    const { t } = useTranslation();
+    const { t } = useTranslation('article');
     const dispatch = useAppDispatch();
 
     const comments = useSelector(getArticleComments.selectAll);
@@ -42,10 +42,13 @@ export const ArticleDetailsComments: FC<ArticleDetailsCommentsProps> = memo((pro
     });
 
     return (
-        <div className={classNames(cls.articleDetailsComments, {}, [className])}>
+        <VStack
+            gap="16"
+            max
+            className={classNames('', {}, [className])}
+        >
             <Text
                 size={TextSize.L}
-                className={cls.commentTitle}
                 title={t('Комментарии')}
             />
             <AddCommentForm
@@ -55,7 +58,7 @@ export const ArticleDetailsComments: FC<ArticleDetailsCommentsProps> = memo((pro
                 comments={comments}
                 isLoading={commentIsLoading}
             />
-        </div>
+        </VStack>
     );
 
 });
