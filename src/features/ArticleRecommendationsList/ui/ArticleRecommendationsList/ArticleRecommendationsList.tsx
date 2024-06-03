@@ -29,7 +29,7 @@ export const ArticleRecommendationsList = memo((props: ArticleRecommendationsLis
 
     }
 
-    if (error) {
+    if (error || !articles) {
 
         return (
             <VStack><Text title={t('Произошла ошибка')} /></VStack>
