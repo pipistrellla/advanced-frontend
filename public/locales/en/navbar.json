@@ -6,5 +6,6 @@
     "Выйти": "Log out",
     "вы ввели неверный логин или пароль": "wrong username or password",
     "Создать статью": "Create article",
-    "Профиль": "Profile"
+    "Профиль": "Profile",
+    "Админка" : "Admin Panel"
 }

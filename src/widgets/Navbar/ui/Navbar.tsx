@@ -7,7 +7,9 @@ import { Button } from 'shared/ui/Button';
 import { ButtonTheme } from 'shared/ui/Button/ui/Button';
 import { LoginModal } from 'features/AuthByUsername';
 import { useDispatch, useSelector } from 'react-redux';
-import { getUserAuthData, userActions } from 'entitis/User';
+import {
+    getUserAuthData, isUserAdmin, isUserManager, userActions,
+} from 'entitis/User';
 import { Text, TextTheme } from 'shared/ui/Text';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import AppLink, { AppLinkTheme } from 'shared/ui/AppLink/AppLink';
@@ -45,8 +47,19 @@ export const Navbar: FC<NavbarProps> = memo(({ className }: NavbarProps) => {
 
     }, [dispatch]);
 
+    const isAdmin = useSelector(isUserAdmin);
+    const isManager = useSelector(isUserManager);
+
+    const isAdminPanelAvailable = isAdmin || isManager;
+
     const dropdownItems:DropdownItem[] = authData?.id
         ? [
+            ...(isAdminPanelAvailable
+                ? [{
+                    content: t('Админка'),
+                    href: RoutePath.admin_panel,
+                }]
+                : []),
             {
                 content: t('Профиль'),
                 href: RoutePath.profile + authData.id,

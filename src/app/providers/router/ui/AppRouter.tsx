@@ -5,6 +5,7 @@ import React, {
 import { Routes, Route } from 'react-router-dom';
 import { AppRoutesProps, routeConfig } from 'shared/config/routeConfig/routeConfig';
 import { RequireAuth } from './RequireAuth';
+import { RequireRole } from './RequireRole';
 
 interface AppRouterProps {
 
@@ -25,7 +26,13 @@ const AppRouter: FC<AppRouterProps> = () => {
                 key={route.path}
                 path={route.path}
                 element={
-                    route.authOnly ? <RequireAuth>{element}</RequireAuth> : element
+                    route.authOnly ? (
+                        <RequireAuth>
+                            <RequireRole roles={route.roles}>
+                                {element}
+                            </RequireRole>
+                        </RequireAuth>
+                    ) : element
                 }
             />
         );

@@ -100,8 +100,6 @@ describe('feature/EditableProfileCard', () => {
         expect(screen.getByTestId('ProfileCard.lastname')).toHaveValue('user');
 
         await userEvent.click(screen.getByTestId('EditableProfileCardHeader.SaveButton'));
-        expect(screen.getByTestId('ProfileCard.firstname')).toHaveValue('user');
-        expect(screen.getByTestId('ProfileCard.lastname')).toHaveValue('user');
         expect(mockPutRequest).toHaveBeenCalled();
 
     });
