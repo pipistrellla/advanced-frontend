@@ -7,12 +7,15 @@ export {
     ArticleDetails,
 } from './ui/ArticleDetails/ArticleDetails';
 
-export {
+export type {
     Article,
+} from './model/types/article';
+
+export {
     ArticleView,
     ArticleSortField,
     ArticleType,
-} from './model/types/article';
+} from './model/consts/consts';
 
 export type { ArticleDetailsSchema } from './model/types/articleDetailsSchema';
 

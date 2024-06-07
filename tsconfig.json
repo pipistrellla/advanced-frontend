@@ -22,7 +22,8 @@
         // заменяет require 
         "esModuleInterop":true,
         // поддержка дефолтного импорта(когда его нет)
-        "allowSyntheticDefaultImports": true
+        "allowSyntheticDefaultImports": true,
+        "isolatedModules": true
     },
     "ts-node": {
         "compilerOptions": {

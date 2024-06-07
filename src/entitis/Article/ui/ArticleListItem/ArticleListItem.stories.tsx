@@ -2,7 +2,12 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
 import {
-    ArticleType, ArticleBlockType, Article, ArticleView,
+    ArticleBlockType,
+    ArticleType,
+    ArticleView,
+} from '../../model/consts/consts';
+import {
+    Article,
 } from '../../model/types/article';
 import { ArticleListItem } from './ArticleListItem';
 

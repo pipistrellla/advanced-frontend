@@ -13,7 +13,11 @@ import { ButtonTheme } from 'shared/ui/Button/ui/Button';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import AppLink from 'shared/ui/AppLink/AppLink';
 import {
-    Article, ArticleBlockType, ArticleTextBlock, ArticleView,
+    ArticleBlockType,
+    ArticleView,
+} from '../../model/consts/consts';
+import {
+    Article, ArticleTextBlock,
 } from '../../model/types/article';
 import cls from './ArticleListItem.module.scss';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';

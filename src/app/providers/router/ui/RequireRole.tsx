@@ -1,5 +1,5 @@
 import { getUserRoles } from 'entitis/User';
-import { UserRole } from 'entitis/User/model/types/user';
+import { UserRole } from 'entitis/User/model/consts/consts';
 import { useMemo } from 'react';
 import { useSelector } from 'react-redux';
 import { Navigate, useLocation } from 'react-router-dom';

@@ -14,6 +14,7 @@ import EyeIcon from 'shared/assets/icons/eye.svg';
 import CalendarIcon from 'shared/assets/icons/calendar.svg';
 import { Icon } from 'shared/ui/Icon';
 import { HStack, VStack } from 'shared/ui/Stack';
+import { ArticleBlockType } from '../../model/consts/consts';
 import { fetchArticleById } from '../../../Article/model/services/fetchArticleById/fetchArticleById';
 import { articleDetailReducer } from '../../../Article/model/slice/articleDetailSlice';
 import cls from './ArticleDetails.module.scss';
@@ -22,7 +23,7 @@ import {
     getArticleDetailsIsLoading,
     getArticleDetailsData,
 } from '../../model/selectors/articleDetails';
-import { ArticleBlock, ArticleBlockType, ArticleTextBlock } from '../../../Article/model/types/article';
+import { ArticleBlock, ArticleTextBlock } from '../../../Article/model/types/article';
 import { ArticleCodeBlockComponent } from '../ArticleCodeBlockComponent/ArticleCodeBlockComponent';
 import { ArticleImageBlockComponent } from '../ArticleImageBlockComponent/ArticleImageBlockComponent';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';

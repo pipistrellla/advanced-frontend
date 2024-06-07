@@ -1,7 +1,7 @@
 import { Country } from 'entitis/Country';
 import { Currency } from 'entitis/Currency';
 import { validateProfileData } from './validateProfileData';
-import { ValidateProfileError } from '../../types/editableProfileCardSchema';
+import { ValidateProfileError } from '../../consts/consts';
 
 const data = {
     age: 10,

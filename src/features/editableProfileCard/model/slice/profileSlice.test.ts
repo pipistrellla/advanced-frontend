@@ -1,7 +1,8 @@
 import { Country } from 'entitis/Country';
 import { Currency } from 'entitis/Currency';
 import { profileActions, profileReducer } from './profileSlice';
-import { ValidateProfileError, ProfileSchema } from '../types/editableProfileCardSchema';
+import { ProfileSchema } from '../types/editableProfileCardSchema';
+import { ValidateProfileError } from '../consts/consts';
 import { updateProfileData } from '../services/updateProfileData/updateProfileData';
 
 describe('profileSlice.test', () => {
