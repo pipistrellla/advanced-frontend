@@ -90,7 +90,10 @@ const articleContent: Article = {
 };
 
 export const Normal = Template.bind({});
-Normal.args = {};
+Normal.args = {
+    testId: '1',
+};
+
 Normal.decorators = [StoreDecorator({
     articleDetails: {
         data: articleContent,

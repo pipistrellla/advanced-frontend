@@ -8,15 +8,19 @@ import { Text } from 'shared/ui/Text';
 
 interface ProfilePageProps {
     className?: string
+    testId?: string
 }
 
 const ProfilePage: FC<ProfilePageProps> = (props) => {
 
-    const { className } = props;
+    const {
+        className,
+        testId,
+    } = props;
     const { t } = useTranslation('profile');
     const { id } = useParams<{id:string}>();
 
-    if (!id)
+    if (!id && !testId)
         return <Text text={t('Произошла ошибка при загрузке профиля')} />;
 
     return (
@@ -25,7 +29,7 @@ const ProfilePage: FC<ProfilePageProps> = (props) => {
                 max
                 gap="16"
             >
-                <EditableProfileCard id={id} />
+                <EditableProfileCard id={id!} />
             </VStack>
         </Page>
     );

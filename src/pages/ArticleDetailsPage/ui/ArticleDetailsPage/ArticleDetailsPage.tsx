@@ -25,6 +25,7 @@ import { ArticleDetailsComments } from '../ArticleDetailsComments/ArticleDetails
 
 interface ArticleDetailsPageProps {
     className?: string;
+    testId?: string
 }
 
 const reducers : ReducersList = {
@@ -33,11 +34,15 @@ const reducers : ReducersList = {
 
 const ArticleDetailsPage: FC<ArticleDetailsPageProps> = (props) => {
 
-    const { className } = props;
+    const {
+        className,
+        testId,
+    } = props;
     const { t } = useTranslation('article');
+
     const { id } = useParams<{id:string}>();
 
-    if (!id) {
+    if (!id && !testId) {
 
         return (
             <Page className={classNames(cls.articleDetailsPage, {}, [className])}>
@@ -58,9 +63,9 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = (props) => {
                     max
                 >
                     <ArticleDetailsPageHeader />
-                    <ArticleDetails id={id} />
+                    <ArticleDetails id={id!} />
                     <ArticleRecommendationsList />
-                    <ArticleDetailsComments id={id} />
+                    <ArticleDetailsComments id={id!} />
                 </VStack>
             </Page>
         </DynamicModuleLoader>

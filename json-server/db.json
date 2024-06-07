@@ -885,6 +885,18 @@
       "userId": "2",
       "text": "123123132",
       "id": "F-Tvh7l"
+    },
+    {
+      "articleId": "30",
+      "userId": "1",
+      "text": "123",
+      "id": "GET-OXN"
+    },
+    {
+      "articleId": "30",
+      "userId": "1",
+      "text": "123",
+      "id": "mKItr-N"
     }
   ],
   "users": [
@@ -892,21 +904,27 @@
       "id": "2",
       "username": "admin",
       "password": "123",
-      "roles": ["ADMIN"],
+      "roles": [
+        "ADMIN"
+      ],
       "avatar": "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Kayle_0.jpg"
     },
     {
       "id": "1",
       "username": "user",
       "password": "123",
-      "roles": ["USER"],
+      "roles": [
+        "USER"
+      ],
       "avatar": "https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg"
     },
     {
       "id": "3",
       "username": "manager",
       "password": "123",
-      "roles": ["MANAGER"],
+      "roles": [
+        "MANAGER"
+      ],
       "avatar": "https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg"
     }
   ],

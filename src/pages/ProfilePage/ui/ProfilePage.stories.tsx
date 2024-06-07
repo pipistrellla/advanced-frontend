@@ -19,7 +19,7 @@ export default {
 const Template: ComponentStory<typeof ProfilePage> = (args) => <ProfilePage {...args} />;
 
 export const Primary = Template.bind({});
-Primary.args = {};
+Primary.args = { testId: '1' };
 Primary.decorators = [StoreDecorator({
     profile: {
         form: {
@@ -36,7 +36,7 @@ Primary.decorators = [StoreDecorator({
 })];
 
 export const PrimaryThemeDark = Template.bind({});
-PrimaryThemeDark.args = {};
+PrimaryThemeDark.args = { testId: '1' };
 PrimaryThemeDark.decorators = [
     ThemeDecorator(Theme.DARK),
     StoreDecorator({

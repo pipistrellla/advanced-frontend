@@ -39,7 +39,7 @@ module.exports = {
         'react/function-component-definition': 'off',
         'no-shadow': 'off',
         'import/extensions': 'off',
-        'import/no-extraneous-dependencies': 'warn',
+        'import/no-extraneous-dependencies': 'off',
         'no-underscore-dangle': 'off',
         'padded-blocks': ['error', {
             blocks: 'always',
@@ -89,6 +89,7 @@ module.exports = {
             rules: {
                 'i18next/no-literal-string': 'off',
                 'max-len': 'off',
+                'react/jsx-props-no-spreading': 'off',
             },
         },
         {

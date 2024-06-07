@@ -26,7 +26,11 @@ export const CommentCard: FC<CommentCardProps> = memo((props) => {
     if (isLoading) {
 
         return (
-            <div className={classNames(cls.commentCard, {}, [className, cls.loading])}>
+            <VStack
+                max
+                gap="8"
+                className={classNames(cls.commentCard, {}, [className, cls.loading])}
+            >
                 <div className={cls.header}>
                     <Skeleton
                         width={40}
@@ -44,7 +48,7 @@ export const CommentCard: FC<CommentCardProps> = memo((props) => {
                     height={50}
                     className={cls.text}
                 />
-            </div>
+            </VStack>
         );
 
     }
