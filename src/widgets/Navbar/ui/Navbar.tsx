@@ -8,14 +8,15 @@ import { ButtonTheme } from 'shared/ui/Button/ui/Button';
 import { LoginModal } from 'features/AuthByUsername';
 import { useDispatch, useSelector } from 'react-redux';
 import {
-    getUserAuthData, isUserAdmin, isUserManager, userActions,
+    getUserAuthData, userActions,
 } from 'entitis/User';
 import { Text, TextTheme } from 'shared/ui/Text';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import AppLink, { AppLinkTheme } from 'shared/ui/AppLink/AppLink';
-import { Dropdown } from 'shared/ui/Dropdown';
-import { Avatar } from 'shared/ui/Avatar';
-import { DropdownItem } from 'shared/ui/Dropdown/ui/Dropdown';
+import { HStack } from 'shared/ui/Stack';
+
+import { NotificationButton } from 'features/NotificationButton';
+import { AvatarDropdown } from 'features/AvatarDropdown/ui/AvatarDropdown/AvatarDropdown';
 import cls from './Navbar.module.scss';
 
 interface NavbarProps {
@@ -28,7 +29,6 @@ export const Navbar: FC<NavbarProps> = memo(({ className }: NavbarProps) => {
     const [isAuthModal, setIsAuthModal] = useState<boolean>(false);
 
     const authData = useSelector(getUserAuthData);
-    const dispatch = useDispatch();
     const onCloseModal = useCallback(() => {
 
         setIsAuthModal(false);
@@ -40,36 +40,6 @@ export const Navbar: FC<NavbarProps> = memo(({ className }: NavbarProps) => {
         setIsAuthModal(true);
 
     }, []);
-
-    const onLogOut = useCallback(() => {
-
-        dispatch(userActions.logout());
-
-    }, [dispatch]);
-
-    const isAdmin = useSelector(isUserAdmin);
-    const isManager = useSelector(isUserManager);
-
-    const isAdminPanelAvailable = isAdmin || isManager;
-
-    const dropdownItems:DropdownItem[] = authData?.id
-        ? [
-            ...(isAdminPanelAvailable
-                ? [{
-                    content: t('Админка'),
-                    href: RoutePath.admin_panel,
-                }]
-                : []),
-            {
-                content: t('Профиль'),
-                href: RoutePath.profile + authData.id,
-            },
-            {
-                content: t('Выйти'),
-                onClick: onLogOut,
-            },
-        ]
-        : [];
 
     if (authData) {
 
@@ -87,17 +57,14 @@ export const Navbar: FC<NavbarProps> = memo(({ className }: NavbarProps) => {
                 >
                     {t('Создать статью')}
                 </AppLink>
-                <Dropdown
-                    direction="bottom left"
-                    className={cls.dropdown}
-                    items={dropdownItems}
-                    trigger={(
-                        <Avatar
-                            size={30}
-                            src={authData.avatar}
-                        />
-                    )}
-                />
+                <HStack
+                    className={cls.actions}
+                    gap="16"
+                >
+                    <NotificationButton />
+                    <AvatarDropdown />
+                </HStack>
+
             </header>
         );
 

@@ -61,6 +61,8 @@ module.exports = {
                     'gap',
                     'role',
                     'as',
+                    'rel',
+                    'border',
                 ],
             },
         ],

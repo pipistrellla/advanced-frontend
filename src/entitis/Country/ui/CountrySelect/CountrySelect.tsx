@@ -5,7 +5,7 @@ import React, {
 import { Select } from 'shared/ui/Select';
 import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/helpers/ClassNames/ClassNames';
-import { ListBox } from 'shared/ui/ListBox';
+import { ListBox } from 'shared/ui/Popups';
 import { Country } from '../../model/types/country';
 
 interface CountrySelectProps {

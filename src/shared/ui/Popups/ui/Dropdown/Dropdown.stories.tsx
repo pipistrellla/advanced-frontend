@@ -1,11 +1,11 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
-import { Button } from '../../../ui/Button';
+import { Button } from '../../../../ui/Button';
 import { Dropdown, DropdownItem } from './Dropdown';
 
 export default {
-    title: 'shared/Dropdown',
+    title: 'shared/Popups/Dropdown',
     component: Dropdown,
     argTypes: {
         backgroundColor: { control: 'color' },

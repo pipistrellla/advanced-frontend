@@ -3,13 +3,15 @@ import {
 } from 'react';
 import { Listbox as HLisBox } from '@headlessui/react';
 import { DropdownDirection } from 'shared/types/ui';
-import { classNames } from '../../../lib/helpers/ClassNames/ClassNames';
-import { HStack } from '../../../ui/Stack';
-import { Text } from '../../../ui/Text';
-import { Button } from '../../../ui/Button';
-import { Icon } from '../../../ui/Icon';
+import { classNames } from 'shared/lib/helpers/ClassNames/ClassNames';
+import { Text } from '../../../../ui/Text';
+import { Icon } from '../../../../ui/Icon';
+import { HStack } from '../../../../ui/Stack';
+import { Button } from '../../../../ui/Button';
+import Selected from '../../../../assets/icons/selected.svg';
 import cls from './ListBox.module.scss';
-import Selected from '../../../assets/icons/selected.svg';
+import { mapDirectionClass } from '../styles/consts';
+import popupsCls from '../styles/Popup.module.scss';
 
 export interface ListBoxItem {
     value: string
@@ -28,16 +30,8 @@ interface ListBoxProps {
     direction?: DropdownDirection
 }
 
-const mapDirectionClass: Record<DropdownDirection, string> = {
-    'bottom left': cls.optionsBottomLeft,
-    'bottom right': cls.optionsBottomRight,
-    'top left': cls.optionsTopLeft,
-    'top right': cls.optionsTopRight,
-};
-
 export const ListBox: FC<ListBoxProps> = (props) => {
 
-    const [selectedPerson, setSelectedPerson] = useState();
     const {
         className,
         items,
@@ -59,7 +53,7 @@ export const ListBox: FC<ListBoxProps> = (props) => {
                 value={value}
                 onChange={onChange}
                 as="div"
-                className={classNames(cls.listBox, {}, [className])}
+                className={classNames(cls.listBox, {}, [className, popupsCls.popup])}
             >
                 <HLisBox.Button
                     disabled={readonly}
@@ -86,8 +80,8 @@ export const ListBox: FC<ListBoxProps> = (props) => {
                                     className={classNames(
                                         cls.item,
                                         {
-                                            [cls.active]: active,
-                                            [cls.disabled]: item.disabled,
+                                            [popupsCls.active]: active,
+                                            [popupsCls.disabled]: item.disabled,
                                         },
                                         [],
                                     )}
