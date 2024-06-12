@@ -9,7 +9,6 @@ import {
 } from 'entitis/User';
 import { useSelector } from 'react-redux';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import cls from './AvatarDropdown.module.scss';
 
 interface AvatarDropdownProps {
 className?: string;
@@ -56,7 +55,7 @@ export const AvatarDropdown: FC<AvatarDropdownProps> = memo((props) => {
 
     return (
         <Dropdown
-            className={classNames(cls.avatarDropdown, {}, [className])}
+            className={classNames('', {}, [className])}
             direction="bottom left"
             items={dropdownItems}
             trigger={(

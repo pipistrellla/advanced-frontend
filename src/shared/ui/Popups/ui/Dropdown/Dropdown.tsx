@@ -50,7 +50,7 @@ export const Dropdown: FC<DropdownProps> = (props) => {
                             type="button"
                             disabled={item.disabled}
                             onClick={item.onClick}
-                            className={classNames(cls.item, { [popupsCls.active]: active })}
+                            className={classNames(cls.item, { [cls.active]: active })}
                         >
                             {item.content}
                         </button>
