@@ -1,7 +1,8 @@
-import React, {
-    FC, MutableRefObject, ReactNode, useCallback, useEffect, useRef, useState,
+import {
+    FC, ReactNode,
 } from 'react';
 import { Mods, classNames } from 'shared/lib/helpers/ClassNames/ClassNames';
+import { useModal } from 'shared/lib/hooks/useModal/useModal';
 import { useTheme } from 'app/providers/ThemeProvider';
 import { Overlay } from '../../../ui/Overlay';
 import { Portal } from '../../Portal';
@@ -27,62 +28,22 @@ export const Modal: FC<modalProps> = (props) => {
         lazy,
     } = props;
 
-    const [isClosing, setIsClosing] = useState<boolean>(false);
+    const {
+        close: closeHandler,
+        isClosing,
+        isMounted,
+    } = useModal({
+        onClose,
+        isOpen,
+        animationDelay: ANIMATION_DELAY,
+    });
 
-    const timerRef = useRef() as MutableRefObject< ReturnType<typeof setTimeout>>;
     const { theme } = useTheme();
 
-    const closeHandler = useCallback(() => {
-
-        if (onClose) {
-
-            setIsClosing(true);
-            timerRef.current = setTimeout(() => {
-
-                onClose();
-                setIsClosing(false);
-
-            }, ANIMATION_DELAY);
-
-        }
-
-    }, [onClose]);
-
-    const onKeyDown = useCallback((e: KeyboardEvent) => {
-
-        if (e.key === 'Escape')
-            closeHandler();
-
-    }, [closeHandler]);
-
-    // для очистки таймеров нужно делать это в useEffect, на всякий случай
-    // елси вдруг окно будет демонтировано из домдерева
-    useEffect(() => {
-
-        if (isOpen)
-            window.addEventListener('keydown', onKeyDown);
-        // ретерн сработает прямо перед демонтажем компонента
-        return () => {
-
-            clearTimeout(timerRef.current);
-            window.removeEventListener('keydown', onKeyDown);
-
-        };
-
-    }, [isOpen, onKeyDown]);
     const mods: Mods = {
         [cls.opened]: isOpen,
         [cls.isClosing]: isClosing,
     };
-
-    const [isMounted, setIsMounted] = useState<boolean>(false);
-
-    useEffect(() => {
-
-        if (isOpen)
-            setIsMounted(true);
-
-    }, [isOpen]);
 
     if (lazy && !isMounted)
 
