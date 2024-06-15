@@ -9,6 +9,7 @@ import { Icon } from 'shared/ui/Icon';
 import BellIcon from 'shared/assets/icons/bell.svg';
 import { Drawer } from 'shared/ui/Drawer';
 import { useDevice } from 'shared/lib/hooks/useDevice/useDevice';
+import { AnimationProvider } from 'shared/lib/components/AnimationsProvider';
 import cls from './NotificationButton.module.scss';
 
 interface NotificationButtonProps {
@@ -51,9 +52,11 @@ export const NotificationButton: FC<NotificationButtonProps> = memo((props) => {
         return (
             <div>
                 {trigger}
-                <Drawer onClose={oncloseDrawer} isOpen={isOpen}>
-                    <NotificationList />
-                </Drawer>
+                <AnimationProvider>
+                    <Drawer onClose={oncloseDrawer} isOpen={isOpen}>
+                        <NotificationList />
+                    </Drawer>
+                </AnimationProvider>
             </div>
         );
 
