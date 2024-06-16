@@ -1,7 +1,7 @@
 import React, {
     ChangeEvent, FC, useMemo,
 } from 'react';
-import { Mods, classNames } from 'shared/lib/helpers/ClassNames/ClassNames';
+import { Mods, classNames } from '@/shared/lib/helpers/ClassNames/ClassNames';
 import { Text } from '../../Text';
 import cls from './Select.module.scss';
 

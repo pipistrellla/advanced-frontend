@@ -2,20 +2,20 @@ import {
     AnyAction, CombinedState, EnhancedStore, Reducer, ReducersMapObject,
 } from '@reduxjs/toolkit';
 import { AxiosInstance } from 'axios';
-import { ArticleDetailsSchema } from 'entitis/Article';
-import { CounterSchema } from 'entitis/Counter';
+import { NavigateOptions, To } from 'react-router-dom';
+import { ArticleDetailsSchema } from '@/entitis/Article';
+import { CounterSchema } from '@/entitis/Counter';
 
-import { UserSchema } from 'entitis/User';
-import { addCommentFormSchema } from 'features/AddCommentForm';
-import { LoginSchema } from 'features/AuthByUsername';
-import { ScrollPositionSaveSchema } from 'features/ScrollPositionSave';
-import { ProfileSchema } from 'features/editableProfileCard';
+import { UserSchema } from '@/entitis/User';
+import { addCommentFormSchema } from '@/features/AddCommentForm';
+import { LoginSchema } from '@/features/AuthByUsername';
+import { ScrollPositionSaveSchema } from '@/features/ScrollPositionSave';
+import { ProfileSchema } from '@/features/editableProfileCard';
 import {
     ArticleDetailsPageSchema,
-} from 'pages/ArticleDetailsPage';
-import { ArticlePageSchema } from 'pages/ArticlePage';
-import { NavigateOptions, To } from 'react-router-dom';
-import { rtkApi } from 'shared/api/rtkApi';
+} from '@/pages/ArticleDetailsPage';
+import { ArticlePageSchema } from '@/pages/ArticlePage';
+import { rtkApi } from '@/shared/api/rtkApi';
 
 export interface StateSchema{
     counter:CounterSchema

@@ -2,10 +2,10 @@ import { t } from 'i18next';
 import React, {
     FC, memo, useCallback, useMemo,
 } from 'react';
-import { Select } from 'shared/ui/Select';
 import { useTranslation } from 'react-i18next';
-import { classNames } from 'shared/lib/helpers/ClassNames/ClassNames';
-import { ListBox } from 'shared/ui/Popups';
+import { Select } from '@/shared/ui/Select';
+import { classNames } from '@/shared/lib/helpers/ClassNames/ClassNames';
+import { ListBox } from '@/shared/ui/Popups';
 import { Country } from '../../model/types/country';
 
 interface CountrySelectProps {

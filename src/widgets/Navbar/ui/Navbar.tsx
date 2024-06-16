@@ -1,24 +1,24 @@
 import {
     FC, memo, useCallback, useState,
 } from 'react';
-import { classNames } from 'shared/lib/helpers/ClassNames/ClassNames';
 import { useTranslation } from 'react-i18next';
-import { Button } from 'shared/ui/Button';
-import { ButtonTheme } from 'shared/ui/Button/ui/Button';
-import { LoginModal } from 'features/AuthByUsername';
 import { useDispatch, useSelector } from 'react-redux';
+import { classNames } from '@/shared/lib/helpers/ClassNames/ClassNames';
+import { Button } from '@/shared/ui/Button';
+import { ButtonTheme } from '@/shared/ui/Button/ui/Button';
+import { LoginModal } from '@/features/AuthByUsername';
 import {
     getUserAuthData, userActions,
-} from 'entitis/User';
-import { Text, TextTheme } from 'shared/ui/Text';
-import { RoutePath } from 'shared/config/routeConfig/routeConfig';
-import AppLink, { AppLinkTheme } from 'shared/ui/AppLink/AppLink';
-import { HStack } from 'shared/ui/Stack';
+} from '@/entitis/User';
+import { Text, TextTheme } from '@/shared/ui/Text';
+import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
+import AppLink, { AppLinkTheme } from '@/shared/ui/AppLink/AppLink';
+import { HStack } from '@/shared/ui/Stack';
 
-import { NotificationButton } from 'features/NotificationButton';
-import { AvatarDropdown } from 'features/AvatarDropdown/ui/AvatarDropdown/AvatarDropdown';
-import { Drawer } from 'shared/ui/Drawer';
-import { NotificationList } from 'entitis/Notification';
+import { NotificationButton } from '@/features/NotificationButton';
+import { AvatarDropdown } from '@/features/AvatarDropdown/ui/AvatarDropdown/AvatarDropdown';
+import { Drawer } from '@/shared/ui/Drawer';
+import { NotificationList } from '@/entitis/Notification';
 import cls from './Navbar.module.scss';
 
 interface NavbarProps {

@@ -1,8 +1,8 @@
 import React, { FC, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { classNames } from 'shared/lib/helpers/ClassNames/ClassNames';
-import { Button } from 'shared/ui/Button';
-import { Text, TextTheme } from 'shared/ui/Text';
+import { classNames } from '@/shared/lib/helpers/ClassNames/ClassNames';
+import { Button } from '@/shared/ui/Button';
+import { Text, TextTheme } from '@/shared/ui/Text';
 import cls from './PageError.module.scss';
 
 interface PageErrorProps {

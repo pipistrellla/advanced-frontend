@@ -2,8 +2,8 @@ import {
     FC, Fragment, memo, useState,
 } from 'react';
 import { Listbox as HLisBox } from '@headlessui/react';
-import { DropdownDirection } from 'shared/types/ui';
-import { classNames } from 'shared/lib/helpers/ClassNames/ClassNames';
+import { DropdownDirection } from '@/shared/types/ui';
+import { classNames } from '@/shared/lib/helpers/ClassNames/ClassNames';
 import { Text } from '../../../../ui/Text';
 import { Icon } from '../../../../ui/Icon';
 import { HStack } from '../../../../ui/Stack';

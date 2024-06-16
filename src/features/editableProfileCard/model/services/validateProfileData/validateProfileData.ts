@@ -1,4 +1,4 @@
-import { Profile } from 'entitis/Profile';
+import { Profile } from '@/entitis/Profile';
 import { ValidateProfileError } from '../../consts/consts';
 
 export const validateProfileData = (profile?: Profile):ValidateProfileError[] => {

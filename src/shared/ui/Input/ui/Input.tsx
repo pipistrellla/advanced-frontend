@@ -1,7 +1,7 @@
 import React, {
     FC, InputHTMLAttributes, memo, useState,
 } from 'react';
-import { Mods, classNames } from 'shared/lib/helpers/ClassNames/ClassNames';
+import { Mods, classNames } from '@/shared/lib/helpers/ClassNames/ClassNames';
 import { Text } from '../../Text';
 import cls from './Input.module.scss';
 /* eslint react/prop-types: 0 */

@@ -1,7 +1,7 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
-import { Article, ArticleType } from 'entitis/Article';
-import { ArticleBlockType } from 'entitis/Article/model/consts/consts';
+import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
+import { Article, ArticleType } from '@/entitis/Article';
+import { ArticleBlockType } from '@/entitis/Article/model/consts/consts';
 import { ArticleDetailsPageHeader } from './ArticleDetailsPageHeader';
 
 export default {

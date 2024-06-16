@@ -1,17 +1,17 @@
-import { classNames } from 'shared/lib/helpers/ClassNames/ClassNames';
 import { useTranslation } from 'react-i18next';
 import { memo, useCallback } from 'react';
-import { Country } from 'entitis/Country';
-import { Currency } from 'entitis/Currency';
-
 import { useSelector } from 'react-redux';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
-import { Text, TextTheme } from 'shared/ui/Text';
+import { classNames } from '@/shared/lib/helpers/ClassNames/ClassNames';
+import { Country } from '@/entitis/Country';
+import { Currency } from '@/entitis/Currency';
 
-import { ProfileCard } from 'entitis/Profile';
-import DynamicModuleLoader, { ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { VStack } from 'shared/ui/Stack';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
+import { Text, TextTheme } from '@/shared/ui/Text';
+
+import { ProfileCard } from '@/entitis/Profile';
+import DynamicModuleLoader, { ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { VStack } from '@/shared/ui/Stack';
 import { ValidateProfileError } from '../../model/consts/consts';
 import { fetchProfileData } from '../../model/services/fetchProfileData/fetchProfileData';
 import { profileActions, profileReducer } from '../../model/slice/profileSlice';

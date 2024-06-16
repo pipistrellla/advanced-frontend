@@ -2,11 +2,11 @@ import {
     FC, Suspense, useEffect, useState,
 } from 'react';
 // suspence позволяет показать пользователю, что идет загрузка (нужно обернуть)
-import { classNames } from 'shared/lib/helpers/ClassNames/ClassNames';
-import { Navbar } from 'widgets/Navbar';
-import { Sidebar } from 'widgets/Sidebar';
 import { useDispatch, useSelector } from 'react-redux';
-import { getUserInited, userActions } from 'entitis/User';
+import { classNames } from '@/shared/lib/helpers/ClassNames/ClassNames';
+import { Navbar } from '@/widgets/Navbar';
+import { Sidebar } from '@/widgets/Sidebar';
+import { getUserInited, userActions } from '@/entitis/User';
 import { useTheme } from './providers/ThemeProvider';
 import { AppRouter } from './providers/router';
 

@@ -1,6 +1,6 @@
 import { CSSProperties, FC, memo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { classNames } from 'shared/lib/helpers/ClassNames/ClassNames';
+import { classNames } from '@/shared/lib/helpers/ClassNames/ClassNames';
 import cls from './Skeleton.module.scss';
 
 interface SkeletonProps {

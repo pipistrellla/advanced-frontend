@@ -1,5 +1,5 @@
-import { Country } from 'entitis/Country';
-import { Currency } from 'entitis/Currency';
+import { Country } from '@/entitis/Country';
+import { Currency } from '@/entitis/Currency';
 import { profileActions, profileReducer } from './profileSlice';
 import { ProfileSchema } from '../types/editableProfileCardSchema';
 import { ValidateProfileError } from '../consts/consts';

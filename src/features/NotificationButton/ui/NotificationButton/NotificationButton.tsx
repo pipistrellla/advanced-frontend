@@ -1,15 +1,13 @@
-import React, { FC, memo, useState } from 'react';
-import { useTranslation } from 'react-i18next';
-import { classNames } from 'shared/lib/helpers/ClassNames/ClassNames';
-import { Popover } from 'shared/ui/Popups/ui/Popover/Popover';
-import { NotificationList } from 'entitis/Notification';
-import { Button } from 'shared/ui/Button';
-import { ButtonTheme } from 'shared/ui/Button/ui/Button';
-import { Icon } from 'shared/ui/Icon';
-import BellIcon from 'shared/assets/icons/bell.svg';
-import { Drawer } from 'shared/ui/Drawer';
-import { useDevice } from 'shared/lib/hooks/useDevice/useDevice';
-import { AnimationProvider } from 'shared/lib/components/AnimationsProvider';
+import { FC, memo, useState } from 'react';
+import { classNames } from '@/shared/lib/helpers/ClassNames/ClassNames';
+import { Popover } from '@/shared/ui/Popups/ui/Popover/Popover';
+import { NotificationList } from '@/entitis/Notification';
+import { Button } from '@/shared/ui/Button';
+import { ButtonTheme } from '@/shared/ui/Button/ui/Button';
+import { Icon } from '@/shared/ui/Icon';
+import BellIcon from '@/shared/assets/icons/bell.svg';
+import { Drawer } from '@/shared/ui/Drawer';
+import { useDevice } from '@/shared/lib/hooks/useDevice/useDevice';
 import cls from './NotificationButton.module.scss';
 
 interface NotificationButtonProps {
@@ -52,11 +50,9 @@ export const NotificationButton: FC<NotificationButtonProps> = memo((props) => {
         return (
             <div>
                 {trigger}
-                <AnimationProvider>
-                    <Drawer onClose={oncloseDrawer} isOpen={isOpen}>
-                        <NotificationList />
-                    </Drawer>
-                </AnimationProvider>
+                <Drawer onClose={oncloseDrawer} isOpen={isOpen}>
+                    <NotificationList />
+                </Drawer>
             </div>
         );
 

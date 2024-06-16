@@ -1,7 +1,7 @@
 import React, { FC, memo, useCallback } from 'react';
-import { classNames } from 'shared/lib/helpers/ClassNames/ClassNames';
-import { Card } from 'shared/ui/Card';
-import { Skeleton } from 'shared/ui/Skeleton';
+import { classNames } from '@/shared/lib/helpers/ClassNames/ClassNames';
+import { Card } from '@/shared/ui/Card';
+import { Skeleton } from '@/shared/ui/Skeleton';
 import { ArticleView } from '../../model/consts/consts';
 import cls from './ArticleListItem.module.scss';
 

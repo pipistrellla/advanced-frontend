@@ -11,7 +11,7 @@ export function buildResolvers({ paths }:BuildOptions): webpack.ResolveOptions {
         modules: [paths.src, 'node_modules'],
         // указываем замену пути (то что ставиться в начале)
         alias: {
-
+            '@': paths.src,
         },
         // для кажддого модуля главный файл - индекс
         // (грубо говоря куда мы все импорты записываем)

@@ -3,21 +3,21 @@ import {
     memo,
 } from 'react';
 import { useTranslation } from 'react-i18next';
-import { classNames } from 'shared/lib/helpers/ClassNames/ClassNames';
-import { ArticleDetails } from 'entitis/Article';
 import {
     useParams,
 } from 'react-router-dom';
+import { classNames } from '@/shared/lib/helpers/ClassNames/ClassNames';
+import { ArticleDetails } from '@/entitis/Article';
 import {
     Text,
     TextTheme,
-} from 'shared/ui/Text';
+} from '@/shared/ui/Text';
 import DynamicModuleLoader, {
     ReducersList,
-} from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { Page } from 'widgets/Page';
-import { VStack } from 'shared/ui/Stack';
-import { ArticleRecommendationsList } from 'features/ArticleRecommendationsList';
+} from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { Page } from '@/widgets/Page';
+import { VStack } from '@/shared/ui/Stack';
+import { ArticleRecommendationsList } from '@/features/ArticleRecommendationsList';
 import { articleDetailsPageReducer } from '../../model/slice';
 import cls from './ArticleDetailsPage.module.scss';
 import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';

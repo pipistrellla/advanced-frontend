@@ -1,5 +1,5 @@
 import React, { FC, memo, useCallback } from 'react';
-import { classNames } from 'shared/lib/helpers/ClassNames/ClassNames';
+import { classNames } from '@/shared/lib/helpers/ClassNames/ClassNames';
 import { Card, CardTheme } from '../../Card';
 import cls from './Tabs.module.scss';
 

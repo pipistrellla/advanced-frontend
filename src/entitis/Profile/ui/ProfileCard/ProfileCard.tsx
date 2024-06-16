@@ -1,16 +1,16 @@
 import React, { FC } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Mods, classNames } from 'shared/lib/helpers/ClassNames/ClassNames';
-import { Text, TextTheme } from 'shared/ui/Text';
-import Input from 'shared/ui/Input/ui/Input';
-import { Loader } from 'shared/ui/Loader';
-import { TextAlign } from 'shared/ui/Text/ui/Text';
-import { Avatar } from 'shared/ui/Avatar';
-import { Currency } from 'entitis/Currency/model/types/currency';
-import { CurrencySelect } from 'entitis/Currency';
-import { Country } from 'entitis/Country/model/types/country';
-import { CountrySelect } from 'entitis/Country';
-import { HStack, VStack } from 'shared/ui/Stack';
+import { Mods, classNames } from '@/shared/lib/helpers/ClassNames/ClassNames';
+import { Text, TextTheme } from '@/shared/ui/Text';
+import Input from '@/shared/ui/Input/ui/Input';
+import { Loader } from '@/shared/ui/Loader';
+import { TextAlign } from '@/shared/ui/Text/ui/Text';
+import { Avatar } from '@/shared/ui/Avatar';
+import { Currency } from '@/entitis/Currency/model/types/currency';
+import { CurrencySelect } from '@/entitis/Currency';
+import { Country } from '@/entitis/Country/model/types/country';
+import { CountrySelect } from '@/entitis/Country';
+import { HStack, VStack } from '@/shared/ui/Stack';
 import cls from './ProfileCard.module.scss';
 import { Profile } from '../../model/types/profile';
 
