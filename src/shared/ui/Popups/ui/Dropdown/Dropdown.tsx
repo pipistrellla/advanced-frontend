@@ -43,7 +43,7 @@ export const Dropdown: FC<DropdownProps> = (props) => {
                 {trigger}
             </Menu.Button>
             <Menu.Items className={classNames(cls.menu, {}, menuClasses)}>
-                {items.map((item) => {
+                {items.map((item, index) => {
 
                     const content = ({ active }: {active: boolean}) => (
                         <button
@@ -63,6 +63,7 @@ export const Dropdown: FC<DropdownProps> = (props) => {
                                 as={AppLink}
                                 to={item.href}
                                 disabled={item.disabled}
+                                key={`dropdown-key${index}`}
                             >
                                 {content}
                             </Menu.Item>
@@ -74,6 +75,7 @@ export const Dropdown: FC<DropdownProps> = (props) => {
                         <Menu.Item
                             as={Fragment}
                             disabled={item.disabled}
+                            key={`dropdown-key${index}`}
                         >
                             {content}
                         </Menu.Item>

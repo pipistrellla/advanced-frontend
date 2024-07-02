@@ -5,3 +5,11 @@
 .isStroke {
     stroke: var(--inverted-primary-color);
 }
+
+.isInverted {
+    fill: var(--inverted-primary-color);
+}
+
+.isInvertedStroke {
+    stroke: var(--primary-color);
+}

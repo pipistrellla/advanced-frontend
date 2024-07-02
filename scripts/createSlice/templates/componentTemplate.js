@@ -1,6 +1,6 @@
 const interfaceConst = 'interface';
 
-module.exports = (componentName) => `import { classNames } from 'shared/lib/helpers/ClassNames/ClassNames';
+module.exports = (componentName) => `import { classNames } from '@/shared/lib/helpers/ClassNames/ClassNames';
 import { useTranslation } from 'react-i18next';
 import cls from './${componentName}.module.scss';
 import { memo } from 'react';
@@ -15,7 +15,7 @@ export const ${componentName} = memo((props: ${componentName}Props) => {
     
     return (
         <div className={classNames(cls.${componentName}, {}, [className])}>
-           
+           123
         </div>
     );
 });`;

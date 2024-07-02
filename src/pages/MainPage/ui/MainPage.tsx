@@ -3,6 +3,9 @@ import { useTranslation } from 'react-i18next';
 import { Page } from '@/widgets/Page';
 import { Text } from '@/shared/ui/Text';
 import { BugButton } from '@/widgets/PageError';
+import { StarRating } from '@/shared/ui/StarRating';
+import { VStack } from '@/shared/ui/Stack';
+import { RatingCard } from '@/entitis/Rating';
 
 interface MainPageProps {
 
@@ -21,8 +24,15 @@ const MainPage: FC<MainPageProps> = () => {
 
     return (
         <Page>
-            <Text text={t('Главная страница')} />
-            <BugButton />
+            <VStack gap="32">
+                <Text text={t('Главная страница')} />
+                <BugButton />
+                {/* <RatingCard
+                    title="Оцените статью"
+                    hasFeedback
+                    feedbackTitle="Оставьте отзыв о статье"
+                /> */}
+            </VStack>
         </Page>
     );
 
