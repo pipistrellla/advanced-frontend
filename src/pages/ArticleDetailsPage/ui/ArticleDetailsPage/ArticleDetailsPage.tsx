@@ -22,6 +22,7 @@ import { articleDetailsPageReducer } from '../../model/slice';
 import cls from './ArticleDetailsPage.module.scss';
 import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
 import { ArticleDetailsComments } from '../ArticleDetailsComments/ArticleDetailsComments';
+import { AddArticleRating } from '@/features/AddArticleRating';
 
 interface ArticleDetailsPageProps {
     className?: string;
@@ -52,6 +53,7 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = (props) => {
         );
 
     }
+
     return (
         <DynamicModuleLoader
             removeAFterUnmount
@@ -64,6 +66,7 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = (props) => {
                 >
                     <ArticleDetailsPageHeader />
                     <ArticleDetails id={id!} />
+                    <AddArticleRating articleId={id!} />
                     <ArticleRecommendationsList />
                     <ArticleDetailsComments id={id!} />
                 </VStack>

@@ -1,7 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { memo, useCallback, useState } from 'react';
 import { classNames } from '@/shared/lib/helpers/ClassNames/ClassNames';
-import cls from './RatingCard.module.scss';
 import { Card } from '@/shared/ui/Card';
 import { HStack, VStack } from '@/shared/ui/Stack';
 import { StarRating } from '@/shared/ui/StarRating';
@@ -20,7 +19,8 @@ interface RatingCardProps {
     hasFeedback?: boolean;
     onCancel?: (starsCount: number) => void
     onAccept?: (starsCount: number, feedback?: string) => void
-
+    rate?: number
+    comment?: string
 }
 
 export const RatingCard = memo((props: RatingCardProps) => {
@@ -30,13 +30,15 @@ export const RatingCard = memo((props: RatingCardProps) => {
         feedbackTitle,
         hasFeedback = false,
         title,
+        rate = 0,
+        comment,
         onAccept,
         onCancel,
     } = props;
 
     const { t } = useTranslation();
     const [isModalOpen, setIsModalOpen] = useState(false);
-    const [starsCount, setStarsCount] = useState(0);
+    const [starsCount, setStarsCount] = useState(rate);
     const [feedback, setFeedback] = useState<string>('');
 
     const onSelectStars = useCallback((selectedStarsCount: number) => {
@@ -79,13 +81,21 @@ export const RatingCard = memo((props: RatingCardProps) => {
     );
 
     return (
-        <Card className={classNames(cls.RatingCard, {}, [className])}>
+        <Card
+            max
+            className={classNames('', {}, [className])}
+        >
             <VStack
                 align="center"
                 gap="8"
+                max
             >
-                <Text title={title} />
-                <StarRating size={40} onSelect={onSelectStars} />
+                <Text title={starsCount ? (comment ?? t('Ваш отзыв')) : title} />
+                <StarRating
+                    selectedStars={starsCount}
+                    size={40}
+                    onSelect={onSelectStars}
+                />
             </VStack>
             {isMobile
                 ? (

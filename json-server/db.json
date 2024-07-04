@@ -47,12 +47,12 @@
   ],
   "articles": [
     {
-      "id": "30",
+      "id": "1",
       "title": "Javascript news",
       "subtitle": "Что нового в JS за 2024 год?",
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
       "views": 1022,
-      "createdAt": "26.02.2024",
+      "createdAt": "04.07.2024",
       "userId": "1",
       "type": [
         "IT"
@@ -984,6 +984,113 @@
       "city": "Osaka",
       "username": "Greg123",
       "avatar": "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Kayle_0.jpg"
+    }
+  ],
+  "article-ratings": [
+    {
+      "id": "1",
+      "rate": 4,
+      "feedback": "Хорошая статья",
+      "userId": "2",
+      "articleId": "1"
+    },
+    {
+      "id": "3",
+      "rate": 5,
+      "feedback": "Хорошая статья 123",
+      "userId": "1",
+      "articleId": "1"
+    },
+    {
+      "id": "2",
+      "rate": 4,
+      "feedback": "Хорошая статья",
+      "userId": "2",
+      "articleId": "2"
+    },
+    {
+      "userId": "2",
+      "articleId": "3",
+      "rate": 3,
+      "feedback": "",
+      "id": "I7ofk1u"
+    },
+    {
+      "userId": "1",
+      "articleId": "9",
+      "rate": 5,
+      "feedback": "123123123 123 ",
+      "id": "Y7MhPzo"
+    },
+    {
+      "userId": "1",
+      "articleId": "10",
+      "rate": 1,
+      "feedback": "бяка",
+      "id": "II0a75O"
+    },
+    {
+      "userId": "1",
+      "articleId": "7",
+      "rate": 3,
+      "feedback": "",
+      "id": "bcPnbbZ"
+    },
+    {
+      "userId": "2",
+      "articleId": "10",
+      "rate": 4,
+      "id": "NVMAyCU"
+    },
+    {
+      "userId": "2",
+      "articleId": "11",
+      "rate": 1,
+      "feedback": "not cool",
+      "id": "cDhEd87"
+    },
+    {
+      "userId": "2",
+      "articleId": "14",
+      "rate": 5,
+      "feedback": "aboba",
+      "id": "8bx6R70"
+    },
+    {
+      "userId": "2",
+      "articleId": "16",
+      "rate": 2,
+      "id": "KrPPhli"
+    },
+    {
+      "userId": "2",
+      "articleId": "18",
+      "rate": 4,
+      "feedback": "прием я гром",
+      "id": "lfAw4Jn"
+    },
+    {
+      "userId": "2",
+      "articleId": "31",
+      "rate": 4,
+      "feedback": "avava vavav",
+      "id": "R8kHgav"
+    }
+  ],
+  "profile-ratings": [
+    {
+      "id": "1",
+      "rate": 4,
+      "feedback": "like",
+      "userId": "1",
+      "profileId": "1"
+    },
+    {
+      "id": "2",
+      "rate": 4,
+      "feedback": "Anti like",
+      "userId": "1",
+      "profileId": "2"
     }
   ]
 }

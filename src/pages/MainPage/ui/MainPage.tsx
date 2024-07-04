@@ -27,11 +27,6 @@ const MainPage: FC<MainPageProps> = () => {
             <VStack gap="32">
                 <Text text={t('Главная страница')} />
                 <BugButton />
-                {/* <RatingCard
-                    title="Оцените статью"
-                    hasFeedback
-                    feedbackTitle="Оставьте отзыв о статье"
-                /> */}
             </VStack>
         </Page>
     );
