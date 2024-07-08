@@ -2,7 +2,7 @@ import React, { FC, memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { classNames } from '@/shared/lib/helpers/ClassNames/ClassNames';
-import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
+import { RoutePath } from '@/shared/const/router';
 import { Avatar } from '@/shared/ui/Avatar';
 import { DropdownItem, Dropdown } from '@/shared/ui/Popups';
 import {

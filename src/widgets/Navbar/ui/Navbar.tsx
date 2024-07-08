@@ -11,7 +11,7 @@ import {
     getUserAuthData,
 } from '@/entitis/User';
 import { Text, TextTheme } from '@/shared/ui/Text';
-import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
+import { RoutePath } from '@/shared/const/router';
 import AppLink, { AppLinkTheme } from '@/shared/ui/AppLink/AppLink';
 import { HStack } from '@/shared/ui/Stack';
 

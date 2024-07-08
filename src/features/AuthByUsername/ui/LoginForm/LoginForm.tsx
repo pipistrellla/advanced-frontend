@@ -1,13 +1,12 @@
-import React, {
-    FC, memo, useCallback, useEffect,
+import {
+    FC, memo, useCallback,
 } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useSelector, useStore } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { Button } from '@/shared/ui/Button';
 import Input from '@/shared/ui/Input/ui/Input';
 import { ButtonTheme } from '@/shared/ui/Button/ui/Button';
 import { TextTheme, Text } from '@/shared/ui/Text';
-import { ReduxStoreWithManager } from '@/app/providers/StoreProvider/config/StateSchema';
 import DynamicModuleLoader, { ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { getLoginUsername } from '../../model/selectors/getLoginUsername/getLoginUsername';

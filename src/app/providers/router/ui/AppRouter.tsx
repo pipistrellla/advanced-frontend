@@ -3,7 +3,8 @@ import React, {
 } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { PageLoader } from '@/widgets/PageLoader';
-import { AppRoutesProps, routeConfig } from '@/shared/config/routeConfig/routeConfig';
+import { AppRoutesProps } from '@/shared/types/router';
+import { routeConfig } from '../config/routeConfig';
 import { RequireAuth } from './RequireAuth';
 import { RequireRole } from './RequireRole';
 

@@ -2,7 +2,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import withMock from 'storybook-addon-mock';
 import { NotificationList } from './NotificationList';
 import { Notification } from '../../model/types/NotificationSchema';
-import { Theme } from '@/app/providers/ThemeProvider';
+import { Theme } from '@/shared/const/theme';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
 
 export default {

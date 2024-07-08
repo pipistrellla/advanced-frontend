@@ -10,7 +10,7 @@ import { Card } from '@/shared/ui/Card';
 import { Avatar } from '@/shared/ui/Avatar';
 import { Button } from '@/shared/ui/Button';
 import { ButtonTheme } from '@/shared/ui/Button/ui/Button';
-import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
+import { RoutePath } from '@/shared/const/router';
 import AppLink from '@/shared/ui/AppLink/AppLink';
 import {
     ArticleBlockType,

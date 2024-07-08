@@ -3,8 +3,8 @@ import React, {
 } from 'react';
 import { useSelector } from 'react-redux';
 import { classNames } from '@/shared/lib/helpers/ClassNames/ClassNames';
-import { ThemeSwitcher } from '@/widgets/ThemeSwitcher';
-import { LangSwitcher } from '@/shared/ui/LangSwitcher';
+import { ThemeSwitcher } from '@/features/ThemeSwitcher';
+import { LangSwitcher } from '@/features/LangSwitcher';
 import { Button } from '@/shared/ui/Button';
 import { ButtonSize, ButtonTheme } from '@/shared/ui/Button/ui/Button';
 import VStack from '@/shared/ui/Stack/VStack/VStack';
