@@ -56,7 +56,7 @@ export const ListBox: FC<ListBoxProps> = (props) => {
                 className={classNames(cls.listBox, {}, [className, popupsCls.popup])}
             >
                 <HLisBox.Button
-                    disabled={readonly}
+                    // disabled={readonly}
                     className={cls.trigger}
                 >
                     <Button

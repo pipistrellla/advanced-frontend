@@ -3,9 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { Page } from '@/widgets/Page';
 import { Text } from '@/shared/ui/Text';
 import { BugButton } from '@/widgets/PageError';
-import { StarRating } from '@/shared/ui/StarRating';
 import { VStack } from '@/shared/ui/Stack';
-import { RatingCard } from '@/entitis/Rating';
 
 interface MainPageProps {
 

@@ -7,8 +7,8 @@ import { classNames } from '@/shared/lib/helpers/ClassNames/ClassNames';
 import { Navbar } from '@/widgets/Navbar';
 import { Sidebar } from '@/widgets/Sidebar';
 import { getUserInited, userActions } from '@/entitis/User';
-import { useTheme } from './providers/ThemeProvider';
 import { AppRouter } from './providers/router';
+import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme';
 
 interface AppProps {
 
