@@ -77,7 +77,7 @@ module.exports = {
         'max-len': ['error', { code: 120 }],
         'no-undef': 'off',
         'react/no-array-index-key': 'off',
-        'personal-use-fsd-plugin/path-checker': 'error',
+        'personal-use-fsd-plugin/path-checker': ['error', { alias: '@' }],
 
     },
     globals: {
