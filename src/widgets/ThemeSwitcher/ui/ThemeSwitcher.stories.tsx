@@ -6,7 +6,7 @@ import { ThemeSwitcher } from './ThemeSwitcher';
 
 export default {
     // название сториса
-    title: 'shared/ThemeSwitcher',
+    title: 'widget/ThemeSwitcher',
     // компонент
     component: ThemeSwitcher,
     argTypes: {

@@ -11,7 +11,11 @@ export default {
         backgroundColor: { control: 'color' },
     },
     decorators: [
-        (Story) => <div style={{ padding: 100 }}><Story /></div>,
+        (Story) => (
+            <div style={{ padding: 120, width: '100px' }}>
+                <Story />
+            </div>
+        ),
     ],
 } as ComponentMeta<typeof Dropdown>;
 
