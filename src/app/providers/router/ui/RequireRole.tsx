@@ -1,8 +1,7 @@
 import { useMemo } from 'react';
 import { useSelector } from 'react-redux';
 import { Navigate, useLocation } from 'react-router-dom';
-import { UserRole } from '@/entitis/User/model/consts/consts';
-import { getUserRoles } from '@/entitis/User';
+import { getUserRoles, UserRole } from '@/entitis/User';
 import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
 
 interface RequireAuthRoles {

@@ -78,6 +78,15 @@ module.exports = {
         'no-undef': 'off',
         'react/no-array-index-key': 'off',
         'personal-use-fsd-plugin/path-checker': ['error', { alias: '@' }],
+        'personal-use-fsd-plugin/public-api-imports': ['error', {
+            alias: '@',
+            testFilesPatterns: [
+                '**/*.test.*',
+                '**/*.stories.*',
+                '**/*.story.*',
+                '**/StoreDecorator.tsx',
+            ],
+        }],
 
     },
     globals: {

@@ -5,6 +5,7 @@ import { ButtonTheme } from '../../Button/ui/Button';
 import { Icon } from '../../Icon';
 import { Button } from '../../Button';
 import cls from './Code.module.scss';
+import { Text } from '../../Text';
 
 interface CodeProps {
     className?: string;
@@ -35,7 +36,7 @@ export const Code: FC<CodeProps> = memo((props: CodeProps) => {
                 <Icon isStroke Svg={CopyIcon} />
             </Button>
             <code>
-                {text}
+                <Text text={text} />
             </code>
         </pre>
     );

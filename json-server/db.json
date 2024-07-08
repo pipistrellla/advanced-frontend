@@ -931,6 +931,12 @@
       "userId": "1",
       "text": "123",
       "id": "mKItr-N"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "asdawda wd as",
+      "id": "OinVExY"
     }
   ],
   "users": [
@@ -1075,6 +1081,13 @@
       "rate": 4,
       "feedback": "avava vavav",
       "id": "R8kHgav"
+    },
+    {
+      "userId": "2",
+      "articleId": "32",
+      "rate": 1,
+      "feedback": "not good",
+      "id": "IbqGYAu"
     }
   ],
   "profile-ratings": [

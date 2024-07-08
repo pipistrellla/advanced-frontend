@@ -5,14 +5,17 @@ import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { classNames } from '@/shared/lib/helpers/ClassNames/ClassNames';
 import {
-    ArticleSortField, ArticleSortSelector, ArticleTypeTabs, ArticleView, ArticleViewSelector,
+    ArticleSortField,
+    ArticleSortSelector,
+    ArticleType, ArticleTypeTabs,
+    ArticleView,
+    ArticleViewSelector,
 } from '@/entitis/Article';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Card } from '@/shared/ui/Card';
 import Input from '@/shared/ui/Input/ui/Input';
 import { SortOrder } from '@/shared/types';
 import { useDebounce } from '@/shared/lib/hooks/useDebounce/useDebounce';
-import { ArticleType } from '@/entitis/Article/model/consts/consts';
 import { fetchArticlesList } from '../../model/services/fetchArticlesList/fetchArticlesList';
 import {
     getArticlePageOrder,

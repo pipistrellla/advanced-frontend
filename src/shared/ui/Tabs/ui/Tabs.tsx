@@ -2,6 +2,7 @@ import React, { FC, memo, useCallback } from 'react';
 import { classNames } from '@/shared/lib/helpers/ClassNames/ClassNames';
 import { Card, CardTheme } from '../../Card';
 import cls from './Tabs.module.scss';
+import { Text } from '../../Text';
 
 export interface TabItem {
     value: string;
@@ -38,7 +39,7 @@ export const Tabs: FC<TabsProps> = memo((props:TabsProps) => {
                     className={cls.tab}
                     onClick={clickHandle(tab)}
                 >
-                    {tab.content}
+                    {typeof (tab.content) === 'string' ? <Text text={tab.content} /> : tab.content}
                 </Card>
             ))}
         </div>
