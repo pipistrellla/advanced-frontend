@@ -4,8 +4,7 @@ import { classNames } from '@/shared/lib/helpers/ClassNames/ClassNames';
 import ListIcon from '@/shared/assets/icons/list.svg';
 import TiledIcon from '@/shared/assets/icons/tiled.svg';
 import { Icon } from '@/shared/ui/Icon';
-import { Button } from '@/shared/ui/Button';
-import { ButtonTheme } from '@/shared/ui/Button/ui/Button';
+import { Button, ButtonTheme } from '@/shared/ui/Button';
 import { ArticleView } from '../../model/consts/consts';
 import cls from './ArticleViewSelector.module.scss';
 

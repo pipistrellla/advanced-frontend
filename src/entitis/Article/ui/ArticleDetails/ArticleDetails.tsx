@@ -6,8 +6,6 @@ import { useSelector } from 'react-redux';
 import { classNames } from '@/shared/lib/helpers/ClassNames/ClassNames';
 import DynamicModuleLoader, { ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { Text, TextTheme } from '@/shared/ui/Text';
-import { TextAlign, TextSize } from '@/shared/ui/Text/ui/Text';
 import { Skeleton } from '@/shared/ui/Skeleton';
 import { Avatar } from '@/shared/ui/Avatar';
 import EyeIcon from '@/shared/assets/icons/eye.svg';
@@ -27,6 +25,9 @@ import { ArticleBlock, ArticleTextBlock } from '../../../Article/model/types/art
 import { ArticleCodeBlockComponent } from '../ArticleCodeBlockComponent/ArticleCodeBlockComponent';
 import { ArticleImageBlockComponent } from '../ArticleImageBlockComponent/ArticleImageBlockComponent';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
+import {
+    Text, TextAlign, TextTheme, TextSize,
+} from '@/shared/ui/Text';
 
 interface ArticleDetailsProps {
     className?: string;

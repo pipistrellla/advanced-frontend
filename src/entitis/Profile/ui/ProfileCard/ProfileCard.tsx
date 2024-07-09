@@ -1,10 +1,9 @@
 import React, { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Mods, classNames } from '@/shared/lib/helpers/ClassNames/ClassNames';
-import { Text, TextTheme } from '@/shared/ui/Text';
+import { Text, TextAlign, TextTheme } from '@/shared/ui/Text';
 import Input from '@/shared/ui/Input/ui/Input';
 import { Loader } from '@/shared/ui/Loader';
-import { TextAlign } from '@/shared/ui/Text/ui/Text';
 import { Avatar } from '@/shared/ui/Avatar';
 import { Currency, CurrencySelect } from '@/entitis/Currency';
 import { Country, CountrySelect } from '@/entitis/Country';

@@ -2,7 +2,7 @@ import { FC, Fragment } from 'react';
 import { Menu } from '@headlessui/react';
 import { classNames } from '@/shared/lib/helpers/ClassNames/ClassNames';
 import { DropdownDirection } from '@/shared/types/ui';
-import AppLink from '../../../../ui/AppLink/AppLink';
+import { AppLink } from '../../../../ui/AppLink';
 import cls from './Dropdown.module.scss';
 import { mapDirectionClass } from '../styles/consts';
 import popupsCls from '../styles/Popup.module.scss';

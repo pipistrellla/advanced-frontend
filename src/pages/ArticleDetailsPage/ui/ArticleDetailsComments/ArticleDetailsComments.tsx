@@ -4,10 +4,9 @@ import React, {
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { classNames } from '@/shared/lib/helpers/ClassNames/ClassNames';
-import { Text } from '@/shared/ui/Text';
+import { Text, TextSize } from '@/shared/ui/Text';
 import { CommentList } from '@/entitis/Comment';
 import { AddCommentForm } from '@/features/AddCommentForm';
-import { TextSize } from '@/shared/ui/Text/ui/Text';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { VStack } from '@/shared/ui/Stack';

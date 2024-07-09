@@ -2,10 +2,10 @@ import { useTranslation } from 'react-i18next';
 import { memo } from 'react';
 import { ArticleList } from '@/entitis/Article';
 import { classNames } from '@/shared/lib/helpers/ClassNames/ClassNames';
-import { Text, TextSize } from '@/shared/ui/Text/ui/Text';
 import { HStack, VStack } from '@/shared/ui/Stack';
 import { Skeleton } from '@/shared/ui/Skeleton';
 import { useArticleRecommendationsList } from '../../api/articleRecommendationsApi';
+import { TextSize, Text } from '@/shared/ui/Text';
 
 interface ArticleRecommendationsListProps {
     className?: string;
