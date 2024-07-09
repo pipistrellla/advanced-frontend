@@ -1,6 +1,8 @@
 import { FC, memo, useState } from 'react';
-import cls from './StarRating.module.scss';
+
 import { classNames } from '@/shared/lib/helpers/ClassNames/ClassNames';
+
+import cls from './StarRating.module.scss';
 import StarIcon from '../../../assets/icons/star.svg';
 import { Icon } from '../../Icon';
 

@@ -2,27 +2,30 @@ import {
     FC,
     memo,
 } from 'react';
+
 import { useTranslation } from 'react-i18next';
 import {
     useParams,
 } from 'react-router-dom';
-import { classNames } from '@/shared/lib/helpers/ClassNames/ClassNames';
+
 import { ArticleDetails } from '@/entitis/Article';
+import { AddArticleRating } from '@/features/AddArticleRating';
+import { ArticleRecommendationsList } from '@/features/ArticleRecommendationsList';
+import DynamicModuleLoader, {
+    ReducersList,
+} from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { classNames } from '@/shared/lib/helpers/ClassNames/ClassNames';
+import { VStack } from '@/shared/ui/Stack';
 import {
     Text,
     TextTheme,
 } from '@/shared/ui/Text';
-import DynamicModuleLoader, {
-    ReducersList,
-} from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { Page } from '@/widgets/Page';
-import { VStack } from '@/shared/ui/Stack';
-import { ArticleRecommendationsList } from '@/features/ArticleRecommendationsList';
-import { articleDetailsPageReducer } from '../../model/slice';
+
 import cls from './ArticleDetailsPage.module.scss';
-import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
+import { articleDetailsPageReducer } from '../../model/slice';
 import { ArticleDetailsComments } from '../ArticleDetailsComments/ArticleDetailsComments';
-import { AddArticleRating } from '@/features/AddArticleRating';
+import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
 
 interface ArticleDetailsPageProps {
     className?: string;

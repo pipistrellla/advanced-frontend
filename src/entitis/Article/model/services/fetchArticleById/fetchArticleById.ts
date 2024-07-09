@@ -1,5 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
+
 import { ThunkConfig } from '@/app/providers/StoreProvider';
+
 import { Article } from '../../types/article';
 // в дженерикек (что возвразаем, что принимаем , {при ошибке что вернем})
 export const fetchArticleById = createAsyncThunk<Article, string, ThunkConfig<string>>(

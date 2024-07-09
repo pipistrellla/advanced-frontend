@@ -1,6 +1,7 @@
 import {
-    AnyAction, Reducer, ReducersMapObject, combineReducers, createStore,
+    AnyAction, Reducer, ReducersMapObject, combineReducers,
 } from '@reduxjs/toolkit';
+
 import {
     ReducerManager, StateSchema, StateSchemaKey,
 } from './StateSchema';

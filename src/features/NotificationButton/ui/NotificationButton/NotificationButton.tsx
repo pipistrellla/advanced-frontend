@@ -1,12 +1,14 @@
 import { FC, memo, useState } from 'react';
-import { classNames } from '@/shared/lib/helpers/ClassNames/ClassNames';
-import { Popover } from '@/shared/ui/Popups/ui/Popover/Popover';
+
 import { NotificationList } from '@/entitis/Notification';
-import { Button, ButtonTheme } from '@/shared/ui/Button';
-import { Icon } from '@/shared/ui/Icon';
 import BellIcon from '@/shared/assets/icons/bell.svg';
-import { Drawer } from '@/shared/ui/Drawer';
+import { classNames } from '@/shared/lib/helpers/ClassNames/ClassNames';
 import { useDevice } from '@/shared/lib/hooks/useDevice/useDevice';
+import { Button, ButtonTheme } from '@/shared/ui/Button';
+import { Drawer } from '@/shared/ui/Drawer';
+import { Icon } from '@/shared/ui/Icon';
+import { Popover } from '@/shared/ui/Popups/ui/Popover/Popover';
+
 import cls from './NotificationButton.module.scss';
 
 interface NotificationButtonProps {

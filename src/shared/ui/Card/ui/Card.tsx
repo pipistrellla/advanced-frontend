@@ -1,5 +1,7 @@
 import React, { FC, HTMLAttributes } from 'react';
+
 import { classNames } from '@/shared/lib/helpers/ClassNames/ClassNames';
+
 import cls from './Card.module.scss';
 
 export enum CardTheme {

@@ -1,8 +1,8 @@
-import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import webpack from 'webpack';
-import { BuildOptions } from './types/config';
-import { buildCSSLoader } from './loaders/buildCSSLoader';
+
 import { buildBabelLoader } from './loaders/buildBebelLoader';
+import { buildCSSLoader } from './loaders/buildCSSLoader';
+import { BuildOptions } from './types/config';
 
 export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
 

@@ -1,5 +1,6 @@
 import { userActions } from '@/entitis/User';
 import { TestAsyncThunk } from '@/shared/lib/tests/TestAsyncThunk/TestAsyncThunc';
+
 import { loginByUsername } from './loginByUsername';
 
 describe('loginByUsername.test', () => {

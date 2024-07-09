@@ -1,6 +1,8 @@
 import React, { FC, memo } from 'react';
+
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
+
 import { classNames } from '@/shared/lib/helpers/ClassNames/ClassNames';
 import { Page } from '@/widgets/Page';
 

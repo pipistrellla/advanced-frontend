@@ -1,5 +1,9 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
+
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
+import { Theme } from '@/shared/const/theme';
+
+import { ArticleListItem } from './ArticleListItem';
 import {
     ArticleBlockType,
     ArticleType,
@@ -8,8 +12,6 @@ import {
 import {
     Article,
 } from '../../model/types/article';
-import { ArticleListItem } from './ArticleListItem';
-import { Theme } from '@/shared/const/theme';
 
 export default {
     title: 'entities/Article/ArticleListItem',

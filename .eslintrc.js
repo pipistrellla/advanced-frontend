@@ -24,6 +24,8 @@ module.exports = {
         'i18next',
         'react-hooks',
         'personal-use-fsd-plugin',
+        'unused-imports',
+        'eslint-plugin-import',
     ],
     rules: {
         'react/jsx-indent': [2, 4],
@@ -91,6 +93,33 @@ module.exports = {
             alias: '@',
             ignoreImportPatterns: ['**/StoreProvider', '**/testing'],
         }],
+        'unused-imports/no-unused-imports': 'error',
+
+        // для импортов
+        'import/order': [
+            'error',
+            {
+                groups: ['builtin', 'external', 'internal'],
+                pathGroups: [
+                    {
+                        pattern: 'react',
+                        group: 'external',
+                        position: 'before',
+                    },
+                    {
+                        pattern: '@/**',
+                        group: 'external',
+                        position: 'after',
+                    },
+                ],
+                pathGroupsExcludedImportTypes: ['react'],
+                'newlines-between': 'always',
+                alphabetize: {
+                    order: 'asc',
+                    caseInsensitive: true,
+                },
+            },
+        ],
 
     },
     globals: {

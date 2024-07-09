@@ -1,15 +1,18 @@
 import {
-    FC, Fragment, memo, useState,
+    FC, Fragment,
 } from 'react';
+
 import { Listbox as HLisBox } from '@headlessui/react';
-import { DropdownDirection } from '@/shared/types/ui';
+
 import { classNames } from '@/shared/lib/helpers/ClassNames/ClassNames';
-import { Text } from '../../../../ui/Text';
+import { DropdownDirection } from '@/shared/types/ui';
+
+import cls from './ListBox.module.scss';
+import Selected from '../../../../assets/icons/selected.svg';
+import { Button } from '../../../../ui/Button';
 import { Icon } from '../../../../ui/Icon';
 import { HStack } from '../../../../ui/Stack';
-import { Button } from '../../../../ui/Button';
-import Selected from '../../../../assets/icons/selected.svg';
-import cls from './ListBox.module.scss';
+import { Text } from '../../../../ui/Text';
 import { mapDirectionClass } from '../styles/consts';
 import popupsCls from '../styles/Popup.module.scss';
 

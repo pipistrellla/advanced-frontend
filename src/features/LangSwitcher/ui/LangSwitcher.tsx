@@ -1,8 +1,11 @@
 import React, { FC, memo } from 'react';
+
 import { useTranslation } from 'react-i18next';
+
 import { classNames } from '@/shared/lib/helpers/ClassNames/ClassNames';
-import { Text } from '../../../shared/ui/Text';
 import { Button, ButtonTheme } from '@/shared/ui/Button';
+
+import { Text } from '../../../shared/ui/Text';
 
 interface LangSwitcherProps {
     className?:string

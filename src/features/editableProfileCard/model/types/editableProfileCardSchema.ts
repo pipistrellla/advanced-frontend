@@ -1,4 +1,5 @@
 import { Profile } from '@/entitis/Profile';
+
 import { ValidateProfileError } from '../consts/consts';
 
 export interface ProfileSchema {

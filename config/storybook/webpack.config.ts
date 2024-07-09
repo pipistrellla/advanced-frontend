@@ -1,8 +1,9 @@
-import webpack, { DefinePlugin, RuleSetRule } from 'webpack';
 import path from 'path';
 
-import { BuildPath } from '../build/types/config';
+import webpack, { DefinePlugin, RuleSetRule } from 'webpack';
+
 import { buildCSSLoader } from '../build/loaders/buildCSSLoader';
+import { BuildPath } from '../build/types/config';
 
 export default ({ config }: {config: webpack.Configuration}) => {
 

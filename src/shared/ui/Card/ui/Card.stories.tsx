@@ -2,8 +2,9 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from '@/shared/const/theme';
-import { Text } from '../../Text';
+
 import { Card, CardTheme } from './Card';
+import { Text } from '../../Text';
 
 export default {
     title: 'shared/Card',

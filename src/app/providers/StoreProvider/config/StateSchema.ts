@@ -3,14 +3,14 @@ import {
 } from '@reduxjs/toolkit';
 import { AxiosInstance } from 'axios';
 import { NavigateOptions, To } from 'react-router-dom';
+
 import { ArticleDetailsSchema } from '@/entitis/Article';
 import { CounterSchema } from '@/entitis/Counter';
-
 import { UserSchema } from '@/entitis/User';
 import { addCommentFormSchema } from '@/features/AddCommentForm';
 import { LoginSchema } from '@/features/AuthByUsername';
-import { ScrollPositionSaveSchema } from '@/features/ScrollPositionSave';
 import { ProfileSchema } from '@/features/editableProfileCard';
+import { ScrollPositionSaveSchema } from '@/features/ScrollPositionSave';
 import {
     ArticleDetailsPageSchema,
 } from '@/pages/ArticleDetailsPage';

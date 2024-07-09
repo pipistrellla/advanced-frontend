@@ -1,12 +1,15 @@
 import React, {
     FC, Suspense, memo, useCallback,
 } from 'react';
+
 import { Routes, Route } from 'react-router-dom';
-import { PageLoader } from '@/widgets/PageLoader';
+
 import { AppRoutesProps } from '@/shared/types/router';
-import { routeConfig } from '../config/routeConfig';
+import { PageLoader } from '@/widgets/PageLoader';
+
 import { RequireAuth } from './RequireAuth';
 import { RequireRole } from './RequireRole';
+import { routeConfig } from '../config/routeConfig';
 
 interface AppRouterProps {
 

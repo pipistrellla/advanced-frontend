@@ -1,9 +1,11 @@
 import { FC, useState } from 'react';
+
 import { useTranslation } from 'react-i18next';
-import { Page } from '@/widgets/Page';
-import { Text } from '@/shared/ui/Text';
-import { BugButton } from '@/widgets/PageError';
+
 import { VStack } from '@/shared/ui/Stack';
+import { Text } from '@/shared/ui/Text';
+import { Page } from '@/widgets/Page';
+import { BugButton } from '@/widgets/PageError';
 
 interface MainPageProps {
 

@@ -1,10 +1,10 @@
-import path from 'path';
 import webpack from 'webpack';
+
+import { buildDevServer } from './BuildDevServer';
 import { buildLoaders } from './buildLoaders';
 import { buildPlugins } from './buildPlugins';
 import { buildResolvers } from './buildResolvers';
 import { BuildOptions } from './types/config';
-import { buildDevServer } from './BuildDevServer';
 
 export function buildWebpackConfig(options: BuildOptions): webpack.Configuration {
 

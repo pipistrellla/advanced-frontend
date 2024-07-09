@@ -1,8 +1,10 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
+
 import { ThunkConfig } from '@/app/providers/StoreProvider';
-import { getUserAuthData } from '@/entitis/User';
-import { fetchCommentsByArticleId } from '../fetchCommentsByArticleId/fetchCommentsByArticleId';
 import { getArticleDetailsData } from '@/entitis/Article';
+import { getUserAuthData } from '@/entitis/User';
+
+import { fetchCommentsByArticleId } from '../fetchCommentsByArticleId/fetchCommentsByArticleId';
 
 enum LoginErrors {
     INCORRECT_DATA = '',

@@ -1,4 +1,5 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
+
 import { ArticleInfiniteList } from './ArticleInfiniteList';
 
 export default {

@@ -1,20 +1,22 @@
 import React, {
     FC, Suspense, memo, useCallback,
 } from 'react';
+
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { classNames } from '@/shared/lib/helpers/ClassNames/ClassNames';
-import { Text, TextSize } from '@/shared/ui/Text';
+
 import { CommentList } from '@/entitis/Comment';
 import { AddCommentForm } from '@/features/AddCommentForm';
+import { classNames } from '@/shared/lib/helpers/ClassNames/ClassNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { VStack } from '@/shared/ui/Stack';
-import { Loader } from '@/shared/ui/Loader';
-import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
-import { addCommentFormArticle } from '../../model/services/addCommentFormArticle/addCommentFormArticle';
-import { getArticleComments } from '../../model/slice/articleDetailsCommentsSlice';
+import { Text, TextSize } from '@/shared/ui/Text';
+
 import { getArticleCommentsIsLoading, getArticleCommentsError } from '../../model/selectors/comments';
+import { addCommentFormArticle } from '../../model/services/addCommentFormArticle/addCommentFormArticle';
+import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
+import { getArticleComments } from '../../model/slice/articleDetailsCommentsSlice';
 
 interface ArticleDetailsCommentsProps {
     className?: string;

@@ -1,22 +1,24 @@
 import {
     FC, memo, useCallback, useState,
 } from 'react';
+
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { classNames } from '@/shared/lib/helpers/ClassNames/ClassNames';
-import { LoginModal } from '@/features/AuthByUsername';
+
 import {
     getUserAuthData,
 } from '@/entitis/User';
-import { Text, TextTheme } from '@/shared/ui/Text';
-import { RoutePath } from '@/shared/const/router';
-import { AppLink, AppLinkTheme } from '@/shared/ui/AppLink';
-import { HStack } from '@/shared/ui/Stack';
-
-import { NotificationButton } from '@/features/NotificationButton';
-import cls from './Navbar.module.scss';
+import { LoginModal } from '@/features/AuthByUsername';
 import { AvatarDropdown } from '@/features/AvatarDropdown';
+import { NotificationButton } from '@/features/NotificationButton';
+import { RoutePath } from '@/shared/const/router';
+import { classNames } from '@/shared/lib/helpers/ClassNames/ClassNames';
+import { AppLink, AppLinkTheme } from '@/shared/ui/AppLink';
 import { Button, ButtonTheme } from '@/shared/ui/Button';
+import { HStack } from '@/shared/ui/Stack';
+import { Text, TextTheme } from '@/shared/ui/Text';
+
+import cls from './Navbar.module.scss';
 
 interface NavbarProps {
     className?: string;

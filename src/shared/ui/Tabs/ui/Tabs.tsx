@@ -1,7 +1,9 @@
 import React, { FC, memo, useCallback } from 'react';
+
 import { classNames } from '@/shared/lib/helpers/ClassNames/ClassNames';
-import { Card, CardTheme } from '../../Card';
+
 import cls from './Tabs.module.scss';
+import { Card, CardTheme } from '../../Card';
 import { Text } from '../../Text';
 
 export interface TabItem {

@@ -1,11 +1,12 @@
 import React, { FC, memo } from 'react';
-import { classNames } from '@/shared/lib/helpers/ClassNames/ClassNames';
-import LighIcon from '@/shared/assets/icons/theme-light.svg';
+
 import DarkIcon from '@/shared/assets/icons/theme-dark.svg';
 import GreenIcon from '@/shared/assets/icons/theme-green.svg';
-import { Button, ButtonTheme } from '@/shared/ui/Button';
+import LighIcon from '@/shared/assets/icons/theme-light.svg';
 import { Theme } from '@/shared/const/theme';
+import { classNames } from '@/shared/lib/helpers/ClassNames/ClassNames';
 import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme';
+import { Button, ButtonTheme } from '@/shared/ui/Button';
 
 interface ThemeSwitcherProps {
     className?: string;

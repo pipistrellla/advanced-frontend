@@ -1,33 +1,36 @@
 import {
     FC, memo, useCallback, useEffect,
 } from 'react';
+
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { classNames } from '@/shared/lib/helpers/ClassNames/ClassNames';
-import DynamicModuleLoader, { ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { Skeleton } from '@/shared/ui/Skeleton';
-import { Avatar } from '@/shared/ui/Avatar';
-import EyeIcon from '@/shared/assets/icons/eye.svg';
+
 import CalendarIcon from '@/shared/assets/icons/calendar.svg';
+import EyeIcon from '@/shared/assets/icons/eye.svg';
+import DynamicModuleLoader, { ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { classNames } from '@/shared/lib/helpers/ClassNames/ClassNames';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { Avatar } from '@/shared/ui/Avatar';
 import { Icon } from '@/shared/ui/Icon';
+import { Skeleton } from '@/shared/ui/Skeleton';
 import { HStack, VStack } from '@/shared/ui/Stack';
-import { ArticleBlockType } from '../../model/consts/consts';
+import {
+    Text, TextAlign, TextTheme, TextSize,
+} from '@/shared/ui/Text';
+
+import cls from './ArticleDetails.module.scss';
 import { fetchArticleById } from '../../../Article/model/services/fetchArticleById/fetchArticleById';
 import { articleDetailReducer } from '../../../Article/model/slice/articleDetailSlice';
-import cls from './ArticleDetails.module.scss';
+import { ArticleBlock } from '../../../Article/model/types/article';
+import { ArticleBlockType } from '../../model/consts/consts';
 import {
     getArticleDetailsError,
     getArticleDetailsIsLoading,
     getArticleDetailsData,
 } from '../../model/selectors/articleDetails';
-import { ArticleBlock, ArticleTextBlock } from '../../../Article/model/types/article';
 import { ArticleCodeBlockComponent } from '../ArticleCodeBlockComponent/ArticleCodeBlockComponent';
 import { ArticleImageBlockComponent } from '../ArticleImageBlockComponent/ArticleImageBlockComponent';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
-import {
-    Text, TextAlign, TextTheme, TextSize,
-} from '@/shared/ui/Text';
 
 interface ArticleDetailsProps {
     className?: string;

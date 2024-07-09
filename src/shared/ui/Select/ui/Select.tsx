@@ -1,9 +1,11 @@
 import React, {
-    ChangeEvent, FC, useMemo,
+    ChangeEvent, useMemo,
 } from 'react';
+
 import { Mods, classNames } from '@/shared/lib/helpers/ClassNames/ClassNames';
-import { Text } from '../../Text';
+
 import cls from './Select.module.scss';
+import { Text } from '../../Text';
 
 export interface SelectOptions<T extends string> {
     value: T
