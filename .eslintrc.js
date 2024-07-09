@@ -80,6 +80,11 @@ module.exports = {
         'no-undef': 'off',
         'react/no-array-index-key': 'off',
         'personal-use-fsd-plugin/path-checker': ['error', { alias: '@' }],
+        'personal-use-fsd-plugin/layer-imports': ['error', {
+            alias: '@',
+            ignoreImportPatterns: ['**/StoreProvider', '**/testing'],
+        }],
+        'unused-imports/no-unused-imports': 'error',
         'personal-use-fsd-plugin/public-api-imports': ['error', {
             alias: '@',
             testFilesPatterns: [
@@ -89,11 +94,6 @@ module.exports = {
                 '**/StoreDecorator.tsx',
             ],
         }],
-        'personal-use-fsd-plugin/layer-imports': ['error', {
-            alias: '@',
-            ignoreImportPatterns: ['**/StoreProvider', '**/testing'],
-        }],
-        'unused-imports/no-unused-imports': 'error',
 
         // для импортов
         'import/order': [
