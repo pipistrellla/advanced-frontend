@@ -55,7 +55,7 @@ const Counter: FC<CounterProps> = () => {
                 {t('уменьшить')}
             </Button>
             <Button
-                data-testid="decrement-btn"
+                data-testid="multiply-btn"
                 onClick={handleMultiply}
             >
                 {t('умножить на 10')}
