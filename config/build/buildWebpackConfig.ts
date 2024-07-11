@@ -44,7 +44,7 @@ export function buildWebpackConfig(options: BuildOptions): webpack.Configuration
         // при импорте файлов с таким расширением его не нужно указывать
         resolve: buildResolvers(options),
         // для указания где произошла ошибка при сборки в 1 файл
-        devtool: isDev ? 'inline-source-map' : undefined,
+        devtool: isDev ? 'eval-cheap-module-source-map' : undefined,
         // для деврвера
         devServer: isDev ? buildDevServer(options) : undefined,
 

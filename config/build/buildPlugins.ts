@@ -18,6 +18,8 @@ export function buildPlugins(options: BuildOptions): webpack.WebpackPluginInstan
         project,
     } = options;
 
+    const isProd = !isDev;
+
     const plugins = [
         // откуда берется HTML
         new HTMLWebpackPlugin({
@@ -25,24 +27,12 @@ export function buildPlugins(options: BuildOptions): webpack.WebpackPluginInstan
         }),
         new webpack.ProgressPlugin(),
         // обработка файлов для css
-        new MiniCssExtractPlugin({
-            // куда сохранятся будет + настройка его имени
-            filename: 'css/[name].[contenthash:8].css',
-            // для асинхронного
-            chunkFilename: 'css/[name].[contenthash:8].css',
-        }),
         new webpack.DefinePlugin({
             __IS_DEV__: JSON.stringify(isDev),
             __API__: JSON.stringify(apiUrl),
             __PROJECT__: JSON.stringify(project),
         }),
         // перенос из одной папки в другую при билде
-        new CopyPlugin({
-            patterns: [
-                { from: paths.locales, to: paths.build },
-
-            ],
-        }),
         new CircularDependencyPlugin({
             exclude: /node_modules/,
             failOnError: true,
@@ -67,6 +57,28 @@ export function buildPlugins(options: BuildOptions): webpack.WebpackPluginInstan
         }));
 
     }
+
+    if (isProd) {
+
+        plugins.push(
+            new MiniCssExtractPlugin({
+                // куда сохранятся будет + настройка его имени
+                filename: 'css/[name].[contenthash:8].css',
+                // для асинхронного
+                chunkFilename: 'css/[name].[contenthash:8].css',
+            }),
+        );
+        plugins.push(
+            new CopyPlugin({
+                patterns: [
+                    { from: paths.locales, to: paths.build },
+
+                ],
+            }),
+        );
+
+    }
+
     return plugins;
 
 }

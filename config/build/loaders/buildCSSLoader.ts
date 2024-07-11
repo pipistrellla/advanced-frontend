@@ -5,6 +5,7 @@ export function buildCSSLoader(isDev:boolean) {
     return {
 
         test: /\.s[ac]ss$/i,
+        exclude: /node_modules/,
         // лоадеры работают сверху вниз
         use: [
             // Creates `style` nodes from JS strings
