@@ -1,12 +1,12 @@
 import React, { FC } from 'react';
 
 import { useTranslation } from 'react-i18next';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 import { Button } from '@/shared/ui/Button';
 
-import { getCounterValue } from '../model/selectors/getCounterValue/getCounterValue';
-import { counterActions } from '../model/slice/CounterSlice';
+import { useCounterValue } from '../model/selectors/getCounterValue/getCounterValue';
+import { useCounterActions } from '../model/slice/CounterSlice';
 
 interface CounterProps {
 
@@ -15,17 +15,25 @@ interface CounterProps {
 const Counter: FC<CounterProps> = () => {
 
     const dispatch = useDispatch();
-    const counterValue = useSelector(getCounterValue);
+    const counterValue = useCounterValue();
     const { t } = useTranslation('counter');
-    const decrement = () => {
+    const { multiply, decrement, increment } = useCounterActions();
 
-        dispatch(counterActions.decrement());
+    const handleDecrement = () => {
+
+        decrement();
 
     };
 
-    const increment = () => {
+    const handleIncrement = () => {
 
-        dispatch(counterActions.increment());
+        increment();
+
+    };
+
+    const handleMultiply = () => {
+
+        multiply(10);
 
     };
 
@@ -36,15 +44,21 @@ const Counter: FC<CounterProps> = () => {
             </h1>
             <Button
                 data-testid="increment-btn"
-                onClick={increment}
+                onClick={handleIncrement}
             >
                 {t('увеличить')}
             </Button>
             <Button
                 data-testid="decrement-btn"
-                onClick={decrement}
+                onClick={handleDecrement}
             >
                 {t('уменьшить')}
+            </Button>
+            <Button
+                data-testid="decrement-btn"
+                onClick={handleMultiply}
+            >
+                {t('умножить на 10')}
             </Button>
         </div>
     );
