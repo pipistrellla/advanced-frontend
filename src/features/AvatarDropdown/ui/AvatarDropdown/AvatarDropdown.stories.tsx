@@ -13,7 +13,7 @@ export default {
 const Template: ComponentStory<typeof AvatarDropdown> = (args) => <AvatarDropdown {...args} />;
 // TODO
 // замокать запрос для сторибука
-export const Normal = Template.bind({});
-Normal.args = {
+// export const Normal = Template.bind({});
+// Normal.args = {
 
-};
+// };

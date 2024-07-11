@@ -13,7 +13,7 @@ export default {
 const Template: ComponentStory<typeof Popover> = (args) => <Popover {...args} />;
 // TODO
 // замокать запрос
-export const Normal = Template.bind({});
-Normal.args = {
+// export const Normal = Template.bind({});
+// Normal.args = {
 
-};
+// };

@@ -1,6 +1,6 @@
 import React, { FC, memo } from 'react';
 
-import { RoutePath } from '@/shared/const/router';
+import { getRouteProfile } from '@/shared/const/router';
 import { classNames } from '@/shared/lib/helpers/ClassNames/ClassNames';
 import { AppLink } from '@/shared/ui/AppLink';
 import { Avatar } from '@/shared/ui/Avatar';
@@ -17,7 +17,7 @@ interface CommentCardProps {
     isLoading?: boolean
 }
 
-export const CommentCard: FC<CommentCardProps> = memo((props) => {
+export const CommentCard: FC<CommentCardProps> = memo((props:CommentCardProps) => {
 
     const {
         className,
@@ -69,7 +69,7 @@ export const CommentCard: FC<CommentCardProps> = memo((props) => {
             max
             className={classNames(cls.commentCard, {}, [className])}
         >
-            <AppLink to={`${RoutePath.profile}${comment.user.id}`} className={cls.header}>
+            <AppLink to={getRouteProfile(comment.user.id)} className={cls.header}>
                 {
                     comment.user.avatar
                     && (

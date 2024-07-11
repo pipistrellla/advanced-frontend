@@ -11,8 +11,9 @@ export default {
 } as ComponentMeta<typeof Drawer>;
 
 const Template: ComponentStory<typeof Drawer> = (args) => <Drawer {...args} />;
+// TODO
+// замокать запрос
+// export const Normal = Template.bind({});
+// Normal.args = {
 
-export const Normal = Template.bind({});
-Normal.args = {
-
-};
+// };

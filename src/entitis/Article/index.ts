@@ -1,7 +1,4 @@
 import { ArticleList } from './ui/ArticleList/ArticleList';
-import { ArticleSortSelector } from './ui/ArticleSortSelector/ArticleSortSelector';
-import { ArticleTypeTabs } from './ui/ArticleTypeTabs/ArticleTypeTabs';
-import { ArticleViewSelector } from './ui/ArticleViewSelector/ArticleViewSelector';
 
 export {
     ArticleDetails,
@@ -21,11 +18,6 @@ export {
 export type { ArticleDetailsSchema } from './model/types/articleDetailsSchema';
 
 export { ArticleList };
-
-export { ArticleViewSelector };
-export { ArticleSortSelector };
-
-export { ArticleTypeTabs };
 
 export {
     getArticleDetailsData,

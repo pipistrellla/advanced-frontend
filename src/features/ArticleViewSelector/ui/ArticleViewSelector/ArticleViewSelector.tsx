@@ -2,6 +2,7 @@ import React, { FC, memo } from 'react';
 
 import { useTranslation } from 'react-i18next';
 
+import { ArticleView } from '@/entitis/Article';
 import ListIcon from '@/shared/assets/icons/list.svg';
 import TiledIcon from '@/shared/assets/icons/tiled.svg';
 import { classNames } from '@/shared/lib/helpers/ClassNames/ClassNames';
@@ -9,7 +10,6 @@ import { Button, ButtonTheme } from '@/shared/ui/Button';
 import { Icon } from '@/shared/ui/Icon';
 
 import cls from './ArticleViewSelector.module.scss';
-import { ArticleView } from '../../model/consts/consts';
 
 interface ArticleViewSelectorProps {
     className?: string;
