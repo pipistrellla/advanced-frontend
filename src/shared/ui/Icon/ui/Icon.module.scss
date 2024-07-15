@@ -1,5 +1,6 @@
 .Icon {
     fill: var(--primary-color);
+    color: var(--primary-color);
 }
 
 .isStroke {
@@ -8,6 +9,7 @@
 
 .isInverted {
     fill: var(--inverted-primary-color);
+    color: var(--inverted-primary-color);
 }
 
 .isInvertedStroke {
