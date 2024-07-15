@@ -16,7 +16,7 @@ export const NotFoundPage: FC<NotFoundPageProps> = () => {
     const { t } = useTranslation('notFoundPage');
 
     return (
-        <Page>
+        <Page data-testid="NotFoundPage">
             <Text
                 theme={TextTheme.ERROR}
                 title={t('Страница не найдена')}

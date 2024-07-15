@@ -23,7 +23,9 @@ const MainPage: FC<MainPageProps> = () => {
     };
 
     return (
-        <Page>
+        <Page
+            data-testid="MainPage"
+        >
             <VStack gap="32">
                 <Text text={t('Главная страница')} />
                 <BugButton />

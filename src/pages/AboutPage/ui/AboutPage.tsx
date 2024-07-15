@@ -13,7 +13,7 @@ const AboutPage: FC<AboutPageProps> = () => {
 
     const { t } = useTranslation('about');
     return (
-        <Page>
+        <Page data-testid="AboutPage">
             <Text text={t('О сайте')} />
             <Text text={t('Привет мир!!!')} />
         </Page>

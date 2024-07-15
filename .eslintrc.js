@@ -95,6 +95,8 @@ module.exports = {
             ],
         }],
 
+        'react/destructuring-assignment': 'warn',
+
         // для импортов
         'import/order': [
             'error',

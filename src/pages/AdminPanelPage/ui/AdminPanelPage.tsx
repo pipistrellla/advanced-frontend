@@ -16,7 +16,10 @@ const AdminPanelPage: FC<AdminPanelPageProps> = memo((props) => {
     const { t } = useTranslation('admin');
 
     return (
-        <Page className={classNames('', {}, [className])}>
+        <Page
+            data-testid="AdminPanelPage"
+            className={classNames('', {}, [className])}
+        >
             <Text text={t('Админ панель')} />
         </Page>
     );

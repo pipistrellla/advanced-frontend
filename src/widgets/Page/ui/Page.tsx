@@ -12,10 +12,11 @@ import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch
 import { useInfiniteScroll } from '@/shared/lib/hooks/useInfiniteScroll/useInfiniteScroll';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { useThrottle } from '@/shared/lib/hooks/useTrottle/useTrottle';
+import { TestProps } from '@/shared/types/tests';
 
 import cls from './Page.module.scss';
 
-interface PageProps {
+interface PageProps extends TestProps {
     className?: string;
     children: React.ReactNode
     onScrollEnd?: () => void
@@ -60,6 +61,7 @@ export const Page: FC<PageProps> = (props) => {
             ref={wrapperRef}
             className={classNames(cls.page, {}, [className])}
             onScroll={onScrollHandler}
+            data-testid={props['data-testid'] ?? 'Page'}
         >
             {children}
             { onScrollEnd

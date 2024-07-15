@@ -26,7 +26,9 @@ const ProfilePage: FC<ProfilePageProps> = (props) => {
         return <Text text={t('Произошла ошибка при загрузке профиля')} />;
 
     return (
-        <Page>
+        <Page
+            data-testid="ProfilePage"
+        >
             <VStack
                 max
                 gap="16"
