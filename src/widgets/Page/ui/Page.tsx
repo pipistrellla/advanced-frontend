@@ -55,7 +55,6 @@ export const Page: FC<PageProps> = (props) => {
         wrapperRef.current.scrollTop = scrollPosition;
 
     });
-
     return (
         <main
             ref={wrapperRef}
