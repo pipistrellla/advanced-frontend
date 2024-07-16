@@ -1,7 +1,6 @@
 import React, { FC } from 'react';
 
 import { useTranslation } from 'react-i18next';
-import { useDispatch } from 'react-redux';
 
 import { Button } from '@/shared/ui/Button';
 
@@ -14,7 +13,6 @@ interface CounterProps {
 
 const Counter: FC<CounterProps> = () => {
 
-    const dispatch = useDispatch();
     const counterValue = useCounterValue();
     const { t } = useTranslation('counter');
     const { multiply, decrement, increment } = useCounterActions();
