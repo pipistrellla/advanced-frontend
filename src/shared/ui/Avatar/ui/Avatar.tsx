@@ -1,6 +1,6 @@
 import React, { CSSProperties, FC, useMemo } from 'react';
 
-import UserIcon from '@/shared/assets/icons/UserIcon.svg';
+import UserIcon from '@/shared/assets/icons/userIcon.svg';
 import { classNames } from '@/shared/lib/helpers/ClassNames/ClassNames';
 
 import cls from './Avatar.module.scss';
