@@ -74,6 +74,7 @@ export const RatingCard = memo((props: RatingCardProps) => {
                 title={feedbackTitle}
             />
             <Input
+                data-testid="RatingCard.Input"
                 value={feedback}
                 onChange={setFeedback}
                 placeholder={t('Ваш отзыв')}
@@ -83,6 +84,7 @@ export const RatingCard = memo((props: RatingCardProps) => {
 
     return (
         <Card
+            data-testid="RatingCard"
             max
             className={classNames('', {}, [className])}
         >
@@ -134,10 +136,13 @@ export const RatingCard = memo((props: RatingCardProps) => {
                                 <Button
                                     onClick={cancelHandler}
                                     theme={ButtonTheme.OUTLINE_RED}
+                                    data-testid="RatingCard.Close"
+
                                 >
                                     {t('Закрыть')}
                                 </Button>
                                 <Button
+                                    data-testid="RatingCard.Send"
                                     onClick={acceptHandler}
                                 >
                                     {t('Отправить')}

@@ -62,7 +62,10 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = (props) => {
             removeAFterUnmount
             reducers={reducers}
         >
-            <Page className={classNames(cls.articleDetailsPage, {}, [className])}>
+            <Page
+                data-testid="ArticleDetails"
+                className={classNames(cls.articleDetailsPage, {}, [className])}
+            >
                 <VStack
                     gap="16"
                     max

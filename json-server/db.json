@@ -921,18 +921,6 @@
       "id": "F-Tvh7l"
     },
     {
-      "articleId": "30",
-      "userId": "1",
-      "text": "123",
-      "id": "GET-OXN"
-    },
-    {
-      "articleId": "30",
-      "userId": "1",
-      "text": "123",
-      "id": "mKItr-N"
-    },
-    {
       "articleId": "1",
       "userId": "2",
       "text": "asdawda wd as",
@@ -1010,6 +998,17 @@
       "city": "Ekaterinburg",
       "username": "manager",
       "avatar": ""
+    },
+    {
+      "id": "4",
+      "first": "test User",
+      "lastname": "user Test",
+      "age": 21,
+      "currency": "JPY",
+      "country": "Russia",
+      "city": "Ekaterinburg",
+      "username": "testUser",
+      "avatar": "https://cdn.dribbble.com/users/17793/screenshots/16101765/media/beca221aaebf1d3ea7684ce067bc16e5.png"
     }
   ],
   "article-ratings": [
