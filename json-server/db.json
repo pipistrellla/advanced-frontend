@@ -950,6 +950,15 @@
       "avatar": "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Kayle_0.jpg"
     },
     {
+      "id": "4",
+      "username": "testUser",
+      "password": "123",
+      "roles": [
+        "ADMIN"
+      ],
+      "avatar": "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Kayle_0.jpg"
+    },
+    {
       "id": "1",
       "username": "user",
       "password": "123",
