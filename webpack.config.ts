@@ -18,9 +18,9 @@ export default (env: BuildEnv) => {
         buildLocales: path.resolve(__dirname, 'build', 'locales'),
     };
     // другие переменные
-    const PORT = env.port || 3000;
-    const mode = env.mode || 'development';
-    const apiUrl = env.apiUrl || 'http://localhost:8000';
+    const PORT = env?.port || 3000;
+    const mode = env?.mode || 'development';
+    const apiUrl = env?.apiUrl || 'http://localhost:8000';
     // для автоматизации isDev
     const isDev = mode === 'development';
 

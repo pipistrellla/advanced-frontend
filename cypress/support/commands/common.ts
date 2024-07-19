@@ -1,7 +1,6 @@
-import { selectByDataTestId } from 'cypress/helpers/selectByDataTestId';
-
 import { User } from '../../../src/entitis/User';
 import { USER_LOCALSTORAGE_KEY } from '../../../src/shared/const/localStorage';
+import { selectByDataTestId } from '../../helpers/selectByDataTestId';
 
 export const login = (username: string = 'testUser', password: string = '123') => {
 
