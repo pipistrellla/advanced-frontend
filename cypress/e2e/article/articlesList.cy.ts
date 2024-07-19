@@ -11,13 +11,34 @@ describe('Пользователь заходят на страницу со с�
     });
     // TODO
     // дописать тейст кейсы на сортировку
-    it('Список статей получен', () => {
+    // .skip для пропуска теста
 
-        cy.getByTestId('ArticleList').should('exist');
-        cy.getByTestId('ArticleListItem').should('have.length.greaterThan', 3);
+    describe('Работа с API', () => {
+
+        it('Список статей получен', () => {
+
+            cy.getByTestId('ArticleList').should('exist');
+            cy.getByTestId('ArticleListItem').should('have.length.greaterThan', 3);
+
+        });
+        it('Статья найдена', () => {
+
+            cy.getByTestId('ArticleList').should('exist');
+            cy.getByTestId('ArticleListItem').should('have.length.greaterThan', 3);
+
+        });
 
     });
-    it('Статья найдена', () => {
+
+    describe('С фикстурами', () => {
+
+        it('Статья найдена на стабах', () => {
+
+            cy.intercept('GET', '**/articles?*', { fixture: 'article-list.json' });
+            cy.getByTestId('ArticleList').should('exist');
+            cy.getByTestId('ArticleListItem').should('have.length.greaterThan', 3);
+
+        });
 
     });
 
