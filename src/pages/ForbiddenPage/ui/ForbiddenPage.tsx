@@ -7,18 +7,19 @@ import { Text } from '@/shared/ui/Text';
 import { Page } from '@/widgets/Page';
 
 interface ForbiddenPageProps {
-className?: string;
+    className?: string;
 }
 
 export const ForbiddenPage: FC<ForbiddenPageProps> = memo((props) => {
-
     const { className } = props;
     const { t } = useTranslation();
 
     return (
-        <Page data-testid="ForbiddenPage" className={classNames('', {}, [className])}>
+        <Page
+            data-testid="ForbiddenPage"
+            className={classNames('', {}, [className])}
+        >
             <Text text={t('Доступ запрещен')} />
         </Page>
     );
-
 });

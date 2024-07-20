@@ -9,9 +9,7 @@ import {
     ArticleType,
     ArticleView,
 } from '../../model/consts/consts';
-import {
-    Article,
-} from '../../model/types/article';
+import { Article } from '../../model/types/article';
 
 export default {
     title: 'entities/Article/ArticleList',
@@ -33,9 +31,7 @@ const testData = {
         username: 'aboba',
         avatar: 'https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg',
     },
-    type: [
-        ArticleType.IT,
-    ],
+    type: [ArticleType.IT],
     blocks: [
         {
             id: '1',
@@ -98,7 +94,9 @@ const testData = {
     ],
 } as Article;
 
-const Template: ComponentStory<typeof ArticleList> = (args) => <ArticleList {...args} />;
+const Template: ComponentStory<typeof ArticleList> = (args) => (
+    <ArticleList {...args} />
+);
 
 export const isLoadingSmall = Template.bind({});
 isLoadingSmall.args = {

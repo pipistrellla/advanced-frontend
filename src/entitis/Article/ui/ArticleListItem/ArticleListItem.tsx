@@ -1,6 +1,4 @@
-import {
-    FC, HTMLAttributeAnchorTarget, memo,
-} from 'react';
+import { FC, HTMLAttributeAnchorTarget, memo } from 'react';
 
 import { useTranslation } from 'react-i18next';
 
@@ -18,131 +16,118 @@ import { Skeleton } from '@/shared/ui/Skeleton';
 import { Text } from '@/shared/ui/Text';
 
 import cls from './ArticleListItem.module.scss';
-import {
-    ArticleBlockType,
-    ArticleView,
-} from '../../model/consts/consts';
-import {
-    Article, ArticleTextBlock,
-} from '../../model/types/article';
+import { ArticleBlockType, ArticleView } from '../../model/consts/consts';
+import { Article, ArticleTextBlock } from '../../model/types/article';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 
 interface ArticleListItemProps {
     className?: string;
     article: Article;
     view: ArticleView;
-    target?: HTMLAttributeAnchorTarget
+    target?: HTMLAttributeAnchorTarget;
 }
 
-export const ArticleListItem: FC<ArticleListItemProps> = memo((props:ArticleListItemProps) => {
+export const ArticleListItem: FC<ArticleListItemProps> = memo(
+    (props: ArticleListItemProps) => {
+        const { className, article, view, target } = props;
+        const { t } = useTranslation();
 
-    const {
-        className,
-        article,
-        view,
-        target,
-    } = props;
-    const { t } = useTranslation();
-
-    const types = <Text text={article.type.join(', ')} className={cls.types} />;
-    const views = (
-        <>
-            <Text text={String(article.views)} className={cls.views} />
-            <Icon Svg={EyeIcon} />
-        </>
-
-    );
-    if (view === ArticleView.BIG) {
-
-        const textBlock = article.blocks.find(
-            (block) => block.type === ArticleBlockType.TEXT,
-        ) as ArticleTextBlock;
-        return (
-            <div
-                data-testid="ArticleListItem"
-                className={classNames(cls.articleListItem, {}, [className, cls[view]])}
-            >
-                <Card>
-                    <div className={cls.header}>
-                        <Avatar
-                            size={30}
-                            src={article.user.avatar}
-                        />
-                        <Text
-                            text={article.user.username}
-                            className={cls.username}
-                        />
-                        <Text
-                            text={article.createdAt}
-                            className={cls.date}
-                        />
-                    </div>
-                    <Text title={article.title} className={cls.title} />
-                    {types}
-                    <AppImage
-                        fallback={<Skeleton width="100%" height={250} />}
-                        errorFallback={<Icon Svg={NoImage} width="100%" height={250} />}
-                        src={article.img}
-                        className={cls.img}
-                        alt={article.title}
-                    />
-                    {textBlock && (
-                        <ArticleTextBlockComponent
-                            block={textBlock}
-                            className={cls.textBlock}
-                        />
-                    )}
-                    <div className={cls.footer}>
-                        <AppLink
-                            target={target}
-                            to={getRouteArticleDetails(article.id)}
-                        >
-                            <Button
-                                theme={ButtonTheme.OUTLINE}
-                            >
-                                {t('Читать далее...')}
-                            </Button>
-                        </AppLink>
-                        {views}
-                    </div>
-                </Card>
-
-            </div>
+        const types = (
+            <Text text={article.type.join(', ')} className={cls.types} />
         );
-
-    }
-
-    return (
-        <AppLink
-            data-testid="ArticleListItem"
-            target={target}
-            to={getRouteArticleDetails(article.id)}
-            className={classNames(cls.articleListItem, {}, [className, cls[view]])}
-        >
-            <Card className={cls.card}>
-                <div className={cls.imageWrapper}>
-                    <AppImage
-                        fallback={<Skeleton width={200} height={200} />}
-                        errorFallback={(
-                            <Icon
-                                Svg={NoImage}
-                                width={200}
-                                height={200}
+        const views = (
+            <>
+                <Text text={String(article.views)} className={cls.views} />
+                <Icon Svg={EyeIcon} />
+            </>
+        );
+        if (view === ArticleView.BIG) {
+            const textBlock = article.blocks.find(
+                (block) => block.type === ArticleBlockType.TEXT,
+            ) as ArticleTextBlock;
+            return (
+                <div
+                    data-testid="ArticleListItem"
+                    className={classNames(cls.articleListItem, {}, [
+                        className,
+                        cls[view],
+                    ])}
+                >
+                    <Card>
+                        <div className={cls.header}>
+                            <Avatar size={30} src={article.user.avatar} />
+                            <Text
+                                text={article.user.username}
+                                className={cls.username}
+                            />
+                            <Text
+                                text={article.createdAt}
+                                className={cls.date}
+                            />
+                        </div>
+                        <Text title={article.title} className={cls.title} />
+                        {types}
+                        <AppImage
+                            fallback={<Skeleton width="100%" height={250} />}
+                            errorFallback={
+                                <Icon Svg={NoImage} width="100%" height={250} />
+                            }
+                            src={article.img}
+                            className={cls.img}
+                            alt={article.title}
+                        />
+                        {textBlock && (
+                            <ArticleTextBlockComponent
+                                block={textBlock}
+                                className={cls.textBlock}
                             />
                         )}
-                        className={cls.img}
-                        src={article.img}
-                        alt={article.title}
-                    />
-                    <Text text={article.createdAt} className={cls.date} />
+                        <div className={cls.footer}>
+                            <AppLink
+                                target={target}
+                                to={getRouteArticleDetails(article.id)}
+                            >
+                                <Button theme={ButtonTheme.OUTLINE}>
+                                    {t('Читать далее...')}
+                                </Button>
+                            </AppLink>
+                            {views}
+                        </div>
+                    </Card>
                 </div>
-                <div className={cls.infoWrapper}>
-                    {types}
-                    {views}
-                </div>
-                <Text title={article.title} className={cls.title} />
-            </Card>
-        </AppLink>
-    );
+            );
+        }
 
-});
+        return (
+            <AppLink
+                data-testid="ArticleListItem"
+                target={target}
+                to={getRouteArticleDetails(article.id)}
+                className={classNames(cls.articleListItem, {}, [
+                    className,
+                    cls[view],
+                ])}
+            >
+                <Card className={cls.card}>
+                    <div className={cls.imageWrapper}>
+                        <AppImage
+                            fallback={<Skeleton width={200} height={200} />}
+                            errorFallback={
+                                <Icon Svg={NoImage} width={200} height={200} />
+                            }
+                            className={cls.img}
+                            src={article.img}
+                            alt={article.title}
+                        />
+                        <Text text={article.createdAt} className={cls.date} />
+                    </div>
+                    <div className={cls.infoWrapper}>
+                        {types}
+                        {views}
+                    </div>
+                    <Text title={article.title} className={cls.title} />
+                </Card>
+            </AppLink>
+        );
+    },
+);

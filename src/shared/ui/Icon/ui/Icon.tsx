@@ -4,7 +4,7 @@ import { classNames } from '@/shared/lib/helpers/ClassNames/ClassNames';
 
 import cls from './Icon.module.scss';
 
-interface IconProps extends React.SVGProps<SVGSVGElement>{
+interface IconProps extends React.SVGProps<SVGSVGElement> {
     className?: string;
     Svg: React.FunctionComponent<React.SVGAttributes<SVGElement>>;
     isStroke?: boolean;
@@ -12,9 +12,9 @@ interface IconProps extends React.SVGProps<SVGSVGElement>{
 }
 
 export const Icon = memo((props: IconProps) => {
-
     const {
-        className, Svg,
+        className,
+        Svg,
         isStroke = false,
         isInverted = false,
         ...otherProps
@@ -32,5 +32,4 @@ export const Icon = memo((props: IconProps) => {
             {...otherProps}
         />
     );
-
 });

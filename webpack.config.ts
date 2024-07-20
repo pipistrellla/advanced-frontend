@@ -6,10 +6,8 @@ import { buildWebpackConfig } from './config/build/buildWebpackConfig';
 import { BuildEnv, BuildPath } from './config/build/types/config';
 
 export default (env: BuildEnv) => {
-
     // вынесли отдельно пути для удобного изменения их
     const paths: BuildPath = {
-
         entry: path.resolve(__dirname, 'src', 'index.tsx'),
         build: path.resolve(__dirname, 'build'),
         html: path.resolve(__dirname, 'public', 'index.html'),
@@ -33,5 +31,4 @@ export default (env: BuildEnv) => {
         project: 'frontend',
     });
     return config;
-
 };

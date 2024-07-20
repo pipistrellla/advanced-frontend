@@ -1,15 +1,9 @@
-import {
-    FC, memo, useCallback,
-} from 'react';
+import { FC, memo, useCallback } from 'react';
 
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 
-import {
-    ArticleSortField,
-    ArticleType,
-    ArticleView,
-} from '@/entitis/Article';
+import { ArticleSortField, ArticleType, ArticleView } from '@/entitis/Article';
 import { ArticleSortSelector } from '@/features/ArticleSortSelector';
 import { ArticleTypeTabs } from '@/features/ArticleTypeTabs';
 import { ArticleViewSelector } from '@/features/ArticleViewSelector';
@@ -32,11 +26,10 @@ import { fetchArticlesList } from '../../model/services/fetchArticlesList/fetchA
 import { articlePageActions } from '../../model/slices/articlePageSlice';
 
 interface ArticlePageFiltersProps {
-className?: string;
+    className?: string;
 }
 
 export const ArticlePageFilters: FC<ArticlePageFiltersProps> = memo((props) => {
-
     const { className } = props;
     const { t } = useTranslation('article');
     const dispatch = useAppDispatch();
@@ -45,50 +38,53 @@ export const ArticlePageFilters: FC<ArticlePageFiltersProps> = memo((props) => {
     const order = useSelector(getArticlePageOrder);
     const search = useSelector(getArticlePageSearch);
     const type = useSelector(getArticlePageType);
-    const onClickChangeView = useCallback((view: ArticleView) => {
-
-        dispatch(articlePageActions.setView(view));
-
-    }, [dispatch]);
+    const onClickChangeView = useCallback(
+        (view: ArticleView) => {
+            dispatch(articlePageActions.setView(view));
+        },
+        [dispatch],
+    );
 
     const fetchData = useCallback(() => {
-
         dispatch(fetchArticlesList({ replace: true }));
-
     }, [dispatch]);
 
     const debounceFetchData = useDebounce(fetchData, 500);
 
-    const onClickChangeSort = useCallback((newSort: ArticleSortField) => {
+    const onClickChangeSort = useCallback(
+        (newSort: ArticleSortField) => {
+            dispatch(articlePageActions.setSort(newSort));
+            dispatch(articlePageActions.setPage(1));
+            fetchData();
+        },
+        [dispatch, fetchData],
+    );
+    const onClickChangeOrder = useCallback(
+        (newOrder: SortOrder) => {
+            dispatch(articlePageActions.setOrder(newOrder));
+            dispatch(articlePageActions.setPage(1));
+            fetchData();
+        },
+        [dispatch, fetchData],
+    );
 
-        dispatch(articlePageActions.setSort(newSort));
-        dispatch(articlePageActions.setPage(1));
-        fetchData();
+    const onClickChangeSearch = useCallback(
+        (search: string) => {
+            dispatch(articlePageActions.setSearch(search));
+            dispatch(articlePageActions.setPage(1));
+            debounceFetchData();
+        },
+        [debounceFetchData, dispatch],
+    );
 
-    }, [dispatch, fetchData]);
-    const onClickChangeOrder = useCallback((newOrder: SortOrder) => {
-
-        dispatch(articlePageActions.setOrder(newOrder));
-        dispatch(articlePageActions.setPage(1));
-        fetchData();
-
-    }, [dispatch, fetchData]);
-
-    const onClickChangeSearch = useCallback((search: string) => {
-
-        dispatch(articlePageActions.setSearch(search));
-        dispatch(articlePageActions.setPage(1));
-        debounceFetchData();
-
-    }, [debounceFetchData, dispatch]);
-
-    const onClickChangeType = useCallback((value: ArticleType) => {
-
-        dispatch(articlePageActions.setType(value));
-        dispatch(articlePageActions.setPage(1));
-        fetchData();
-
-    }, [dispatch, fetchData]);
+    const onClickChangeType = useCallback(
+        (value: ArticleType) => {
+            dispatch(articlePageActions.setType(value));
+            dispatch(articlePageActions.setPage(1));
+            fetchData();
+        },
+        [dispatch, fetchData],
+    );
 
     return (
         <div className={classNames(cls.articlePageFilters, {}, [className])}>
@@ -118,5 +114,4 @@ export const ArticlePageFilters: FC<ArticlePageFiltersProps> = memo((props) => {
             />
         </div>
     );
-
 });

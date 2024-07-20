@@ -14,16 +14,10 @@ interface CodeProps {
 }
 
 export const Code: FC<CodeProps> = memo((props: CodeProps) => {
-
-    const {
-        className,
-        text,
-    } = props;
+    const { className, text } = props;
 
     const onClickCopy = useCallback(() => {
-
         navigator.clipboard.writeText(text);
-
     }, [text]);
 
     return (
@@ -41,5 +35,4 @@ export const Code: FC<CodeProps> = memo((props: CodeProps) => {
             </code>
         </pre>
     );
-
 });

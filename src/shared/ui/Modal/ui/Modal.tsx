@@ -1,6 +1,4 @@
-import {
-    FC, ReactNode,
-} from 'react';
+import { FC, ReactNode } from 'react';
 
 import { Mods, classNames } from '@/shared/lib/helpers/ClassNames/ClassNames';
 import { useModal } from '@/shared/lib/hooks/useModal/useModal';
@@ -15,20 +13,13 @@ interface modalProps {
     children?: ReactNode;
     isOpen?: boolean;
     onClose?: () => void;
-    lazy?: boolean
+    lazy?: boolean;
 }
 
-const ANIMATION_DELAY:number = 300;
+const ANIMATION_DELAY: number = 300;
 
 export const Modal: FC<modalProps> = (props) => {
-
-    const {
-        className,
-        children,
-        isOpen,
-        onClose,
-        lazy,
-    } = props;
+    const { className, children, isOpen, onClose, lazy } = props;
 
     const {
         close: closeHandler,
@@ -47,24 +38,14 @@ export const Modal: FC<modalProps> = (props) => {
         [cls.isClosing]: isClosing,
     };
 
-    if (lazy && !isMounted)
-
-        return null;
+    if (lazy && !isMounted) {return null;}
 
     return (
         <Portal>
             <div className={classNames(cls.Modal, mods, [className, theme])}>
-                <Overlay
-                    onClick={() => closeHandler()}
-                />
-                <div
-                    className={cls.content}
-                >
-                    {children}
-                </div>
-
+                <Overlay onClick={() => closeHandler()} />
+                <div className={cls.content}>{children}</div>
             </div>
         </Portal>
     );
-
 };

@@ -13,20 +13,16 @@ export default {
     },
 } as ComponentMeta<typeof Overlay>;
 
-const Template: ComponentStory<typeof Overlay> = (args) => <Overlay {...args} />;
+const Template: ComponentStory<typeof Overlay> = (args) => (
+    <Overlay {...args} />
+);
 
 export const Normal = Template.bind({});
-Normal.args = {
-
-};
+Normal.args = {};
 export const Dark = Template.bind({});
-Dark.args = {
-
-};
+Dark.args = {};
 
 Dark.decorators = [ThemeDecorator(Theme.DARK)];
 export const Green = Template.bind({});
-Green.args = {
-
-};
+Green.args = {};
 Green.decorators = [ThemeDecorator(Theme.GREEN)];

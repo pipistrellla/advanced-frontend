@@ -10,9 +10,7 @@ import { ThemeProvider } from '@/app/providers/ThemeProvider';
 
 const container = document.getElementById('root');
 
-if (!container)
-
-    throw new Error('Контейнер root не найден');
+if (!container) {throw new Error('Контейнер root не найден');}
 
 const root = createRoot(container);
 

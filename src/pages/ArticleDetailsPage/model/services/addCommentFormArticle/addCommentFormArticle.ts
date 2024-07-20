@@ -8,7 +8,7 @@ import { fetchCommentsByArticleId } from '../fetchCommentsByArticleId/fetchComme
 
 enum LoginErrors {
     INCORRECT_DATA = '',
-    SERVER_ERROR = ''
+    SERVER_ERROR = '',
 }
 
 // в дженерикек (что возвразаем, что принимаем , {при ошибке что вернем})
@@ -16,45 +16,26 @@ export const addCommentFormArticle = createAsyncThunk<
     Comment,
     string,
     ThunkConfig<string>
->(
-    'articleDetails/addCommentFormArticle',
-    async (
-        text,
-        thunkApi,
-    ) => {
+>('articleDetails/addCommentFormArticle', async (text, thunkApi) => {
+    const { extra, dispatch, rejectWithValue, getState } = thunkApi;
+    const userData = getUserAuthData(getState());
+    const article = getArticleDetailsData(getState());
 
-        const {
-            extra, dispatch, rejectWithValue, getState,
-        } = thunkApi;
-        const userData = getUserAuthData(getState());
-        const article = getArticleDetailsData(getState());
+    if (!userData || !article || !text) {return rejectWithValue('no data');}
 
-        if (!userData || !article || !text)
-            return rejectWithValue('no data');
+    try {
+        const response = await extra.api.post<Comment>('/comments', {
+            articleId: article.id,
+            userId: userData.id,
+            text,
+        });
+        if (!response.data) {throw new Error();}
 
-        try {
+        dispatch(fetchCommentsByArticleId(article.id));
 
-            const response = await extra.api.post<Comment>(
-                '/comments',
-                {
-                    articleId: article.id,
-                    userId: userData.id,
-                    text,
-                },
-            );
-            if (!response.data)
-                throw new Error();
-
-            dispatch(fetchCommentsByArticleId(article.id));
-
-            return response.data;
-
-        } catch (e) {
-
-            console.log(e);
-            return rejectWithValue('error');
-
-        }
-
-    },
-);
+        return response.data;
+    } catch (e) {
+        console.log(e);
+        return rejectWithValue('error');
+    }
+});

@@ -5,9 +5,7 @@ import { Currency } from '@/entitis/Currency';
 import { getProfileData } from './getProfileData';
 
 describe('getProfileData.test', () => {
-
     test('should return error', () => {
-
         const data = {
             age: 10,
             city: 'Ekaterinburg',
@@ -23,13 +21,9 @@ describe('getProfileData.test', () => {
             },
         };
         expect(getProfileData(state as StateSchema)).toEqual(data);
-
     });
     test('should work with empty data', () => {
-
         const state: DeepPartial<StateSchema> = {};
         expect(getProfileData(state as StateSchema)).toEqual(undefined);
-
     });
-
 });

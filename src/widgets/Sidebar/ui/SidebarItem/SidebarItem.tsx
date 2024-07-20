@@ -11,22 +11,19 @@ import cls from './SidebarItem.module.scss';
 import { SidebarItemType } from '../../model/types/items';
 
 interface SidebarItemProps {
-    item:SidebarItemType;
-    collapsed: boolean
+    item: SidebarItemType;
+    collapsed: boolean;
 }
 // если обернуть в мемо, то перерисовка будет происходить только тогда, когда
 // изменились пропсы
-const SiedebarItem: FC<SidebarItemProps> = memo((props:SidebarItemProps) => {
-
-    const {
-        item,
-        collapsed,
-    } = props;
+const SiedebarItem: FC<SidebarItemProps> = memo((props: SidebarItemProps) => {
+    const { item, collapsed } = props;
     const { t } = useTranslation('sidebar');
     const isAuth = useSelector(getUserAuthData);
 
-    if (item.authOnly && !isAuth)
+    if (item.authOnly && !isAuth) {
         return null;
+    }
 
     return (
         <AppLink
@@ -38,7 +35,6 @@ const SiedebarItem: FC<SidebarItemProps> = memo((props:SidebarItemProps) => {
             <span className={cls.link}>{t(item.text)}</span>
         </AppLink>
     );
-
 });
 
 export default SiedebarItem;

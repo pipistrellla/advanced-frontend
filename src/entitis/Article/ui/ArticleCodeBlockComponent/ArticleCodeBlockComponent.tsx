@@ -10,23 +10,21 @@ import { ArticleCodeBlock } from '../../../Article/model/types/article';
 
 interface ArticleCodeBlockComponentProps {
     className?: string;
-    block: ArticleCodeBlock
+    block: ArticleCodeBlock;
 }
 
-export const ArticleCodeBlockComponent: FC<ArticleCodeBlockComponentProps> = memo(
-    (props:ArticleCodeBlockComponentProps) => {
-
-        const {
-            className,
-            block,
-        } = props;
+export const ArticleCodeBlockComponent: FC<ArticleCodeBlockComponentProps> =
+    memo((props: ArticleCodeBlockComponentProps) => {
+        const { className, block } = props;
         const { t } = useTranslation();
 
         return (
-            <div className={classNames(cls.articleCodeBlockComponent, {}, [className])}>
+            <div
+                className={classNames(cls.articleCodeBlockComponent, {}, [
+                    className,
+                ])}
+            >
                 <Code text={block.code} />
             </div>
         );
-
-    },
-);
+    });

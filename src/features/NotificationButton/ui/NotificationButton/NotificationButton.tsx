@@ -12,42 +12,30 @@ import { Popover } from '@/shared/ui/Popups/ui/Popover/Popover';
 import cls from './NotificationButton.module.scss';
 
 interface NotificationButtonProps {
-className?: string;
+    className?: string;
 }
 
 export const NotificationButton: FC<NotificationButtonProps> = memo((props) => {
-
     const { className } = props;
 
     const [isOpen, setIsOpen] = useState(false);
 
     const onOpenDrawer = () => {
-
         setIsOpen(true);
-
     };
     const oncloseDrawer = () => {
-
         setIsOpen(false);
-
     };
 
     const trigger = (
-        <Button
-            onClick={onOpenDrawer}
-            theme={ButtonTheme.CLEAR}
-        >
-            <Icon
-                Svg={BellIcon}
-                isStroke
-            />
+        <Button onClick={onOpenDrawer} theme={ButtonTheme.CLEAR}>
+            <Icon Svg={BellIcon} isStroke />
         </Button>
     );
 
     const isMobile = useDevice();
 
     if (isMobile) {
-
         return (
             <div>
                 {trigger}
@@ -56,11 +44,9 @@ export const NotificationButton: FC<NotificationButtonProps> = memo((props) => {
                 </Drawer>
             </div>
         );
-
     }
 
     return (
-
         <Popover
             className={classNames(cls.notificationButton, {}, [className])}
             direction="bottom left"
@@ -68,7 +54,5 @@ export const NotificationButton: FC<NotificationButtonProps> = memo((props) => {
         >
             <NotificationList className={cls.notifications} />
         </Popover>
-
     );
-
 });

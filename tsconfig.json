@@ -8,7 +8,7 @@
         "module": "esNext",
         // или  esNext
         // ES6
-        // компиляция в 
+        // компиляция в
         "target": "es5",
         "jsx": "react-jsx",
         // node и classic в 99 node
@@ -19,8 +19,8 @@
         "paths": {
             "@/*": ["./src/*"]
         },
-        // заменяет require 
-        "esModuleInterop":true,
+        // заменяет require
+        "esModuleInterop": true,
         // поддержка дефолтного импорта(когда его нет)
         "allowSyntheticDefaultImports": true,
         "isolatedModules": true
@@ -34,5 +34,5 @@
         "./config/jest/setupTests.ts",
         "./src/**/*.ts",
         "./src/**/*.tsx"
-    ],
+    ]
 }

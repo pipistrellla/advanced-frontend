@@ -9,8 +9,8 @@ import {
 import { SortOrder } from '@/shared/types';
 
 export interface ArticlePageSchema extends EntityState<Article> {
-    isLoading?: boolean
-    error?: string
+    isLoading?: boolean;
+    error?: string;
 
     // для пагинаации
     page: number;
@@ -22,7 +22,7 @@ export interface ArticlePageSchema extends EntityState<Article> {
     order: SortOrder;
     sort: ArticleSortField;
     search: string;
-    type: ArticleType
+    type: ArticleType;
 
-    _inited?: boolean
+    _inited?: boolean;
 }

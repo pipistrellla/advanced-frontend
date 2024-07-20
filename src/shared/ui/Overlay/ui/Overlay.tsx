@@ -9,12 +9,8 @@ interface OverlayProps {
     onClick?: () => void;
 }
 
-export const Overlay: FC<OverlayProps> = memo((props:OverlayProps) => {
-
-    const {
-        className,
-        onClick,
-    } = props;
+export const Overlay: FC<OverlayProps> = memo((props: OverlayProps) => {
+    const { className, onClick } = props;
 
     return (
         <div
@@ -22,5 +18,4 @@ export const Overlay: FC<OverlayProps> = memo((props:OverlayProps) => {
             className={classNames(cls.overlay, {}, [className])}
         />
     );
-
 });

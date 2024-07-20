@@ -11,53 +11,39 @@ import { CommentCard } from '../CommentCard/CommentCard';
 
 interface CommentListProps {
     className?: string;
-    comments?: Comment[]
-    isLoading?: boolean
+    comments?: Comment[];
+    isLoading?: boolean;
 }
 
 export const CommentList: FC<CommentListProps> = memo((props) => {
-
-    const {
-        className,
-        comments,
-        isLoading,
-    } = props;
+    const { className, comments, isLoading } = props;
 
     const { t } = useTranslation('article');
 
     if (isLoading) {
-
         return (
-            <VStack
-                gap="16"
-                max
-                className={classNames('', {}, [className])}
-            >
+            <VStack gap="16" max className={classNames('', {}, [className])}>
                 <CommentCard isLoading />
                 <CommentCard isLoading />
                 <CommentCard isLoading />
                 <CommentCard isLoading />
             </VStack>
         );
-
     }
 
     return (
-        <VStack
-            max
-            gap="16"
-            className={classNames('', {}, [className])}
-        >
-            {comments?.length
-                ? comments.map((comment) => (
+        <VStack max gap="16" className={classNames('', {}, [className])}>
+            {comments?.length ? (
+                comments.map((comment) => (
                     <CommentCard
                         comment={comment}
                         isLoading={isLoading}
                         key={comment.id}
                     />
                 ))
-                : <Text text={t('Комментарии отсутствуют')} />}
+            ) : (
+                <Text text={t('Комментарии отсутствуют')} />
+            )}
         </VStack>
     );
-
 });

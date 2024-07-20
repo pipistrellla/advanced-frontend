@@ -1,6 +1,4 @@
-import {
-    FC, Suspense, useEffect,
-} from 'react';
+import { FC, Suspense, useEffect } from 'react';
 
 // suspence позволяет показать пользователю, что идет загрузка (нужно обернуть)
 import { useDispatch, useSelector } from 'react-redux';
@@ -13,21 +11,16 @@ import { Sidebar } from '@/widgets/Sidebar';
 
 import { AppRouter } from './providers/router';
 
-interface AppProps {
-
-}
+interface AppProps {}
 // lazyload позволяет уменьшить размер бандла
 // так как грузит не все страницы стразу
 
 const App: FC<AppProps> = () => {
-
     const { theme } = useTheme();
     const dispatch = useDispatch();
     const inited = useSelector(getUserInited);
     useEffect(() => {
-
         dispatch(userActions.initAithData());
-
     }, [dispatch]);
 
     return (
@@ -40,9 +33,7 @@ const App: FC<AppProps> = () => {
                 </div>
             </Suspense>
         </div>
-
     );
-
 };
 
 export default App;

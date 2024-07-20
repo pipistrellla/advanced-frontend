@@ -4,9 +4,7 @@ import { TestProvider } from '@/shared/lib/tests/componentRender/componentRender
 const USER_ID = '1';
 
 describe('EditableProfileCard.cy.tsx', () => {
-
     it('playground', () => {
-
         cy.intercept('GET', '**/profile/*', { fixture: 'profile.json' });
         cy.mount(
             <TestProvider
@@ -24,7 +22,5 @@ describe('EditableProfileCard.cy.tsx', () => {
             </TestProvider>,
         );
         // описывается тест точно также как в других e2e
-
     });
-
 });

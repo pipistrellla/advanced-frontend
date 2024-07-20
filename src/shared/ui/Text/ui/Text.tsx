@@ -6,14 +6,14 @@ import cls from './Text.module.scss';
 
 export enum TextTheme {
     PRIMARY = 'primary',
-    INVERTED= 'inverted',
-    ERROR = 'error'
+    INVERTED = 'inverted',
+    ERROR = 'error',
 }
 
 export enum TextAlign {
     RIGHT = 'right',
     LEFT = 'left',
-    CENTER = 'center'
+    CENTER = 'center',
 }
 
 export enum TextSize {
@@ -25,11 +25,11 @@ export enum TextSize {
 interface TextProps {
     className?: string;
     title?: string;
-    text?: string
+    text?: string;
     theme?: TextTheme;
-    align?: TextAlign
-    size?: TextSize
-    'data-testid'?: string
+    align?: TextAlign;
+    size?: TextSize;
+    'data-testid'?: string;
 }
 type HeaderTagType = 'h1' | 'h2' | 'h3';
 
@@ -39,8 +39,7 @@ const mapSizeToHeaderTag: Record<TextSize, HeaderTagType> = {
     [TextSize.L]: 'h1',
 };
 
-export const Text: FC<TextProps> = memo((props:TextProps) => {
-
+export const Text: FC<TextProps> = memo((props: TextProps) => {
     const {
         className,
         title,
@@ -56,14 +55,15 @@ export const Text: FC<TextProps> = memo((props:TextProps) => {
     const HeaderTag = mapSizeToHeaderTag[size];
 
     return (
-        <div className={classNames(cls.Text, {}, [
-            className,
-            cls[theme],
-            cls[align],
-            cls[size],
-        ])}
+        <div
+            className={classNames(cls.Text, {}, [
+                className,
+                cls[theme],
+                cls[align],
+                cls[size],
+            ])}
         >
-            { title && (
+            {title && (
                 <HeaderTag
                     data-testid={`${dataTestId}.Header`}
                     className={cls.title}
@@ -72,14 +72,10 @@ export const Text: FC<TextProps> = memo((props:TextProps) => {
                 </HeaderTag>
             )}
             {text && (
-                <p
-                    data-testid={`${dataTestId}.Paragraph`}
-                    className={cls.text}
-                >
+                <p data-testid={`${dataTestId}.Paragraph`} className={cls.text}>
                     {text}
                 </p>
             )}
         </div>
     );
-
 });

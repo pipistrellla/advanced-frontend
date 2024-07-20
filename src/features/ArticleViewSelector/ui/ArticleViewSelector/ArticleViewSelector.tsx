@@ -13,8 +13,8 @@ import cls from './ArticleViewSelector.module.scss';
 
 interface ArticleViewSelectorProps {
     className?: string;
-    view: ArticleView
-    onCLickView: (view: ArticleView) => void
+    view: ArticleView;
+    onCLickView: (view: ArticleView) => void;
 }
 
 const viewsType = [
@@ -28,44 +28,36 @@ const viewsType = [
     },
 ];
 
-export const ArticleViewSelector: FC<ArticleViewSelectorProps> = memo((props:ArticleViewSelectorProps) => {
+export const ArticleViewSelector: FC<ArticleViewSelectorProps> = memo(
+    (props: ArticleViewSelectorProps) => {
+        const { className, onCLickView, view } = props;
+        const { t } = useTranslation();
 
-    const {
-        className,
-        onCLickView,
-        view,
-    } = props;
-    const { t } = useTranslation();
+        const onClick = (newView: ArticleView) => () => {
+            onCLickView?.(newView);
+        };
 
-    const onClick = (newView: ArticleView) => () => {
-
-        onCLickView?.(newView);
-
-    };
-
-    return (
-        <div className={classNames(cls.articleViewSelector, {}, [className])}>
-            {viewsType.map((viewsType) => (
-
-                <Button
-                    theme={ButtonTheme.CLEAR}
-                    onClick={onClick(viewsType.view)}
-                    key={viewsType.view}
-                >
-                    <Icon
-                        className={
-                            classNames(
+        return (
+            <div
+                className={classNames(cls.articleViewSelector, {}, [className])}
+            >
+                {viewsType.map((viewsType) => (
+                    <Button
+                        theme={ButtonTheme.CLEAR}
+                        onClick={onClick(viewsType.view)}
+                        key={viewsType.view}
+                    >
+                        <Icon
+                            className={classNames(
                                 '',
                                 { [cls.notSelected]: viewsType.view !== view },
                                 [],
-                            )
-                        }
-                        Svg={viewsType.icon}
-                    />
-                </Button>
-
-            ))}
-        </div>
-    );
-
-});
+                            )}
+                            Svg={viewsType.icon}
+                        />
+                    </Button>
+                ))}
+            </div>
+        );
+    },
+);

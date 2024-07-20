@@ -5,12 +5,9 @@ import { useTranslation } from 'react-i18next';
 import { Text } from '@/shared/ui/Text';
 import { Page } from '@/widgets/Page';
 
-interface AboutPageProps {
-
-}
+interface AboutPageProps {}
 
 const AboutPage: FC<AboutPageProps> = () => {
-
     const { t } = useTranslation('about');
     return (
         <Page data-testid="AboutPage">
@@ -18,7 +15,6 @@ const AboutPage: FC<AboutPageProps> = () => {
             <Text text={t('Привет мир!!!')} />
         </Page>
     );
-
 };
 
 export default AboutPage;

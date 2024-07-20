@@ -36,10 +36,11 @@ const testData: Notification[] = [
         title: 'test title with link',
         href: '123123',
     },
-
 ];
 
-const Template: ComponentStory<typeof NotificationList> = (args) => <NotificationList {...args} />;
+const Template: ComponentStory<typeof NotificationList> = (args) => (
+    <NotificationList {...args} />
+);
 
 export const Normal = Template.bind({});
 Normal.args = {};

@@ -1,11 +1,11 @@
-import {
-    FC, memo, useCallback,
-} from 'react';
+import { FC, memo, useCallback } from 'react';
 
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 
-import DynamicModuleLoader, { ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import DynamicModuleLoader, {
+    ReducersList,
+} from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Button, ButtonTheme } from '@/shared/ui/Button';
 import Input from '@/shared/ui/Input/ui/Input';
@@ -20,10 +20,10 @@ import { loginByUsername } from '../../model/services/loginByUsername/loginByUse
 import { LoginActions, LoginReducer } from '../../model/slice/LoginSlice';
 
 export interface LoginFormProps {
-    className?: string
+    className?: string;
     // этот пропс нуже чтобы закрывать модалку при успешной авторизации
     // так как при успешной авторизации мы ее просто демонтировали
-    onSucces: () => void
+    onSucces: () => void;
 }
 
 const initialsReducers: ReducersList = {
@@ -31,11 +31,7 @@ const initialsReducers: ReducersList = {
 };
 
 const LoginForm: FC<LoginFormProps> = memo((props) => {
-
-    const {
-        className,
-        onSucces,
-    } = props;
+    const { className, onSucces } = props;
 
     const { t } = useTranslation('navbar');
     const dispatch = useAppDispatch();
@@ -45,28 +41,26 @@ const LoginForm: FC<LoginFormProps> = memo((props) => {
     const isLoading = useSelector(getLoginIsLoading);
     const error = useSelector(getLoginError);
 
-    const onChangeUsername = useCallback((value : string) => {
+    const onChangeUsername = useCallback(
+        (value: string) => {
+            dispatch(LoginActions.setUsername(value));
+        },
+        [dispatch],
+    );
 
-        dispatch(LoginActions.setUsername(value));
-
-    }, [dispatch]);
-
-    const onChangePassword = useCallback((value: string) => {
-
-        dispatch(LoginActions.setPassword(value));
-
-    }, [dispatch]);
+    const onChangePassword = useCallback(
+        (value: string) => {
+            dispatch(LoginActions.setPassword(value));
+        },
+        [dispatch],
+    );
 
     const onClickLogin = useCallback(async () => {
-
         const result = await dispatch(loginByUsername({ username, password }));
-        if (result.meta.requestStatus === 'fulfilled')
-            onSucces();
-
+        if (result.meta.requestStatus === 'fulfilled') {onSucces();}
     }, [dispatch, username, password, onSucces]);
 
     return (
-
         <DynamicModuleLoader
             reducers={initialsReducers}
             // если указывать без выноса в отдельную переменную
@@ -108,7 +102,6 @@ const LoginForm: FC<LoginFormProps> = memo((props) => {
             </div>
         </DynamicModuleLoader>
     );
-
 });
 
 export default LoginForm;

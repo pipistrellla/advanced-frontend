@@ -17,9 +17,7 @@ const data = {
 };
 
 describe('updateProfileData.test', () => {
-
     test('success update', async () => {
-
         const thunk = new TestAsyncThunk(updateProfileData, {
             profile: {
                 form: data,
@@ -32,11 +30,9 @@ describe('updateProfileData.test', () => {
         expect(thunk.api.put).toHaveBeenCalled();
         expect(result.meta.requestStatus).toBe('fulfilled');
         expect(result.payload).toEqual(data);
-
     });
 
     test('error SERVER_ERROR', async () => {
-
         const thunk = new TestAsyncThunk(updateProfileData, {
             profile: {
                 form: data,
@@ -47,14 +43,10 @@ describe('updateProfileData.test', () => {
         const result = await thunk.callThunk();
 
         expect(result.meta.requestStatus).toBe('rejected');
-        expect(result.payload).toEqual([
-            ValidateProfileError.SERVER_ERROR,
-        ]);
-
+        expect(result.payload).toEqual([ValidateProfileError.SERVER_ERROR]);
     });
 
     test('error INCORRECT_USER_DATA', async () => {
-
         const thunk = new TestAsyncThunk(updateProfileData, {
             profile: {
                 form: { ...data, lastname: '' },
@@ -68,7 +60,5 @@ describe('updateProfileData.test', () => {
         expect(result.payload).toEqual([
             ValidateProfileError.INCORRECT_USER_DATA,
         ]);
-
     });
-
 });

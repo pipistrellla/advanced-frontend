@@ -16,10 +16,16 @@ export default {
 const commentData = {
     id: '1',
     text: 'test text',
-    user: { id: '1', username: 'test', avatar: 'https://img.freepik.com/premium-photo/bearded-man-illustration_665280-67047.jpg' },
+    user: {
+        id: '1',
+        username: 'test',
+        avatar: 'https://img.freepik.com/premium-photo/bearded-man-illustration_665280-67047.jpg',
+    },
 };
 
-const Template: ComponentStory<typeof CommentCard> = (args) => <CommentCard {...args} />;
+const Template: ComponentStory<typeof CommentCard> = (args) => (
+    <CommentCard {...args} />
+);
 
 export const Normal = Template.bind({});
 Normal.args = {

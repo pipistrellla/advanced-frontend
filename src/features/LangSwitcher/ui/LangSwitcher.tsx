@@ -8,29 +8,26 @@ import { Button, ButtonTheme } from '@/shared/ui/Button';
 import { Text } from '../../../shared/ui/Text';
 
 interface LangSwitcherProps {
-    className?:string
-    short?: boolean
+    className?: string;
+    short?: boolean;
 }
 
-export const LangSwitcher: FC<LangSwitcherProps> = memo(({ className, short }: LangSwitcherProps) => {
+export const LangSwitcher: FC<LangSwitcherProps> = memo(
+    ({ className, short }: LangSwitcherProps) => {
+        const { t, i18n } = useTranslation();
 
-    const { t, i18n } = useTranslation();
+        const toggle = () => {
+            i18n.changeLanguage(i18n.language === 'ru' ? 'en' : 'ru');
+        };
 
-    const toggle = () => {
-
-        i18n.changeLanguage(i18n.language === 'ru' ? 'en' : 'ru');
-
-    };
-
-    return (
-        <Button
-            className={classNames('', {}, [className])}
-            theme={ButtonTheme.CLEAR}
-            onClick={() => toggle()}
-        >
-            <Text text={t(short ? 'Яз' : 'Язык')} />
-
-        </Button>
-    );
-
-});
+        return (
+            <Button
+                className={classNames('', {}, [className])}
+                theme={ButtonTheme.CLEAR}
+                onClick={() => toggle()}
+            >
+                <Text text={t(short ? 'Яз' : 'Язык')} />
+            </Button>
+        );
+    },
+);

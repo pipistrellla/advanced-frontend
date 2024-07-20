@@ -6,9 +6,7 @@ import { fetchArticlesList } from '../fetchArticlesList/fetchArticlesList';
 jest.mock('../fetchArticlesList/fetchArticlesList');
 
 describe('fetchNextArticlePage.test', () => {
-
     test('succes', async () => {
-
         const thunk = new TestAsyncThunk(fetchNextArticlePage, {
             articlePage: {
                 page: 2,
@@ -23,11 +21,9 @@ describe('fetchNextArticlePage.test', () => {
 
         expect(thunk.dispatch).toBeCalledTimes(4);
         expect(fetchArticlesList).toBeCalled();
-
     });
 
     test('fetch articles not called', async () => {
-
         const thunk = new TestAsyncThunk(fetchNextArticlePage, {
             articlePage: {
                 page: 2,
@@ -42,11 +38,9 @@ describe('fetchNextArticlePage.test', () => {
 
         expect(thunk.dispatch).toBeCalledTimes(2);
         expect(fetchArticlesList).not.toBeCalled();
-
     });
 
     test('fetch articles is loading', async () => {
-
         const thunk = new TestAsyncThunk(fetchNextArticlePage, {
             articlePage: {
                 page: 2,
@@ -61,7 +55,5 @@ describe('fetchNextArticlePage.test', () => {
 
         expect(thunk.dispatch).toBeCalledTimes(2);
         expect(fetchArticlesList).not.toBeCalled();
-
     });
-
 });

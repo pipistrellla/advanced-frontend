@@ -7,9 +7,7 @@
         "views": 1022,
         "createdAt": "04.07.2024",
         "userId": "1",
-        "type": [
-            "IT"
-        ],
+        "type": ["IT"],
         "blocks": [
             {
                 "id": "1",
@@ -74,9 +72,7 @@
             "id": "1",
             "username": "user",
             "password": "123",
-            "roles": [
-                "USER"
-            ],
+            "roles": ["USER"],
             "avatar": "https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg"
         }
     },
@@ -88,9 +84,7 @@
         "views": 120,
         "createdAt": "26.02.2023",
         "userId": "1",
-        "type": [
-            "IT"
-        ],
+        "type": ["IT"],
         "blocks": [
             {
                 "id": "1",
@@ -155,9 +149,7 @@
             "id": "1",
             "username": "user",
             "password": "123",
-            "roles": [
-                "USER"
-            ],
+            "roles": ["USER"],
             "avatar": "https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg"
         }
     },
@@ -169,10 +161,7 @@
         "views": 1100,
         "createdAt": "26.02.2024",
         "userId": "1",
-        "type": [
-            "IT",
-            "SCIENCE"
-        ],
+        "type": ["IT", "SCIENCE"],
         "blocks": [
             {
                 "id": "1",
@@ -189,9 +178,7 @@
             "id": "1",
             "username": "user",
             "password": "123",
-            "roles": [
-                "USER"
-            ],
+            "roles": ["USER"],
             "avatar": "https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg"
         }
     },
@@ -203,10 +190,7 @@
         "views": 1022,
         "createdAt": "26.03.2024",
         "userId": "1",
-        "type": [
-            "IT",
-            "SCIENCE"
-        ],
+        "type": ["IT", "SCIENCE"],
         "blocks": [
             {
                 "id": "1",
@@ -223,9 +207,7 @@
             "id": "1",
             "username": "user",
             "password": "123",
-            "roles": [
-                "USER"
-            ],
+            "roles": ["USER"],
             "avatar": "https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg"
         }
     },
@@ -237,9 +219,7 @@
         "views": 1022,
         "createdAt": "26.04.2024",
         "userId": "1",
-        "type": [
-            "IT"
-        ],
+        "type": ["IT"],
         "blocks": [
             {
                 "id": "1",
@@ -304,9 +284,7 @@
             "id": "1",
             "username": "user",
             "password": "123",
-            "roles": [
-                "USER"
-            ],
+            "roles": ["USER"],
             "avatar": "https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg"
         }
     },
@@ -318,9 +296,7 @@
         "views": 5204,
         "createdAt": "26.02.2024",
         "userId": "1",
-        "type": [
-            "IT"
-        ],
+        "type": ["IT"],
         "blocks": [
             {
                 "id": "1",
@@ -337,9 +313,7 @@
             "id": "1",
             "username": "user",
             "password": "123",
-            "roles": [
-                "USER"
-            ],
+            "roles": ["USER"],
             "avatar": "https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg"
         }
     },
@@ -351,9 +325,7 @@
         "views": 94002,
         "createdAt": "26.02.2019",
         "userId": "1",
-        "type": [
-            "IT"
-        ],
+        "type": ["IT"],
         "blocks": [
             {
                 "id": "1",
@@ -370,9 +342,7 @@
             "id": "1",
             "username": "user",
             "password": "123",
-            "roles": [
-                "USER"
-            ],
+            "roles": ["USER"],
             "avatar": "https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg"
         }
     },
@@ -384,9 +354,7 @@
         "views": 10222,
         "createdAt": "24.01.2024",
         "userId": "1",
-        "type": [
-            "IT"
-        ],
+        "type": ["IT"],
         "blocks": [
             {
                 "id": "1",
@@ -403,9 +371,7 @@
             "id": "1",
             "username": "user",
             "password": "123",
-            "roles": [
-                "USER"
-            ],
+            "roles": ["USER"],
             "avatar": "https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg"
         }
     },
@@ -417,9 +383,7 @@
         "views": 10222,
         "createdAt": "26.02.2020",
         "userId": "1",
-        "type": [
-            "IT"
-        ],
+        "type": ["IT"],
         "blocks": [
             {
                 "id": "1",
@@ -436,9 +400,7 @@
             "id": "1",
             "username": "user",
             "password": "123",
-            "roles": [
-                "USER"
-            ],
+            "roles": ["USER"],
             "avatar": "https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg"
         }
     }

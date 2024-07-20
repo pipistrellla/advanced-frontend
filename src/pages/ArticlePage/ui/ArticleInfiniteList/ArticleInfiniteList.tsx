@@ -17,25 +17,24 @@ interface ArticleInfiniteListProps {
     className?: string;
 }
 
-export const ArticleInfiniteList: FC<ArticleInfiniteListProps> = memo((props) => {
+export const ArticleInfiniteList: FC<ArticleInfiniteListProps> = memo(
+    (props) => {
+        const { className } = props;
 
-    const { className } = props;
+        const articles = useSelector(getArticles.selectAll);
+        const isLoading = useSelector(getArticlePageIsLoading);
+        const view = useSelector(getArticlePageView);
+        const error = useSelector(getArticlePageError);
+        const { t } = useTranslation('article');
 
-    const articles = useSelector(getArticles.selectAll);
-    const isLoading = useSelector(getArticlePageIsLoading);
-    const view = useSelector(getArticlePageView);
-    const error = useSelector(getArticlePageError);
-    const { t } = useTranslation('article');
-
-    if (error)
-        <Text title={t('Произошла ошибка')} />;
-    return (
-        <ArticleList
-            isLoading={isLoading}
-            articles={articles}
-            view={view}
-            className={className}
-        />
-    );
-
-});
+        if (error) {<Text title={t('Произошла ошибка')} />;}
+        return (
+            <ArticleList
+                isLoading={isLoading}
+                articles={articles}
+                view={view}
+                className={className}
+            />
+        );
+    },
+);

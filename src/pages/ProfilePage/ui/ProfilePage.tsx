@@ -9,35 +9,25 @@ import { Text } from '@/shared/ui/Text';
 import { Page } from '@/widgets/Page';
 
 interface ProfilePageProps {
-    className?: string
-    testId?: string
+    className?: string;
+    testId?: string;
 }
 
 const ProfilePage: FC<ProfilePageProps> = (props) => {
-
-    const {
-        className,
-        testId,
-    } = props;
+    const { className, testId } = props;
     const { t } = useTranslation('profile');
-    const { id } = useParams<{id:string}>();
+    const { id } = useParams<{ id: string }>();
 
     if (!id && !testId)
-        return <Text text={t('Произошла ошибка при загрузке профиля')} />;
+        {return <Text text={t('Произошла ошибка при загрузке профиля')} />;}
 
     return (
-        <Page
-            data-testid="ProfilePage"
-        >
-            <VStack
-                max
-                gap="16"
-            >
+        <Page data-testid="ProfilePage">
+            <VStack max gap="16">
                 <EditableProfileCard id={id!} />
             </VStack>
         </Page>
     );
-
 };
 
 export default ProfilePage;

@@ -12,22 +12,26 @@ interface ThemeSwitcherProps {
     className?: string;
 }
 
-export const ThemeSwitcher: FC<ThemeSwitcherProps> = memo(({ className }: ThemeSwitcherProps) => {
-
-    const { theme, toggleTheme } = useTheme();
-    return (
-        <Button
-            className={classNames('', {}, [className])}
-            onClick={() => toggleTheme()}
-            theme={ButtonTheme.CLEAR}
-        >
-
-            {
-                // eslint-disable-next-line no-nested-ternary
-                theme === Theme.LIGHT ? <LighIcon /> : theme === Theme.DARK ? <DarkIcon /> : <GreenIcon />
-            }
-        </Button>
-
-    );
-
-});
+export const ThemeSwitcher: FC<ThemeSwitcherProps> = memo(
+    ({ className }: ThemeSwitcherProps) => {
+        const { theme, toggleTheme } = useTheme();
+        return (
+            <Button
+                className={classNames('', {}, [className])}
+                onClick={() => toggleTheme()}
+                theme={ButtonTheme.CLEAR}
+            >
+                {
+                    // eslint-disable-next-line no-nested-ternary
+                    theme === Theme.LIGHT ? (
+                        <LighIcon />
+                    ) : theme === Theme.DARK ? (
+                        <DarkIcon />
+                    ) : (
+                        <GreenIcon />
+                    )
+                }
+            </Button>
+        );
+    },
+);

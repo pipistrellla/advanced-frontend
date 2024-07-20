@@ -15,7 +15,4 @@ export type {
     StateSchemaKey,
 };
 
-export {
-    StoreProvider,
-    createReduxStore,
-};
+export { StoreProvider, createReduxStore };

@@ -3,7 +3,9 @@ import { FC, memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSearchParams } from 'react-router-dom';
 
-import DynamicModuleLoader, { ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import DynamicModuleLoader, {
+    ReducersList,
+} from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { classNames } from '@/shared/lib/helpers/ClassNames/ClassNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
@@ -17,7 +19,7 @@ import { ArticleInfiniteList } from '../ArticleInfiniteList/ArticleInfiniteList'
 import { ArticlePageFilters } from '../ArticlePageFilters/ArticlePageFilters';
 
 interface ArticlePageProps {
-className?: string;
+    className?: string;
 }
 
 const reducers: ReducersList = {
@@ -25,23 +27,17 @@ const reducers: ReducersList = {
 };
 
 const ArticlePage: FC<ArticlePageProps> = (props) => {
-
     const { className } = props;
     const { t } = useTranslation('article');
     const dispatch = useAppDispatch();
     const [searchParams] = useSearchParams();
 
     const onLoadNextPart = useCallback(() => {
-
-        if (__PROJECT__ !== 'storybook')
-            dispatch(fetchNextArticlePage());
-
+        if (__PROJECT__ !== 'storybook') {dispatch(fetchNextArticlePage());}
     }, [dispatch]);
 
     useInitialEffect(() => {
-
         dispatch(initArticlesPage(searchParams));
-
     });
 
     return (
@@ -56,7 +52,6 @@ const ArticlePage: FC<ArticlePageProps> = (props) => {
             </Page>
         </DynamicModuleLoader>
     );
-
 };
 
 export default memo(ArticlePage);

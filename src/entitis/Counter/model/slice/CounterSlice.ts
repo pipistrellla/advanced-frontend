@@ -5,7 +5,7 @@ import { buildSlice } from '@/shared/lib/store';
 import { CounterSchema } from '../types/counterSchema';
 
 export interface CounterState {
-    value: number
+    value: number;
 }
 
 const initialState: CounterSchema = {
@@ -17,19 +17,13 @@ export const counterSlice = buildSlice({
     initialState,
     reducers: {
         increment: (state) => {
-
             state.value += 1;
-
         },
         decrement: (state) => {
-
             state.value -= 1;
-
         },
-        multiply: (state, { payload } : PayloadAction<number>) => {
-
+        multiply: (state, { payload }: PayloadAction<number>) => {
             state.value *= payload;
-
         },
     },
 });

@@ -4,7 +4,10 @@ import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 
 import {
-    getUserAuthData, isUserAdmin, isUserManager, userActions,
+    getUserAuthData,
+    isUserAdmin,
+    isUserManager,
+    userActions,
 } from '@/entitis/User';
 import { getRouteAdminPanel, getRouteProfile } from '@/shared/const/router';
 import { classNames } from '@/shared/lib/helpers/ClassNames/ClassNames';
@@ -13,11 +16,10 @@ import { Avatar } from '@/shared/ui/Avatar';
 import { DropdownItem, Dropdown } from '@/shared/ui/Popups';
 
 interface AvatarDropdownProps {
-className?: string;
+    className?: string;
 }
 
 export const AvatarDropdown: FC<AvatarDropdownProps> = memo((props) => {
-
     const { className } = props;
     const { t } = useTranslation('navbar');
 
@@ -28,46 +30,40 @@ export const AvatarDropdown: FC<AvatarDropdownProps> = memo((props) => {
     const isAdminPanelAvailable = isAdmin || isManager;
 
     const onLogOut = useCallback(() => {
-
         dispatch(userActions.logout());
-
     }, [dispatch]);
 
-    const dropdownItems:DropdownItem[] = authData?.id
+    const dropdownItems: DropdownItem[] = authData?.id
         ? [
-            ...(isAdminPanelAvailable
-                ? [{
-                    content: t('Админка'),
-                    href: getRouteAdminPanel(),
-                }]
-                : []),
-            {
-                content: t('Профиль'),
-                href: getRouteProfile(authData.id),
-            },
-            {
-                content: t('Выйти'),
-                onClick: onLogOut,
-            },
-        ]
+              ...(isAdminPanelAvailable
+                  ? [
+                        {
+                            content: t('Админка'),
+                            href: getRouteAdminPanel(),
+                        },
+                    ]
+                  : []),
+              {
+                  content: t('Профиль'),
+                  href: getRouteProfile(authData.id),
+              },
+              {
+                  content: t('Выйти'),
+                  onClick: onLogOut,
+              },
+          ]
         : [];
 
-    if (!authData)
-        return null;
+    if (!authData) {return null;}
 
     return (
         <Dropdown
             className={classNames('', {}, [className])}
             direction="bottom left"
             items={dropdownItems}
-            trigger={(
-                <Avatar
-                    fallbackInverted
-                    size={30}
-                    src={authData.avatar}
-                />
-            )}
+            trigger={
+                <Avatar fallbackInverted size={30} src={authData.avatar} />
+            }
         />
     );
-
 });

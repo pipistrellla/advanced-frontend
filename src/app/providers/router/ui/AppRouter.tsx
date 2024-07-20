@@ -1,6 +1,4 @@
-import React, {
-    FC, Suspense, memo, useCallback,
-} from 'react';
+import React, { FC, Suspense, memo, useCallback } from 'react';
 
 import { Routes, Route } from 'react-router-dom';
 
@@ -11,18 +9,12 @@ import { RequireAuth } from './RequireAuth';
 import { RequireRole } from './RequireRole';
 import { routeConfig } from '../config/routeConfig';
 
-interface AppRouterProps {
-
-}
+interface AppRouterProps {}
 
 const AppRouter: FC<AppRouterProps> = () => {
-
     const renderWithWrapper = useCallback((route: AppRoutesProps) => {
-
         const element = (
-            <Suspense fallback={<PageLoader />}>
-                {route.element}
-            </Suspense>
+            <Suspense fallback={<PageLoader />}>{route.element}</Suspense>
         );
 
         return (
@@ -36,21 +28,15 @@ const AppRouter: FC<AppRouterProps> = () => {
                                 {element}
                             </RequireRole>
                         </RequireAuth>
-                    ) : element
+                    ) : (
+                        element
+                    )
                 }
             />
         );
-
     }, []);
 
-    return (
-
-        <Routes>
-            {Object.values(routeConfig).map(renderWithWrapper)}
-        </Routes>
-
-    );
-
+    return <Routes>{Object.values(routeConfig).map(renderWithWrapper)}</Routes>;
 };
 
 export default memo(AppRouter);

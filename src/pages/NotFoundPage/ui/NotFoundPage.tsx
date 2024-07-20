@@ -7,12 +7,9 @@ import { Page } from '@/widgets/Page';
 
 import cls from './NotFoundPage.module.scss';
 
-interface NotFoundPageProps {
-
-}
+interface NotFoundPageProps {}
 
 export const NotFoundPage: FC<NotFoundPageProps> = () => {
-
     const { t } = useTranslation('notFoundPage');
 
     return (
@@ -24,5 +21,4 @@ export const NotFoundPage: FC<NotFoundPageProps> = () => {
             />
         </Page>
     );
-
 };

@@ -13,7 +13,9 @@ export default {
     },
 } as ComponentMeta<typeof CountrySelect>;
 
-const Template: ComponentStory<typeof CountrySelect> = (args) => <CountrySelect {...args} />;
+const Template: ComponentStory<typeof CountrySelect> = (args) => (
+    <CountrySelect {...args} />
+);
 
 export const Primary = Template.bind({});
 Primary.args = {};
@@ -23,7 +25,5 @@ Dark.args = {};
 Dark.decorators = [ThemeDecorator(Theme.DARK)];
 
 export const Green = Template.bind({});
-Green.args = {
-
-};
+Green.args = {};
 Green.decorators = [ThemeDecorator(Theme.GREEN)];

@@ -7,11 +7,10 @@ import { Text } from '@/shared/ui/Text';
 import { Page } from '@/widgets/Page';
 
 interface AdminPanelPageProps {
-className?: string;
+    className?: string;
 }
 
 const AdminPanelPage: FC<AdminPanelPageProps> = memo((props) => {
-
     const { className } = props;
     const { t } = useTranslation('admin');
 
@@ -23,7 +22,6 @@ const AdminPanelPage: FC<AdminPanelPageProps> = memo((props) => {
             <Text text={t('Админ панель')} />
         </Page>
     );
-
 });
 
 export default AdminPanelPage;

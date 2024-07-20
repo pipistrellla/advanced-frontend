@@ -1,15 +1,13 @@
-import React, {
-    DetailedHTMLProps, FC, HTMLAttributes,
-} from 'react';
+import React, { DetailedHTMLProps, FC, HTMLAttributes } from 'react';
 
 import { Mods, classNames } from '@/shared/lib/helpers/ClassNames/ClassNames';
 
 import cls from './Flex.module.scss';
 
-export type FlexJustify = 'start' | 'center' | 'end' | 'between'
-export type FlexAlign = 'start' | 'center' | 'end'
-export type FlexDirection = 'row' | 'column'
-export type FlexGap = '4' | '8' | '16' | '32'
+export type FlexJustify = 'start' | 'center' | 'end' | 'between';
+export type FlexAlign = 'start' | 'center' | 'end';
+export type FlexDirection = 'row' | 'column';
+export type FlexGap = '4' | '8' | '16' | '32';
 
 const justifyClasses: Record<FlexJustify, string> = {
     start: cls.justifyStart,
@@ -36,7 +34,10 @@ const directionClasses: Record<FlexDirection, string> = {
     column: cls.directionColumn,
 };
 // нужно чтобы иметь возможность переопределить роль, ВАЖНО ДЛЯ СЕМАНТИКИ
-type DivProps = DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>
+type DivProps = DetailedHTMLProps<
+    HTMLAttributes<HTMLDivElement>,
+    HTMLDivElement
+>;
 
 export interface FlexProps extends DivProps {
     className?: string;
@@ -49,7 +50,6 @@ export interface FlexProps extends DivProps {
 }
 
 export const Flex: FC<FlexProps> = (props) => {
-
     const {
         className,
         children,
@@ -69,7 +69,7 @@ export const Flex: FC<FlexProps> = (props) => {
         gap && gapClasses[gap],
     ];
 
-    const mods:Mods = {
+    const mods: Mods = {
         [cls.max]: max,
     };
 
@@ -78,5 +78,4 @@ export const Flex: FC<FlexProps> = (props) => {
             {children}
         </div>
     );
-
 };

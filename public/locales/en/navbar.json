@@ -1,11 +1,11 @@
 {
     "Войти": "Log in",
-    "введите имя пользователя" : "enter username",
+    "введите имя пользователя": "enter username",
     "введите пароль": "enter password",
     "Форма авторизации": "Authorization Form",
     "Выйти": "Log out",
     "вы ввели неверный логин или пароль": "wrong username or password",
     "Создать статью": "Create article",
     "Профиль": "Profile",
-    "Админка" : "Admin Panel"
+    "Админка": "Admin Panel"
 }

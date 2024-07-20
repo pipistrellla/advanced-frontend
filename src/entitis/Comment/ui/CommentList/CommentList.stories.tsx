@@ -14,13 +14,19 @@ export default {
     },
 } as ComponentMeta<typeof CommentList>;
 
-const Template: ComponentStory<typeof CommentList> = (args) => <CommentList {...args} />;
+const Template: ComponentStory<typeof CommentList> = (args) => (
+    <CommentList {...args} />
+);
 
-const testData:Comment[] = [
+const testData: Comment[] = [
     {
         id: '1',
         text: 'test text',
-        user: { id: '1', username: 'test', avatar: 'https://img.freepik.com/premium-photo/bearded-man-illustration_665280-67047.jpg' },
+        user: {
+            id: '1',
+            username: 'test',
+            avatar: 'https://img.freepik.com/premium-photo/bearded-man-illustration_665280-67047.jpg',
+        },
     },
     {
         id: '1',

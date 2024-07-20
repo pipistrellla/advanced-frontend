@@ -15,7 +15,9 @@ export default {
     },
 } as ComponentMeta<typeof AddArticleRating>;
 
-const Template: ComponentStory<typeof AddArticleRating> = (args) => <AddArticleRating {...args} />;
+const Template: ComponentStory<typeof AddArticleRating> = (args) => (
+    <AddArticleRating {...args} />
+);
 
 export const Normal = Template.bind({});
 Normal.args = {};

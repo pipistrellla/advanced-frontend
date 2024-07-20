@@ -4,9 +4,7 @@ import { ThunkConfig } from '@/app/providers/StoreProvider';
 import { ArticleSortField, ArticleType } from '@/entitis/Article';
 import { SortOrder } from '@/shared/types';
 
-import {
-    getArticlePageInited,
-} from '../../selectors/articlesPageSelectors';
+import { getArticlePageInited } from '../../selectors/articlesPageSelectors';
 import { articlePageActions } from '../../slices/articlePageSlice';
 import { fetchArticlesList } from '../fetchArticlesList/fetchArticlesList';
 
@@ -15,32 +13,23 @@ export const initArticlesPage = createAsyncThunk<
     void,
     URLSearchParams,
     ThunkConfig<string>
->(
-    'articlePage/initArticlesPage',
-    async (
-        searchParams,
-        thunkApi,
-    ) => {
+>('articlePage/initArticlesPage', async (searchParams, thunkApi) => {
+    const { getState, dispatch } = thunkApi;
 
-        const {
-            getState,
-            dispatch,
-        } = thunkApi;
+    const inited = getArticlePageInited(getState());
 
-        const inited = getArticlePageInited(getState());
-
-        if (!inited) {
-
-            // автоподставка параметров в строку
-            //  (желательно написать функцию, которая бы автоматизировала вс это дело)
-            searchParams.forEach((value, key) => {
-
-                switch (key) {
+    if (!inited) {
+        // автоподставка параметров в строку
+        //  (желательно написать функцию, которая бы автоматизировала вс это дело)
+        searchParams.forEach((value, key) => {
+            switch (key) {
                 case 'order':
                     dispatch(articlePageActions.setOrder(value as SortOrder));
                     break;
                 case 'sort':
-                    dispatch(articlePageActions.setSort(value as ArticleSortField));
+                    dispatch(
+                        articlePageActions.setSort(value as ArticleSortField),
+                    );
                     break;
                 case 'search':
                     dispatch(articlePageActions.setSearch(value));
@@ -50,14 +39,10 @@ export const initArticlesPage = createAsyncThunk<
                     break;
                 default:
                     break;
-                }
+            }
+        });
 
-            });
-
-            dispatch(articlePageActions.initState());
-            dispatch(fetchArticlesList({}));
-
-        }
-
-    },
-);
+        dispatch(articlePageActions.initState());
+        dispatch(fetchArticlesList({}));
+    }
+});

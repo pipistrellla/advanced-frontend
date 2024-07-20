@@ -1,6 +1,4 @@
-import React, {
-    FC, memo, useCallback, useMemo,
-} from 'react';
+import React, { FC, memo, useCallback, useMemo } from 'react';
 
 import { useTranslation } from 'react-i18next';
 
@@ -10,35 +8,33 @@ import { ListBox } from '@/shared/ui/Popups';
 import { Country } from '../../model/types/country';
 
 interface CountrySelectProps {
-    value?: Country
-    onChange?: (value: Country) => void
-    readonly?: boolean
-    className?: string
+    value?: Country;
+    onChange?: (value: Country) => void;
+    readonly?: boolean;
+    className?: string;
 }
 
 const CountrySelect: FC<CountrySelectProps> = memo((props) => {
-
     const { t } = useTranslation('profile');
-    const {
-        onChange,
-        value,
-        readonly,
-        className,
-    } = props;
+    const { onChange, value, readonly, className } = props;
 
     const options = useMemo(
-        () => Object.entries(Country).map((val) => ({ value: val[0], content: val[1] })),
+        () =>
+            Object.entries(Country).map((val) => ({
+                value: val[0],
+                content: val[1],
+            })),
         [],
     );
 
-    const onChangeHandler = useCallback((value: string) => {
-
-        onChange?.(value as Country);
-
-    }, [onChange]);
+    const onChangeHandler = useCallback(
+        (value: string) => {
+            onChange?.(value as Country);
+        },
+        [onChange],
+    );
 
     return (
-
         <ListBox
             className={classNames('', {}, [className])}
             defaultValue={t('Укажите страну')}
@@ -50,17 +46,15 @@ const CountrySelect: FC<CountrySelectProps> = memo((props) => {
             direction="top right"
         />
 
-    // <Select
-    //     className={classNames('', {}, [className])}
-    //     label={t('Ваша страна')}
-    //     options={options}
-    //     value={value}
-    //     onChange={onChangeHandler}
-    //     readonly={readonly}
-    // />
-
+        // <Select
+        //     className={classNames('', {}, [className])}
+        //     label={t('Ваша страна')}
+        //     options={options}
+        //     value={value}
+        //     onChange={onChangeHandler}
+        //     readonly={readonly}
+        // />
     );
-
 });
 
 export default CountrySelect;

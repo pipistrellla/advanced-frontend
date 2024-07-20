@@ -9,9 +9,7 @@ const defaultArticle = {
     views: 1022,
     createdAt: '04.07.2024',
     userId: '1',
-    type: [
-        'IT',
-    ],
+    type: ['IT'],
     blocks: [
         {
             id: '1',
@@ -32,25 +30,20 @@ const defaultArticle = {
 };
 
 export const createArticle = (article?: Article) => {
-
     cy.request({
         method: 'POST',
         url: 'http://localhost:8000/articles',
         headers: { Authorization: 'asdasda' },
         body: article ?? defaultArticle,
     }).then((resp) => resp.body);
-
 };
 
 export const removeArticle = (articleId: string = 'testId') => {
-
     cy.request({
         method: 'DELETE',
         url: `http://localhost:8000/articles/${articleId}`,
         headers: { Authorization: 'asdasda' },
-
     });
-
 };
 
 declare global {

@@ -1,6 +1,4 @@
-import {
-    FC, Fragment,
-} from 'react';
+import { FC, Fragment } from 'react';
 
 import { Listbox as HLisBox } from '@headlessui/react';
 
@@ -17,24 +15,23 @@ import { mapDirectionClass } from '../styles/consts';
 import popupsCls from '../styles/Popup.module.scss';
 
 export interface ListBoxItem {
-    value: string
-    content: React.ReactNode
-    disabled?: boolean
+    value: string;
+    content: React.ReactNode;
+    disabled?: boolean;
 }
 
 interface ListBoxProps {
     className?: string;
-    items?: ListBoxItem[]
-    value?: string
-    defaultValue?: string
-    onChange: (value: string) => void
-    label?: string
-    readonly?: boolean
-    direction?: DropdownDirection
+    items?: ListBoxItem[];
+    value?: string;
+    defaultValue?: string;
+    onChange: (value: string) => void;
+    label?: string;
+    readonly?: boolean;
+    direction?: DropdownDirection;
 }
 
 export const ListBox: FC<ListBoxProps> = (props) => {
-
     const {
         className,
         items,
@@ -50,23 +47,26 @@ export const ListBox: FC<ListBoxProps> = (props) => {
 
     return (
         <HStack gap="8">
-            {label && <span><Text text={`${label} >`} /></span>}
+            {label && (
+                <span>
+                    <Text text={`${label} >`} />
+                </span>
+            )}
             <HLisBox
                 disabled={readonly}
                 value={value}
                 onChange={onChange}
                 as="div"
-                className={classNames(cls.listBox, {}, [className, popupsCls.popup])}
+                className={classNames(cls.listBox, {}, [
+                    className,
+                    popupsCls.popup,
+                ])}
             >
                 <HLisBox.Button
                     // disabled={readonly}
                     className={cls.trigger}
                 >
-                    <Button
-                        disabled={readonly}
-                    >
-                        {value ?? defaultValue}
-                    </Button>
+                    <Button disabled={readonly}>{value ?? defaultValue}</Button>
                 </HLisBox.Button>
                 <HLisBox.Options
                     className={classNames(cls.options, {}, optionClasses)}
@@ -91,18 +91,18 @@ export const ListBox: FC<ListBoxProps> = (props) => {
                                 >
                                     <HStack gap="8">
                                         {selected && <Icon Svg={Selected} />}
-                                        {typeof (item.content) === 'string'
-                                            ? <Text text={item.content} />
-                                            : item.content}
+                                        {typeof item.content === 'string' ? (
+                                            <Text text={item.content} />
+                                        ) : (
+                                            item.content
+                                        )}
                                     </HStack>
                                 </li>
                             )}
-
                         </HLisBox.Option>
                     ))}
                 </HLisBox.Options>
             </HLisBox>
         </HStack>
     );
-
 };
