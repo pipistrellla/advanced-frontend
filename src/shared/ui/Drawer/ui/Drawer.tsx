@@ -32,7 +32,9 @@ export const DrawerContent = memo((props: DrawerProps) => {
     }, [api]);
 
     useEffect(() => {
-        if (isOpen) {openDrawer();}
+        if (isOpen) {
+            openDrawer();
+        }
     }, [api, isOpen, openDrawer]);
 
     const close = (velocity = 0) => {
@@ -52,12 +54,19 @@ export const DrawerContent = memo((props: DrawerProps) => {
             movement: [, my],
             cancel,
         }) => {
-            if (my < -70) {cancel();}
+            if (my < -70) {
+                cancel();
+            }
 
             if (last) {
-                if (my > height * 0.5 || (vy > 0.5 && dy > 0)) {close();}
-                else {openDrawer();}
-            } else {api.start({ y: my, immediate: true });}
+                if (my > height * 0.5 || (vy > 0.5 && dy > 0)) {
+                    close();
+                } else {
+                    openDrawer();
+                }
+            } else {
+                api.start({ y: my, immediate: true });
+            }
         },
         {
             from: () => [0, y.get()],
@@ -67,7 +76,9 @@ export const DrawerContent = memo((props: DrawerProps) => {
         },
     );
 
-    if (!isOpen) {return null;}
+    if (!isOpen) {
+        return null;
+    }
 
     const display = y.to((py) => (py < height ? 'block' : 'none'));
 
@@ -100,7 +111,9 @@ export const DrawerContent = memo((props: DrawerProps) => {
 const DrawerAsync = (props: DrawerProps) => {
     const { isLoaded } = useAnimationsLibs();
 
-    if (!isLoaded) {return null;}
+    if (!isLoaded) {
+        return null;
+    }
 
     return <DrawerContent {...props} />;
 };

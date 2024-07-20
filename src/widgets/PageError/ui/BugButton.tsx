@@ -12,7 +12,9 @@ const BugButton: FC<BugButtonProps> = () => {
     const throwError = () => setError(true);
     const { t } = useTranslation('PageError');
     useEffect(() => {
-        if (error) {throw new Error();}
+        if (error) {
+            throw new Error();
+        }
     }, [error]);
 
     return <Button onClick={() => throwError()}>{t('бросить ошибку')}</Button>;

@@ -18,8 +18,9 @@ files.forEach((sourceFile) => {
     importDecorations.forEach((importDecorations) => {
         const value = importDecorations.getModuleSpecifierValue();
 
-        if (isAbsolute(value))
-            {importDecorations.setModuleSpecifier(`@/${value}`);}
+        if (isAbsolute(value)) {
+            importDecorations.setModuleSpecifier(`@/${value}`);
+        }
     });
 });
 

@@ -21,7 +21,9 @@ export const fetchArticleById = createAsyncThunk<
             },
         );
 
-        if (!response.data) {throw new Error();}
+        if (!response.data) {
+            throw new Error();
+        }
 
         return response.data;
     } catch (e) {

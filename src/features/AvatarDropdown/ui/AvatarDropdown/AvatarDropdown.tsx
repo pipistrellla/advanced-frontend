@@ -54,7 +54,9 @@ export const AvatarDropdown: FC<AvatarDropdownProps> = memo((props) => {
           ]
         : [];
 
-    if (!authData) {return null;}
+    if (!authData) {
+        return null;
+    }
 
     return (
         <Dropdown

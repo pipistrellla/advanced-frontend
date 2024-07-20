@@ -16,7 +16,9 @@ export function RequireRole({ children, roles }: RequireAuthRoles) {
     const userRoles = useSelector(getUserRoles);
 
     const hasRequiredRoles = useMemo(() => {
-        if (!roles) {return true;}
+        if (!roles) {
+            return true;
+        }
 
         return roles.some((requiredRole) => {
             const hasRole = userRoles?.includes(requiredRole);
@@ -24,14 +26,15 @@ export function RequireRole({ children, roles }: RequireAuthRoles) {
         });
     }, [roles, userRoles]);
 
-    if (!hasRequiredRoles)
-        {return (
+    if (!hasRequiredRoles) {
+        return (
             <Navigate
                 to={getRouteForbidden()}
                 state={{ from: location }}
                 replace
             />
-        );}
+        );
+    }
 
     return children;
 }

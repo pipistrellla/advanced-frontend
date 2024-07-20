@@ -27,7 +27,9 @@ export const loginByUsername = createAsyncThunk<
             username,
             password,
         });
-        if (!response.data) {throw new Error();}
+        if (!response.data) {
+            throw new Error();
+        }
 
         localStorage.setItem(
             USER_LOCALSTORAGE_KEY,

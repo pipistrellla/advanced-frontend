@@ -18,8 +18,9 @@ const ProfilePage: FC<ProfilePageProps> = (props) => {
     const { t } = useTranslation('profile');
     const { id } = useParams<{ id: string }>();
 
-    if (!id && !testId)
-        {return <Text text={t('Произошла ошибка при загрузке профиля')} />;}
+    if (!id && !testId) {
+        return <Text text={t('Произошла ошибка при загрузке профиля')} />;
+    }
 
     return (
         <Page data-testid="ProfilePage">

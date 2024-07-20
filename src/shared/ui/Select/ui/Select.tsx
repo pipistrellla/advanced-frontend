@@ -37,7 +37,9 @@ const Select = <T extends string>(props: SelectProps<T>) => {
     );
 
     const onChangeHandler = (e: ChangeEvent<HTMLSelectElement>) => {
-        if (onChange) {onChange?.(e.target.value as T);}
+        if (onChange) {
+            onChange?.(e.target.value as T);
+        }
     };
 
     const mods: Mods = {

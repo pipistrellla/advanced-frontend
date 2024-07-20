@@ -22,7 +22,9 @@ export function useModal(props: UseModalProps) {
     >;
 
     useEffect(() => {
-        if (isOpen) {setIsMounted(true);}
+        if (isOpen) {
+            setIsMounted(true);
+        }
     }, [isOpen]);
 
     const close = useCallback(() => {
@@ -37,7 +39,9 @@ export function useModal(props: UseModalProps) {
 
     const onKeyDown = useCallback(
         (e: KeyboardEvent) => {
-            if (e.key === 'Escape') {close();}
+            if (e.key === 'Escape') {
+                close();
+            }
         },
         [close],
     );
@@ -45,7 +49,9 @@ export function useModal(props: UseModalProps) {
     // для очистки таймеров нужно делать это в useEffect, на всякий случай
     // елси вдруг окно будет демонтировано из домдерева
     useEffect(() => {
-        if (isOpen) {window.addEventListener('keydown', onKeyDown);}
+        if (isOpen) {
+            window.addEventListener('keydown', onKeyDown);
+        }
         // ретерн сработает прямо перед демонтажем компонента
         return () => {
             clearTimeout(timerRef.current);

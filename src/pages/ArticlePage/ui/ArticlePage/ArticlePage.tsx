@@ -33,7 +33,9 @@ const ArticlePage: FC<ArticlePageProps> = (props) => {
     const [searchParams] = useSearchParams();
 
     const onLoadNextPart = useCallback(() => {
-        if (__PROJECT__ !== 'storybook') {dispatch(fetchNextArticlePage());}
+        if (__PROJECT__ !== 'storybook') {
+            dispatch(fetchNextArticlePage());
+        }
     }, [dispatch]);
 
     useInitialEffect(() => {

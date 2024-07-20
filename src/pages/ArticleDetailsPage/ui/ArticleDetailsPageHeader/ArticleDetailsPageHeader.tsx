@@ -28,7 +28,9 @@ export const ArticleDetailsPageHeader: FC<ArticleDetailsPageHeaderProps> = memo(
         }, [navigate]);
 
         const onClickEditArticle = useCallback(() => {
-            if (article) {navigate(getRouteArticleEdit(article?.id));}
+            if (article) {
+                navigate(getRouteArticleEdit(article?.id));
+            }
         }, [article, navigate]);
 
         return (

@@ -19,7 +19,9 @@ export const fetchArticlesRecommendations = createAsyncThunk<
             },
         });
 
-        if (!response.data) {throw new Error();}
+        if (!response.data) {
+            throw new Error();
+        }
 
         return response.data;
     } catch (e) {

@@ -77,16 +77,20 @@ export const articlePageSlice = createSlice({
                 state.error = undefined;
                 state.isLoading = true;
 
-                if (action.meta.arg.replace) {articleAdapter.removeAll(state);}
+                if (action.meta.arg.replace) {
+                    articleAdapter.removeAll(state);
+                }
             })
             .addCase(fetchArticlesList.fulfilled, (state, action) => {
                 state.isLoading = false;
 
                 state.hasMore = action.payload.length >= state.limit;
 
-                if (action.meta.arg.replace)
-                    {articleAdapter.setAll(state, action.payload);}
-                else {articleAdapter.addMany(state, action.payload);}
+                if (action.meta.arg.replace) {
+                    articleAdapter.setAll(state, action.payload);
+                } else {
+                    articleAdapter.addMany(state, action.payload);
+                }
             })
             .addCase(fetchArticlesList.rejected, (state, action) => {
                 state.isLoading = false;

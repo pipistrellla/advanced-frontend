@@ -16,7 +16,9 @@ export const userSlice = createSlice({
         },
         initAithData: (state) => {
             const user = localStorage.getItem(USER_LOCALSTORAGE_KEY);
-            if (user) {state.authData = JSON.parse(user);}
+            if (user) {
+                state.authData = JSON.parse(user);
+            }
 
             state._inited = true;
         },

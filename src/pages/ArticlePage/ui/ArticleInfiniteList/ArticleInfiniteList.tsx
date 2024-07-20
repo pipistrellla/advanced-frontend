@@ -27,7 +27,9 @@ export const ArticleInfiniteList: FC<ArticleInfiniteListProps> = memo(
         const error = useSelector(getArticlePageError);
         const { t } = useTranslation('article');
 
-        if (error) {<Text title={t('Произошла ошибка')} />;}
+        if (error) {
+            <Text title={t('Произошла ошибка')} />;
+        }
         return (
             <ArticleList
                 isLoading={isLoading}

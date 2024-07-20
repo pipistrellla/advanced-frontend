@@ -38,7 +38,9 @@ export const Modal: FC<modalProps> = (props) => {
         [cls.isClosing]: isClosing,
     };
 
-    if (lazy && !isMounted) {return null;}
+    if (lazy && !isMounted) {
+        return null;
+    }
 
     return (
         <Portal>
