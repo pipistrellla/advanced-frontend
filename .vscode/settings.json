@@ -1,10 +1,9 @@
 {
-    "i18n-ally.localesPaths": [
-        "public/locales",
-        "src/shared/config/i18n"
-    ],
+    "i18n-ally.localesPaths": ["public/locales", "src/shared/config/i18n"],
     "i18n-ally.keystyle": "nested",
     "files.associations": {
-    "**/.fttemplates/**": "plaintext"
-    }
+        "**/.fttemplates/**": "plaintext"
+    },
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
 }

@@ -9,6 +9,7 @@ module.exports = {
         'plugin:react/recommended',
         'airbnb',
         'plugin:i18next/recommended',
+        'prettier',
     ],
     parser: '@typescript-eslint/parser',
     parserOptions: {
@@ -28,11 +29,12 @@ module.exports = {
         'eslint-plugin-import',
     ],
     rules: {
-        'react/jsx-indent': [2, 4],
-        indent: [2, 4],
-        'react/jsx-indent-props': [2, 4],
-        'react/jsx-filename-extension': [2, { extensions: ['.js', '.jsx', '.tsx'] }],
+        'react/jsx-filename-extension': [
+            2,
+            { extensions: ['.js', '.jsx', '.tsx'] },
+        ],
         'import/no-unresolved': 'off',
+        'react/jsx-max-props-per-line': ['error', { maximum: 4 }],
         'import/prefer-default-export': 'off',
         'no-unused-vars': 'warn',
         'react/require-default-props': 'off',
@@ -43,14 +45,15 @@ module.exports = {
         'import/extensions': 'off',
         'import/no-extraneous-dependencies': 'off',
         'no-underscore-dangle': 'off',
-        'padded-blocks': ['error', {
-            blocks: 'always',
-            classes: 'always',
-            switches: 'never',
-        }],
-        'nonblock-statement-body-position': ['error', 'below'],
-        curly: ['error', 'multi-or-nest'],
-        'i18next/no-literal-string': ['error',
+        // 'padded-blocks': ['error', {
+        //     blocks: 'always',
+        //     classes: 'always',
+        //     switches: 'never',
+        // }],
+        // 'nonblock-statement-body-position': ['error', 'below'],
+        curly: ['error', 'all'],
+        'i18next/no-literal-string': [
+            'error',
             {
                 markupOnly: true,
                 ignoreAttribute: [
@@ -80,20 +83,26 @@ module.exports = {
         'no-undef': 'off',
         'react/no-array-index-key': 'off',
         'personal-use-fsd-plugin/path-checker': ['error', { alias: '@' }],
-        'personal-use-fsd-plugin/layer-imports': ['error', {
-            alias: '@',
-            ignoreImportPatterns: ['**/StoreProvider', '**/testing'],
-        }],
+        'personal-use-fsd-plugin/layer-imports': [
+            'error',
+            {
+                alias: '@',
+                ignoreImportPatterns: ['**/StoreProvider', '**/testing'],
+            },
+        ],
         'unused-imports/no-unused-imports': 'error',
-        'personal-use-fsd-plugin/public-api-imports': ['error', {
-            alias: '@',
-            testFilesPatterns: [
-                '**/*.test.*',
-                '**/*.stories.*',
-                '**/*.story.*',
-                '**/StoreDecorator.tsx',
-            ],
-        }],
+        'personal-use-fsd-plugin/public-api-imports': [
+            'error',
+            {
+                alias: '@',
+                testFilesPatterns: [
+                    '**/*.test.*',
+                    '**/*.stories.*',
+                    '**/*.story.*',
+                    '**/StoreDecorator.tsx',
+                ],
+            },
+        ],
 
         'react/destructuring-assignment': 'warn',
 
@@ -122,7 +131,6 @@ module.exports = {
                 },
             },
         ],
-
     },
     globals: {
         __IS_DEV__: true,
