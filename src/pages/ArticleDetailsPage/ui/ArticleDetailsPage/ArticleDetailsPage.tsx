@@ -4,11 +4,13 @@ import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
 
 import { ArticleDetails } from '@/entitis/Article';
+import { Counter } from '@/entitis/Counter';
 import { AddArticleRating } from '@/features/AddArticleRating';
 import { ArticleRecommendationsList } from '@/features/ArticleRecommendationsList';
 import DynamicModuleLoader, {
     ReducersList,
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { getFeatureFlags } from '@/shared/lib/features';
 import { classNames } from '@/shared/lib/helpers/ClassNames/ClassNames';
 import { VStack } from '@/shared/ui/Stack';
 import { Text, TextTheme } from '@/shared/ui/Text';
@@ -34,6 +36,9 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = (props) => {
 
     const { id } = useParams<{ id: string }>();
 
+    const isArticleRatingEnabled = getFeatureFlags('isArticleRatingEnabled');
+    const isCounterEnabled = getFeatureFlags('isCounterEnabled');
+
     if (!id && !testId) {
         return (
             <Page
@@ -54,7 +59,10 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = (props) => {
                 <VStack gap="16" max>
                     <ArticleDetailsPageHeader />
                     <ArticleDetails id={id!} />
-                    <AddArticleRating articleId={id!} />
+                    {isCounterEnabled && <Counter />}
+                    {isArticleRatingEnabled && (
+                        <AddArticleRating articleId={id!} />
+                    )}
                     <ArticleRecommendationsList />
                     <ArticleDetailsComments id={id!} />
                 </VStack>
