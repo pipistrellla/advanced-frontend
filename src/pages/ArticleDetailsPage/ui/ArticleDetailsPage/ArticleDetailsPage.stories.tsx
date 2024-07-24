@@ -92,15 +92,22 @@ const articleContent: Article = {
     ],
 };
 
+// TODO разобраться с useParams в storybook
+
 export const Normal = Template.bind({});
-Normal.args = {
-    testId: '1',
-};
+Normal.args = {};
 
 Normal.decorators = [
     StoreDecorator({
         articleDetails: {
             data: articleContent,
+        },
+        user: {
+            authData: {
+                features: {
+                    isArticleRatingEnabled: true,
+                },
+            },
         },
     }),
 ];

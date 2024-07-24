@@ -4,14 +4,14 @@ import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
 
 import { ArticleDetails } from '@/entitis/Article';
-import { Counter } from '@/entitis/Counter';
 import { AddArticleRating } from '@/features/AddArticleRating';
 import { ArticleRecommendationsList } from '@/features/ArticleRecommendationsList';
 import DynamicModuleLoader, {
     ReducersList,
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { getFeatureFlags } from '@/shared/lib/features';
+import { toggleFeatures } from '@/shared/lib/features';
 import { classNames } from '@/shared/lib/helpers/ClassNames/ClassNames';
+import { Card } from '@/shared/ui/Card';
 import { VStack } from '@/shared/ui/Stack';
 import { Text, TextTheme } from '@/shared/ui/Text';
 import { Page } from '@/widgets/Page';
@@ -23,7 +23,6 @@ import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDet
 
 interface ArticleDetailsPageProps {
     className?: string;
-    testId?: string;
 }
 
 const reducers: ReducersList = {
@@ -31,15 +30,12 @@ const reducers: ReducersList = {
 };
 
 const ArticleDetailsPage: FC<ArticleDetailsPageProps> = (props) => {
-    const { className, testId } = props;
+    const { className } = props;
     const { t } = useTranslation('article');
 
     const { id } = useParams<{ id: string }>();
 
-    const isArticleRatingEnabled = getFeatureFlags('isArticleRatingEnabled');
-    const isCounterEnabled = getFeatureFlags('isCounterEnabled');
-
-    if (!id && !testId) {
+    if (!id) {
         return (
             <Page
                 className={classNames(cls.articleDetailsPage, {}, [className])}
@@ -50,6 +46,14 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = (props) => {
         );
     }
 
+    const rating = toggleFeatures({
+        name: 'isArticleRatingEnabled',
+        // eslint-disable-next-line react/no-unstable-nested-components
+        on: () => <AddArticleRating articleId={id} />,
+        // eslint-disable-next-line react/no-unstable-nested-components
+        off: () => <Card>1231231323</Card>,
+    });
+
     return (
         <DynamicModuleLoader removeAFterUnmount reducers={reducers}>
             <Page
@@ -59,10 +63,7 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = (props) => {
                 <VStack gap="16" max>
                     <ArticleDetailsPageHeader />
                     <ArticleDetails id={id!} />
-                    {isCounterEnabled && <Counter />}
-                    {isArticleRatingEnabled && (
-                        <AddArticleRating articleId={id!} />
-                    )}
+                    {rating}
                     <ArticleRecommendationsList />
                     <ArticleDetailsComments id={id!} />
                 </VStack>
