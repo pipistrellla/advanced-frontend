@@ -12,6 +12,7 @@ import {
     isUserManager,
     getUserRoles,
 } from './model/selectors/roleSelector/roleSelector';
+import { initAuthData } from './model/services/initAuthData';
 import { saveJsonSettings } from './model/services/saveJsonSettings';
 import { userReducer, userActions } from './model/slice/userSlice';
 import { User, UserSchema } from './model/types/user';
@@ -32,4 +33,5 @@ export {
     useJsonSettings,
     useJsonSettingsByKey,
     saveJsonSettings,
+    initAuthData,
 };

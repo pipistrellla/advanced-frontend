@@ -1,12 +1,14 @@
 import { FC, Suspense, useEffect } from 'react';
 
 // suspence позволяет показать пользователю, что идет загрузка (нужно обернуть)
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 
-import { getUserInited, userActions } from '@/entitis/User';
+import { getUserInited, initAuthData } from '@/entitis/User';
 import { classNames } from '@/shared/lib/helpers/ClassNames/ClassNames';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme';
 import { Navbar } from '@/widgets/Navbar';
+import { PageLoader } from '@/widgets/PageLoader';
 import { Sidebar } from '@/widgets/Sidebar';
 
 import { AppRouter } from './providers/router';
@@ -17,11 +19,19 @@ interface AppProps {}
 
 const App: FC<AppProps> = () => {
     const { theme } = useTheme();
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
     const inited = useSelector(getUserInited);
     useEffect(() => {
-        dispatch(userActions.initAithData());
+        dispatch(initAuthData());
     }, [dispatch]);
+
+    if (!inited) {
+        return (
+            <div className={classNames('app', {}, [theme])}>
+                <PageLoader />
+            </div>
+        );
+    }
 
     return (
         <div className={classNames('app', {}, [theme])}>
