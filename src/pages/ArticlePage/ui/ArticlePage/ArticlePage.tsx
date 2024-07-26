@@ -3,6 +3,7 @@ import { FC, memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSearchParams } from 'react-router-dom';
 
+import { ArticlePageGreetings } from '@/features/articlePageGreetings';
 import DynamicModuleLoader, {
     ReducersList,
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
@@ -51,6 +52,7 @@ const ArticlePage: FC<ArticlePageProps> = (props) => {
             >
                 <ArticlePageFilters />
                 <ArticleInfiniteList className={cls.list} />
+                <ArticlePageGreetings />
             </Page>
         </DynamicModuleLoader>
     );

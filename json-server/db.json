@@ -941,7 +941,8 @@
       },
       "jsonSettings": {
         "theme": "app_green_theme",
-        "isFirstVisit": true
+        "isFirstVisit": true,
+        "isArticlePageWasOpened": true
       },
       "avatar": "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Kayle_0.jpg"
     },
@@ -966,8 +967,9 @@
         "isCounterEnabled": false
       },
       "jsonSettings": {
-        "theme": "app_light_theme",
-        "isFirstVisit": true
+        "theme": "app_dark_theme",
+        "isFirstVisit": true,
+        "isArticlePageWasOpened": true
       },
       "avatar": "https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg"
     },
@@ -983,8 +985,9 @@
         "isCounterEnabled": true
       },
       "jsonSettings": {
-        "theme": "app_green_theme",
-        "isFirstVisit": true
+        "theme": "app_dark_theme",
+        "isFirstVisit": true,
+        "isArticlePageWasOpened": true
       },
       "avatar": "https://pic..ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg"
     }

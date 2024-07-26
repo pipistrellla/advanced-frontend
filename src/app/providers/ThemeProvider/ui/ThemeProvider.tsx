@@ -11,14 +11,20 @@ interface ThemeProviderProps {
 }
 
 export const ThemeProvider: FC<ThemeProviderProps> = (props) => {
-    const { theme: defaultTheme = Theme.LIGHT } = useJsonSettings();
+    const { theme: defaultTheme } = useJsonSettings();
     const { initialTheme, children } = props;
+    const [isThemeInited, setThemeInited] = useState(false);
 
-    const [theme, setTheme] = useState<Theme>(initialTheme || defaultTheme);
+    const [theme, setTheme] = useState<Theme>(
+        initialTheme || defaultTheme || Theme.LIGHT,
+    );
 
     useEffect(() => {
-        setTheme(defaultTheme);
-    }, [defaultTheme]);
+        if (!isThemeInited && defaultTheme) {
+            setTheme(defaultTheme);
+            setThemeInited(true);
+        }
+    }, [defaultTheme, isThemeInited]);
 
     const defaultProps = useMemo(
         () => ({

@@ -68,6 +68,7 @@ module.exports = {
                     'as',
                     'rel',
                     'border',
+                    'feature',
                 ],
             },
         ],

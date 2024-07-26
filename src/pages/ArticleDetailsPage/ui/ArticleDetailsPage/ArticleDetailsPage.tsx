@@ -9,9 +9,7 @@ import { ArticleRecommendationsList } from '@/features/ArticleRecommendationsLis
 import DynamicModuleLoader, {
     ReducersList,
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { toggleFeatures } from '@/shared/lib/features';
 import { classNames } from '@/shared/lib/helpers/ClassNames/ClassNames';
-import { Card } from '@/shared/ui/Card';
 import { VStack } from '@/shared/ui/Stack';
 import { Text, TextTheme } from '@/shared/ui/Text';
 import { Page } from '@/widgets/Page';
@@ -46,14 +44,6 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = (props) => {
         );
     }
 
-    const rating = toggleFeatures({
-        name: 'isArticleRatingEnabled',
-        // eslint-disable-next-line react/no-unstable-nested-components
-        on: () => <AddArticleRating articleId={id} />,
-        // eslint-disable-next-line react/no-unstable-nested-components
-        off: () => <Card>1231231323</Card>,
-    });
-
     return (
         <DynamicModuleLoader removeAFterUnmount reducers={reducers}>
             <Page
@@ -63,7 +53,7 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = (props) => {
                 <VStack gap="16" max>
                     <ArticleDetailsPageHeader />
                     <ArticleDetails id={id!} />
-                    {rating}
+                    <AddArticleRating articleId={id} />
                     <ArticleRecommendationsList />
                     <ArticleDetailsComments id={id!} />
                 </VStack>

@@ -28,6 +28,7 @@
         "start:dev:server": "node ./json-server/index.js",
         "generate:slice": "node ./scripts/createSlice/index.js",
         "postinstall": "rimraf ./node_modules/.cache",
+        "removeFeature": "ts-node ./scripts/removeFeature.ts",
         "prepare": "husky install"
     },
     "lint-staged": {
