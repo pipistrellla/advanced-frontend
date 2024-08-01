@@ -8,6 +8,7 @@ import {
     ScrollPositionSaveActions,
     getScrollPositionByPath,
 } from '@/features/ScrollPositionSave';
+import { toggleFeatures } from '@/shared/lib/features';
 import { classNames } from '@/shared/lib/helpers/ClassNames/ClassNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useInfiniteScroll } from '@/shared/lib/hooks/useInfiniteScroll/useInfiniteScroll';
@@ -51,10 +52,19 @@ export const Page: FC<PageProps> = (props) => {
     useInitialEffect(() => {
         wrapperRef.current.scrollTop = scrollPosition;
     });
+
     return (
         <main
             ref={wrapperRef}
-            className={classNames(cls.page, {}, [className])}
+            className={classNames(
+                toggleFeatures({
+                    name: 'isAppRedesigned',
+                    off: () => cls.page,
+                    on: () => cls.pageRedesigned,
+                }),
+                {},
+                [className],
+            )}
             onScroll={onScrollHandler}
             data-testid={props['data-testid'] ?? 'Page'}
         >

@@ -2,6 +2,7 @@ import { FC, useState } from 'react';
 
 import { useTranslation } from 'react-i18next';
 
+import { ThemeSwitcher } from '@/features/ThemeSwitcher';
 import { VStack } from '@/shared/ui/Stack';
 import { Text } from '@/shared/ui/Text';
 import { Page } from '@/widgets/Page';
@@ -22,6 +23,7 @@ const MainPage: FC<MainPageProps> = () => {
             <VStack gap="32">
                 <Text text={t('Главная страница')} />
                 <BugButton />
+                <ThemeSwitcher />
             </VStack>
         </Page>
     );

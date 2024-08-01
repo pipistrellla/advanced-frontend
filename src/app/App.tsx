@@ -4,6 +4,8 @@ import { FC, Suspense, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 
 import { getUserInited, initAuthData } from '@/entitis/User';
+import { MainLayout } from '@/shared/layouts/MainLayout';
+import { ToggleFeaturesComponent } from '@/shared/lib/features';
 import { classNames } from '@/shared/lib/helpers/ClassNames/ClassNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme';
@@ -34,15 +36,32 @@ const App: FC<AppProps> = () => {
     }
 
     return (
-        <div className={classNames('app', {}, [theme])}>
-            <Suspense fallback={<div />}>
-                <Navbar />
-                <div className="content-page">
-                    <Sidebar />
-                    {inited && <AppRouter />}
+        <ToggleFeaturesComponent
+            feature="isAppRedesigned"
+            off={
+                <div className={classNames('app', {}, [theme])}>
+                    <Suspense fallback={<div />}>
+                        <Navbar />
+                        <div className="content-page">
+                            <Sidebar />
+                            {inited && <AppRouter />}
+                        </div>
+                    </Suspense>
                 </div>
-            </Suspense>
-        </div>
+            }
+            on={
+                <div className={classNames('app_redesigned', {}, [theme])}>
+                    <Suspense fallback={<div />}>
+                        <MainLayout
+                            header={<Navbar />}
+                            content={<AppRouter />}
+                            sidebar={<Sidebar />}
+                            toolbar={<div>123132</div>}
+                        />
+                    </Suspense>
+                </div>
+            }
+        />
     );
 };
 
