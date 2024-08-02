@@ -1,7 +1,5 @@
 import React, { FC, memo } from 'react';
 
-import { useTranslation } from 'react-i18next';
-
 import { classNames } from '@/shared/lib/helpers/ClassNames/ClassNames';
 
 import cls from './AppLogo.module.scss';
@@ -10,14 +8,11 @@ import { HStack } from '../../../Stack';
 
 interface AppLogoProps {
     className?: string;
+    size?: number;
 }
-/**
- * компонент устарел
- * @deprecated
- */
+
 export const AppLogo: FC<AppLogoProps> = memo((props) => {
-    const { className } = props;
-    const { t } = useTranslation();
+    const { className, size = 100 } = props;
 
     return (
         <HStack
@@ -27,7 +22,12 @@ export const AppLogo: FC<AppLogoProps> = memo((props) => {
         >
             <div className={cls.gradientBig} />
             <div className={cls.gradientSmall} />
-            <Logo />
+            <Logo
+                width={size}
+                height={size}
+                color="black"
+                className={cls.appLogo}
+            />
         </HStack>
     );
 });

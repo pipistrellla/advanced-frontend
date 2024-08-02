@@ -22,6 +22,21 @@ const Template: ComponentStory<typeof Sidebar> = (args) => (
     <Sidebar {...args} />
 );
 
+export const Deprecated = Template.bind({});
+
+Deprecated.args = {};
+Deprecated.decorators = [
+    StoreDecorator({
+        user: {
+            authData: {
+                features: {
+                    isAppRedesigned: true,
+                },
+            },
+        },
+    }),
+];
+
 export const Light = Template.bind({});
 
 Light.args = {};

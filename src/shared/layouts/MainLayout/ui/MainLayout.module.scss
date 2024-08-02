@@ -2,40 +2,40 @@
     min-height: 100%;
     display: grid;
     grid-template-areas: "sidebar content rightbar";
-    grid-template-columns: 284px 1fr 175px;
+    grid-template-columns: 284px 1fr 100px;
 }
 
 .header {
     justify-self: end;
 }
 
+.sidebar {
+  grid-area: sidebar;
+  padding: 32px;
+}
+
 .content {
-    grid-area: content;
-    max-width: 1200px;
-    justify-self: center;
-    padding: 32px;
+  grid-area: content;
+  max-width: 1200px;
+  justify-self: center;
+  padding: 32px;
+  width: 100%;
 }
 
 .rightbar {
-    grid-area: rightbar;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-}
-
-.sidebar {
-    grid-area: sidebar;
-    justify-self: center;
-    padding: 32px;
-}
-
-.toolbar {
-    height: 100%;
+  grid-area: rightbar;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
 }
 
 .rightbar,
 .sidebar {
-    position: sticky;
-    top: 0;
-    height: 100vh;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+}
+
+.toolbar {
+  height: 100%;
 }

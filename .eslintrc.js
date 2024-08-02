@@ -69,6 +69,8 @@ module.exports = {
                     'rel',
                     'border',
                     'feature',
+                    'color',
+                    'variant',
                 ],
             },
         ],

@@ -9,7 +9,7 @@ import { Button, ButtonSize, ButtonTheme } from './Button';
 
 export default {
     // название сториса
-    title: 'shared/Button',
+    title: 'shared/deprecated/Button',
     // компонент
     component: Button,
     argTypes: {

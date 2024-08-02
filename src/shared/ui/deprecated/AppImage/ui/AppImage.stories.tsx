@@ -3,7 +3,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { AppImage } from './AppImage';
 
 export default {
-    title: ' /AppImage',
+    title: 'shared/AppImage',
     component: AppImage,
     argTypes: {
         backgroundColor: { control: 'color' },
