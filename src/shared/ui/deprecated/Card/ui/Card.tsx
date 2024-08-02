@@ -15,7 +15,10 @@ interface CardProps extends HTMLAttributes<HTMLDivElement> {
     theme?: CardTheme;
     max?: boolean;
 }
-
+/**
+ * компонент устарел
+ * @deprecated
+ */
 export const Card: FC<CardProps> = (props) => {
     const {
         className,

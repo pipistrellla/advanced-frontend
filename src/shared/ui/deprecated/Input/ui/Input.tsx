@@ -4,7 +4,7 @@ import { Mods, classNames } from '@/shared/lib/helpers/ClassNames/ClassNames';
 
 import cls from './Input.module.scss';
 import { Text } from '../../Text';
-/* eslint react/prop-types: 0 */
+
 // Omit забирает все свойства кроме введенных (первый аргумент - что берем
 // второй что исключаем)
 type HTMLInputProps = Omit<
@@ -20,7 +20,10 @@ interface InputProps extends HTMLInputProps {
     autofocus?: boolean;
     readonly?: boolean;
 }
-
+/**
+ * компонент устарел
+ * @deprecated
+ */
 const Input: FC<InputProps> = memo((props: InputProps) => {
     const {
         className,

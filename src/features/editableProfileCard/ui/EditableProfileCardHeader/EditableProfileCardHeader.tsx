@@ -7,8 +7,8 @@ import { getUserAuthData } from '@/entitis/User';
 import { classNames } from '@/shared/lib/helpers/ClassNames/ClassNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Button, ButtonTheme } from '@/shared/ui/deprecated/Button';
-import { HStack } from '@/shared/ui/deprecated/Stack';
 import { Text } from '@/shared/ui/deprecated/Text';
+import { HStack } from '@/shared/ui/Stack';
 
 import { getProfileData } from '../../model/selectors/getProfileData/getProfileData';
 import { getProfileReadonly } from '../../model/selectors/getProfileReadonly/getProfileReadonly';

@@ -7,9 +7,9 @@ import { DropdownDirection } from '@/shared/types/ui';
 
 import cls from './ListBox.module.scss';
 import Selected from '../../../../../assets/icons/selected.svg';
+import { HStack } from '../../../../Stack';
 import { Button } from '../../../Button';
 import { Icon } from '../../../Icon';
-import { HStack } from '../../../Stack';
 import { Text } from '../../../Text';
 import { mapDirectionClass } from '../styles/consts';
 import popupsCls from '../styles/Popup.module.scss';
@@ -30,7 +30,10 @@ interface ListBoxProps {
     readonly?: boolean;
     direction?: DropdownDirection;
 }
-
+/**
+ * компонент устарел
+ * @deprecated
+ */
 export const ListBox: FC<ListBoxProps> = (props) => {
     const {
         className,

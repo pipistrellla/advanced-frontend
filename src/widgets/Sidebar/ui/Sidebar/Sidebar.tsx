@@ -8,7 +8,7 @@ import { ToggleFeaturesComponent } from '@/shared/lib/features';
 import { classNames } from '@/shared/lib/helpers/ClassNames/ClassNames';
 import { AppLogo } from '@/shared/ui/deprecated/AppLogo';
 import { Button, ButtonTheme, ButtonSize } from '@/shared/ui/deprecated/Button';
-import VStack from '@/shared/ui/deprecated/Stack/VStack/VStack';
+import VStack from '@/shared/ui/Stack/VStack/VStack';
 
 import cls from './Sidebar.module.scss';
 import { getSidebarItems } from '../../model/selectors/getSidebarItems/getSidebarItems';

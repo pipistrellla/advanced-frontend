@@ -5,8 +5,8 @@ import { useTranslation } from 'react-i18next';
 import { ArticleList } from '@/entitis/Article';
 import { classNames } from '@/shared/lib/helpers/ClassNames/ClassNames';
 import { Skeleton } from '@/shared/ui/deprecated/Skeleton';
-import { HStack, VStack } from '@/shared/ui/deprecated/Stack';
 import { TextSize, Text } from '@/shared/ui/deprecated/Text';
+import { HStack, VStack } from '@/shared/ui/Stack';
 
 import { useArticleRecommendationsList } from '../../api/articleRecommendationsApi';
 

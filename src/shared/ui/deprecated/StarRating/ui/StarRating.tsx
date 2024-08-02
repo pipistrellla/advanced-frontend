@@ -14,7 +14,10 @@ interface StarRatingProps {
 }
 
 const stars = [1, 2, 3, 4, 5];
-
+/**
+ * компонент устарел
+ * @deprecated
+ */
 export const StarRating: FC<StarRatingProps> = memo(
     (props: StarRatingProps) => {
         const { className, size = 30, selectedStars = 0, onSelect } = props;

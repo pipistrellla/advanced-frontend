@@ -8,8 +8,8 @@ import { classNames } from '@/shared/lib/helpers/ClassNames/ClassNames';
 import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme';
 
 import cls from './Drawer.module.scss';
+import { Portal } from '../../../Portal';
 import { Overlay } from '../../Overlay';
-import { Portal } from '../../Portal';
 
 interface DrawerProps {
     className?: string;
@@ -117,7 +117,10 @@ const DrawerAsync = (props: DrawerProps) => {
 
     return <DrawerContent {...props} />;
 };
-
+/**
+ * компонент устарел
+ * @deprecated
+ */
 export const Drawer = (props: DrawerProps) => (
     <AnimationProvider>
         <DrawerAsync {...props} />

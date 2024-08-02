@@ -10,7 +10,7 @@ import { classNames } from '@/shared/lib/helpers/ClassNames/ClassNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Button, ButtonTheme } from '@/shared/ui/deprecated/Button';
 import Input from '@/shared/ui/deprecated/Input/ui/Input';
-import { HStack } from '@/shared/ui/deprecated/Stack';
+import { HStack } from '@/shared/ui/Stack';
 
 import cls from './AddCommentForm.module.scss';
 import {

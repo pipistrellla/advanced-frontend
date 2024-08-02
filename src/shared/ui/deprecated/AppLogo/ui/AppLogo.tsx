@@ -6,12 +6,15 @@ import { classNames } from '@/shared/lib/helpers/ClassNames/ClassNames';
 
 import cls from './AppLogo.module.scss';
 import Logo from '../../../../assets/icons/logo.svg';
-import { HStack } from '../../Stack';
+import { HStack } from '../../../Stack';
 
 interface AppLogoProps {
     className?: string;
 }
-
+/**
+ * компонент устарел
+ * @deprecated
+ */
 export const AppLogo: FC<AppLogoProps> = memo((props) => {
     const { className } = props;
     const { t } = useTranslation();

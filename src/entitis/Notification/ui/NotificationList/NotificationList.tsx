@@ -2,7 +2,7 @@ import { FC, memo } from 'react';
 
 import { classNames } from '@/shared/lib/helpers/ClassNames/ClassNames';
 import { Skeleton } from '@/shared/ui/deprecated/Skeleton';
-import { VStack } from '@/shared/ui/deprecated/Stack';
+import { VStack } from '@/shared/ui/Stack';
 
 import cls from './NotificationList.module.scss';
 import { useNotifications } from '../../api/notificationApi';

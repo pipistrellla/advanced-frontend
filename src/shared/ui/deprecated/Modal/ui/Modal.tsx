@@ -5,8 +5,8 @@ import { useModal } from '@/shared/lib/hooks/useModal/useModal';
 import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme';
 
 import cls from './Modal.module.scss';
+import { Portal } from '../../../Portal';
 import { Overlay } from '../../Overlay';
-import { Portal } from '../../Portal';
 
 interface modalProps {
     className?: string;
@@ -17,7 +17,10 @@ interface modalProps {
 }
 
 const ANIMATION_DELAY: number = 300;
-
+/**
+ * компонент устарел
+ * @deprecated
+ */
 export const Modal: FC<modalProps> = (props) => {
     const { className, children, isOpen, onClose, lazy } = props;
 

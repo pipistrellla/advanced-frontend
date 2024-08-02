@@ -15,7 +15,10 @@ interface AvatarProps {
     alt?: string;
     fallbackInverted?: boolean;
 }
-
+/**
+ * компонент устарел
+ * @deprecated
+ */
 const Avatar: FC<AvatarProps> = (props) => {
     const { className, src, size = 100, alt, fallbackInverted } = props;
 

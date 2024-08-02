@@ -8,8 +8,8 @@ import { AddCommentForm } from '@/features/AddCommentForm';
 import { classNames } from '@/shared/lib/helpers/ClassNames/ClassNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
-import { VStack } from '@/shared/ui/deprecated/Stack';
 import { Text, TextSize } from '@/shared/ui/deprecated/Text';
+import { VStack } from '@/shared/ui/Stack';
 
 import {
     getArticleCommentsIsLoading,

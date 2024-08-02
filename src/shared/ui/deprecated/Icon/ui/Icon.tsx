@@ -10,7 +10,10 @@ interface IconProps extends React.SVGProps<SVGSVGElement> {
     isStroke?: boolean;
     isInverted?: boolean;
 }
-
+/**
+ * компонент устарел
+ * @deprecated
+ */
 export const Icon = memo((props: IconProps) => {
     const {
         className,

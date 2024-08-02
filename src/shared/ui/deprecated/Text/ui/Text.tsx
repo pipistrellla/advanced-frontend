@@ -38,7 +38,10 @@ const mapSizeToHeaderTag: Record<TextSize, HeaderTagType> = {
     [TextSize.M]: 'h2',
     [TextSize.L]: 'h1',
 };
-
+/**
+ * компонент устарел
+ * @deprecated
+ */
 export const Text: FC<TextProps> = memo((props: TextProps) => {
     const {
         className,

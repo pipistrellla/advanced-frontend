@@ -9,7 +9,7 @@ import { AvatarDropdown } from '@/features/AvatarDropdown';
 import { NotificationButton } from '@/features/NotificationButton';
 import { classNames } from '@/shared/lib/helpers/ClassNames/ClassNames';
 import { Button, ButtonTheme } from '@/shared/ui/deprecated/Button';
-import { HStack } from '@/shared/ui/deprecated/Stack';
+import { HStack } from '@/shared/ui/Stack';
 
 import cls from '../Navbar.module.scss';
 

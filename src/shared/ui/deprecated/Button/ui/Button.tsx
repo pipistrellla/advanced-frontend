@@ -28,7 +28,10 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     children?: React.ReactNode;
     fullWidth?: boolean;
 }
-
+/**
+ * компонент устарел
+ * @deprecated
+ */
 export const Button: FC<ButtonProps> = memo((props: ButtonProps) => {
     const {
         className,

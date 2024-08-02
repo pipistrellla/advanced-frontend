@@ -8,7 +8,7 @@ import TiledIcon from '@/shared/assets/icons/tiled.svg';
 import { classNames } from '@/shared/lib/helpers/ClassNames/ClassNames';
 import { Button, ButtonTheme } from '@/shared/ui/deprecated/Button';
 import { Icon } from '@/shared/ui/deprecated/Icon';
-import { HStack } from '@/shared/ui/deprecated/Stack';
+import { HStack } from '@/shared/ui/Stack';
 
 import cls from './ArticleViewSelector.module.scss';
 

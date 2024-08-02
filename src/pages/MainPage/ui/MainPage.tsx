@@ -3,8 +3,8 @@ import { FC, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { ThemeSwitcher } from '@/features/ThemeSwitcher';
-import { VStack } from '@/shared/ui/deprecated/Stack';
 import { Text } from '@/shared/ui/deprecated/Text';
+import { VStack } from '@/shared/ui/Stack';
 import { Page } from '@/widgets/Page';
 import { BugButton } from '@/widgets/PageError';
 

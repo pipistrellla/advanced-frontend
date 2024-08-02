@@ -12,7 +12,10 @@ interface CodeProps {
     className?: string;
     text: string;
 }
-
+/**
+ * компонент устарел
+ * @deprecated
+ */
 export const Code: FC<CodeProps> = memo((props: CodeProps) => {
     const { className, text } = props;
 

@@ -5,8 +5,8 @@ import { classNames } from '@/shared/lib/helpers/ClassNames/ClassNames';
 import { AppLink } from '@/shared/ui/deprecated/AppLink';
 import { Avatar } from '@/shared/ui/deprecated/Avatar';
 import { Skeleton } from '@/shared/ui/deprecated/Skeleton';
-import { VStack } from '@/shared/ui/deprecated/Stack';
 import { Text } from '@/shared/ui/deprecated/Text';
+import { VStack } from '@/shared/ui/Stack';
 
 import cls from './CommentCard.module.scss';
 import { Comment } from '../../model/types/comment';

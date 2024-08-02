@@ -12,8 +12,8 @@ import DynamicModuleLoader, {
 import { classNames } from '@/shared/lib/helpers/ClassNames/ClassNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
-import { VStack } from '@/shared/ui/deprecated/Stack';
 import { Text, TextTheme } from '@/shared/ui/deprecated/Text';
+import { VStack } from '@/shared/ui/Stack';
 
 import { ValidateProfileError } from '../../model/consts/consts';
 import { getProfileError } from '../../model/selectors/getProfileError/getProfileError';
