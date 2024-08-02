@@ -5,11 +5,11 @@ import { useTranslation } from 'react-i18next';
 import { Country, CountrySelect } from '@/entitis/Country';
 import { Currency, CurrencySelect } from '@/entitis/Currency';
 import { Mods, classNames } from '@/shared/lib/helpers/ClassNames/ClassNames';
-import { Avatar } from '@/shared/ui/Avatar';
-import Input from '@/shared/ui/Input/ui/Input';
-import { Loader } from '@/shared/ui/Loader';
-import { HStack, VStack } from '@/shared/ui/Stack';
-import { Text, TextAlign, TextTheme } from '@/shared/ui/Text';
+import { Avatar } from '@/shared/ui/deprecated/Avatar';
+import Input from '@/shared/ui/deprecated/Input/ui/Input';
+import { Loader } from '@/shared/ui/deprecated/Loader';
+import { HStack, VStack } from '@/shared/ui/deprecated/Stack';
+import { Text, TextAlign, TextTheme } from '@/shared/ui/deprecated/Text';
 
 import cls from './ProfileCard.module.scss';
 import { Profile } from '../../model/types/profile';

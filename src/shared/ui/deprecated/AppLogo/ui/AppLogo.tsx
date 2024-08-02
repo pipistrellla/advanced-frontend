@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/lib/helpers/ClassNames/ClassNames';
 
 import cls from './AppLogo.module.scss';
-import Logo from '../../../assets/icons/logo.svg';
+import Logo from '../../../../assets/icons/logo.svg';
 import { HStack } from '../../Stack';
 
 interface AppLogoProps {

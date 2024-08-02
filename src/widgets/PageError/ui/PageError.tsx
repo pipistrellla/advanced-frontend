@@ -3,8 +3,8 @@ import React, { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { classNames } from '@/shared/lib/helpers/ClassNames/ClassNames';
-import { Button } from '@/shared/ui/Button';
-import { Text, TextTheme } from '@/shared/ui/Text';
+import { Button } from '@/shared/ui/deprecated/Button';
+import { Text, TextTheme } from '@/shared/ui/deprecated/Text';
 
 import cls from './PageError.module.scss';
 

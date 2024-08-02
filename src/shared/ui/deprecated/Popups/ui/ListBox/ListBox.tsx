@@ -6,11 +6,11 @@ import { classNames } from '@/shared/lib/helpers/ClassNames/ClassNames';
 import { DropdownDirection } from '@/shared/types/ui';
 
 import cls from './ListBox.module.scss';
-import Selected from '../../../../assets/icons/selected.svg';
-import { Icon } from '../../../../ui/Icon';
-import { HStack } from '../../../../ui/Stack';
-import { Text } from '../../../../ui/Text';
+import Selected from '../../../../../assets/icons/selected.svg';
 import { Button } from '../../../Button';
+import { Icon } from '../../../Icon';
+import { HStack } from '../../../Stack';
+import { Text } from '../../../Text';
 import { mapDirectionClass } from '../styles/consts';
 import popupsCls from '../styles/Popup.module.scss';
 

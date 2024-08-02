@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 
 import { useTranslation } from 'react-i18next';
 
-import { Text, TextTheme } from '@/shared/ui/Text';
+import { Text, TextTheme } from '@/shared/ui/deprecated/Text';
 import { Page } from '@/widgets/Page';
 
 import cls from './NotFoundPage.module.scss';

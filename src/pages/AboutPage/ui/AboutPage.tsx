@@ -2,7 +2,7 @@ import { FC } from 'react';
 
 import { useTranslation } from 'react-i18next';
 
-import { Text } from '@/shared/ui/Text';
+import { Text } from '@/shared/ui/deprecated/Text';
 import { Page } from '@/widgets/Page';
 
 interface AboutPageProps {}

@@ -3,7 +3,7 @@ import React, { FC, memo, useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { classNames } from '@/shared/lib/helpers/ClassNames/ClassNames';
-import { ListBox } from '@/shared/ui/Popups';
+import { ListBox } from '@/shared/ui/deprecated/Popups';
 
 import { Country } from '../../model/types/country';
 

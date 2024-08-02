@@ -11,11 +11,16 @@ import DynamicModuleLoader, {
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { classNames } from '@/shared/lib/helpers/ClassNames/ClassNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { AppImage } from '@/shared/ui/AppImage';
-import { Icon } from '@/shared/ui/Icon';
-import { Skeleton } from '@/shared/ui/Skeleton';
-import { HStack, VStack } from '@/shared/ui/Stack';
-import { Text, TextAlign, TextTheme, TextSize } from '@/shared/ui/Text';
+import { AppImage } from '@/shared/ui/deprecated/AppImage';
+import { Icon } from '@/shared/ui/deprecated/Icon';
+import { Skeleton } from '@/shared/ui/deprecated/Skeleton';
+import { HStack, VStack } from '@/shared/ui/deprecated/Stack';
+import {
+    Text,
+    TextAlign,
+    TextTheme,
+    TextSize,
+} from '@/shared/ui/deprecated/Text';
 
 import cls from './ArticleDetails.module.scss';
 import { fetchArticleById } from '../../../Article/model/services/fetchArticleById/fetchArticleById';

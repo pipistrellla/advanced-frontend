@@ -3,7 +3,7 @@ import React, { FC, HTMLAttributeAnchorTarget, memo } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { classNames } from '@/shared/lib/helpers/ClassNames/ClassNames';
-import { Text, TextSize } from '@/shared/ui/Text';
+import { Text, TextSize } from '@/shared/ui/deprecated/Text';
 
 import cls from './ArticleList.module.scss';
 import { ArticleView } from '../../model/consts/consts';

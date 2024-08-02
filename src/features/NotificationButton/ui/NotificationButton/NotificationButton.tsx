@@ -4,10 +4,10 @@ import { NotificationList } from '@/entitis/Notification';
 import BellIcon from '@/shared/assets/icons/bell.svg';
 import { classNames } from '@/shared/lib/helpers/ClassNames/ClassNames';
 import { useDevice } from '@/shared/lib/hooks/useDevice/useDevice';
-import { Button, ButtonTheme } from '@/shared/ui/Button';
-import { Drawer } from '@/shared/ui/Drawer';
-import { Icon } from '@/shared/ui/Icon';
-import { Popover } from '@/shared/ui/Popups/ui/Popover/Popover';
+import { Button, ButtonTheme } from '@/shared/ui/deprecated/Button';
+import { Drawer } from '@/shared/ui/deprecated/Drawer';
+import { Icon } from '@/shared/ui/deprecated/Icon';
+import { Popover } from '@/shared/ui/deprecated/Popups/ui/Popover/Popover';
 
 import cls from './NotificationButton.module.scss';
 

@@ -3,9 +3,9 @@ import React, { FC, memo } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { classNames } from '@/shared/lib/helpers/ClassNames/ClassNames';
-import { Button, ButtonTheme } from '@/shared/ui/Button';
+import { Button, ButtonTheme } from '@/shared/ui/deprecated/Button';
 
-import { Text } from '../../../shared/ui/Text';
+import { Text } from '../../../shared/ui/deprecated/Text';
 
 interface LangSwitcherProps {
     className?: string;

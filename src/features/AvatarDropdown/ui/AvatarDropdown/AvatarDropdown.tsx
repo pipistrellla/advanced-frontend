@@ -12,8 +12,8 @@ import {
 import { getRouteAdminPanel, getRouteProfile } from '@/shared/const/router';
 import { classNames } from '@/shared/lib/helpers/ClassNames/ClassNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { Avatar } from '@/shared/ui/Avatar';
-import { DropdownItem, Dropdown } from '@/shared/ui/Popups';
+import { Avatar } from '@/shared/ui/deprecated/Avatar';
+import { DropdownItem, Dropdown } from '@/shared/ui/deprecated/Popups';
 
 interface AvatarDropdownProps {
     className?: string;

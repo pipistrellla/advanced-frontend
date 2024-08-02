@@ -10,8 +10,8 @@ import DynamicModuleLoader, {
     ReducersList,
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { classNames } from '@/shared/lib/helpers/ClassNames/ClassNames';
-import { VStack } from '@/shared/ui/Stack';
-import { Text, TextTheme } from '@/shared/ui/Text';
+import { VStack } from '@/shared/ui/deprecated/Stack';
+import { Text, TextTheme } from '@/shared/ui/deprecated/Text';
 import { Page } from '@/widgets/Page';
 
 import cls from './ArticleDetailsPage.module.scss';

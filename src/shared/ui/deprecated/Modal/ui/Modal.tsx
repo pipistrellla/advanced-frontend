@@ -5,7 +5,7 @@ import { useModal } from '@/shared/lib/hooks/useModal/useModal';
 import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme';
 
 import cls from './Modal.module.scss';
-import { Overlay } from '../../../ui/Overlay';
+import { Overlay } from '../../Overlay';
 import { Portal } from '../../Portal';
 
 interface modalProps {
