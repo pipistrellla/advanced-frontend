@@ -6,7 +6,7 @@ import { classNames } from '@/shared/lib/helpers/ClassNames/ClassNames';
 import { DropdownDirection } from '@/shared/types/ui';
 
 import cls from './Dropdown.module.scss';
-import { AppLink } from '../../../../ui/AppLink';
+import { AppLink } from '../../../AppLink';
 import { mapDirectionClass } from '../styles/consts';
 import popupsCls from '../styles/Popup.module.scss';
 

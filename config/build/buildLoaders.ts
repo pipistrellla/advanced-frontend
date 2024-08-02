@@ -5,7 +5,6 @@ import { buildCSSLoader } from './loaders/buildCSSLoader';
 import { BuildOptions } from './types/config';
 
 export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
-
     const { isDev } = options;
 
     // порядок loaderов важен, поэтому легче выносить их в переменные, чтобы было нагляднее видно
@@ -26,7 +25,24 @@ export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
     // svgLoader преобразовывает svg в реакт компонент
     const svgLoader = {
         test: /\.svg$/,
-        use: ['@svgr/webpack'],
+        use: [
+            {
+                loader: '@svgr/webpack',
+                options: {
+                    icon: true,
+                    svgoConfig: {
+                        plugins: [
+                            {
+                                name: 'convertColors',
+                                params: {
+                                    currentColor: true,
+                                },
+                            },
+                        ],
+                    },
+                },
+            },
+        ],
     };
 
     // расширение woff2 и woff под шрифты
@@ -47,5 +63,4 @@ export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
         // typescriptLoader,
         CSSLoader,
     ];
-
 }

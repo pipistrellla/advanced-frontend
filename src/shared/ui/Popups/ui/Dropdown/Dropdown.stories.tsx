@@ -4,7 +4,7 @@ import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDe
 import { Theme } from '@/shared/const/theme';
 
 import { Dropdown, DropdownItem } from './Dropdown';
-import { Button } from '../../../../ui/Button';
+import { Button } from '../../../Button';
 
 export default {
     title: 'shared/Popups/Dropdown',

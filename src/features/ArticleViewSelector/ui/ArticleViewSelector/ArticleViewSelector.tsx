@@ -8,6 +8,7 @@ import TiledIcon from '@/shared/assets/icons/tiled.svg';
 import { classNames } from '@/shared/lib/helpers/ClassNames/ClassNames';
 import { Button, ButtonTheme } from '@/shared/ui/Button';
 import { Icon } from '@/shared/ui/Icon';
+import { HStack } from '@/shared/ui/Stack';
 
 import cls from './ArticleViewSelector.module.scss';
 
@@ -41,22 +42,29 @@ export const ArticleViewSelector: FC<ArticleViewSelectorProps> = memo(
             <div
                 className={classNames(cls.articleViewSelector, {}, [className])}
             >
-                {viewsType.map((viewsType) => (
-                    <Button
-                        theme={ButtonTheme.CLEAR}
-                        onClick={onClick(viewsType.view)}
-                        key={viewsType.view}
-                    >
-                        <Icon
-                            className={classNames(
-                                '',
-                                { [cls.notSelected]: viewsType.view !== view },
-                                [],
-                            )}
-                            Svg={viewsType.icon}
-                        />
-                    </Button>
-                ))}
+                <HStack gap="8">
+                    {viewsType.map((viewsType) => (
+                        <Button
+                            theme={ButtonTheme.CLEAR}
+                            onClick={onClick(viewsType.view)}
+                            key={viewsType.view}
+                        >
+                            <Icon
+                                width={24}
+                                height={24}
+                                className={classNames(
+                                    '',
+                                    {
+                                        [cls.notSelected]:
+                                            viewsType.view !== view,
+                                    },
+                                    [],
+                                )}
+                                Svg={viewsType.icon}
+                            />
+                        </Button>
+                    ))}
+                </HStack>
             </div>
         );
     },

@@ -2,8 +2,8 @@ import { FC, HTMLAttributeAnchorTarget, memo } from 'react';
 
 import { useTranslation } from 'react-i18next';
 
+import NoImage from '@/shared/assets/icons/error-image-photo-icon.svg';
 import EyeIcon from '@/shared/assets/icons/eye.svg';
-import NoImage from '@/shared/assets/icons/NoImage.svg';
 import { getRouteArticleDetails } from '@/shared/const/router';
 import { classNames } from '@/shared/lib/helpers/ClassNames/ClassNames';
 import { AppImage } from '@/shared/ui/AppImage';

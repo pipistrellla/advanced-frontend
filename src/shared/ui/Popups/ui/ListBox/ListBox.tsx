@@ -7,10 +7,10 @@ import { DropdownDirection } from '@/shared/types/ui';
 
 import cls from './ListBox.module.scss';
 import Selected from '../../../../assets/icons/selected.svg';
-import { Button } from '../../../../ui/Button';
 import { Icon } from '../../../../ui/Icon';
 import { HStack } from '../../../../ui/Stack';
 import { Text } from '../../../../ui/Text';
+import { Button } from '../../../Button';
 import { mapDirectionClass } from '../styles/consts';
 import popupsCls from '../styles/Popup.module.scss';
 
