@@ -56,7 +56,7 @@ const App: FC<AppProps> = () => {
                             header={<Navbar />}
                             content={<AppRouter />}
                             sidebar={<Sidebar />}
-                            toolbar={<div>123132</div>}
+                            toolbar={<div />}
                         />
                     </Suspense>
                 </div>

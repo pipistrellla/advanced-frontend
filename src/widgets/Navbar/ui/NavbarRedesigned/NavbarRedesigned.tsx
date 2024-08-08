@@ -33,7 +33,11 @@ export const NavbarRedesigned: FC<NavbarProps> = memo(
 
         if (authData) {
             return (
-                <header className={classNames(cls.navbar, {}, [className])}>
+                <header
+                    className={classNames(cls.navbarRedesigned, {}, [
+                        className,
+                    ])}
+                >
                     <HStack className={cls.actions} gap="16">
                         <NotificationButton />
                         <AvatarDropdown />

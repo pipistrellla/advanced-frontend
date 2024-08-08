@@ -21,7 +21,7 @@ const project = new Project({});
 
 project.addSourceFilesAtPaths('src/**/ArticleDetailsPage.ts');
 project.addSourceFilesAtPaths('src/**/ArticleDetailsPage.tsx');
-// TODO Раскоментить посмле теста
+// TODO Раскоментить после теста
 // project.addSourceFilesAtPaths('src/**/*ts');
 // project.addSourceFilesAtPaths('src/**/*tsx');
 const files = project.getSourceFiles();
@@ -130,16 +130,17 @@ const replaceComponent = (node: Node) => {
 };
 
 files.forEach((sourceFile) => {
+    // eslint-disable-next-line consistent-return
     sourceFile.forEachDescendant((node) => {
         if (node.isKind(SyntaxKind.CallExpression) && isToggleFunction(node)) {
-            replaceToggleFunction(node);
+            return replaceToggleFunction(node);
         }
 
         if (
             node.isKind(SyntaxKind.JsxSelfClosingElement) &&
             isToggleComponent(node)
         ) {
-            replaceComponent(node);
+            return replaceComponent(node);
         }
     });
 });
