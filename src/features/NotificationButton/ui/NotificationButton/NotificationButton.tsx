@@ -2,12 +2,19 @@ import { FC, memo, useState } from 'react';
 
 import { NotificationList } from '@/entitis/Notification';
 import BellIcon from '@/shared/assets/icons/bell.svg';
+import NotificationIcon from '@/shared/assets/icons/notification.svg';
+import { ToggleFeaturesComponent } from '@/shared/lib/features';
 import { classNames } from '@/shared/lib/helpers/ClassNames/ClassNames';
 import { useDevice } from '@/shared/lib/hooks/useDevice/useDevice';
-import { Button, ButtonTheme } from '@/shared/ui/deprecated/Button';
-import { Drawer } from '@/shared/ui/deprecated/Drawer';
-import { Icon } from '@/shared/ui/deprecated/Icon';
-import { Popover } from '@/shared/ui/deprecated/Popups/ui/Popover/Popover';
+import {
+    Button as ButtonDeprecated,
+    ButtonTheme,
+} from '@/shared/ui/deprecated/Button';
+import { Icon as IconDeprecated } from '@/shared/ui/deprecated/Icon';
+import { Popover as PopoverDeprecated } from '@/shared/ui/deprecated/Popups/ui/Popover/Popover';
+import { Drawer } from '@/shared/ui/redesigned/Drawer';
+import { Icon } from '@/shared/ui/redesigned/Icon';
+import { Popover } from '@/shared/ui/redesigned/Popups';
 
 import cls from './NotificationButton.module.scss';
 
@@ -28,9 +35,20 @@ export const NotificationButton: FC<NotificationButtonProps> = memo((props) => {
     };
 
     const trigger = (
-        <Button onClick={onOpenDrawer} theme={ButtonTheme.CLEAR}>
-            <Icon Svg={BellIcon} isStroke />
-        </Button>
+        <ToggleFeaturesComponent
+            feature="isAppRedesigned"
+            off={
+                <ButtonDeprecated
+                    onClick={onOpenDrawer}
+                    theme={ButtonTheme.CLEAR}
+                >
+                    <IconDeprecated Svg={BellIcon} isStroke />
+                </ButtonDeprecated>
+            }
+            on={
+                <Icon Svg={NotificationIcon} clickable onClick={onOpenDrawer} />
+            }
+        />
     );
 
     const isMobile = useDevice();
@@ -47,12 +65,30 @@ export const NotificationButton: FC<NotificationButtonProps> = memo((props) => {
     }
 
     return (
-        <Popover
-            className={classNames(cls.notificationButton, {}, [className])}
-            direction="bottom left"
-            trigger={trigger}
-        >
-            <NotificationList className={cls.notifications} />
-        </Popover>
+        <ToggleFeaturesComponent
+            feature="isAppRedesigned"
+            off={
+                <PopoverDeprecated
+                    className={classNames(cls.notificationButton, {}, [
+                        className,
+                    ])}
+                    direction="bottom left"
+                    trigger={trigger}
+                >
+                    <NotificationList className={cls.notifications} />
+                </PopoverDeprecated>
+            }
+            on={
+                <Popover
+                    className={classNames(cls.notificationButton, {}, [
+                        className,
+                    ])}
+                    direction="bottom left"
+                    trigger={trigger}
+                >
+                    <NotificationList className={cls.notifications} />
+                </Popover>
+            }
+        />
     );
 });

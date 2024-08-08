@@ -10,10 +10,16 @@ import {
     userActions,
 } from '@/entitis/User';
 import { getRouteAdminPanel, getRouteProfile } from '@/shared/const/router';
+import { ToggleFeaturesComponent } from '@/shared/lib/features';
 import { classNames } from '@/shared/lib/helpers/ClassNames/ClassNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { Avatar } from '@/shared/ui/deprecated/Avatar';
-import { DropdownItem, Dropdown } from '@/shared/ui/deprecated/Popups';
+import { Avatar as AvatarDeprecated } from '@/shared/ui/deprecated/Avatar';
+import {
+    DropdownItem,
+    Dropdown as DropdownDeprecated,
+} from '@/shared/ui/deprecated/Popups';
+import { Avatar } from '@/shared/ui/redesigned/Avatar';
+import { Dropdown } from '@/shared/ui/redesigned/Popups';
 
 interface AvatarDropdownProps {
     className?: string;
@@ -59,12 +65,29 @@ export const AvatarDropdown: FC<AvatarDropdownProps> = memo((props) => {
     }
 
     return (
-        <Dropdown
-            className={classNames('', {}, [className])}
-            direction="bottom left"
-            items={dropdownItems}
-            trigger={
-                <Avatar fallbackInverted size={30} src={authData.avatar} />
+        <ToggleFeaturesComponent
+            feature="isAppRedesigned"
+            on={
+                <Dropdown
+                    className={classNames('', {}, [className])}
+                    direction="bottom left"
+                    items={dropdownItems}
+                    trigger={<Avatar size={40} src={authData.avatar} />}
+                />
+            }
+            off={
+                <DropdownDeprecated
+                    className={classNames('', {}, [className])}
+                    direction="bottom left"
+                    items={dropdownItems}
+                    trigger={
+                        <AvatarDeprecated
+                            fallbackInverted
+                            size={30}
+                            src={authData.avatar}
+                        />
+                    }
+                />
             }
         />
     );

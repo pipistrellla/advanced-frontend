@@ -9,7 +9,7 @@ const AvatarImg =
     'https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg';
 
 export default {
-    title: 'shared/deprecated/Avatar',
+    title: 'shared/Avatar',
     component: Avatar,
     argTypes: {
         backgroundColor: { control: 'color' },

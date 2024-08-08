@@ -6,7 +6,7 @@ import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme';
 
 import cls from './Modal.module.scss';
 import { Portal } from '../../../Portal';
-import { Overlay } from '../../Overlay';
+import { Overlay } from '../../../redesigned/Overlay';
 
 interface modalProps {
     className?: string;

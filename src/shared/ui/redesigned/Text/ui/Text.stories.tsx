@@ -3,10 +3,10 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from '@/shared/const/theme';
 
-import { Text, TextSize, TextTheme } from './Text';
+import { Text } from './Text';
 
 export default {
-    title: 'shared/deprecated/Text',
+    title: 'shared/Text',
     component: Text,
     argTypes: {
         backgroundColor: { control: 'color' },
@@ -54,40 +54,40 @@ export const ErrorAll = Template.bind({});
 ErrorAll.args = {
     title: 'error test text',
     text: 'error test text',
-    theme: TextTheme.ERROR,
+    variant: 'error',
 };
 
 export const ErrorAllDark = Template.bind({});
 ErrorAllDark.args = {
     title: 'error test text',
     text: 'error test text',
-    theme: TextTheme.ERROR,
+    variant: 'error',
 };
 ErrorAllDark.decorators = [ThemeDecorator(Theme.DARK)];
 
 export const ErrorText = Template.bind({});
 ErrorText.args = {
     text: 'error test text',
-    theme: TextTheme.ERROR,
+    variant: 'error',
 };
 
 export const ErrorTextDark = Template.bind({});
 ErrorTextDark.args = {
     text: 'error test text',
-    theme: TextTheme.ERROR,
+    variant: 'error',
 };
 ErrorTextDark.decorators = [ThemeDecorator(Theme.DARK)];
 
 export const ErrorTitle = Template.bind({});
 ErrorTitle.args = {
     title: 'error test text',
-    theme: TextTheme.ERROR,
+    variant: 'error',
 };
 
 export const ErrorTitleDark = Template.bind({});
 ErrorTitleDark.args = {
     title: 'error test text',
-    theme: TextTheme.ERROR,
+    variant: 'error',
 };
 ErrorTitleDark.decorators = [ThemeDecorator(Theme.DARK)];
 
@@ -98,30 +98,46 @@ GreenTextTheme.args = {
 };
 GreenTextTheme.decorators = [ThemeDecorator(Theme.GREEN)];
 
+export const AccentText = Template.bind({});
+AccentText.args = {
+    variant: 'accent',
+    title: ' test text',
+    text: 'text test normal',
+};
+
+export const AccentTextDark = Template.bind({});
+AccentTextDark.args = {
+    variant: 'accent',
+    title: ' test text',
+    text: 'text test dark',
+};
+AccentTextDark.decorators = [ThemeDecorator(Theme.DARK)];
+
+export const AccentTextGreen = Template.bind({});
+AccentTextGreen.args = {
+    variant: 'accent',
+    title: ' test text',
+    text: 'text test green',
+};
+AccentTextGreen.decorators = [ThemeDecorator(Theme.GREEN)];
+
 export const TextSizeS = Template.bind({});
 TextSizeS.args = {
     text: 'test text',
     title: 'test text',
-    size: TextSize.S,
+    size: 's',
 };
 
 export const TextSizeM = Template.bind({});
 TextSizeM.args = {
     text: 'test text',
     title: 'test text',
-    size: TextSize.M,
+    size: 'm',
 };
 
 export const TextSizeL = Template.bind({});
 TextSizeL.args = {
     text: 'test text',
     title: 'test text',
-    size: TextSize.L,
-};
-
-export const invertedText = Template.bind({});
-invertedText.args = {
-    title: 'error test text',
-    text: 'error test text',
-    theme: TextTheme.INVERTED,
+    size: 'l',
 };

@@ -2,6 +2,9 @@ import React from 'react';
 
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
+import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
+import { Theme } from '@/shared/const/theme';
+
 import { Button } from './Button';
 
 export default {
@@ -28,3 +31,25 @@ Clear.args = {
     children: 'Text',
     variant: 'clear',
 };
+
+export const Square = Template.bind({});
+
+Square.args = {
+    children: 'Text',
+    size: 'm',
+    square: true,
+};
+
+export const DarkTheme = Template.bind({});
+
+DarkTheme.args = {
+    children: 'Text',
+};
+DarkTheme.decorators = [ThemeDecorator(Theme.DARK)];
+
+export const GreenTheme = Template.bind({});
+
+GreenTheme.args = {
+    children: 'Text',
+};
+GreenTheme.decorators = [ThemeDecorator(Theme.GREEN)];
