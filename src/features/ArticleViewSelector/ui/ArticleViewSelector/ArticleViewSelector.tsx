@@ -3,14 +3,12 @@ import React, { FC, memo } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { ArticleView } from '@/entitis/Article';
-import ListIcon from '@/shared/assets/icons/list.svg';
-import TiledIcon from '@/shared/assets/icons/tiled.svg';
-import { classNames } from '@/shared/lib/helpers/ClassNames/ClassNames';
-import { Button, ButtonTheme } from '@/shared/ui/deprecated/Button';
-import { Icon } from '@/shared/ui/deprecated/Icon';
-import { HStack } from '@/shared/ui/Stack';
+import ListIcon from '@/shared/assets/icons/burger.svg';
+import TiledIcon from '@/shared/assets/icons/tile.svg';
+import { ToggleFeaturesComponent } from '@/shared/lib/features';
 
-import cls from './ArticleViewSelector.module.scss';
+import { ArticleViewSelectorDeprecated } from './ArticleViewSelectorDeprecated/ArticleViewSelectorDeprecated';
+import { ArticleViewSelectorRedesigned } from './ArticleViewSelectorRedesigned/ArticleViewSelectorRedesigned';
 
 interface ArticleViewSelectorProps {
     className?: string;
@@ -21,11 +19,11 @@ interface ArticleViewSelectorProps {
 const viewsType = [
     {
         view: ArticleView.SMALL,
-        icon: ListIcon,
+        icon: TiledIcon,
     },
     {
         view: ArticleView.BIG,
-        icon: TiledIcon,
+        icon: ListIcon,
     },
 ];
 
@@ -39,33 +37,21 @@ export const ArticleViewSelector: FC<ArticleViewSelectorProps> = memo(
         };
 
         return (
-            <div
-                className={classNames(cls.articleViewSelector, {}, [className])}
-            >
-                <HStack gap="8">
-                    {viewsType.map((viewsType) => (
-                        <Button
-                            theme={ButtonTheme.CLEAR}
-                            onClick={onClick(viewsType.view)}
-                            key={viewsType.view}
-                        >
-                            <Icon
-                                width={24}
-                                height={24}
-                                className={classNames(
-                                    '',
-                                    {
-                                        [cls.notSelected]:
-                                            viewsType.view !== view,
-                                    },
-                                    [],
-                                )}
-                                Svg={viewsType.icon}
-                            />
-                        </Button>
-                    ))}
-                </HStack>
-            </div>
+            <ToggleFeaturesComponent
+                feature="isAppRedesigned"
+                off={
+                    <ArticleViewSelectorDeprecated
+                        onCLickView={onClick}
+                        view={view}
+                    />
+                }
+                on={
+                    <ArticleViewSelectorRedesigned
+                        onCLickView={onClick}
+                        view={view}
+                    />
+                }
+            />
         );
     },
 );
