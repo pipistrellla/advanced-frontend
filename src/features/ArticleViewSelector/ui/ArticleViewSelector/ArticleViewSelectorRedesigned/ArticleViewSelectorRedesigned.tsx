@@ -40,6 +40,7 @@ export const ArticleViewSelectorRedesigned: FC<ArticleViewSelectorProps> = memo(
 
         return (
             <Card
+                border="round"
                 className={classNames(cls.articleViewSelectorRedesigned, {}, [
                     className,
                 ])}
