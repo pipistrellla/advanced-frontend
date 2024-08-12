@@ -5,9 +5,11 @@ import { useTranslation } from 'react-i18next';
 import { ArticleSortField, ArticleType } from '@/entitis/Article';
 import { ArticleSortSelector } from '@/features/ArticleSortSelector';
 import { ArticleTypeTabs } from '@/features/ArticleTypeTabs';
+import SearchIcon from '@/shared/assets/icons/search.svg';
 import { classNames } from '@/shared/lib/helpers/ClassNames/ClassNames';
 import { SortOrder } from '@/shared/types';
 import { Card } from '@/shared/ui/redesigned/Card';
+import { Icon } from '@/shared/ui/redesigned/Icon';
 import { Input } from '@/shared/ui/redesigned/Input';
 import { VStack } from '@/shared/ui/Stack';
 
@@ -47,6 +49,7 @@ export const ArticleFilters: FC<ArticleFiltersProps> = memo(
             >
                 <VStack gap="32">
                     <Input
+                        addonLeft={<Icon Svg={SearchIcon} />}
                         onChange={onChangeSearch}
                         value={search}
                         placeholder={t('Поиск')}
