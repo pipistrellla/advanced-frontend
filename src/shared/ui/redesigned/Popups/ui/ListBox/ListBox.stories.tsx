@@ -20,7 +20,7 @@ export default {
     ],
 } as ComponentMeta<typeof ListBox>;
 
-const testData: ListBoxItem[] = [
+const testData: ListBoxItem<string>[] = [
     {
         content: 'first',
         value: 'first',

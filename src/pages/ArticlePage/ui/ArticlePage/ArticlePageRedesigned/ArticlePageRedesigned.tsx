@@ -17,6 +17,7 @@ import { fetchNextArticlePage } from '../../../model/services/fetchNextArticlePa
 import { initArticlesPage } from '../../../model/services/initArticlesPage/initArticlesPage';
 import { articlePageReducer } from '../../../model/slices/articlePageSlice';
 import { ArticleInfiniteList } from '../../ArticleInfiniteList/ArticleInfiniteList';
+import { FilterContainer } from '../../FilterContainer/FilterContainer';
 import { VievSelectorContainer } from '../../VievSelectorContainer/VievSelectorContainer';
 import cls from '../ArticlePage.module.scss';
 
@@ -60,6 +61,7 @@ const ArticlePageRedesigned: FC<ArticlePageProps> = (props) => {
                         <ArticleInfiniteList className={cls.list} />
                     </Page>
                 }
+                right={<FilterContainer />}
             />
         </DynamicModuleLoader>
     );
