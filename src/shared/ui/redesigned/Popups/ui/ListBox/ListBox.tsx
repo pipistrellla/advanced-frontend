@@ -108,7 +108,13 @@ export const ListBox = <T extends string>(props: ListBoxProps<T>) => {
                                         ) : (
                                             item.content
                                         )}
-                                        {selected && <Icon Svg={Selected} />}
+                                        {selected && (
+                                            <Icon
+                                                width={24}
+                                                height={24}
+                                                Svg={Selected}
+                                            />
+                                        )}
                                     </HStack>
                                 </li>
                             )}

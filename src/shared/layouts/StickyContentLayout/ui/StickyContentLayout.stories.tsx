@@ -3,7 +3,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { StickyContentLayout } from './StickyContentLayout';
 
 export default {
-    title: ' /StickyContentLayout',
+    title: 'shared/layout/StickyContentLayout',
     component: StickyContentLayout,
     argTypes: {
         backgroundColor: { control: 'color' },
@@ -15,4 +15,8 @@ const Template: ComponentStory<typeof StickyContentLayout> = (args) => (
 );
 
 export const Normal = Template.bind({});
-Normal.args = {};
+Normal.args = {
+    content: <div>content</div>,
+    left: <div>left</div>,
+    right: <div>right</div>,
+};

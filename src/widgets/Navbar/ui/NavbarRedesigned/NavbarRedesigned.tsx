@@ -11,11 +11,8 @@ import { classNames } from '@/shared/lib/helpers/ClassNames/ClassNames';
 import { Button, ButtonTheme } from '@/shared/ui/deprecated/Button';
 import { HStack } from '@/shared/ui/Stack';
 
+import { NavbarProps } from '../Navbar';
 import cls from '../Navbar.module.scss';
-
-interface NavbarProps {
-    className?: string;
-}
 
 export const NavbarRedesigned: FC<NavbarProps> = memo(
     ({ className }: NavbarProps) => {

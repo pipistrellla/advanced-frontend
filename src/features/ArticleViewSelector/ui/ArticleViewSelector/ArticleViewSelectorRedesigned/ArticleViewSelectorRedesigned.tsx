@@ -10,13 +10,8 @@ import { Card } from '@/shared/ui/redesigned/Card';
 import { Icon } from '@/shared/ui/redesigned/Icon';
 import { HStack } from '@/shared/ui/Stack';
 
+import { ArticleViewSelectorProps } from '../ArticleViewSelector';
 import cls from '../ArticleViewSelector.module.scss';
-
-interface ArticleViewSelectorProps {
-    className?: string;
-    view: ArticleView;
-    onCLickView: (view: ArticleView) => void;
-}
 
 const viewsType = [
     {

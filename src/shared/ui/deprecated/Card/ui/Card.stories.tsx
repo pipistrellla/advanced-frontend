@@ -7,7 +7,7 @@ import { Card, CardTheme } from './Card';
 import { Text } from '../../Text';
 
 export default {
-    title: 'shared/Card',
+    title: 'shared/deprecated/Card',
     component: Card,
     argTypes: {
         backgroundColor: { control: 'color' },

@@ -10,13 +10,8 @@ import { Button, ButtonTheme } from '@/shared/ui/deprecated/Button';
 import { Icon } from '@/shared/ui/deprecated/Icon';
 import { HStack } from '@/shared/ui/Stack';
 
+import { ArticleViewSelectorProps } from '../ArticleViewSelector';
 import cls from '../ArticleViewSelector.module.scss';
-
-interface ArticleViewSelectorProps {
-    className?: string;
-    view: ArticleView;
-    onCLickView: (view: ArticleView) => void;
-}
 
 const viewsType = [
     {

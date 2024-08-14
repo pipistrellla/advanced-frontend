@@ -14,11 +14,8 @@ import { Button, ButtonTheme } from '@/shared/ui/deprecated/Button';
 import { Text, TextTheme } from '@/shared/ui/deprecated/Text';
 import { HStack } from '@/shared/ui/Stack';
 
+import { NavbarProps } from '../Navbar';
 import cls from '../Navbar.module.scss';
-
-interface NavbarProps {
-    className?: string;
-}
 
 export const NavbarDeprecated: FC<NavbarProps> = memo(
     ({ className }: NavbarProps) => {

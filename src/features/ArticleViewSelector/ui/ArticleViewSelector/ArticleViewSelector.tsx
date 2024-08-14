@@ -6,34 +6,18 @@ import { ToggleFeaturesComponent } from '@/shared/lib/features';
 import { ArticleViewSelectorDeprecated } from './ArticleViewSelectorDeprecated/ArticleViewSelectorDeprecated';
 import { ArticleViewSelectorRedesigned } from './ArticleViewSelectorRedesigned/ArticleViewSelectorRedesigned';
 
-interface ArticleViewSelectorProps {
+export interface ArticleViewSelectorProps {
     className?: string;
     view: ArticleView;
     onCLickView: (view: ArticleView) => void;
 }
 
 export const ArticleViewSelector: FC<ArticleViewSelectorProps> = memo(
-    (props: ArticleViewSelectorProps) => {
-        const { className, onCLickView, view } = props;
-
-        return (
-            <ToggleFeaturesComponent
-                feature="isAppRedesigned"
-                off={
-                    <ArticleViewSelectorDeprecated
-                        className={className}
-                        onCLickView={onCLickView}
-                        view={view}
-                    />
-                }
-                on={
-                    <ArticleViewSelectorRedesigned
-                        className={className}
-                        onCLickView={onCLickView}
-                        view={view}
-                    />
-                }
-            />
-        );
-    },
+    (props: ArticleViewSelectorProps) => (
+        <ToggleFeaturesComponent
+            feature="isAppRedesigned"
+            off={<ArticleViewSelectorDeprecated {...props} />}
+            on={<ArticleViewSelectorRedesigned {...props} />}
+        />
+    ),
 );

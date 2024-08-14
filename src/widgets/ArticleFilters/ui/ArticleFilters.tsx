@@ -53,6 +53,7 @@ export const ArticleFilters: FC<ArticleFiltersProps> = memo(
                         onChange={onChangeSearch}
                         value={search}
                         placeholder={t('Поиск')}
+                        size="s"
                     />
                     <ArticleSortSelector
                         order={order}
