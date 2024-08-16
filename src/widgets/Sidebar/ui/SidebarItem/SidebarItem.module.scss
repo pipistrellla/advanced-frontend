@@ -20,6 +20,13 @@
     }
 }
 
+.itemRedesigned {
+    display: flex;
+    align-items: center;
+    padding: 0 16px;
+    width: 100%;
+}
+
 .collapsedRedesigned {
     padding: 0 8px;
     height: 30px;
@@ -29,13 +36,6 @@
         width: 0;
         margin: 0;
     }
-}
-
-.itemRedesigned {
-    display: flex;
-    align-items: center;
-    padding: 0 16px;
-    width: 100%;
 }
 
 .active {
