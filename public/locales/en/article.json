@@ -22,5 +22,8 @@
     "Редактировать": "Edit",
     "Редактирование статьи с ID = ": "Editing page with ID = ",
     "Создание новой статьи": "Create new article",
-    "Произошла ошибка": "Something wrong"
+    "Произошла ошибка": "Something wrong",
+    "просмотров_one": "{{count}} views",
+    "просмотров_zero": "{{count}} views",
+    "просмотров_other": "{{count}} views"
 }

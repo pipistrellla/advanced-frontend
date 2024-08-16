@@ -22,7 +22,7 @@ interface SidebarItemProps {
 }
 // если обернуть в мемо, то перерисовка будет происходить только тогда, когда
 // изменились пропсы
-const SiedebarItem: FC<SidebarItemProps> = memo((props: SidebarItemProps) => {
+const SidebarItem: FC<SidebarItemProps> = memo((props: SidebarItemProps) => {
     const { item, collapsed } = props;
     const { t } = useTranslation('sidebar');
     const isAuth = useSelector(getUserAuthData);
@@ -67,4 +67,4 @@ const SiedebarItem: FC<SidebarItemProps> = memo((props: SidebarItemProps) => {
     );
 });
 
-export default SiedebarItem;
+export default SidebarItem;

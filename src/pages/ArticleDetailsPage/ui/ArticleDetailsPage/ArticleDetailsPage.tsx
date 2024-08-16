@@ -6,18 +6,22 @@ import { useParams } from 'react-router-dom';
 import { ArticleDetails } from '@/entitis/Article';
 import { AddArticleRating } from '@/features/AddArticleRating';
 import { ArticleRecommendationsList } from '@/features/ArticleRecommendationsList';
+import { StickyContentLayout } from '@/shared/layouts/StickyContentLayout';
 import DynamicModuleLoader, {
     ReducersList,
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { ToggleFeaturesComponent } from '@/shared/lib/features';
 import { classNames } from '@/shared/lib/helpers/ClassNames/ClassNames';
-import { Text, TextTheme } from '@/shared/ui/deprecated/Text';
+import { Text } from '@/shared/ui/redesigned/Text';
 import { VStack } from '@/shared/ui/Stack';
 import { Page } from '@/widgets/Page';
 
 import cls from './ArticleDetailsPage.module.scss';
 import { articleDetailsPageReducer } from '../../model/slice';
+import { AdditionalInfoContainer } from '../AdditionalInfoContainer/AdditionalInfoContainer';
 import { ArticleDetailsComments } from '../ArticleDetailsComments/ArticleDetailsComments';
 import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
+import { DetailsContainer } from '../DetailsContainer/DetailsContainer';
 
 interface ArticleDetailsPageProps {
     className?: string;
@@ -39,25 +43,54 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = (props) => {
                 className={classNames(cls.articleDetailsPage, {}, [className])}
             >
                 <ArticleDetailsPageHeader />
-                <Text title={t('Cтатья не найдена')} theme={TextTheme.ERROR} />
+                <Text title={t('Cтатья не найдена')} variant="error" />
             </Page>
         );
     }
 
     return (
         <DynamicModuleLoader removeAFterUnmount reducers={reducers}>
-            <Page
-                data-testid="ArticleDetails"
-                className={classNames(cls.articleDetailsPage, {}, [className])}
-            >
-                <VStack gap="16" max>
-                    <ArticleDetailsPageHeader />
-                    <ArticleDetails id={id!} />
-                    <AddArticleRating articleId={id} />
-                    <ArticleRecommendationsList />
-                    <ArticleDetailsComments id={id!} />
-                </VStack>
-            </Page>
+            <ToggleFeaturesComponent
+                feature="isAppRedesigned"
+                on={
+                    <StickyContentLayout
+                        content={
+                            <Page
+                                data-testid="ArticleDetails"
+                                className={classNames(
+                                    cls.articleDetailsPage,
+                                    {},
+                                    [className],
+                                )}
+                            >
+                                <VStack gap="16" max>
+                                    <DetailsContainer />
+                                    <AddArticleRating articleId={id} />
+                                    <ArticleRecommendationsList />
+                                    <ArticleDetailsComments id={id!} />
+                                </VStack>
+                            </Page>
+                        }
+                        right={<AdditionalInfoContainer />}
+                    />
+                }
+                off={
+                    <Page
+                        data-testid="ArticleDetails"
+                        className={classNames(cls.articleDetailsPage, {}, [
+                            className,
+                        ])}
+                    >
+                        <VStack gap="16" max>
+                            <ArticleDetailsPageHeader />
+                            <ArticleDetails id={id!} />
+                            <AddArticleRating articleId={id} />
+                            <ArticleRecommendationsList />
+                            <ArticleDetailsComments id={id!} />
+                        </VStack>
+                    </Page>
+                }
+            />
         </DynamicModuleLoader>
     );
 };

@@ -14,6 +14,7 @@ interface CardProps extends HTMLAttributes<HTMLDivElement> {
     max?: boolean;
     padding?: CardPadding;
     border?: CardBorder;
+    fullHeight?: boolean;
 }
 
 export const Card: FC<CardProps> = (props) => {
@@ -24,6 +25,7 @@ export const Card: FC<CardProps> = (props) => {
         max,
         padding = '8',
         border = 'square',
+        fullHeight,
         ...otherProps
     } = props;
 
@@ -38,6 +40,7 @@ export const Card: FC<CardProps> = (props) => {
 
     const mods = {
         [cls.max]: max,
+        [cls.fullHeight]: fullHeight,
     };
 
     const additionalClasses = [

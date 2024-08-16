@@ -947,7 +947,7 @@
         "isAppRedesigned": true
       },
       "jsonSettings": {
-        "theme": "app_dark_theme",
+        "theme": "app_light_theme",
         "isFirstVisit": true,
         "isArticlePageWasOpened": true
       },
@@ -971,10 +971,11 @@
       ],
       "features": {
         "isArticleRatingEnabled": false,
-        "isCounterEnabled": false
+        "isCounterEnabled": false,
+        "isAppRedesigned": true
       },
       "jsonSettings": {
-        "theme": "app_green_theme",
+        "theme": "app_light_theme",
         "isFirstVisit": true,
         "isArticlePageWasOpened": true
       },
