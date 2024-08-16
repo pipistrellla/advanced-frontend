@@ -17,6 +17,7 @@ interface TextProps {
     variant?: textVariant;
     align?: TextAlign;
     size?: TextSize;
+    bold?: boolean;
     'data-testid'?: string;
 }
 type HeaderTagType = 'h1' | 'h2' | 'h3';
@@ -41,6 +42,7 @@ export const Text: FC<TextProps> = memo((props: TextProps) => {
         variant = 'primary',
         align = 'left',
         size = 'm',
+        bold,
         'data-testid': dataTestId = 'Text',
         ...otherProps
     } = props;
@@ -57,7 +59,13 @@ export const Text: FC<TextProps> = memo((props: TextProps) => {
     ];
 
     return (
-        <div className={classNames(cls.Text, {}, additionalClasses)}>
+        <div
+            className={classNames(
+                cls.Text,
+                { [cls.bold]: bold },
+                additionalClasses,
+            )}
+        >
             {title && (
                 <HeaderTag
                     data-testid={`${dataTestId}.Header`}

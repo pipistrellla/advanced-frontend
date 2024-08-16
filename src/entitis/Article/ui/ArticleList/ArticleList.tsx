@@ -2,8 +2,10 @@ import React, { FC, HTMLAttributeAnchorTarget, memo } from 'react';
 
 import { useTranslation } from 'react-i18next';
 
+import { ToggleFeaturesComponent } from '@/shared/lib/features';
 import { classNames } from '@/shared/lib/helpers/ClassNames/ClassNames';
 import { Text, TextSize } from '@/shared/ui/deprecated/Text';
+import { HStack } from '@/shared/ui/Stack';
 
 import cls from './ArticleList.module.scss';
 import { ArticleView } from '../../model/consts/consts';
@@ -65,16 +67,40 @@ export const ArticleList: FC<ArticleListProps> = memo(
         }
 
         return (
-            <div
-                data-testid="ArticleList"
-                className={classNames(cls.articleList, {}, [
-                    className,
-                    cls[view],
-                ])}
-            >
-                {articles.length > 0 ? articles.map(renderArticle) : null}
-                {isLoading && getSkeletons(view)}
-            </div>
+            <ToggleFeaturesComponent
+                feature="isAppRedesigned"
+                off={
+                    <div
+                        data-testid="ArticleList"
+                        className={classNames(cls.articleList, {}, [
+                            className,
+                            cls[view],
+                        ])}
+                    >
+                        {articles.length > 0
+                            ? articles.map(renderArticle)
+                            : null}
+                        {isLoading && getSkeletons(view)}
+                    </div>
+                }
+                on={
+                    <HStack
+                        wrap="wrap"
+                        gap="16"
+                        data-testid="ArticleList"
+                        className={classNames(
+                            cls.articleListRedesigned,
+                            {},
+                            [],
+                        )}
+                    >
+                        {articles.length > 0
+                            ? articles.map(renderArticle)
+                            : null}
+                        {isLoading && getSkeletons(view)}
+                    </HStack>
+                }
+            />
         );
     },
 );

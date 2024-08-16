@@ -1,3 +1,5 @@
+const { wrap } = require('module');
+
 module.exports = {
     root: true,
     env: {
@@ -72,6 +74,7 @@ module.exports = {
                     'color',
                     'variant',
                     'size',
+                    'wrap',
                 ],
             },
         ],
