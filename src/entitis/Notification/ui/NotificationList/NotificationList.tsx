@@ -1,7 +1,9 @@
 import { FC, memo } from 'react';
 
+import { toggleFeatures } from '@/shared/lib/features';
 import { classNames } from '@/shared/lib/helpers/ClassNames/ClassNames';
-import { Skeleton } from '@/shared/ui/deprecated/Skeleton';
+import { Skeleton as SkeletonDeprecated } from '@/shared/ui/deprecated/Skeleton';
+import { Skeleton as SkeletonRedesigned } from '@/shared/ui/redesigned/Skeleton';
 import { VStack } from '@/shared/ui/Stack';
 
 import cls from './NotificationList.module.scss';
@@ -16,6 +18,12 @@ export const NotificationList: FC<NotificationListProps> = memo((props) => {
     const { className } = props;
     const { data, isLoading } = useNotifications(null, {
         pollingInterval: 10000,
+    });
+
+    const Skeleton = toggleFeatures({
+        name: 'isAppRedesigned',
+        off: () => SkeletonDeprecated,
+        on: () => SkeletonRedesigned,
     });
 
     if (isLoading) {
