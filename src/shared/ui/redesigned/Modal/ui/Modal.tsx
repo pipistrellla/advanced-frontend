@@ -1,5 +1,6 @@
 import { FC, ReactNode } from 'react';
 
+import { toggleFeatures } from '@/shared/lib/features';
 import { Mods, classNames } from '@/shared/lib/helpers/ClassNames/ClassNames';
 import { useModal } from '@/shared/lib/hooks/useModal/useModal';
 import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme';
@@ -17,10 +18,7 @@ interface modalProps {
 }
 
 const ANIMATION_DELAY: number = 300;
-/**
- * компонент устарел
- * @deprecated
- */
+
 export const Modal: FC<modalProps> = (props) => {
     const { className, children, isOpen, onClose, lazy } = props;
 
@@ -45,9 +43,19 @@ export const Modal: FC<modalProps> = (props) => {
         return null;
     }
 
+    const additionalClasses = [
+        className,
+        theme,
+        toggleFeatures({
+            name: 'isAppRedesigned',
+            off: () => cls.modalOld,
+            on: () => cls.modalNew,
+        }),
+    ];
+
     return (
         <Portal>
-            <div className={classNames(cls.Modal, mods, [className, theme])}>
+            <div className={classNames(cls.Modal, mods, additionalClasses)}>
                 <Overlay onClick={() => closeHandler()} />
                 <div className={cls.content}>{children}</div>
             </div>
