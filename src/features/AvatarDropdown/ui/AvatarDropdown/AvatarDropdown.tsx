@@ -9,7 +9,11 @@ import {
     isUserManager,
     userActions,
 } from '@/entitis/User';
-import { getRouteAdminPanel, getRouteProfile } from '@/shared/const/router';
+import {
+    getRouteAdminPanel,
+    getRouteProfile,
+    getRouteSettings,
+} from '@/shared/const/router';
 import { ToggleFeaturesComponent } from '@/shared/lib/features';
 import { classNames } from '@/shared/lib/helpers/ClassNames/ClassNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
@@ -52,6 +56,10 @@ export const AvatarDropdown: FC<AvatarDropdownProps> = memo((props) => {
               {
                   content: t('Профиль'),
                   href: getRouteProfile(authData.id),
+              },
+              {
+                  content: t('Настройки'),
+                  href: getRouteSettings(),
               },
               {
                   content: t('Выйти'),
