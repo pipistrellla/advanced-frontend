@@ -31,15 +31,15 @@ export interface LoginFormProps {
     className?: string;
     // этот пропс нуже чтобы закрывать модалку при успешной авторизации
     // так как при успешной авторизации мы ее просто демонтировали
-    onSucces: () => void;
+    onSuccess: () => void;
 }
 
 const initialsReducers: ReducersList = {
     loginForm: LoginReducer,
 };
 
-const LoginForm: FC<LoginFormProps> = memo((props) => {
-    const { className, onSucces } = props;
+const LoginForm: FC<LoginFormProps> = memo((props: LoginFormProps) => {
+    const { className, onSuccess } = props;
 
     const { t } = useTranslation('navbar');
     const dispatch = useAppDispatch();
@@ -66,9 +66,10 @@ const LoginForm: FC<LoginFormProps> = memo((props) => {
     const onClickLogin = useCallback(async () => {
         const result = await dispatch(loginByUsername({ username, password }));
         if (result.meta.requestStatus === 'fulfilled') {
-            onSucces();
+            onSuccess();
+            window.location.reload();
         }
-    }, [dispatch, username, password, onSucces]);
+    }, [dispatch, username, password, onSuccess]);
 
     return (
         <DynamicModuleLoader
