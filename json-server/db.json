@@ -1155,6 +1155,13 @@
       "rate": 2,
       "feedback": "123",
       "id": "uq_3MSU"
+    },
+    {
+      "userId": "2",
+      "articleId": "33",
+      "rate": 4,
+      "feedback": "бомбовая статья",
+      "id": "Kq7O2pY"
     }
   ],
   "profile-ratings": [

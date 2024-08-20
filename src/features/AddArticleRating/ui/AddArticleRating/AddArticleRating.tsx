@@ -22,9 +22,8 @@ export interface AddArticleRatingProps {
 const AddArticleRating = memo((props: AddArticleRatingProps) => {
     const { className, articleId } = props;
     const { t } = useTranslation();
-
     const userData = useSelector(getUserAuthData);
-    const { data, isLoading } = useGetArticleRating({
+    const { data, isLoading, refetch } = useGetArticleRating({
         articleId,
         userId: userData?.id ?? '',
     });
@@ -41,11 +40,12 @@ const AddArticleRating = memo((props: AddArticleRatingProps) => {
                     rate: starsCount,
                     feedback,
                 });
+                refetch();
             } catch (e) {
                 console.log(e);
             }
         },
-        [articleId, rateArticleMutation, userData?.id],
+        [articleId, rateArticleMutation, refetch, userData?.id],
     );
 
     const onAccept = useCallback(

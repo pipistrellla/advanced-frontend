@@ -4,10 +4,17 @@ import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 
 import { getUserAuthData } from '@/entitis/User';
+import { ToggleFeaturesComponent } from '@/shared/lib/features';
 import { classNames } from '@/shared/lib/helpers/ClassNames/ClassNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { Button, ButtonTheme } from '@/shared/ui/deprecated/Button';
-import { Text } from '@/shared/ui/deprecated/Text';
+import {
+    Button as ButtonDeprecated,
+    ButtonTheme,
+} from '@/shared/ui/deprecated/Button';
+import { Text as TextDeprecated } from '@/shared/ui/deprecated/Text';
+import { Button } from '@/shared/ui/redesigned/Button';
+import { Card } from '@/shared/ui/redesigned/Card';
+import { Text } from '@/shared/ui/redesigned/Text';
 import { HStack } from '@/shared/ui/Stack';
 
 import { getProfileData } from '../../model/selectors/getProfileData/getProfileData';
@@ -46,42 +53,87 @@ export const EditableProfileCardHeader: FC<EditableProfileCardHeaderProps> =
         }, [dispatch]);
 
         return (
-            <HStack
-                justify="between"
-                className={classNames('', {}, [className])}
-                max
-            >
-                <Text title={t('Профиль пользователя')} />
-                {canEdit && (
-                    <div>
-                        {readonly ? (
-                            <Button
-                                theme={ButtonTheme.OUTLINE}
-                                onClick={onEdit}
-                                data-testid="EditableProfileCardHeader.EditButton"
-                            >
-                                {t('Редактировать')}
-                            </Button>
-                        ) : (
-                            <HStack gap="8">
-                                <Button
-                                    theme={ButtonTheme.OUTLINE_RED}
-                                    onClick={onCancelEdit}
-                                    data-testid="EditableProfileCardHeader.CancelButton"
-                                >
-                                    {t('Отменить')}
-                                </Button>
-                                <Button
-                                    theme={ButtonTheme.OUTLINE}
-                                    onClick={onSave}
-                                    data-testid="EditableProfileCardHeader.SaveButton"
-                                >
-                                    {t('Сохранить')}
-                                </Button>
-                            </HStack>
+            <ToggleFeaturesComponent
+                feature="isAppRedesigned"
+                off={
+                    <HStack
+                        justify="between"
+                        className={classNames('', {}, [className])}
+                        max
+                    >
+                        <TextDeprecated title={t('Профиль пользователя')} />
+                        {canEdit && (
+                            <div>
+                                {readonly ? (
+                                    <ButtonDeprecated
+                                        theme={ButtonTheme.OUTLINE}
+                                        onClick={onEdit}
+                                        data-testid="EditableProfileCardHeader.EditButton"
+                                    >
+                                        {t('Редактировать')}
+                                    </ButtonDeprecated>
+                                ) : (
+                                    <HStack gap="8">
+                                        <ButtonDeprecated
+                                            theme={ButtonTheme.OUTLINE_RED}
+                                            onClick={onCancelEdit}
+                                            data-testid="EditableProfileCardHeader.CancelButton"
+                                        >
+                                            {t('Отменить')}
+                                        </ButtonDeprecated>
+                                        <ButtonDeprecated
+                                            theme={ButtonTheme.OUTLINE}
+                                            onClick={onSave}
+                                            data-testid="EditableProfileCardHeader.SaveButton"
+                                        >
+                                            {t('Сохранить')}
+                                        </ButtonDeprecated>
+                                    </HStack>
+                                )}
+                            </div>
                         )}
-                    </div>
-                )}
-            </HStack>
+                    </HStack>
+                }
+                on={
+                    <Card border="partial" padding="24" max>
+                        <HStack
+                            justify="between"
+                            className={classNames('', {}, [className])}
+                            max
+                        >
+                            <Text title={t('Профиль пользователя')} />
+                            {canEdit && (
+                                <div>
+                                    {readonly ? (
+                                        <Button
+                                            onClick={onEdit}
+                                            data-testid="EditableProfileCardHeader.EditButton"
+                                        >
+                                            {t('Редактировать')}
+                                        </Button>
+                                    ) : (
+                                        <HStack gap="8">
+                                            <Button
+                                                color="error"
+                                                onClick={onCancelEdit}
+                                                data-testid="EditableProfileCardHeader.CancelButton"
+                                            >
+                                                {t('Отменить')}
+                                            </Button>
+                                            <Button
+                                                color="success"
+                                                onClick={onSave}
+                                                data-testid="EditableProfileCardHeader.SaveButton"
+                                            >
+                                                {t('Сохранить')}
+                                            </Button>
+                                        </HStack>
+                                    )}
+                                </div>
+                            )}
+                        </HStack>
+                    </Card>
+                }
+            />
         );
     });

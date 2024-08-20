@@ -8,7 +8,7 @@ import { LoginModal } from '@/features/AuthByUsername';
 import { AvatarDropdown } from '@/features/AvatarDropdown';
 import { NotificationButton } from '@/features/NotificationButton';
 import { classNames } from '@/shared/lib/helpers/ClassNames/ClassNames';
-import { Button, ButtonTheme } from '@/shared/ui/deprecated/Button';
+import { Button } from '@/shared/ui/redesigned/Button';
 import { HStack } from '@/shared/ui/Stack';
 
 import { NavbarProps } from '../Navbar';
@@ -48,7 +48,7 @@ export const NavbarRedesigned: FC<NavbarProps> = memo(
                 className={classNames(cls.navbarRedesigned, {}, [className])}
             >
                 <Button
-                    theme={ButtonTheme.CLEAR_INVERTED}
+                    variant="clear"
                     className={cls.links}
                     onClick={onShowModal}
                 >
