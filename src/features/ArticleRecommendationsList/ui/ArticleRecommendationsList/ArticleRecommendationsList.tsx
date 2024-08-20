@@ -3,9 +3,12 @@ import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { ArticleList } from '@/entitis/Article';
+import { toggleFeatures, ToggleFeaturesComponent } from '@/shared/lib/features';
 import { classNames } from '@/shared/lib/helpers/ClassNames/ClassNames';
-import { Skeleton } from '@/shared/ui/deprecated/Skeleton';
-import { TextSize, Text } from '@/shared/ui/deprecated/Text';
+import { Skeleton as SkeletonDeprecated } from '@/shared/ui/deprecated/Skeleton';
+import { TextSize, Text as TextDeprecated } from '@/shared/ui/deprecated/Text';
+import { Skeleton as SkeletonRedesigned } from '@/shared/ui/redesigned/Skeleton';
+import { Text as TextRedesigned } from '@/shared/ui/redesigned/Text';
 import { HStack, VStack } from '@/shared/ui/Stack';
 
 import { useArticleRecommendationsList } from '../../api/articleRecommendationsApi';
@@ -24,6 +27,12 @@ export const ArticleRecommendationsList = memo(
             error,
         } = useArticleRecommendationsList(3);
 
+        const Skeleton = toggleFeatures({
+            name: 'isAppRedesigned',
+            off: () => SkeletonDeprecated,
+            on: () => SkeletonRedesigned,
+        });
+
         if (isLoading) {
             return (
                 <HStack max gap="8">
@@ -37,7 +46,11 @@ export const ArticleRecommendationsList = memo(
         if (error || !articles) {
             return (
                 <VStack>
-                    <Text title={t('Произошла ошибка')} />
+                    <ToggleFeaturesComponent
+                        feature="isAppRedesigned"
+                        off={<TextDeprecated title={t('Произошла ошибка')} />}
+                        on={<TextRedesigned title={t('Произошла ошибка')} />}
+                    />
                 </VStack>
             );
         }
@@ -48,7 +61,16 @@ export const ArticleRecommendationsList = memo(
                 gap="8"
                 className={classNames('', {}, [className])}
             >
-                <Text size={TextSize.L} title={t('Рекомендуем')} />
+                <ToggleFeaturesComponent
+                    feature="isAppRedesigned"
+                    off={
+                        <TextDeprecated
+                            size={TextSize.L}
+                            title={t('Рекомендуем')}
+                        />
+                    }
+                    on={<TextRedesigned size="l" title={t('Рекомендуем')} />}
+                />
                 <ArticleList articles={articles} target="_blank" />
             </VStack>
         );

@@ -48,7 +48,7 @@ export const ArticleDetailsRedesigned: FC<ArticleDetailsProps> = memo(
 
         if (isLoading) {
             content = (
-                <>
+                <VStack max gap="16">
                     <Skeleton
                         className={cls.avatar}
                         width={200}
@@ -71,7 +71,7 @@ export const ArticleDetailsRedesigned: FC<ArticleDetailsProps> = memo(
                         width="100%"
                         height={200}
                     />
-                </>
+                </VStack>
             );
         } else if (error) {
             content = (
