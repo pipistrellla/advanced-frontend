@@ -87,16 +87,22 @@ export const ArticleList: FC<ArticleListProps> = memo(
                     <HStack
                         wrap="wrap"
                         gap="16"
-                        data-testid="ArticleList"
                         className={classNames(
-                            cls.articleListRedesigned,
+                            cls.ArticleListRedesigned,
                             {},
                             [],
                         )}
+                        data-testid="ArticleList"
                     >
-                        {articles.length > 0
-                            ? articles.map(renderArticle)
-                            : null}
+                        {articles.map((item) => (
+                            <ArticleListItem
+                                article={item}
+                                view={view}
+                                target={target}
+                                key={item.id}
+                                className={cls.card}
+                            />
+                        ))}
                         {isLoading && getSkeletons(view)}
                     </HStack>
                 }

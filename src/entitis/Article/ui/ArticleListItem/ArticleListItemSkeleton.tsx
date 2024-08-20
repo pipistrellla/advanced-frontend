@@ -77,7 +77,7 @@ export const ArticleListItemSkeleton: FC<ArticleListItemSkeletonProps> = memo(
                 <Card className={cls.card}>
                     <div className={cls.imageWrapper}>
                         <Skeleton
-                            width={200}
+                            width={220}
                             height={200}
                             className={cls.img}
                         />

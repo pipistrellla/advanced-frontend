@@ -6,7 +6,7 @@ import { Theme } from '@/shared/const/theme';
 import { Code } from './Code';
 
 export default {
-    title: 'shared/deprecated/Code',
+    title: 'shared/Code',
     component: Code,
     argTypes: {
         backgroundColor: { control: 'color' },
