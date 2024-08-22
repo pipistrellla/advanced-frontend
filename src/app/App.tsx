@@ -1,4 +1,4 @@
-import { FC, Suspense, useEffect } from 'react';
+import { FC, memo, Suspense, useEffect } from 'react';
 
 // suspence позволяет показать пользователю, что идет загрузка (нужно обернуть)
 import { useSelector } from 'react-redux';
@@ -16,12 +16,13 @@ import { Sidebar } from '@/widgets/Sidebar';
 
 import { useAppToolbar } from './lib/useAppToolbar.tsx/useAppToolbar';
 import { AppRouter } from './providers/router';
+import { withTheme } from './providers/ThemeProvider';
 
 interface AppProps {}
 // lazyload позволяет уменьшить размер бандла
 // так как грузит не все страницы стразу
 
-const App: FC<AppProps> = () => {
+const App: FC<AppProps> = memo(() => {
     const { theme } = useTheme();
     const dispatch = useAppDispatch();
     const inited = useSelector(getUserInited);
@@ -78,6 +79,6 @@ const App: FC<AppProps> = () => {
             }
         />
     );
-};
+});
 
-export default App;
+export default withTheme(App);
