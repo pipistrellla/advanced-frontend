@@ -14,6 +14,7 @@ import { Navbar } from '@/widgets/Navbar';
 import { PageLoader } from '@/widgets/PageLoader';
 import { Sidebar } from '@/widgets/Sidebar';
 
+import { useAppToolbar } from './lib/useAppToolbar.tsx/useAppToolbar';
 import { AppRouter } from './providers/router';
 
 interface AppProps {}
@@ -24,6 +25,9 @@ const App: FC<AppProps> = () => {
     const { theme } = useTheme();
     const dispatch = useAppDispatch();
     const inited = useSelector(getUserInited);
+
+    const toolbar = useAppToolbar();
+
     useEffect(() => {
         dispatch(initAuthData());
     }, [dispatch]);
@@ -67,7 +71,7 @@ const App: FC<AppProps> = () => {
                             header={<Navbar />}
                             content={<AppRouter />}
                             sidebar={<Sidebar />}
-                            toolbar={<div />}
+                            toolbar={toolbar}
                         />
                     </Suspense>
                 </div>
