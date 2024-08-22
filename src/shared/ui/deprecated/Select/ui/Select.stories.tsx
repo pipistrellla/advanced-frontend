@@ -12,7 +12,6 @@ export default {
     argTypes: {
         backgroundColor: { control: 'color' },
     },
-    decorators: [OldDesignDecorator],
 } as ComponentMeta<typeof Select>;
 
 const Template: ComponentStory<typeof Select> = (args) => <Select {...args} />;
@@ -41,17 +40,18 @@ Primary.args = {
     label: ' test text',
     options: DefaultOptions,
 };
+Primary.decorators = [OldDesignDecorator];
 
 export const PrimaryThemeDark = Template.bind({});
 PrimaryThemeDark.args = {
     label: ' test text',
     options: DefaultOptions,
 };
-PrimaryThemeDark.decorators = [ThemeDecorator(Theme.DARK)];
+PrimaryThemeDark.decorators = [OldDesignDecorator, ThemeDecorator(Theme.DARK)];
 
 export const Green = Template.bind({});
 Green.args = {
     label: ' test text',
     options: DefaultOptions,
 };
-Green.decorators = [ThemeDecorator(Theme.GREEN)];
+Green.decorators = [OldDesignDecorator, ThemeDecorator(Theme.GREEN)];
