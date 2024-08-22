@@ -4,6 +4,7 @@ import { FC, Suspense, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 
 import { getUserInited, initAuthData } from '@/entitis/User';
+import { AppLoaderLayout } from '@/shared/layouts/AppLoaderLayout';
 import { MainLayout } from '@/shared/layouts/MainLayout';
 import { ToggleFeaturesComponent } from '@/shared/lib/features';
 import { classNames } from '@/shared/lib/helpers/ClassNames/ClassNames';
@@ -29,9 +30,19 @@ const App: FC<AppProps> = () => {
 
     if (!inited) {
         return (
-            <div className={classNames('app', {}, [theme])}>
-                <PageLoader />
-            </div>
+            <ToggleFeaturesComponent
+                feature="isAppRedesigned"
+                off={
+                    <div className={classNames('app', {}, [theme])}>
+                        <PageLoader />
+                    </div>
+                }
+                on={
+                    <div className={classNames('app_redesigned', {}, [theme])}>
+                        <AppLoaderLayout />
+                    </div>
+                }
+            />
         );
     }
 

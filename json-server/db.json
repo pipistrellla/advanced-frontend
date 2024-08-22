@@ -978,7 +978,7 @@
       "features": {
         "isArticleRatingEnabled": false,
         "isCounterEnabled": false,
-        "isAppRedesigned": true
+        "isAppRedesigned": false
       },
       "jsonSettings": {
         "theme": "app_light_theme",
