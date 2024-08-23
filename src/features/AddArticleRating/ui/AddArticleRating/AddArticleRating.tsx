@@ -5,7 +5,9 @@ import { useSelector } from 'react-redux';
 
 import { RatingCard } from '@/entitis/Rating';
 import { getUserAuthData } from '@/entitis/User';
-import { Skeleton } from '@/shared/ui/deprecated/Skeleton';
+import { ToggleFeaturesComponent } from '@/shared/lib/features';
+import { Skeleton as SkeltonDeprecated } from '@/shared/ui/deprecated/Skeleton';
+import { Skeleton as SkeltonRedesigned } from '@/shared/ui/redesigned/Skeleton';
 
 import {
     useGetArticleRating,
@@ -20,9 +22,8 @@ export interface AddArticleRatingProps {
 const AddArticleRating = memo((props: AddArticleRatingProps) => {
     const { className, articleId } = props;
     const { t } = useTranslation();
-
     const userData = useSelector(getUserAuthData);
-    const { data, isLoading } = useGetArticleRating({
+    const { data, isLoading, refetch } = useGetArticleRating({
         articleId,
         userId: userData?.id ?? '',
     });
@@ -39,11 +40,12 @@ const AddArticleRating = memo((props: AddArticleRatingProps) => {
                     rate: starsCount,
                     feedback,
                 });
+                refetch();
             } catch (e) {
                 console.log(e);
             }
         },
-        [articleId, rateArticleMutation, userData?.id],
+        [articleId, rateArticleMutation, refetch, userData?.id],
     );
 
     const onAccept = useCallback(
@@ -61,7 +63,13 @@ const AddArticleRating = memo((props: AddArticleRatingProps) => {
     );
 
     if (isLoading) {
-        return <Skeleton width="100%" height={120} />;
+        return (
+            <ToggleFeaturesComponent
+                feature="isAppRedesigned"
+                off={<SkeltonDeprecated width="100%" height={120} />}
+                on={<SkeltonRedesigned width="100%" height={120} />}
+            />
+        );
     }
 
     const rating = data?.[0];

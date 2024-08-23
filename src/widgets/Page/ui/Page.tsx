@@ -54,7 +54,11 @@ export const Page: FC<PageProps> = (props) => {
     }, 500);
 
     useInitialEffect(() => {
-        wrapperRef.current.scrollTop = scrollPosition;
+        if (wrapperRef.current) {
+            wrapperRef.current.scrollTop = scrollPosition;
+        } else {
+            document.body.scrollIntoView({ behavior: 'smooth' });
+        }
     });
 
     return (

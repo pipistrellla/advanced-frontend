@@ -1,9 +1,10 @@
-import { FC, Suspense, useEffect } from 'react';
+import { FC, memo, Suspense, useEffect } from 'react';
 
 // suspence позволяет показать пользователю, что идет загрузка (нужно обернуть)
 import { useSelector } from 'react-redux';
 
 import { getUserInited, initAuthData } from '@/entitis/User';
+import { AppLoaderLayout } from '@/shared/layouts/AppLoaderLayout';
 import { MainLayout } from '@/shared/layouts/MainLayout';
 import { ToggleFeaturesComponent } from '@/shared/lib/features';
 import { classNames } from '@/shared/lib/helpers/ClassNames/ClassNames';
@@ -13,25 +14,40 @@ import { Navbar } from '@/widgets/Navbar';
 import { PageLoader } from '@/widgets/PageLoader';
 import { Sidebar } from '@/widgets/Sidebar';
 
+import { useAppToolbar } from './lib/useAppToolbar.tsx/useAppToolbar';
 import { AppRouter } from './providers/router';
+import { withTheme } from './providers/ThemeProvider';
 
 interface AppProps {}
 // lazyload позволяет уменьшить размер бандла
 // так как грузит не все страницы стразу
 
-const App: FC<AppProps> = () => {
+const App: FC<AppProps> = memo(() => {
     const { theme } = useTheme();
     const dispatch = useAppDispatch();
     const inited = useSelector(getUserInited);
+
+    const toolbar = useAppToolbar();
+
     useEffect(() => {
         dispatch(initAuthData());
     }, [dispatch]);
 
     if (!inited) {
         return (
-            <div className={classNames('app', {}, [theme])}>
-                <PageLoader />
-            </div>
+            <ToggleFeaturesComponent
+                feature="isAppRedesigned"
+                off={
+                    <div className={classNames('app', {}, [theme])}>
+                        <PageLoader />
+                    </div>
+                }
+                on={
+                    <div className={classNames('app_redesigned', {}, [theme])}>
+                        <AppLoaderLayout />
+                    </div>
+                }
+            />
         );
     }
 
@@ -56,13 +72,13 @@ const App: FC<AppProps> = () => {
                             header={<Navbar />}
                             content={<AppRouter />}
                             sidebar={<Sidebar />}
-                            toolbar={<div />}
+                            toolbar={toolbar}
                         />
                     </Suspense>
                 </div>
             }
         />
     );
-};
+});
 
-export default App;
+export default withTheme(App);

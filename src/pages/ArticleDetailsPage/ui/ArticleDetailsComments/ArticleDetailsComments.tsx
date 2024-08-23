@@ -5,10 +5,12 @@ import { useSelector } from 'react-redux';
 
 import { CommentList } from '@/entitis/Comment';
 import { AddCommentForm } from '@/features/AddCommentForm';
+import { ToggleFeaturesComponent } from '@/shared/lib/features';
 import { classNames } from '@/shared/lib/helpers/ClassNames/ClassNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
-import { Text, TextSize } from '@/shared/ui/deprecated/Text';
+import { TextSize, Text as TextDeprecated } from '@/shared/ui/deprecated/Text';
+import { Text as TextRedesigned } from '@/shared/ui/redesigned/Text';
 import { VStack } from '@/shared/ui/Stack';
 
 import {
@@ -47,7 +49,16 @@ export const ArticleDetailsComments: FC<ArticleDetailsCommentsProps> = memo(
 
         return (
             <VStack gap="16" max className={classNames('', {}, [className])}>
-                <Text size={TextSize.L} title={t('Комментарии')} />
+                <ToggleFeaturesComponent
+                    feature="isAppRedesigned"
+                    off={
+                        <TextDeprecated
+                            size={TextSize.L}
+                            title={t('Комментарии')}
+                        />
+                    }
+                    on={<TextRedesigned size="l" title={t('Комментарии')} />}
+                />
                 <Suspense>
                     <AddCommentForm onSendComment={onSendComment} />
                 </Suspense>

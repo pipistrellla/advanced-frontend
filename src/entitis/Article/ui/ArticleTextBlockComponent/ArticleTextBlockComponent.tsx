@@ -2,8 +2,10 @@ import { FC, memo } from 'react';
 
 import { useTranslation } from 'react-i18next';
 
+import { ToggleFeaturesComponent } from '@/shared/lib/features';
 import { classNames } from '@/shared/lib/helpers/ClassNames/ClassNames';
-import { Text } from '@/shared/ui/deprecated/Text';
+import { Text as TextDeprecated } from '@/shared/ui/deprecated/Text';
+import { Text as TextRedesigned } from '@/shared/ui/redesigned/Text';
 
 import cls from './ArticleTextBlockComponent.module.scss';
 import { ArticleTextBlock } from '../../../Article/model/types/article';
@@ -25,13 +27,39 @@ export const ArticleTextBlockComponent: FC<ArticleTextBlockComponentProps> =
                 ])}
             >
                 {block.title && (
-                    <Text title={block.title} className={cls.title} />
+                    <ToggleFeaturesComponent
+                        feature="isAppRedesigned"
+                        off={
+                            <TextDeprecated
+                                title={block.title}
+                                className={cls.title}
+                            />
+                        }
+                        on={
+                            <TextRedesigned
+                                title={block.title}
+                                className={cls.title}
+                            />
+                        }
+                    />
                 )}
                 {block.paragraphs.map((paragraph) => (
-                    <Text
-                        text={paragraph}
-                        key={paragraph}
-                        className={cls.paragraph}
+                    <ToggleFeaturesComponent
+                        feature="isAppRedesigned"
+                        off={
+                            <TextDeprecated
+                                text={paragraph}
+                                key={paragraph}
+                                className={cls.paragraph}
+                            />
+                        }
+                        on={
+                            <TextRedesigned
+                                text={paragraph}
+                                key={paragraph}
+                                className={cls.paragraph}
+                            />
+                        }
                     />
                 ))}
             </div>

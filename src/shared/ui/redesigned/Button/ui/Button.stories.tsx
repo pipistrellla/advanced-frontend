@@ -32,14 +32,6 @@ Clear.args = {
     variant: 'clear',
 };
 
-export const Square = Template.bind({});
-
-Square.args = {
-    children: 'Text',
-    size: 'm',
-    square: true,
-};
-
 export const DarkTheme = Template.bind({});
 
 DarkTheme.args = {

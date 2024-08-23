@@ -19,11 +19,8 @@ if (featureState !== 'on' && featureState !== 'off') {
 
 const project = new Project({});
 
-project.addSourceFilesAtPaths('src/**/ArticleDetailsPage.ts');
-project.addSourceFilesAtPaths('src/**/ArticleDetailsPage.tsx');
-// TODO Раскоментить после теста
-// project.addSourceFilesAtPaths('src/**/*ts');
-// project.addSourceFilesAtPaths('src/**/*tsx');
+project.addSourceFilesAtPaths('src/**/*ts');
+project.addSourceFilesAtPaths('src/**/*tsx');
 const files = project.getSourceFiles();
 
 function isToggleFunction(node: Node) {

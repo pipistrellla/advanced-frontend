@@ -2,6 +2,7 @@ import React from 'react';
 
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
+import { FeatureFlagsDecorator } from '@/shared/config/storybook/FeatureFlagsDecorator/FeatureFlagsDecorator';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from '@/shared/const/theme';
@@ -16,6 +17,13 @@ export default {
     argTypes: {
         backgroundColor: { control: 'color' },
     },
+    decorators: [
+        (Story) => (
+            <div style={{ height: '600px' }}>
+                <Story />
+            </div>
+        ),
+    ],
 } as ComponentMeta<typeof Sidebar>;
 
 const Template: ComponentStory<typeof Sidebar> = (args) => (
@@ -28,13 +36,10 @@ Deprecated.args = {};
 Deprecated.decorators = [
     StoreDecorator({
         user: {
-            authData: {
-                features: {
-                    isAppRedesigned: true,
-                },
-            },
+            authData: {},
         },
     }),
+    FeatureFlagsDecorator({ isAppRedesigned: false }),
 ];
 
 export const Light = Template.bind({});

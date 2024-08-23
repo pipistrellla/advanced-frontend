@@ -41,6 +41,7 @@ export const AvatarDropdown: FC<AvatarDropdownProps> = memo((props) => {
 
     const onLogOut = useCallback(() => {
         dispatch(userActions.logout());
+        window.location.reload();
     }, [dispatch]);
 
     const dropdownItems: DropdownItem[] = authData?.id

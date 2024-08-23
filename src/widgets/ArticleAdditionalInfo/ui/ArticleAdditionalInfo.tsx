@@ -10,8 +10,6 @@ import { Button } from '@/shared/ui/redesigned/Button';
 import { Text } from '@/shared/ui/redesigned/Text';
 import { HStack, VStack } from '@/shared/ui/Stack';
 
-import cls from './ArticleAdditionalInfo.module.scss';
-
 interface ArticleAdditionalInfoProps {
     className?: string;
     author: User;
@@ -27,12 +25,7 @@ export const ArticleAdditionalInfo: FC<ArticleAdditionalInfoProps> = memo(
         const userData = useSelector(getUserAuthData);
 
         return (
-            <VStack
-                gap="32"
-                className={classNames(cls.articleAdditionalInfo, {}, [
-                    className,
-                ])}
-            >
+            <VStack gap="32" className={classNames('', {}, [className])}>
                 <HStack gap="8">
                     <Avatar src={author.avatar} size={32} />
                     <Text bold text={author.username} />

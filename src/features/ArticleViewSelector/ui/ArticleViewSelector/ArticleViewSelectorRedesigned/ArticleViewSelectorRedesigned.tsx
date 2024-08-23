@@ -53,6 +53,7 @@ export const ArticleViewSelectorRedesigned: FC<ArticleViewSelectorProps> = memo(
                                 [],
                             )}
                             Svg={viewsType.icon}
+                            key={viewsType.view}
                         />
                     ))}
                 </HStack>

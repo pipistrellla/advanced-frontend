@@ -2,10 +2,12 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import { Country } from '@/entitis/Country';
 import { Currency } from '@/entitis/Currency';
+import { OldDesignDecorator } from '@/shared/config/storybook/OldDesignDecorator/OldDesignDecorator';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from '@/shared/const/theme';
 
 import { ProfileCard } from './ProfileCard';
+import { Profile } from '../../model/types/profile';
 
 const avatar =
     'https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg';
@@ -21,31 +23,36 @@ const Template: ComponentStory<typeof ProfileCard> = (args) => (
     <ProfileCard {...args} />
 );
 
+const defaultData: Profile = {
+    age: 10,
+    city: 'Ekaterinburg',
+    username: 'test',
+    lastname: 'test',
+    country: Country.Russia,
+    first: 'test',
+    currency: Currency.JPY,
+    avatar,
+};
+
+export const Deprecated = Template.bind({});
+Deprecated.args = {
+    data: {
+        ...defaultData,
+    },
+};
+Deprecated.decorators = [OldDesignDecorator];
+
 export const Primary = Template.bind({});
 Primary.args = {
     data: {
-        age: 10,
-        city: 'Ekaterinburg',
-        username: 'test',
-        lastname: 'test',
-        country: Country.Russia,
-        first: 'test',
-        currency: Currency.JPY,
-        avatar,
+        ...defaultData,
     },
 };
 
 export const PrimaryThemeDark = Template.bind({});
 PrimaryThemeDark.args = {
     data: {
-        age: 10,
-        city: 'Ekaterinburg',
-        username: 'test',
-        lastname: 'test',
-        country: Country.Russia,
-        first: 'test',
-        currency: Currency.JPY,
-        avatar,
+        ...defaultData,
     },
 };
 
@@ -54,14 +61,7 @@ PrimaryThemeDark.decorators = [ThemeDecorator(Theme.DARK)];
 export const PrimaryThemeGreen = Template.bind({});
 PrimaryThemeGreen.args = {
     data: {
-        age: 10,
-        city: 'Ekaterinburg',
-        username: 'test',
-        lastname: 'test',
-        country: Country.Russia,
-        first: 'test',
-        currency: Currency.JPY,
-        avatar,
+        ...defaultData,
     },
 };
 

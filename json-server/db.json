@@ -931,6 +931,12 @@
       "userId": "2",
       "text": "123",
       "id": "CCdvxdo"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad dolorem officiis iusto repellat dolor exercitationem, voluptate odit, tempore cum sapiente modi. Optio nesciunt molestias provident, quod veniam minima ratione voluptatem?",
+      "id": "P8C9MDw"
     }
   ],
   "users": [
@@ -947,7 +953,7 @@
         "isAppRedesigned": true
       },
       "jsonSettings": {
-        "theme": "app_light_theme",
+        "theme": "app_dark_theme",
         "isFirstVisit": true,
         "isArticlePageWasOpened": true
       },
@@ -972,7 +978,7 @@
       "features": {
         "isArticleRatingEnabled": false,
         "isCounterEnabled": false,
-        "isAppRedesigned": true
+        "isAppRedesigned": false
       },
       "jsonSettings": {
         "theme": "app_light_theme",
@@ -1149,6 +1155,13 @@
       "rate": 2,
       "feedback": "123",
       "id": "uq_3MSU"
+    },
+    {
+      "userId": "2",
+      "articleId": "33",
+      "rate": 4,
+      "feedback": "бомбовая статья",
+      "id": "Kq7O2pY"
     }
   ],
   "profile-ratings": [

@@ -68,10 +68,7 @@ export const ListBox = <T extends string>(props: ListBoxProps<T>) => {
                     popupsCls.popup,
                 ])}
             >
-                <HLisBox.Button
-                    // disabled={readonly}
-                    className={cls.trigger}
-                >
+                <HLisBox.Button as={Fragment}>
                     <Button
                         variant="filled"
                         disabled={readonly}
