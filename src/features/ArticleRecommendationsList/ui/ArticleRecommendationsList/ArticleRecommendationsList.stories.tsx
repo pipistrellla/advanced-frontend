@@ -3,6 +3,7 @@ import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import { Article, ArticleType } from '@/entitis/Article';
+import { OldDesignDecorator } from '@/shared/config/storybook/OldDesignDecorator/OldDesignDecorator';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 
 import { ArticleRecommendationsList } from './ArticleRecommendationsList';
@@ -31,13 +32,34 @@ const article: Article = {
     subtitle: '123 123',
 };
 
+export const Deprecated = Template.bind({});
+Deprecated.args = {};
+Deprecated.decorators = [
+    StoreDecorator({ user: { authData: { username: '123', id: '12' } } }),
+    OldDesignDecorator,
+];
+Deprecated.parameters = {
+    mockData: [
+        {
+            url: `${__API__}/articles?_limit=3&_expand=user`,
+            method: 'GET',
+            status: 200,
+            response: [
+                { ...article, id: '1' },
+                { ...article, id: '2' },
+                { ...article, id: '3' },
+            ],
+        },
+    ],
+};
+
 export const Normal = Template.bind({});
 Normal.args = {};
 Normal.decorators = [StoreDecorator({})];
 Normal.parameters = {
     mockData: [
         {
-            url: `${__API__}/articles?_limit=3`,
+            url: `${__API__}/articles?_limit=3&_expand=user`,
             method: 'GET',
             status: 200,
             response: [

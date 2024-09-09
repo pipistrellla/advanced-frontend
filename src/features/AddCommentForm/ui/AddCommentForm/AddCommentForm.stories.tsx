@@ -1,7 +1,7 @@
 import { action } from '@storybook/addon-actions';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
+import { OldDesignDecorator } from '@/shared/config/storybook/OldDesignDecorator/OldDesignDecorator';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from '@/shared/const/theme';
 
@@ -19,20 +19,25 @@ const Template: ComponentStory<typeof AddCommentForm> = (args) => (
     <AddCommentForm {...args} />
 );
 
+export const Deprecated = Template.bind({});
+Deprecated.args = {
+    onSendComment: action('onSendComment'),
+};
+Deprecated.decorators = [OldDesignDecorator];
+
 export const Normal = Template.bind({});
 Normal.args = {
     onSendComment: action('onSendComment'),
 };
-Normal.decorators = [StoreDecorator({})];
 
 export const Black = Template.bind({});
 Black.args = {
     onSendComment: action('onSendComment'),
 };
-Black.decorators = [StoreDecorator({}), ThemeDecorator(Theme.DARK)];
+Black.decorators = [ThemeDecorator(Theme.DARK)];
 
 export const Green = Template.bind({});
 Green.args = {
     onSendComment: action('onSendComment'),
 };
-Green.decorators = [StoreDecorator({}), ThemeDecorator(Theme.GREEN)];
+Green.decorators = [ThemeDecorator(Theme.GREEN)];

@@ -8,7 +8,7 @@ import { Theme } from '@/shared/const/theme';
 import LoginForm from './LoginForm';
 
 export default {
-    title: 'entities/LoginForm',
+    title: 'features/LoginForm/LoginForm',
     component: LoginForm,
     argTypes: {
         backgroundColor: { control: 'color' },

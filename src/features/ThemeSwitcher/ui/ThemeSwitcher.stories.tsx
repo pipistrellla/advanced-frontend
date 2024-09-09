@@ -2,6 +2,7 @@ import React from 'react';
 
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
+import { OldDesignDecorator } from '@/shared/config/storybook/OldDesignDecorator/OldDesignDecorator';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from '@/shared/const/theme';
 
@@ -9,7 +10,7 @@ import { ThemeSwitcher } from './ThemeSwitcher';
 
 export default {
     // название сториса
-    title: 'widget/ThemeSwitcher',
+    title: 'features/ThemeSwitcher',
     // компонент
     component: ThemeSwitcher,
     argTypes: {
@@ -20,6 +21,10 @@ export default {
 const Template: ComponentStory<typeof ThemeSwitcher> = (args) => (
     <ThemeSwitcher {...args} />
 );
+
+export const Deprecated = Template.bind({});
+Deprecated.args = {};
+Deprecated.decorators = [OldDesignDecorator];
 
 export const Normal = Template.bind({});
 
