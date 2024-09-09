@@ -1,5 +1,6 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
+import { OldDesignDecorator } from '@/shared/config/storybook/OldDesignDecorator/OldDesignDecorator';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from '@/shared/const/theme';
 
@@ -11,11 +12,22 @@ export default {
     argTypes: {
         backgroundColor: { control: 'color' },
     },
+    decorators: [
+        (Story) => (
+            <div style={{ paddingTop: '120px' }}>
+                <Story />
+            </div>
+        ),
+    ],
 } as ComponentMeta<typeof CurrencySelect>;
 
 const Template: ComponentStory<typeof CurrencySelect> = (args) => (
     <CurrencySelect {...args} />
 );
+
+export const Deprecated = Template.bind({});
+Deprecated.args = {};
+Deprecated.decorators = [OldDesignDecorator];
 
 export const Primary = Template.bind({});
 Primary.args = {};

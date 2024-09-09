@@ -1,5 +1,6 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
+import { OldDesignDecorator } from '@/shared/config/storybook/OldDesignDecorator/OldDesignDecorator';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from '@/shared/const/theme';
 
@@ -97,6 +98,36 @@ const testData = {
 const Template: ComponentStory<typeof ArticleList> = (args) => (
     <ArticleList {...args} />
 );
+
+export const SmallLoadingDeprecated = Template.bind({});
+SmallLoadingDeprecated.args = {
+    isLoading: true,
+    articles: [],
+    view: ArticleView.SMALL,
+};
+SmallLoadingDeprecated.decorators = [OldDesignDecorator];
+
+export const BigLoadingDeprecated = Template.bind({});
+BigLoadingDeprecated.args = {
+    isLoading: true,
+    articles: [],
+    view: ArticleView.BIG,
+};
+BigLoadingDeprecated.decorators = [OldDesignDecorator];
+
+export const SmallDeprecated = Template.bind({});
+SmallDeprecated.args = {
+    articles: new Array(16).fill(testData),
+    view: ArticleView.SMALL,
+};
+SmallDeprecated.decorators = [OldDesignDecorator];
+
+export const BigDeprecated = Template.bind({});
+BigDeprecated.args = {
+    articles: new Array(16).fill(testData),
+    view: ArticleView.BIG,
+};
+BigDeprecated.decorators = [OldDesignDecorator];
 
 export const isLoadingSmall = Template.bind({});
 isLoadingSmall.args = {

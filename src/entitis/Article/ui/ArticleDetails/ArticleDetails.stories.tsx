@@ -1,5 +1,6 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
+import { OldDesignDecorator } from '@/shared/config/storybook/OldDesignDecorator/OldDesignDecorator';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from '@/shared/const/theme';
@@ -94,6 +95,17 @@ const articleContent: Article = {
         },
     ],
 };
+
+export const Deprecated = Template.bind({});
+Deprecated.args = {};
+Deprecated.decorators = [
+    OldDesignDecorator,
+    StoreDecorator({
+        articleDetails: {
+            data: articleContent,
+        },
+    }),
+];
 
 export const Normal = Template.bind({});
 Normal.args = {};

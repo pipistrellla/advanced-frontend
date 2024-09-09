@@ -1,5 +1,6 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
+import { OldDesignDecorator } from '@/shared/config/storybook/OldDesignDecorator/OldDesignDecorator';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from '@/shared/const/theme';
 
@@ -26,6 +27,18 @@ const commentData = {
 const Template: ComponentStory<typeof CommentCard> = (args) => (
     <CommentCard {...args} />
 );
+
+export const Deprecated = Template.bind({});
+Deprecated.args = {
+    comment: commentData,
+};
+Deprecated.decorators = [OldDesignDecorator];
+
+export const LoadingDeprecated = Template.bind({});
+LoadingDeprecated.args = {
+    isLoading: true,
+};
+LoadingDeprecated.decorators = [OldDesignDecorator];
 
 export const Normal = Template.bind({});
 Normal.args = {

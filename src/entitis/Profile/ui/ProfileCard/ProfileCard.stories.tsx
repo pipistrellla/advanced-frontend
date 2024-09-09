@@ -42,6 +42,12 @@ Deprecated.args = {
 };
 Deprecated.decorators = [OldDesignDecorator];
 
+export const LoadingDeprecated = Template.bind({});
+LoadingDeprecated.args = {
+    isLoading: true,
+};
+LoadingDeprecated.decorators = [OldDesignDecorator];
+
 export const Primary = Template.bind({});
 Primary.args = {
     data: {

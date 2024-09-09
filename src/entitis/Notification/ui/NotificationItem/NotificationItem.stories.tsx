@@ -1,5 +1,6 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
+import { OldDesignDecorator } from '@/shared/config/storybook/OldDesignDecorator/OldDesignDecorator';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from '@/shared/const/theme';
 
@@ -16,6 +17,16 @@ export default {
 const Template: ComponentStory<typeof NotificationItem> = (args) => (
     <NotificationItem {...args} />
 );
+
+export const Deprecated = Template.bind({});
+Deprecated.args = {
+    item: {
+        description: 'test',
+        id: '1',
+        title: 'test title',
+    },
+};
+Deprecated.decorators = [OldDesignDecorator];
 
 export const Normal = Template.bind({});
 Normal.args = {

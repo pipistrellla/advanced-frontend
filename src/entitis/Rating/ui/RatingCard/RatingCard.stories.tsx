@@ -2,6 +2,7 @@ import React from 'react';
 
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
+import { OldDesignDecorator } from '@/shared/config/storybook/OldDesignDecorator/OldDesignDecorator';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from '@/shared/const/theme';
 
@@ -18,6 +19,14 @@ export default {
 const Template: ComponentStory<typeof RatingCard> = (args) => (
     <RatingCard {...args} />
 );
+
+export const Deprecated = Template.bind({});
+Deprecated.args = {
+    hasFeedback: true,
+    feedbackTitle: 'test text',
+    title: 'with feedback',
+};
+Deprecated.decorators = [OldDesignDecorator];
 
 export const Normal = Template.bind({});
 Normal.args = {};

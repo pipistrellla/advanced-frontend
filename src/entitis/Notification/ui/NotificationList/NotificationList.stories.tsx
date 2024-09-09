@@ -1,5 +1,6 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
+import { OldDesignDecorator } from '@/shared/config/storybook/OldDesignDecorator/OldDesignDecorator';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from '@/shared/const/theme';
 
@@ -41,6 +42,20 @@ const testData: Notification[] = [
 const Template: ComponentStory<typeof NotificationList> = (args) => (
     <NotificationList {...args} />
 );
+
+export const Deprecated = Template.bind({});
+Deprecated.args = {};
+Deprecated.parameters = {
+    mockData: [
+        {
+            url: `${__API__}/notifications`,
+            method: 'GET',
+            status: 200,
+            response: testData,
+        },
+    ],
+};
+Deprecated.decorators = [OldDesignDecorator];
 
 export const Normal = Template.bind({});
 Normal.args = {};
