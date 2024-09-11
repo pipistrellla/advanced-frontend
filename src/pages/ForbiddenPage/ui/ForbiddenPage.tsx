@@ -2,8 +2,10 @@ import React, { FC, memo } from 'react';
 
 import { useTranslation } from 'react-i18next';
 
+import { ToggleFeaturesComponent } from '@/shared/lib/features';
 import { classNames } from '@/shared/lib/helpers/ClassNames/ClassNames';
-import { Text } from '@/shared/ui/deprecated/Text';
+import { Text as TextDeprecated } from '@/shared/ui/deprecated/Text';
+import { Text as TextRedesigned } from '@/shared/ui/redesigned/Text';
 import { Page } from '@/widgets/Page';
 
 interface ForbiddenPageProps {
@@ -19,7 +21,11 @@ export const ForbiddenPage: FC<ForbiddenPageProps> = memo((props) => {
             data-testid="ForbiddenPage"
             className={classNames('', {}, [className])}
         >
-            <Text text={t('Доступ запрещен')} />
+            <ToggleFeaturesComponent
+                feature="isAppRedesigned"
+                off={<TextDeprecated text={t('Доступ запрещен')} />}
+                on={<TextRedesigned text={t('Доступ запрещен')} />}
+            />
         </Page>
     );
 });

@@ -22,6 +22,16 @@ export default {
 const Template: ComponentStory<typeof ProfilePage> = (args) => (
     <ProfilePage {...args} />
 );
+const testData = {
+    age: 10,
+    city: 'Ekaterinburg',
+    username: 'test',
+    lastname: 'test',
+    country: Country.Russia,
+    first: 'test',
+    currency: Currency.JPY,
+    avatar,
+};
 
 export const Primary = Template.bind({});
 Primary.args = { testId: '1' };
@@ -29,34 +39,33 @@ Primary.decorators = [
     StoreDecorator({
         profile: {
             form: {
-                age: 10,
-                city: 'Ekaterinburg',
-                username: 'test',
-                lastname: 'test',
-                country: Country.Russia,
-                first: 'test',
-                currency: Currency.JPY,
-                avatar,
+                ...testData,
             },
         },
     }),
 ];
 
-export const PrimaryThemeDark = Template.bind({});
-PrimaryThemeDark.args = { testId: '1' };
-PrimaryThemeDark.decorators = [
+export const Dark = Template.bind({});
+Dark.args = { testId: '1' };
+Dark.decorators = [
     ThemeDecorator(Theme.DARK),
     StoreDecorator({
         profile: {
             form: {
-                age: 10,
-                city: 'Ekaterinburg',
-                username: 'test',
-                lastname: 'test',
-                country: Country.Russia,
-                first: 'test',
-                currency: Currency.JPY,
-                avatar,
+                ...testData,
+            },
+        },
+    }),
+];
+
+export const Green = Template.bind({});
+Green.args = { testId: '1' };
+Green.decorators = [
+    ThemeDecorator(Theme.GREEN),
+    StoreDecorator({
+        profile: {
+            form: {
+                ...testData,
             },
         },
     }),
