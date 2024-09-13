@@ -2,6 +2,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import { Country } from '@/entitis/Country';
 import { Currency } from '@/entitis/Currency';
+import { Profile } from '@/entitis/Profile';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from '@/shared/const/theme';
@@ -22,7 +23,7 @@ export default {
 const Template: ComponentStory<typeof ProfilePage> = (args) => (
     <ProfilePage {...args} />
 );
-const testData = {
+const testData: Profile = {
     age: 10,
     city: 'Ekaterinburg',
     username: 'test',
@@ -31,6 +32,7 @@ const testData = {
     first: 'test',
     currency: Currency.JPY,
     avatar,
+    id: 'testId',
 };
 
 export const Primary = Template.bind({});

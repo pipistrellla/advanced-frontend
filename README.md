@@ -224,6 +224,7 @@ off: реакт элемент который отображается при о
 
 -   [addCommentForm](/src/features/addCommentForm)
 -   [addArticleRating](/src/features/addArticleRating)
+-   [addProfileRating](/src/features/addProfileRating)
 -   [articlePageGreetings](/src/features/articlePageGreetings)
 -   [articleRecommendationsList](/src/features/articleRecommendationsList)
 -   [ArticleSortSelector](/src/features/ArticleSortSelector)
