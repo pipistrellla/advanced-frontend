@@ -13,6 +13,6 @@ export default {
 const Template: ComponentStory<typeof ArticleInfiniteList> = (args) => (
     <ArticleInfiniteList {...args} />
 );
-
+// TODO замокать запросы
 export const Normal = Template.bind({});
 Normal.args = {};
