@@ -22,7 +22,14 @@ const ArticleEditPage: FC<ArticleEditPageProps> = memo((props) => {
             {isEdit
                 ? t('Редактирование статьи с ID = ') + id
                 : t('Создание новой статьи')}
-            <FieldWithMovebleObjects />
+            <FieldWithMovebleObjects
+                data={[
+                    'Lorem ipsum dolor sit amet consectetur adipisicing elit',
+                    'Lorem ipsum dolor sit amet consectetur adipisicing elit',
+                    'Lorem ipsum dolor sit amet consectetur adipisicing elit',
+                    'Lorem ipsum dolor sit amet consectetur adipisicing elit',
+                ]}
+            />
         </Page>
     );
 });

@@ -14,3 +14,7 @@
 .button:hover .Icon {
     color: var(--accent-redesigned);
 }
+
+.disabled {
+    opacity: 0.5;
+}
