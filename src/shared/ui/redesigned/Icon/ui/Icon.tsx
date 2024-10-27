@@ -16,6 +16,7 @@ interface NoneClickableIconProps extends IconBaseProps {
 }
 
 interface ClickableIconProps extends IconBaseProps {
+    disabled?: boolean;
     clickable: true;
     onClick: () => void;
 }
@@ -49,6 +50,7 @@ export const Icon = memo((props: IconProps) => {
                 type="button"
                 onClick={props.onClick}
                 style={{ width, height }}
+                disabled={props.disabled ?? false}
             >
                 {icon}
             </button>
