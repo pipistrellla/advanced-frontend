@@ -42,7 +42,9 @@ export const MovebleObject: FC<MovebleObjectProps> = memo(
         }, [LiftNodeDown, index]);
 
         const HandleInputChange = useCallback(() => {
-            ChangeNodePositionTo(index, +position);
+            const tempValue = Number(position?.replace(/\D/gi, '') || 0);
+
+            ChangeNodePositionTo(index, tempValue);
         }, [ChangeNodePositionTo, index, position]);
 
         return (
@@ -64,7 +66,7 @@ export const MovebleObject: FC<MovebleObjectProps> = memo(
                             />
                             <Input
                                 className={cls.Input}
-                                value={position + 1}
+                                value={position}
                                 onBlur={HandleInputChange}
                                 onChange={setPosition}
                             />
