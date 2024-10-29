@@ -1,4 +1,4 @@
-import React, { FC, memo } from 'react';
+import React, { FC, memo, useCallback, useState } from 'react';
 
 import ArrowIcon from '@/shared/assets/icons/arrow-bottom.svg';
 import { classNames } from '@/shared/lib/helpers/ClassNames/ClassNames';
@@ -15,7 +15,7 @@ interface MovebleObjectProps {
     index: number;
     LiftNodeUp: (index: number) => void;
     LiftNodeDown: (index: number) => void;
-    ChangeNodePositionTo: () => void;
+    ChangeNodePositionTo: (indexFrom: number, indexTo: number) => void;
 }
 
 export const MovebleObject: FC<MovebleObjectProps> = memo(
@@ -31,17 +31,19 @@ export const MovebleObject: FC<MovebleObjectProps> = memo(
 
         const iconSize: number = 64;
 
-        const HandleClickUp = () => {
-            LiftNodeUp(index + 1);
-        };
+        const [position, setPosition] = useState<string>(`${index}`);
 
-        const HandleClickDown = () => {
-            LiftNodeDown(index - 1);
-        };
+        const HandleClickUp = useCallback(() => {
+            LiftNodeUp(index);
+        }, [LiftNodeUp, index]);
 
-        const HandleInputChange = () => {
-            ChangeNodePositionTo();
-        };
+        const HandleClickDown = useCallback(() => {
+            LiftNodeDown(index);
+        }, [LiftNodeDown, index]);
+
+        const HandleInputChange = useCallback(() => {
+            ChangeNodePositionTo(index, +position);
+        }, [ChangeNodePositionTo, index, position]);
 
         return (
             <Card
@@ -62,8 +64,9 @@ export const MovebleObject: FC<MovebleObjectProps> = memo(
                             />
                             <Input
                                 className={cls.Input}
-                                value={index + 1}
-                                onChange={HandleInputChange}
+                                value={position + 1}
+                                onBlur={HandleInputChange}
+                                onChange={setPosition}
                             />
                             <Icon
                                 width={iconSize}

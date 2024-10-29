@@ -24,10 +24,10 @@ const ArticleEditPage: FC<ArticleEditPageProps> = memo((props) => {
                 : t('Создание новой статьи')}
             <FieldWithMovebleObjects
                 data={[
-                    'Lorem ipsum dolor sit amet consectetur adipisicing elit',
-                    'Lorem ipsum dolor sit amet consectetur adipisicing elit',
-                    'Lorem ipsum dolor sit amet consectetur adipisicing elit',
-                    'Lorem ipsum dolor sit amet consectetur adipisicing elit',
+                    'Lorem ipsum dolor sit amet consectetur adipisicing elit 1',
+                    'Lorem ipsum dolor sit amet consectetur adipisicing elit 2',
+                    'Lorem ipsum dolor sit amet consectetur adipisicing elit 3',
+                    'Lorem ipsum dolor sit amet consectetur adipisicing elit 4',
                 ]}
             />
         </Page>
