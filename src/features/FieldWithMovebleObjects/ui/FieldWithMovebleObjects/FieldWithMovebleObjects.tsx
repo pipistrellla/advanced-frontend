@@ -1,4 +1,4 @@
-import { memo, ReactNode, useState } from 'react';
+import { ReactNode, useState } from 'react';
 
 import { classNames } from '@/shared/lib/helpers/ClassNames/ClassNames';
 import { Card } from '@/shared/ui/redesigned/Card';
@@ -12,69 +12,88 @@ interface FieldWithMovebleObjectsProps {
     data: ReactNode[];
 }
 
-export const FieldWithMovebleObjects = memo(
-    (props: FieldWithMovebleObjectsProps) => {
-        const { className } = props;
-        const { data } = props;
+export const FieldWithMovebleObjects = (
+    props: FieldWithMovebleObjectsProps,
+) => {
+    const { className } = props;
+    const { data } = props;
 
-        const [movableObjects, setMovableObjects] = useState<ReactNode[]>(
-            data ?? [],
-        );
+    const [movableObjects, setMovableObjects] = useState<ReactNode[]>(
+        data ?? [],
+    );
 
-        const swapElements = (indexFrom: number, indexTo: number) => {
-            if (
-                !(
-                    indexFrom < 0 ||
-                    indexFrom >= movableObjects.length ||
-                    indexTo < 0 ||
-                    indexTo >= movableObjects.length
-                )
-            ) {
-                setMovableObjects((prevState) => {
-                    const newState = [...prevState]; // Создаем копию массива
-                    [newState[indexFrom], newState[indexTo]] = [
-                        newState[indexTo],
-                        newState[indexFrom],
-                    ]; // Меняем местами элементы
-                    return newState;
-                });
-            }
-        };
+    const indicesCheck = (fromIndex: number, toIndex: number): boolean => {
+        if (
+            fromIndex < 0 ||
+            fromIndex >= movableObjects.length ||
+            toIndex < 0 ||
+            toIndex >= movableObjects.length
+        ) {
+            return false;
+        }
 
-        const LiftNodeUp = (index: number) => {
-            swapElements(index, index - 1);
-        };
+        return true;
+    };
 
-        const LiftNodeDown = (index: number) => {
-            swapElements(index, index + 1);
-        };
+    const moveElement = (fromIndex: number, toIndex: number) => {
+        if (toIndex > movableObjects.length) {
+            toIndex = movableObjects.length - 1;
+        }
 
-        const ChangeNodePositionTo = (indexFrom: number, indexTo: number) => {
-            console.log(indexFrom, indexTo);
+        if (indicesCheck(fromIndex, toIndex)) {
+            setMovableObjects((prevState) => {
+                const tempArray = [...prevState];
 
-            swapElements(indexFrom, indexTo);
-        };
+                const element = tempArray.splice(fromIndex, 1);
+                tempArray.splice(toIndex, 0, element);
 
-        return (
-            <Card
-                className={classNames(cls.FieldWithMovebleObjects, {}, [
-                    className,
-                ])}
-            >
-                <VStack gap="8">
-                    {movableObjects.map((item, index) => (
-                        <MovebleObject
-                            ChangeNodePositionTo={ChangeNodePositionTo}
-                            LiftNodeUp={LiftNodeUp}
-                            LiftNodeDown={LiftNodeDown}
-                            key={index}
-                            index={index}
-                        >
-                            {item}
-                        </MovebleObject>
-                    ))}
-                </VStack>
-            </Card>
-        );
-    },
-);
+                return tempArray;
+            });
+        }
+    };
+
+    const swapElements = (fromIndex: number, toIndex: number) => {
+        if (indicesCheck(fromIndex, toIndex)) {
+            setMovableObjects((prevState) => {
+                const tempArray = [...prevState];
+                [tempArray[fromIndex], tempArray[toIndex]] = [
+                    tempArray[toIndex],
+                    tempArray[fromIndex],
+                ];
+                return tempArray;
+            });
+        }
+    };
+
+    const LiftNodeUp = (index: number) => {
+        swapElements(index, index - 1);
+    };
+
+    const LiftNodeDown = (index: number) => {
+        swapElements(index, index + 1);
+    };
+
+    const ChangeNodePositionTo = (indexFrom: number, indexTo: number) => {
+        moveElement(indexFrom, indexTo);
+    };
+
+    return (
+        <Card
+            className={classNames(cls.FieldWithMovebleObjects, {}, [className])}
+        >
+            <VStack gap="8">
+                {movableObjects.map((item, index) => (
+                    <MovebleObject
+                        ChangeNodePositionTo={ChangeNodePositionTo}
+                        LiftNodeUp={LiftNodeUp}
+                        LiftNodeDown={LiftNodeDown}
+                        key={index}
+                        index={index}
+                    >
+                        {item}
+                    </MovebleObject>
+                ))}
+            </VStack>
+        </Card>
+    );
+};

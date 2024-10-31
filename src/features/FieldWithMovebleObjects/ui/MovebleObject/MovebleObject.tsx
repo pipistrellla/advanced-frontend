@@ -1,4 +1,4 @@
-import React, { FC, memo, useCallback, useState } from 'react';
+import React, { FC, useCallback, useState } from 'react';
 
 import ArrowIcon from '@/shared/assets/icons/arrow-bottom.svg';
 import { classNames } from '@/shared/lib/helpers/ClassNames/ClassNames';
@@ -18,70 +18,75 @@ interface MovebleObjectProps {
     ChangeNodePositionTo: (indexFrom: number, indexTo: number) => void;
 }
 
-export const MovebleObject: FC<MovebleObjectProps> = memo(
-    (props: MovebleObjectProps) => {
-        const {
-            className,
-            children,
-            index,
-            LiftNodeDown,
-            LiftNodeUp,
-            ChangeNodePositionTo,
-        } = props;
+export const MovebleObject: FC<MovebleObjectProps> = (
+    props: MovebleObjectProps,
+) => {
+    const {
+        className,
+        children,
+        index,
+        LiftNodeDown,
+        LiftNodeUp,
+        ChangeNodePositionTo,
+    } = props;
 
-        const iconSize: number = 64;
+    const iconSize: number = 64;
 
-        const [position, setPosition] = useState<string>(`${index}`);
+    const [position, setPosition] = useState<string>(String(index));
 
-        const HandleClickUp = useCallback(() => {
-            LiftNodeUp(index);
-        }, [LiftNodeUp, index]);
+    const HandleClickUp = useCallback(() => {
+        LiftNodeUp(index);
+    }, [LiftNodeUp, index]);
 
-        const HandleClickDown = useCallback(() => {
-            LiftNodeDown(index);
-        }, [LiftNodeDown, index]);
+    const HandleClickDown = useCallback(() => {
+        LiftNodeDown(index);
+    }, [LiftNodeDown, index]);
 
-        const HandleInputChange = useCallback(() => {
-            const tempValue = Number(position?.replace(/\D/gi, '') || 0);
+    const HandleInputOnBlur = useCallback(() => {
+        ChangeNodePositionTo(index, +position);
+    }, [ChangeNodePositionTo, index, position]);
 
-            ChangeNodePositionTo(index, tempValue);
-        }, [ChangeNodePositionTo, index, position]);
+    const HandleInputChange = useCallback(
+        (value?: string) => {
+            setPosition(value?.replace(/\D/gi, '') || position);
+        },
+        [position],
+    );
 
-        return (
-            <Card
-                variant="outlined"
-                max
-                className={classNames(cls.movebleObject, {}, [className])}
-            >
-                <VStack max align="center" gap="16">
-                    <Card variant="outlined" border="partial">
-                        <HStack justify="center">
-                            <Icon
-                                width={iconSize}
-                                height={iconSize}
-                                Svg={ArrowIcon}
-                                className={cls.Icon}
-                                clickable
-                                onClick={HandleClickUp}
-                            />
-                            <Input
-                                className={cls.Input}
-                                value={position}
-                                onBlur={HandleInputChange}
-                                onChange={setPosition}
-                            />
-                            <Icon
-                                width={iconSize}
-                                height={iconSize}
-                                Svg={ArrowIcon}
-                                clickable
-                                onClick={HandleClickDown}
-                            />
-                        </HStack>
-                    </Card>
-                    {children}
-                </VStack>
-            </Card>
-        );
-    },
-);
+    return (
+        <Card
+            variant="outlined"
+            max
+            className={classNames(cls.movebleObject, {}, [className])}
+        >
+            <VStack max align="center" gap="16">
+                <Card variant="outlined" border="partial">
+                    <HStack justify="center">
+                        <Icon
+                            width={iconSize}
+                            height={iconSize}
+                            Svg={ArrowIcon}
+                            className={cls.Icon}
+                            clickable
+                            onClick={HandleClickUp}
+                        />
+                        <Input
+                            className={cls.Input}
+                            value={position}
+                            onBlur={HandleInputOnBlur}
+                            onChange={HandleInputChange}
+                        />
+                        <Icon
+                            width={iconSize}
+                            height={iconSize}
+                            Svg={ArrowIcon}
+                            clickable
+                            onClick={HandleClickDown}
+                        />
+                    </HStack>
+                </Card>
+                {children}
+            </VStack>
+        </Card>
+    );
+};
