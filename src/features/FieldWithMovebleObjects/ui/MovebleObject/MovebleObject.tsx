@@ -32,26 +32,26 @@ export const MovebleObject: FC<MovebleObjectProps> = (
 
     const iconSize: number = 64;
 
-    const [position, setPosition] = useState<string>(String(index));
+    const [position, setPosition] = useState<string>('');
 
     const HandleClickUp = useCallback(() => {
-        LiftNodeUp(index);
+        LiftNodeUp(+index);
     }, [LiftNodeUp, index]);
 
     const HandleClickDown = useCallback(() => {
-        LiftNodeDown(index);
+        LiftNodeDown(+index);
     }, [LiftNodeDown, index]);
 
     const HandleInputOnBlur = useCallback(() => {
-        ChangeNodePositionTo(index, +position);
+        if (position) {
+            ChangeNodePositionTo(+index, +position - 1);
+            setPosition('');
+        }
     }, [ChangeNodePositionTo, index, position]);
 
-    const HandleInputChange = useCallback(
-        (value?: string) => {
-            setPosition(value?.replace(/\D/gi, '') || position);
-        },
-        [position],
-    );
+    const HandleInputChange = useCallback((value?: string) => {
+        setPosition(value?.replace(/\D/gi, '') || '');
+    }, []);
 
     return (
         <Card
@@ -62,6 +62,7 @@ export const MovebleObject: FC<MovebleObjectProps> = (
             <VStack max align="center" gap="16">
                 <Card variant="outlined" border="partial">
                     <HStack justify="center">
+                        {index + 1}
                         <Icon
                             width={iconSize}
                             height={iconSize}

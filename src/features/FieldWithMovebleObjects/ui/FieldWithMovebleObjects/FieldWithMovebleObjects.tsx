@@ -5,6 +5,7 @@ import { Card } from '@/shared/ui/redesigned/Card';
 import { VStack } from '@/shared/ui/Stack';
 
 import cls from './FieldWithMovebleObjects.module.scss';
+import { AddMovableObject } from '../AddMovableObject/AddMovableObject';
 import { MovebleObject } from '../MovebleObject/MovebleObject';
 
 interface FieldWithMovebleObjectsProps {
@@ -77,6 +78,14 @@ export const FieldWithMovebleObjects = (
         moveElement(indexFrom, indexTo);
     };
 
+    const AddNode = (newNode: ReactNode) => {
+        setMovableObjects((prevState) => {
+            const tempArray = [...prevState];
+            tempArray.push(newNode);
+            return tempArray;
+        });
+    };
+
     return (
         <Card
             className={classNames(cls.FieldWithMovebleObjects, {}, [className])}
@@ -87,13 +96,14 @@ export const FieldWithMovebleObjects = (
                         ChangeNodePositionTo={ChangeNodePositionTo}
                         LiftNodeUp={LiftNodeUp}
                         LiftNodeDown={LiftNodeDown}
-                        key={index}
+                        key={item?.toLocaleString()}
                         index={index}
                     >
                         {item}
                     </MovebleObject>
                 ))}
             </VStack>
+            <AddMovableObject addNode={AddNode} />
         </Card>
     );
 };
