@@ -5,8 +5,6 @@ import { Button } from '@/shared/ui/redesigned/Button';
 import { Card } from '@/shared/ui/redesigned/Card';
 import { HStack } from '@/shared/ui/Stack';
 
-import cls from './NodeSelector.module.scss';
-
 interface NodeSelectorProps {
     className?: string;
     addNode: (node: ReactNode) => void;
@@ -21,7 +19,7 @@ export const NodeSelector: FC<NodeSelectorProps> = memo((props) => {
     };
 
     return (
-        <Card className={classNames(cls.nodeSelector, {}, [className])}>
+        <Card className={classNames('', {}, [className])}>
             <HStack max gap="24">
                 {options.map((item, index) => (
                     <Button

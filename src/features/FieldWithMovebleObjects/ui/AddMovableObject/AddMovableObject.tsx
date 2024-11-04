@@ -7,7 +7,6 @@ import { Icon } from '@/shared/ui/redesigned/Icon';
 import { Modal } from '@/shared/ui/redesigned/Modal';
 import { HStack } from '@/shared/ui/Stack';
 
-import cls from './AddMovableObject.module.scss';
 import { NodeSelector } from '../NodeSelector/NodeSelector';
 
 interface AddMovableObjectProps {
@@ -31,10 +30,7 @@ export const AddMovableObject: FC<AddMovableObjectProps> = memo(
         };
 
         return (
-            <Card
-                max
-                className={classNames(cls.addMovableObject, {}, [className])}
-            >
+            <Card max className={classNames('', {}, [className])}>
                 <HStack max justify="center">
                     <Icon
                         clickable

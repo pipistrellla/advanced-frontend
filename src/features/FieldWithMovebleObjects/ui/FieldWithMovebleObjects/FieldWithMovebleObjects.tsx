@@ -4,7 +4,6 @@ import { classNames } from '@/shared/lib/helpers/ClassNames/ClassNames';
 import { Card } from '@/shared/ui/redesigned/Card';
 import { VStack } from '@/shared/ui/Stack';
 
-import cls from './FieldWithMovebleObjects.module.scss';
 import { AddMovableObject } from '../AddMovableObject/AddMovableObject';
 import { MovebleObject } from '../MovebleObject/MovebleObject';
 
@@ -87,9 +86,7 @@ export const FieldWithMovebleObjects = (
     };
 
     return (
-        <Card
-            className={classNames(cls.FieldWithMovebleObjects, {}, [className])}
-        >
+        <Card className={classNames('', {}, [className])}>
             <VStack gap="8">
                 {movableObjects.map((item, index) => (
                     <MovebleObject
