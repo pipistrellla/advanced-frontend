@@ -15,7 +15,12 @@ export const NodeSelector: FC<NodeSelectorProps> = memo((props) => {
     const { className, addNode } = props;
 
     const onClickAddNode = () => {
-        addNode(<div>{Date.now()}</div>);
+        addNode(
+            <div>
+                {Date.now()}
+                {Math.random()}
+            </div>,
+        );
     };
 
     return (

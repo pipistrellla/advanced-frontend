@@ -32,7 +32,7 @@ export const AddMovableObject: FC<AddMovableObjectProps> = memo((props) => {
         <Card max className={classNames(cls.addMovableObject, {}, [className])}>
             <HStack max justify="center">
                 <Icon clickable onClick={OnClickSetModalOpen} Svg={PlusIcon} />
-                <Modal isOpen={isVisible} onClose={OnClickSetModalClose}>
+                <Modal lazy isOpen={isVisible} onClose={OnClickSetModalClose}>
                     <NodeSelector addNode={addNode} />
                 </Modal>
             </HStack>

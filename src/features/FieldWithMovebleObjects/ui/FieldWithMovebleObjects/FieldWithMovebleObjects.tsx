@@ -96,7 +96,7 @@ export const FieldWithMovebleObjects = (
                         ChangeNodePositionTo={ChangeNodePositionTo}
                         LiftNodeUp={LiftNodeUp}
                         LiftNodeDown={LiftNodeDown}
-                        key={item?.toLocaleString()}
+                        key={String(Math.random()) + String(item?.toString())}
                         index={index}
                     >
                         {item}
