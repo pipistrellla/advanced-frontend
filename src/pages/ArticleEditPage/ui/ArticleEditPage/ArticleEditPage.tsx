@@ -5,6 +5,9 @@ import { useParams } from 'react-router-dom';
 
 import { FieldWithMovebleObjects } from '@/features/FieldWithMovebleObjects';
 import { classNames } from '@/shared/lib/helpers/ClassNames/ClassNames';
+import { Card } from '@/shared/ui/deprecated/Card';
+import { StarRating } from '@/shared/ui/redesigned/StarRating';
+import { Text } from '@/shared/ui/redesigned/Text';
 import { Page } from '@/widgets/Page';
 
 interface ArticleEditPageProps {
@@ -29,6 +32,7 @@ const ArticleEditPage: FC<ArticleEditPageProps> = memo((props) => {
                     'Lorem ipsum dolor sit amet consectetur adipisicing elit 3',
                     'Lorem ipsum dolor sit amet consectetur adipisicing elit 4',
                 ]}
+                options={[<Card>1</Card>, <Text text="2" />, <StarRating />]}
             />
         </Page>
     );

@@ -13,29 +13,43 @@ import { NodeSelector } from '../NodeSelector/NodeSelector';
 interface AddMovableObjectProps {
     className?: string;
     addNode: (node: ReactNode) => void;
+    options: ReactNode[];
 }
 
-export const AddMovableObject: FC<AddMovableObjectProps> = memo((props) => {
-    const { className, addNode } = props;
+export const AddMovableObject: FC<AddMovableObjectProps> = memo(
+    (props: AddMovableObjectProps) => {
+        const { className, addNode, options } = props;
 
-    const [isVisible, setIsVisible] = useState<boolean>(false);
+        const [isVisible, setIsVisible] = useState<boolean>(false);
 
-    const OnClickSetModalOpen = () => {
-        setIsVisible(true);
-    };
+        const OnClickSetModalOpen = () => {
+            setIsVisible(true);
+        };
 
-    const OnClickSetModalClose = () => {
-        setIsVisible(false);
-    };
+        const OnClickSetModalClose = () => {
+            setIsVisible(false);
+        };
 
-    return (
-        <Card max className={classNames(cls.addMovableObject, {}, [className])}>
-            <HStack max justify="center">
-                <Icon clickable onClick={OnClickSetModalOpen} Svg={PlusIcon} />
-                <Modal lazy isOpen={isVisible} onClose={OnClickSetModalClose}>
-                    <NodeSelector addNode={addNode} />
-                </Modal>
-            </HStack>
-        </Card>
-    );
-});
+        return (
+            <Card
+                max
+                className={classNames(cls.addMovableObject, {}, [className])}
+            >
+                <HStack max justify="center">
+                    <Icon
+                        clickable
+                        onClick={OnClickSetModalOpen}
+                        Svg={PlusIcon}
+                    />
+                    <Modal
+                        lazy
+                        isOpen={isVisible}
+                        onClose={OnClickSetModalClose}
+                    >
+                        <NodeSelector options={options} addNode={addNode} />
+                    </Modal>
+                </HStack>
+            </Card>
+        );
+    },
+);

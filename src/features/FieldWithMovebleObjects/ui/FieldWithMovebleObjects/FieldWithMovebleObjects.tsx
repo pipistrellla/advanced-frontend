@@ -11,13 +11,13 @@ import { MovebleObject } from '../MovebleObject/MovebleObject';
 interface FieldWithMovebleObjectsProps {
     className?: string;
     data: ReactNode[];
+    options: ReactNode[];
 }
-
+// TODO сделать сохранение состояния, когда разберусь с использованием в компоненте
 export const FieldWithMovebleObjects = (
     props: FieldWithMovebleObjectsProps,
 ) => {
-    const { className } = props;
-    const { data } = props;
+    const { className, data, options } = props;
 
     const [movableObjects, setMovableObjects] = useState<ReactNode[]>(
         data ?? [],
@@ -103,7 +103,7 @@ export const FieldWithMovebleObjects = (
                     </MovebleObject>
                 ))}
             </VStack>
-            <AddMovableObject addNode={AddNode} />
+            <AddMovableObject options={options} addNode={AddNode} />
         </Card>
     );
 };
