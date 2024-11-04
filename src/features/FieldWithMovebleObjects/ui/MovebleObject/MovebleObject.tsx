@@ -1,6 +1,7 @@
 import React, { FC, useCallback, useState } from 'react';
 
 import ArrowIcon from '@/shared/assets/icons/arrow-bottom.svg';
+import TrashIcon from '@/shared/assets/icons/trashIcon.svg';
 import { classNames } from '@/shared/lib/helpers/ClassNames/ClassNames';
 import { Card } from '@/shared/ui/redesigned/Card';
 import { Icon } from '@/shared/ui/redesigned/Icon';
@@ -15,6 +16,7 @@ interface MovebleObjectProps {
     index: number;
     LiftNodeUp: (index: number) => void;
     LiftNodeDown: (index: number) => void;
+    DeleteNode: (index: number) => void;
     ChangeNodePositionTo: (indexFrom: number, indexTo: number) => void;
 }
 
@@ -28,6 +30,7 @@ export const MovebleObject: FC<MovebleObjectProps> = (
         LiftNodeDown,
         LiftNodeUp,
         ChangeNodePositionTo,
+        DeleteNode,
     } = props;
 
     const iconSize: number = 64;
@@ -41,6 +44,10 @@ export const MovebleObject: FC<MovebleObjectProps> = (
     const HandleClickDown = useCallback(() => {
         LiftNodeDown(+index);
     }, [LiftNodeDown, index]);
+
+    const HandleClickDelete = useCallback(() => {
+        DeleteNode(+index);
+    }, [DeleteNode, index]);
 
     const HandleInputOnBlur = useCallback(() => {
         if (position) {
@@ -83,6 +90,11 @@ export const MovebleObject: FC<MovebleObjectProps> = (
                             Svg={ArrowIcon}
                             clickable
                             onClick={HandleClickDown}
+                        />
+                        <Icon
+                            Svg={TrashIcon}
+                            clickable
+                            onClick={HandleClickDelete}
                         />
                     </HStack>
                 </Card>

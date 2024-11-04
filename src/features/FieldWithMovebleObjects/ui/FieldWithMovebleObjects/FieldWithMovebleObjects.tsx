@@ -73,6 +73,15 @@ export const FieldWithMovebleObjects = (
         swapElements(index, index + 1);
     };
 
+    const DeleteNode = (index: number) => {
+        setMovableObjects((prevState) => {
+            const tempArray = [...prevState];
+
+            tempArray.splice(index, 1);
+            return tempArray;
+        });
+    };
+
     const ChangeNodePositionTo = (indexFrom: number, indexTo: number) => {
         moveElement(indexFrom, indexTo);
     };
@@ -90,6 +99,7 @@ export const FieldWithMovebleObjects = (
             <VStack gap="8">
                 {movableObjects.map((item, index) => (
                     <MovebleObject
+                        DeleteNode={DeleteNode}
                         ChangeNodePositionTo={ChangeNodePositionTo}
                         LiftNodeUp={LiftNodeUp}
                         LiftNodeDown={LiftNodeDown}
