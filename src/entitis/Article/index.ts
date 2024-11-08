@@ -1,3 +1,5 @@
+import { ArticleBlocksOption } from './ui/ArticleBlocksOption/ArticleBlocksOption';
+import { renderBlock } from './ui/ArticleDetails/renderBlock';
 import { ArticleList } from './ui/ArticleList/ArticleList';
 
 export { ArticleDetails } from './ui/ArticleDetails/ArticleDetails';
@@ -20,3 +22,6 @@ export {
     getArticleDetailsError,
     getArticleDetailsIsLoading,
 } from './model/selectors/articleDetails';
+
+export { renderBlock };
+export { ArticleBlocksOption };
