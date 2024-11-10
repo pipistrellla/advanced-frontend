@@ -21,14 +21,20 @@ export const ArticleEditableTextBlock: FC<ArticleEditableTextBlockProps> = memo(
             block.paragraphs,
         );
 
+        const [paragraphValue, setParagraphValue] = useState<string>('');
+
         const onChangeTitleHandler = (value: string) => {
             setTitle(value);
         };
 
-        const onChangeParagraphHandler = (value: string) => {
-            setParagraphs((PrevState) => PrevState);
+        const onFocusParagraphHandler = () => {
+            console.log(setParagraphValue);
         };
 
+        const onChangeParagraphHandler = (value: string) => {
+            setParagraphValue(value);
+        };
+        // todo разобраться с параграфам
         return (
             <div
                 className={classNames(cls.articleEditableTextBlock, {}, [
@@ -49,6 +55,7 @@ export const ArticleEditableTextBlock: FC<ArticleEditableTextBlockProps> = memo(
                         key={paragraph}
                         className={cls.paragraph}
                         onChange={onChangeParagraphHandler}
+                        onFocus={onFocusParagraphHandler}
                     />
                 ))}
             </div>
