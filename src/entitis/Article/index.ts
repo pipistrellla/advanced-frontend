@@ -1,5 +1,5 @@
 import { ArticleBlocksOption } from './ui/ArticleBlocksOption/ArticleBlocksOption';
-import { renderBlock } from './ui/ArticleDetails/renderBlock';
+import { renderEditableBlock } from './ui/ArticleDetails/renderBlock';
 import { ArticleList } from './ui/ArticleList/ArticleList';
 
 export { ArticleDetails } from './ui/ArticleDetails/ArticleDetails';
@@ -23,5 +23,5 @@ export {
     getArticleDetailsIsLoading,
 } from './model/selectors/articleDetails';
 
-export { renderBlock };
+export { renderEditableBlock };
 export { ArticleBlocksOption };

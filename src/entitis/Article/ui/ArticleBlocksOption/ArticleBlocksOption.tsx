@@ -2,8 +2,8 @@ import { ReactNode } from 'react';
 
 import { ArticleBlockType } from '../../model/consts/consts';
 import { ArticleCodeBlockComponent } from '../ArticleCodeBlockComponent/ArticleCodeBlockComponent';
+import { ArticleEditableTextBlock } from '../ArticleEditableTextBlock/ArticleEditableTextBlock';
 import { ArticleImageBlockComponent } from '../ArticleImageBlockComponent/ArticleImageBlockComponent';
-import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 
 export const ArticleBlocksOption: ReactNode[] = [
     <ArticleCodeBlockComponent
@@ -13,7 +13,7 @@ export const ArticleBlocksOption: ReactNode[] = [
             type: ArticleBlockType.CODE,
         }}
     />,
-    <ArticleTextBlockComponent
+    <ArticleEditableTextBlock
         block={{
             paragraphs: ['вставить блок с параграфами'],
             title: 'вставить блок с названиями',

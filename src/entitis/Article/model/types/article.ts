@@ -16,6 +16,7 @@ export interface ArticleImageBlock extends ArticleBaseBlock {
     src: string;
     title: string;
 }
+
 export interface ArticleTextBlock extends ArticleBaseBlock {
     type: ArticleBlockType.TEXT;
     paragraphs: string[];

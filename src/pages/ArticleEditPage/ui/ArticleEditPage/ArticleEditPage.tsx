@@ -9,7 +9,7 @@ import {
     getArticleDetailsData,
     getArticleDetailsError,
     getArticleDetailsIsLoading,
-    renderBlock,
+    renderEditableBlock,
 } from '@/entitis/Article';
 import { FieldWithMovebleObjects } from '@/features/FieldWithMovebleObjects';
 import { classNames } from '@/shared/lib/helpers/ClassNames/ClassNames';
@@ -32,7 +32,7 @@ const ArticleEditPage: FC<ArticleEditPageProps> = memo((props) => {
     const article = useSelector(getArticleDetailsData);
 
     const renderedBlocks: ReactNode[] =
-        article?.blocks.map((block) => renderBlock(block)) ?? [];
+        article?.blocks.map((block) => renderEditableBlock(block)) ?? [];
 
     // todo разобраться с сохранением редактирования статьи
     // возможно добавить сохранение в LS
