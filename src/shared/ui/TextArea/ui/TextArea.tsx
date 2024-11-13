@@ -1,4 +1,10 @@
-import React, { FC, TextareaHTMLAttributes, memo, useState } from 'react';
+import React, {
+    FC,
+    TextareaHTMLAttributes,
+    memo,
+    useRef,
+    useState,
+} from 'react';
 
 import { classNames, Mods } from '@/shared/lib/helpers/ClassNames/ClassNames';
 
@@ -8,10 +14,8 @@ import { HStack } from '../../Stack';
 
 type HTMLTextAreaProps = Omit<
     TextareaHTMLAttributes<HTMLTextAreaElement>,
-    'value' | 'onChange' | 'type' | 'readOnly' | 'size'
+    'value' | 'onChange' | 'type' | 'readOnly'
 >;
-
-type TextAreaSize = 's' | 'm' | 'l';
 
 interface TextAreaProps extends HTMLTextAreaProps {
     className?: string;
@@ -20,7 +24,6 @@ interface TextAreaProps extends HTMLTextAreaProps {
     autofocus?: boolean;
     readonly?: boolean;
     label?: string;
-    size?: TextAreaSize;
 }
 
 const TextArea: FC<TextAreaProps> = memo((props: TextAreaProps) => {
@@ -32,9 +35,17 @@ const TextArea: FC<TextAreaProps> = memo((props: TextAreaProps) => {
         autofocus,
         label,
         readonly,
-        size = 'm',
         ...otherProps
     } = props;
+    const textareaRef = useRef<HTMLTextAreaElement>(null);
+
+    const handleInput = () => {
+        const textarea = textareaRef.current;
+        if (textarea) {
+            textarea.style.height = 'auto';
+            textarea.style.height = `${textarea.scrollHeight}px`;
+        }
+    };
 
     const [isFocused, setIsFocused] = useState<boolean>(false);
     const onBlur = () => {
@@ -56,6 +67,8 @@ const TextArea: FC<TextAreaProps> = memo((props: TextAreaProps) => {
 
     const TextArea = (
         <textarea
+            onInput={handleInput}
+            ref={textareaRef}
             className={classNames(cls.textArea, mods, [className])}
             value={value}
             onChange={onChangeHandler}

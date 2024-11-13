@@ -2,6 +2,7 @@ import { FC, memo, useState } from 'react';
 
 import { classNames } from '@/shared/lib/helpers/ClassNames/ClassNames';
 import { Input } from '@/shared/ui/redesigned/Input';
+import { VStack } from '@/shared/ui/Stack';
 import { TextArea } from '@/shared/ui/TextArea';
 
 import cls from './ArticleEditableTextBlock.module.scss';
@@ -17,48 +18,39 @@ export const ArticleEditableTextBlock: FC<ArticleEditableTextBlockProps> = memo(
         const { className, block } = props;
 
         const [title, setTitle] = useState<string | undefined>(block.title);
-        const [paragraphs, setParagraphs] = useState<string[]>(
-            block.paragraphs,
+        const [paragraphs, setParagraphs] = useState<string>(
+            block.paragraphs.join('\n'),
         );
-
-        const [paragraphValue, setParagraphValue] = useState<string>('');
 
         const onChangeTitleHandler = (value: string) => {
             setTitle(value);
         };
 
-        const onFocusParagraphHandler = () => {
-            console.log(setParagraphValue);
+        const onChangeParagraphHandler = (value: string) => {
+            setParagraphs(value);
         };
 
-        const onChangeParagraphHandler = (value: string) => {
-            setParagraphValue(value);
-        };
-        // todo разобраться с параграфам
         return (
-            <div
+            <VStack
+                gap="8"
+                max
                 className={classNames(cls.articleEditableTextBlock, {}, [
                     className,
                 ])}
             >
-                {title && (
-                    <Input
-                        value={title}
-                        className={cls.title}
-                        onChange={onChangeTitleHandler}
-                    />
-                )}
-                {paragraphs.map((paragraph) => (
-                    <TextArea
-                        rows={16}
-                        value={paragraph}
-                        key={paragraph}
-                        className={cls.paragraph}
-                        onChange={onChangeParagraphHandler}
-                        onFocus={onFocusParagraphHandler}
-                    />
-                ))}
-            </div>
+                <Input
+                    value={title}
+                    className={cls.title}
+                    onChange={onChangeTitleHandler}
+                />
+
+                <TextArea
+                    rows={16}
+                    value={paragraphs}
+                    className={cls.paragraph}
+                    onChange={onChangeParagraphHandler}
+                />
+            </VStack>
         );
     },
 );
