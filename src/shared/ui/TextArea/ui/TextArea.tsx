@@ -2,6 +2,7 @@ import React, {
     FC,
     TextareaHTMLAttributes,
     memo,
+    useEffect,
     useRef,
     useState,
 } from 'react';
@@ -46,6 +47,10 @@ const TextArea: FC<TextAreaProps> = memo((props: TextAreaProps) => {
             textarea.style.height = `${textarea.scrollHeight}px`;
         }
     };
+
+    useEffect(() => {
+        handleInput();
+    }, []);
 
     const [isFocused, setIsFocused] = useState<boolean>(false);
     const onBlur = () => {

@@ -2,6 +2,8 @@ import cls from './ArticleDetails.module.scss';
 import { ArticleBlockType } from '../../model/consts/consts';
 import { ArticleBlock } from '../../model/types/article';
 import { ArticleCodeBlockComponent } from '../ArticleCodeBlockComponent/ArticleCodeBlockComponent';
+// eslint-disable-next-line max-len
+import { ArticleEditableCodeBlockComponent } from '../ArticleEditableCodeBlockComponent/ArticleEditableCodeBlockComponent';
 import { ArticleEditableTextBlock } from '../ArticleEditableTextBlock/ArticleEditableTextBlock';
 import { ArticleImageBlockComponent } from '../ArticleImageBlockComponent/ArticleImageBlockComponent';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
@@ -41,8 +43,7 @@ export const renderEditableBlock = (block: ArticleBlock) => {
     switch (block.type) {
         case ArticleBlockType.CODE:
             return (
-                <ArticleCodeBlockComponent
-                    key={block.id}
+                <ArticleEditableCodeBlockComponent
                     block={block}
                     className={cls.block}
                 />

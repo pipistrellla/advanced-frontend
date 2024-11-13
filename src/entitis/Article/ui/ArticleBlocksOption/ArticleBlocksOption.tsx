@@ -1,12 +1,13 @@
 import { ReactNode } from 'react';
 
 import { ArticleBlockType } from '../../model/consts/consts';
-import { ArticleCodeBlockComponent } from '../ArticleCodeBlockComponent/ArticleCodeBlockComponent';
+// eslint-disable-next-line max-len
+import { ArticleEditableCodeBlockComponent } from '../ArticleEditableCodeBlockComponent/ArticleEditableCodeBlockComponent';
 import { ArticleEditableTextBlock } from '../ArticleEditableTextBlock/ArticleEditableTextBlock';
 import { ArticleImageBlockComponent } from '../ArticleImageBlockComponent/ArticleImageBlockComponent';
 
 export const ArticleBlocksOption: ReactNode[] = [
-    <ArticleCodeBlockComponent
+    <ArticleEditableCodeBlockComponent
         block={{
             code: 'вставить блок с кодом',
             id: '1',

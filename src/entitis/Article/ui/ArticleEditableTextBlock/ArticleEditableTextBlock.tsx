@@ -5,7 +5,6 @@ import { Input } from '@/shared/ui/redesigned/Input';
 import { VStack } from '@/shared/ui/Stack';
 import { TextArea } from '@/shared/ui/TextArea';
 
-import cls from './ArticleEditableTextBlock.module.scss';
 import { ArticleTextBlock } from '../../../Article/model/types/article';
 
 interface ArticleEditableTextBlockProps {
@@ -31,23 +30,12 @@ export const ArticleEditableTextBlock: FC<ArticleEditableTextBlockProps> = memo(
         };
 
         return (
-            <VStack
-                gap="8"
-                max
-                className={classNames(cls.articleEditableTextBlock, {}, [
-                    className,
-                ])}
-            >
-                <Input
-                    value={title}
-                    className={cls.title}
-                    onChange={onChangeTitleHandler}
-                />
+            <VStack gap="8" max className={classNames('', {}, [className])}>
+                <Input value={title} onChange={onChangeTitleHandler} />
 
                 <TextArea
                     rows={16}
                     value={paragraphs}
-                    className={cls.paragraph}
                     onChange={onChangeParagraphHandler}
                 />
             </VStack>
