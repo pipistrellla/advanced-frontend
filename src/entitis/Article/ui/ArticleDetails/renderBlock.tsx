@@ -4,6 +4,8 @@ import { ArticleBlock } from '../../model/types/article';
 import { ArticleCodeBlockComponent } from '../ArticleCodeBlockComponent/ArticleCodeBlockComponent';
 // eslint-disable-next-line max-len
 import { ArticleEditableCodeBlockComponent } from '../ArticleEditableCodeBlockComponent/ArticleEditableCodeBlockComponent';
+// eslint-disable-next-line max-len
+import { ArticleEditableImageBlockComponent } from '../ArticleEditableImageBlockComponent/ArticleEditableImageBlockComponent';
 import { ArticleEditableTextBlock } from '../ArticleEditableTextBlock/ArticleEditableTextBlock';
 import { ArticleImageBlockComponent } from '../ArticleImageBlockComponent/ArticleImageBlockComponent';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
@@ -50,7 +52,7 @@ export const renderEditableBlock = (block: ArticleBlock) => {
             );
         case ArticleBlockType.IMAGE:
             return (
-                <ArticleImageBlockComponent
+                <ArticleEditableImageBlockComponent
                     key={block.id}
                     className={cls.block}
                     block={block}

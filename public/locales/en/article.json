@@ -25,5 +25,7 @@
     "Произошла ошибка": "Something wrong",
     "просмотров_one": "{{count}} views",
     "просмотров_zero": "{{count}} views",
-    "просмотров_other": "{{count}} views"
+    "просмотров_other": "{{count}} views",
+    "наименования картинки": "picture description",
+    "ссылка на картинку": "picture link"
 }
