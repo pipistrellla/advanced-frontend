@@ -1,10 +1,11 @@
-import React, { FC, memo, ReactNode } from 'react';
+import React, { FC, memo, ReactNode, useEffect } from 'react';
 
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 
 import {
+    Article,
     ArticleBlocksOption,
     getArticleDetailsData,
     getArticleDetailsError,
@@ -12,6 +13,7 @@ import {
     renderEditableBlock,
 } from '@/entitis/Article';
 import { FieldWithMovebleObjects } from '@/features/FieldWithMovebleObjects';
+import { LOCAL_STORAGE_EDITED_ARTICLE } from '@/shared/const/localStorage';
 import { classNames } from '@/shared/lib/helpers/ClassNames/ClassNames';
 import { Page } from '@/widgets/Page';
 
@@ -29,14 +31,25 @@ const ArticleEditPage: FC<ArticleEditPageProps> = memo((props) => {
 
     const isLoading = useSelector(getArticleDetailsIsLoading);
     const error = useSelector(getArticleDetailsError);
-    const article = useSelector(getArticleDetailsData);
+    const article =
+        useSelector(getArticleDetailsData) ??
+        (JSON.parse(
+            localStorage.getItem(LOCAL_STORAGE_EDITED_ARTICLE) || '',
+        ) as Article);
+
+    useEffect(() => {
+        if (article) {
+            localStorage.setItem(
+                LOCAL_STORAGE_EDITED_ARTICLE,
+                JSON.stringify(article),
+            );
+        }
+    }, [article]);
 
     const renderedBlocks: ReactNode[] =
         article?.blocks.map((block) => renderEditableBlock(block)) ?? [];
 
-    // todo разобраться с сохранением редактирования статьи
-    // возможно добавить сохранение в LS
-    // разобраться как сделать редактируемыми блоки у статей
+    // todo разобраться с сохранением редактирования статьи если что переделать
     return (
         <Page className={classNames('', {}, [className])}>
             {isEdit

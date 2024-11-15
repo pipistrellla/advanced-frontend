@@ -3,9 +3,10 @@ import { ReactNode } from 'react';
 import { ArticleBlockType } from '../../model/consts/consts';
 // eslint-disable-next-line max-len
 import { ArticleEditableCodeBlockComponent } from '../ArticleEditableCodeBlockComponent/ArticleEditableCodeBlockComponent';
+// eslint-disable-next-line max-len
+import { ArticleEditableImageBlockComponent } from '../ArticleEditableImageBlockComponent/ArticleEditableImageBlockComponent';
 import { ArticleEditableTextBlock } from '../ArticleEditableTextBlock/ArticleEditableTextBlock';
-import { ArticleImageBlockComponent } from '../ArticleImageBlockComponent/ArticleImageBlockComponent';
-
+// todo разобраться как красиво отображать при добавлении
 export const ArticleBlocksOption: ReactNode[] = [
     <ArticleEditableCodeBlockComponent
         block={{
@@ -22,7 +23,7 @@ export const ArticleBlocksOption: ReactNode[] = [
             type: ArticleBlockType.TEXT,
         }}
     />,
-    <ArticleImageBlockComponent
+    <ArticleEditableImageBlockComponent
         block={{
             title: 'вставить блок с изображениями',
             src: '',
