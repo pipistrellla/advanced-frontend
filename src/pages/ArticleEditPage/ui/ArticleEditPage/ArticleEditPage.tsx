@@ -55,7 +55,7 @@ const ArticleEditPage: FC<ArticleEditPageProps> = memo((props) => {
             {isEdit
                 ? t('Редактирование статьи с ID = ') + id
                 : t('Создание новой статьи')}
-            <ArticleEditHeader />
+            <ArticleEditHeader article={article} />
             <FieldWithMovebleObjects
                 data={renderedBlocks}
                 options={ArticleBlocksOption}

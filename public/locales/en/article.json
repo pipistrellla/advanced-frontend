@@ -27,5 +27,7 @@
     "просмотров_zero": "{{count}} views",
     "просмотров_other": "{{count}} views",
     "наименования картинки": "picture description",
-    "ссылка на картинку": "picture link"
+    "ссылка на картинку": "picture link",
+    "Название статьи": "Article name",
+    "Краткое описание": "Short description"
 }

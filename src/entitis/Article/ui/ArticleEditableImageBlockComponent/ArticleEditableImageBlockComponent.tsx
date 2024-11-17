@@ -7,6 +7,7 @@ import { Input } from '@/shared/ui/redesigned/Input';
 import { Text as TextRedesigned } from '@/shared/ui/redesigned/Text';
 import { VStack } from '@/shared/ui/Stack';
 
+import cls from './ArticleEditableImageBlockComponent.module.scss';
 import { ArticleImageBlock } from '../../model/types/article';
 
 interface ArticleEditableImageBlockComponentProps {
@@ -38,7 +39,7 @@ export const ArticleEditableImageBlockComponent: FC<ArticleEditableImageBlockCom
                     value={src}
                     onChange={setSrc}
                 />
-                <img src={src} className="" alt={title} />
+                <img src={src} className={cls.img} alt={title} />
                 {block.title && <TextRedesigned title={title} align="center" />}
             </VStack>
         );
